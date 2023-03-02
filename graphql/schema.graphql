@@ -1,0 +1,340 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"Indicates what fields are available at the top level of a query operation."
+type Query {
+
+
+
+
+   GetActivites:[RassedActevityGroupByDate] @guard
+   getoffers:[Product]
+   getconfirmdorders:OrderGruopByRespons @guard
+   paymentmethods:[Paymentmethod] @all
+   products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
+#    categories:[Category]! @where(type:1) @all
+   departments:[Department] @all
+   productsByCategroy(department_id:Int @where(operator: "=" )):[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
+   me: User  @auth
+
+    "Find a single user by an identifying attribute."
+    user(
+      "Search by primary key."
+      id: ID @eq @rules(apply: ["prohibits:email", "required_without:email"])
+
+      "Search by email address."
+      email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
+    ): User @find
+
+    "List multiple users."
+    users(
+      "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
+      name: String @where(operator: "like")
+    ): [User!]! @paginate(defaultCount: 10)
+}
+
+"Account of a person who utilizes this application."
+type User {
+    "Unique primary key."
+    id: ID!
+
+    username:String
+
+    phone:String
+    avatar:String
+
+    "Non-unique name."
+    name: String!
+    roles:[Role]
+    "Unique email address."
+    email: String!
+    rassedy:Float @method(name : "rassedy")
+    rassed:Rassed @hasOne
+    "When the email was verified."
+    email_verified_at: DateTime
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+    orders_group:[OrderGruopBy] @method(name : "orders_gr")
+}
+
+type Offer {
+    id:ID
+    product:Product @belongsTo
+    p_dic:Float
+    to_date:Date
+    updated_at:DateTime
+    created_at: DateTime!
+}
+
+
+
+type Rassed{
+    id:ID
+    user:User @belongsTo
+    actevities:[RassedActevity]@hasMany
+     rassedy:Float @method(name : "rassedy")
+
+}
+type RassedActevityGroupByDate{
+    date:String
+    actevities:[RassedActevity]
+}
+
+type RassedActevity{
+    id:ID
+    rassed:Rassed @belongsTo
+    paymentinfo:Paymentinfo @belongsTo
+    amount:Float
+    code:String
+    created_at:DateTime
+}
+
+
+type Mutation {
+    "Log in to a new session and get the user."
+    login(
+        username:String
+        user:String
+        email: String
+        password: String!
+        tokenname:String
+        logoutfromall:Boolean): RegisterInfo
+
+    registeruser(name:String!
+        email:String!
+        password:String!
+        confirm_password:String!
+        username:String
+        phone:String
+        avatar:String
+        tokenname:String
+    ):RegisterInfo
+    # tryusername(username:String!):ResponInfo
+    "Log out from the current session, showing the user one last time."
+
+    #  startChatRoomGQL(
+    #      model_type:String!
+    #  model_id:Int! ):ChatRoom @guard
+
+    logout(all:Boolean): ResponInfo @guard
+
+
+     createorder(
+        input:OrderInput!
+
+     ):CreateOrderRespones @guard
+    # followBussinse(bussinse_id:Int type:String):NewMyResult @guard
+    # sendMessageGQL(message:String!
+    # type_message:String chat_room_id:ID!
+    cencelorder(
+        order_id:Int
+    ):ResponInfo @guard
+
+
+    Veedmyrassed(
+        input:VeedmyrassedInput
+    ):ResponInfo @guard
+
+
+    PayFromRassed(
+        input:PayOrdersCartInput
+    ):ConfirmResponInfo @guard
+     PayCartOrders(
+        input:PayOrdersCartInput
+     ):ConfirmResponInfo @guard
+    #  ):ResponInfo @guard
+
+    confirmorderpay(
+        input:ConfirmOrderPayInput
+    ):ConfirmResponInfo @guard
+
+
+
+    # sendEamilVN:User
+}
+
+
+
+input VeedmyrassedInput{
+    code:String
+    paymentmethod_id:Int
+}
+type ConfirmResponInfo{
+
+    state:Boolean
+    id:Int
+    errors:String
+    message:String
+    paymentinfo:Paymentinfo
+    total:Float
+    dtotal:Float
+}
+
+type ResponInfo{
+    state:Boolean
+    id:Int
+    errors:String
+    message:String
+}
+
+type RegisterInfo{
+    user:User
+    errors:String
+    message:String
+    code:String
+    state:Boolean
+    token:String
+}
+type OrderGruopByRespons{
+    responInfo:ResponInfo
+    orders_gr:[OrderGruopBy]
+
+}
+
+type Product {
+    id:ID!
+    name:String!
+    price:Float!
+    # user:User! @belongsTo
+    # bussinse:Bussinse! @belongsTo
+    category:Category! @belongsTo
+    note:String  @method(name: "notes")
+    hasOffer:Offer @method(name: "hasOffer")
+    img:String
+    discrip:String
+    imgs:[String]
+    required_ep:Boolean
+    # category:Category @belongsTo
+    department:Department @belongsTo
+}
+
+
+type Department{
+    id:ID!
+    name:String!
+    typegender:Int
+    type:Int
+    note:String
+    products:[Product] @hasMany
+    parts:[Part]
+    img:String
+
+}
+
+type Role{
+    id:Int
+    name:String
+}
+type Category{
+    id:Int
+    name:String
+    note:String
+    img:String
+}
+
+
+
+
+type Processetoken{
+    id:ID
+    token:String
+    expired_at:DateTime
+    user:User @belongsTo
+}
+
+type Paymentmethod{
+    id:ID
+    name:String
+    note:String
+    tasx:Float
+    account_id:String
+    slag:String
+    is_auto_check:Boolean
+    helping_steps:String @method(name : "helping_steps")
+}
+
+type OrderGruopBy{
+    id:ID
+    orders:[Order]
+    paymentinfo:Paymentinfo
+}
+type Order{
+    id:ID
+    product:Product @belongsTo
+    user:User @belongsTo
+    paymentinfo:Paymentinfo @method(name: "paymentinfo_one")
+    qun:Int
+    state:Int
+    g_id:String
+    email:String
+    password:String
+    processe_token:Processetoken @method (name : "processe_token_one")
+     created_at: DateTime
+    "When the account was last updated."
+    updated_at: DateTime
+}
+
+
+input OrderInput{
+    qun:Int
+    g_id:String
+    email:String
+    password:String
+    product_id:Int
+    paymentmethod_id:Int
+}
+
+input PayOrdersCartInput{
+orders_input:[OrderInput]
+code:String
+paymentmethod_id:Int
+
+}
+
+input MultipleOrdersInput{
+    orders:[OrderInput]
+    paymentmethod_id:Int
+}
+
+input ConfirmOrderPayInput{
+    order_id:Int
+    token:String
+    code:String
+    prove_img:String
+    paymentmethod_id:Int
+    total_price:Float
+    dtotal_price:Float
+}
+
+type CreateOrderRespones{
+    errors:String
+    state:Boolean
+    code:Int
+    order:Order
+    token:String
+    expired_at:DateTime
+    total_price:Float
+    dtotal_price:Float
+}
+
+
+
+type Paymentinfo{
+    id:ID
+    code:String
+    paymentmethod:Paymentmethod @belongsTo
+    peove_img:String
+    state:Int
+    accepted:Boolean
+    user:User @belongsTo
+    orders:[Order] @belongsToMany
+    mount_pay:Float
+    total_price:Float
+    orginal_total:Float @method(name : "orginal_total")
+    created_at: DateTime
+    updated_at: DateTime
+}
