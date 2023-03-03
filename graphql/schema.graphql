@@ -120,9 +120,8 @@ type Mutation {
     logout(all:Boolean): ResponInfo @guard
 
 
-     createorder(
+     crtneworder(
         input:OrderInput!
-
      ):CreateOrderRespones @guard
     # followBussinse(bussinse_id:Int type:String):NewMyResult @guard
     # sendMessageGQL(message:String!
