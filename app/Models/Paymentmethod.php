@@ -15,7 +15,7 @@ class Paymentmethod extends Model
         'help_steps',
         'note',
         'account_id',
-        'is_auto_check'
+        'is_auto_check',
     ];
 
     protected $casts=[
