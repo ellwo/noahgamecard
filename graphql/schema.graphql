@@ -5,12 +5,9 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 "Indicates what fields are available at the top level of a query operation."
 type Query {
 
-
-
-
    GetActivites:[RassedActevityGroupByDate] @guard
    getoffers:[Product]
-   getconfirmdorders:OrderGruopByRespons @guard
+   userpayorders:OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
 #    categories:[Category]! @where(type:1) @all

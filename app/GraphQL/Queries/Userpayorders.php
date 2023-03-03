@@ -4,7 +4,7 @@ namespace App\GraphQL\Queries;
 
 use App\Models\User;
 
-final class GetConfirmdOrders
+final class Userpayorders
 {
     /**
      * @param  null  $_
