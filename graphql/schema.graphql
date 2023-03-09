@@ -128,7 +128,7 @@ type Mutation {
 
 
       UserSendvcode(phone:String):ResponInfoSendCode @guard
-      verifyphone(code:String):ResponInfoSendCode @guard
+      VerifyPhone(code:String):ResponInfoSendCode @guard
 
 
     Veedmyrassed(
