@@ -38,7 +38,10 @@ class Paymentinfo extends Model
             $total+=($or->product->price*$or->qun);
         }
 
+        if($total!=0)
         return $total;
+        else
+        return $this->total_price;
 
 
     }

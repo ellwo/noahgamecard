@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('/paymentmethod',PaymentmethodController::class)
-->middleware('auth:sanctum')->name('index','paymentmethod');
+->middleware('auth:api')->name('index','paymentmethod');

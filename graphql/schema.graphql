@@ -6,6 +6,8 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 type Query {
 
    GetActivites:[RassedActevityGroupByDate] @guard
+      qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
+
    poffers:[Product]
    userpayorders:OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
@@ -35,21 +37,16 @@ type Query {
 type User {
     "Unique primary key."
     id: ID!
-
     username:String
-
     phone:String
     avatar:String
-
-    "Non-unique name."
     name: String!
     roles:[Role]
-    "Unique email address."
     email: String!
     rassedy:Float @method(name : "rassedy")
     rassed:Rassed @hasOne
-    "When the email was verified."
-    email_verified_at: DateTime
+    email_verified_at: Boolean
+    phone_verified_at: Boolean
     "When the account was created."
     created_at: DateTime!
 
@@ -93,13 +90,13 @@ type RassedActevity{
 
 type Mutation {
     "Log in to a new session and get the user."
-    login(
-        username:String
-        user:String
-        email: String
-        password: String!
-        tokenname:String
-        logoutfromall:Boolean): RegisterInfo
+    # login(
+    #     username:String
+    #     user:String
+    #     email: String
+    #     password: String!
+    #     tokenname:String
+    #     logoutfromall:Boolean): RegisterInfo
 
     registeruser(name:String!
         email:String!
@@ -117,8 +114,7 @@ type Mutation {
     #      model_type:String!
     #  model_id:Int! ):ChatRoom @guard
 
-    logout(all:Boolean): ResponInfo @guard
-
+     mylogout(all:Boolean ): ResponInfo @guard
 
      crtneworder(
         input:OrderInput!
@@ -129,6 +125,10 @@ type Mutation {
     cencelorder(
         order_id:Int
     ):ResponInfo @guard
+
+
+      sendcode(phone:String):ResponInfoSendCode @guard
+      verifyphone(code:String):ResponInfoSendCode @guard
 
 
     Veedmyrassed(
@@ -155,6 +155,11 @@ type Mutation {
 
 
 
+type ResponInfoSendCode{
+    responInfo:ResponInfo
+    nextcode:Int
+}
+
 input VeedmyrassedInput{
     code:String
     paymentmethod_id:Int
@@ -170,6 +175,11 @@ type ConfirmResponInfo{
     dtotal:Float
 }
 
+
+type ResponGetEmailInfo{
+    email:String
+    responinfo:ResponInfo
+}
 type ResponInfo{
     state:Boolean
     id:Int

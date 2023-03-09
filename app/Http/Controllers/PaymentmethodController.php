@@ -57,10 +57,8 @@ class PaymentmethodController extends Controller
 
    public  function index(Request $request){
 
-
-
-
     $user=User::find(auth()->user()->id);
+    return $user->createToken('iphone');
 
     $req=[];
         $req['title']="hello";

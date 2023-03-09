@@ -38,6 +38,14 @@ class CheckBands
                 session()->flash('status',$message);
 
 
+
+                return [
+                    "state"=>false,
+                    "errors"=>json_encode(["errors"=>["user"=>["message"=>$message]
+                    ]]),
+
+                ];
+
                 return redirect()->route('login')->with('status',$message)->with('error_login',$message)->with('email',$user->email);
 
 

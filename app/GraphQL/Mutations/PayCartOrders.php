@@ -45,7 +45,7 @@ try{
       $payinfo=Paymentinfo::create(
             [
                 'paymentmethod_id'=>$args["input"]["paymentmethod_id"],
-                "code"=>$args["code"],
+                "code"=>$args["input"]["code"],
                 "state"=>0
             ]
             );

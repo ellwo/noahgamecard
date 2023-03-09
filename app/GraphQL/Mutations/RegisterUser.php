@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutations;
 
 use App\Events\Registered;
+use App\Models\Rassed;
 use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Hash;
@@ -117,8 +118,11 @@ class RegisterUser
         //event(new Registered($user));
        // auth()->login($user);
 
-        $token=$user->createToken($args["tokenname"]??"newToken".request()->ip())->plainTextToken;
+        $token=$user->createToken($args["tokenname"]??"newToken".request()->ip())->accessToken;
 
+        Rassed::create([
+            'user_id'=>$user->id
+        ]);
 
         $resdata=[
                 "user"=>$user,

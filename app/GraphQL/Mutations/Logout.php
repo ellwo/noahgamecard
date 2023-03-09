@@ -2,7 +2,7 @@
 
 
 //User has Many
-//Cready     Raseed 
+//Cready     Raseed
 
 namespace App\GraphQL\Mutations;
 
@@ -23,13 +23,13 @@ class Logout
         /** @var \App\Models\User|null $user */
         $user = Auth::user();
 
-        if($args["all"])
-        $user->tokens()->delete();
+            Auth::guard('api')->user()->token()->revoke();
+
         //Auth::logout();
 
         return [
             "state"=>true,
-            "message"=>$user->name,
+            "message"=>"تم تسجيل الخروج بنجاح",
             "errors"=>null
         ];
     }catch(Exception $e){

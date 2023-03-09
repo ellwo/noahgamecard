@@ -7,10 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+//use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
+use Laravel\Passport\HasApiTokens;
+
 class User extends Authenticatable implements BannableContract
 {
     use HasApiTokens, HasFactory,HasRoles, Notifiable, Bannable;
@@ -51,6 +53,24 @@ class User extends Authenticatable implements BannableContract
     ];
 
 
+    public function getEmailVerifiedAtAttribute($value){
+
+        if($value==null)
+        return false;
+        else
+        return true;
+    }
+    public function getPhoneVerifiedAtAttribute($value){
+
+        if($value==null)
+        return false;
+        else
+        return true;
+    }
+
+    // public function findForPassport($username) {
+    //     return self::where('username', $username)->first(); // change column name whatever you use in credentials
+    //  }
    // $user->orders()->
   public  function orders(){
         return $this->hasMany(Order::class);
@@ -74,10 +94,11 @@ class User extends Authenticatable implements BannableContract
 
 
 
-    public function acivites_groupByDate(){
+    public function acivites_groupByDate($page=1){
 
 
-        $acivites=$this->rassed->actevities()->get()
+        $_GET["page"]=$page;
+        $acivites=$this->rassed->actevities()->paginate(8)
          ->groupBy(
              function($date){
                return Carbon::parse($date->created_at)->format('Y-m-d'); // grouping by months
