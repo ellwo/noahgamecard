@@ -41,7 +41,7 @@ final class VerifyPhone
             return [
                 "responInfo"=>[
                 'state'=>false,
-                'message'=>'خطاء في الكود'
+                'message'=>'خطاء في الكود'.$res
             ]];
          }
     }
