@@ -22,7 +22,8 @@ final class VerifyPhone
         $this->args=$args;
         // TODO implement the resolver
         $user=User::find(auth()->user()->id);
-         $res=PhoneCode::where('code','=',$args['code'])->where('phone','=',$user->phone)->first();
+         $res=PhoneCode::where('code','=',$args['code'])->where('phone','=',$user->phone)
+         ->where('ex_at','>',"now()")->first();
 
 
          if($res!=null){
