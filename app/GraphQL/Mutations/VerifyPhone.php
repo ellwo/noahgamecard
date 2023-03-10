@@ -41,7 +41,7 @@ final class VerifyPhone
             return [
                 "responInfo"=>[
                 'state'=>false,
-                'message'=>'خطاء في الكود'.$res
+                'message'=>'خطاء في الكود'.$user->phone
             ]];
          }
     }
