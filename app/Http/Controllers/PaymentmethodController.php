@@ -25,11 +25,11 @@ class PaymentmethodController extends Controller
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-         'id' => $req->id,
+         'id' => $req["id"],
          'status'=>"done");
         $notification = array(
         'title' =>$req['title'],
-        'text' => $req['body'],
+        'body' => $req['body'],
         'image'=> $req['img'],
         'sound' => 'default',
         'badge' => '1',);
@@ -53,21 +53,23 @@ class PaymentmethodController extends Controller
         $result = curl_exec ( $ch );
         //var_dump($result);
         curl_close ( $ch );
+
+        return $result;
     }
 
    public  function index(Request $request){
 
     $user=User::find(auth()->user()->id);
-    return $user->createToken('iphone');
-
     $req=[];
-        $req['title']="hello";
-    $req['body']="اول اشعار";
+    $req['title']="hello";
+    $req['id']=5;
+    $req['body']="اول اشعار من داخل laravel";
     $req['img']=config('mysetting.logo');
 
 
 
-    $this->send($req,$user);
+   return $this->send($req,$user);
+
 
     return $user->acivites_groupByDate();
 

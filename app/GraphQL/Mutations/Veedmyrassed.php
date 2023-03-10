@@ -29,12 +29,19 @@ final class Veedmyrassed
         "accepted"=>true,
         "state"=>$paymentmethod->is_auto_check?1:0,
        ]);
-       RassedActevity::create([
+      $ra= RassedActevity::create([
         'amount'=>400,
         "paymentinfo_id"=>$payinfo->id,
         "code"=>$args["input"]["code"],
         "rassed_id"=>$rassed->id
        ]);
+
+
+       $this->send([
+        "id"=>$ra->id,
+        'title'=>'نجحت العملية',
+        'body'=>'تمت اضافة الرصيد'.$ra->amount.'$ بنجاح']
+        ,$user);
 
        return [
         "state"=>true,
@@ -52,7 +59,41 @@ final class Veedmyrassed
         ];
 
        }
+    }
 
+
+    function send($req,$user){
+        $url = 'https://fcm.googleapis.com/fcm/send';
+
+        $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+         'id' => $req["id"]??0,
+         'status'=>"done");
+        $notification = array(
+        'title' =>$req['title']??"",
+        'body' => $req['body']??"",
+        'image'=> $req['img']??"",
+        'sound' => 'default',
+        'badge' => '1',);
+        $arrayToSend = array(
+        'to' => $user->f_token->token,
+        'notification' => $notification,
+        'data' => $dataArr,
+        'priority'=>'high');
+
+        $fields = json_encode ($arrayToSend);
+        $headers = array (
+            'Authorization: key=' . config('firebase.server_key'),
+            'Content-Type: application/json'
+        );
+        $ch = curl_init ();
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, true );
+        curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+        $result = curl_exec ( $ch );
+        //var_dump($result);
+        curl_close ( $ch );
 
     }
 

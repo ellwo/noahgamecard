@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FirebaseToken extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'token','user_id'
+    ];
 }
