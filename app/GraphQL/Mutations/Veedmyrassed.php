@@ -6,6 +6,7 @@ use App\Models\Paymentinfo;
 use App\Models\Paymentmethod;
 use App\Models\RassedActevity;
 use App\Models\User;
+use App\Models\UserNotification;
 use Exception;
 
 final class Veedmyrassed
@@ -37,11 +38,11 @@ final class Veedmyrassed
        ]);
 
 
-       $this->send([
+       $noti=UserNotification::create([
         "id"=>$ra->id,
         'title'=>'نجحت العملية',
-        'body'=>'تمت اضافة الرصيد'.$ra->amount.'$ بنجاح']
-        ,$user);
+        'body'=>'تمت اضافة الرصيد'.$ra->amount.'$ بنجاح',
+    'user_id'=>$user->id]);
 
        return [
         "state"=>true,

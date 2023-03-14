@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Paymentinfo;
 use App\Models\RassedActevity;
 use App\Models\User;
+use App\Models\UserNotification;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Permission\Models\Role;
@@ -78,6 +79,12 @@ try{
                 "amount"=>-$sum_total,
                 "code"=>$payinfo->code
             ]);
+
+       $noti=UserNotification::create([
+        "id"=>$rassedActivite->id,
+        'title'=>'نجحت العملية',
+        'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
+    'user_id'=>$user->id]);
 
             return [
                 "state"=>true,
