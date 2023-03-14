@@ -122,6 +122,13 @@ class User extends Authenticatable implements BannableContract
 
     }
 
+     public function user_notifications()
+    {
+
+        return $this->hasMany(UserNotification::class)->orderBy('id','desc');
+        # code...
+    }
+
    public function orders_gr(){
        $orders= $this->orders()->has('paymentinfo')->with('paymentinfo')->get()
        ->groupBy(

@@ -20,7 +20,8 @@ class CreateUserNotificationsTable extends Migration
             $table->text('img')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->integer('state')->default(0);
-            $table->text('actions')->nullable();
+            $table->json('actions')->nullable();
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }

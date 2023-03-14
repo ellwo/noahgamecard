@@ -11,6 +11,7 @@ type Query {
    poffers:[Product]
    userpayorders:OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
+   GetUserNotificationsPG(first:Int! page:Int! ): [UserNotification] @paginate(type:PAGINATOR)
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
 #    categories:[Category]! @where(type:1) @all
    departments:[Department] @all
@@ -43,6 +44,7 @@ type User {
     name: String!
     roles:[Role]
     email: String!
+    usernotifications:[UserNotification] @hasMany
     rassedy:Float @method(name : "rassedy")
     rassed:Rassed @hasOne
     email_verified_at: Boolean
@@ -202,6 +204,17 @@ type OrderGruopByRespons{
 
 }
 
+
+type UserNotification{
+    id:ID
+    title:String
+    body:String
+    img:String
+    created_at:String
+    actions:String
+    data:String
+    state:Int
+}
 type Product {
     id:ID!
     name:String!
