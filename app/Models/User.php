@@ -100,7 +100,7 @@ class User extends Authenticatable implements BannableContract
         $_GET["page"]=$page;
         \request()->request->set("page",$page);
         $acivites=$this->rassed->actevities()->orderBy('id','desc')
-        ->paginate(2);
+        ->paginate(20);
 
         $total=$acivites->total();
         $hasMorePages=$acivites->hasMorePages();
@@ -151,7 +151,8 @@ class User extends Authenticatable implements BannableContract
 
 
 
-       $orders= $this->orders()->has('paymentinfo')->orderBy('id','desc')->with('paymentinfo')->paginate();
+       $orders= $this->orders()->has('paymentinfo')->orderBy('id','desc')
+       ->with('paymentinfo')->paginate(20);
 
        $total=$orders->total();
        $hasMorePages=$orders->hasMorePages();
