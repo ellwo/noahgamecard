@@ -20,9 +20,16 @@ final class GetUserNotificationsPG
 
         $user=User::find(auth()->user()->id);
         if($user!=null){
+
+            $data=$user->user_notifications()->paginate(20);
+
             return [
-                'usernotifications'=>$user->user_notifications->paginate(20)
-            ];
+                'data'=>$data,
+                'paginatorInfo'=>[
+                    'total'=>$data->total(),
+                    'hasMorePages'=>$data->hasMorePages()
+                ]
+              ];
         }
     }
 }

@@ -98,8 +98,14 @@ class User extends Authenticatable implements BannableContract
 
 
         $_GET["page"]=$page;
-        $acivites=$this->rassed->actevities()->paginate(8)
-         ->groupBy(
+        \request()->request->set("page",$page);
+        $acivites=$this->rassed->actevities()->orderBy('id','desc')
+        ->paginate(2);
+
+        $total=$acivites->total();
+        $hasMorePages=$acivites->hasMorePages();
+
+        $acivites=$acivites->groupBy(
              function($date){
                return Carbon::parse($date->created_at)->format('Y-m-d'); // grouping by months
 
@@ -116,6 +122,14 @@ class User extends Authenticatable implements BannableContract
             ];
 
          }
+         return[
+            'paginatorInfo'=>[
+                'total'=>$total??0,
+                'hasMorePages'=>$hasMorePages??false
+            ],
+            'activites'=>$oac
+
+         ];
 
         return array_reverse($oac);
 
@@ -129,9 +143,20 @@ class User extends Authenticatable implements BannableContract
         # code...
     }
 
-   public function orders_gr(){
-       $orders= $this->orders()->has('paymentinfo')->with('paymentinfo')->get()
-       ->groupBy(
+   public function orders_gr($page=1){
+
+
+    $_GET["page"]=$page;
+    \request()->request->set("page",$page);
+
+
+
+       $orders= $this->orders()->has('paymentinfo')->orderBy('id','desc')->with('paymentinfo')->paginate();
+
+       $total=$orders->total();
+       $hasMorePages=$orders->hasMorePages();
+
+       $orders =$orders->groupBy(
             function($data){
               return  $data->paymentinfo->first()->id;
             }
@@ -148,6 +173,15 @@ class User extends Authenticatable implements BannableContract
                 //Paymentinfo::where("id","=",$key)->first()
             ];
         }
+
+
+        return [
+            'orders_gr'=>$order_gruopBy,
+            'paginatorInfo'=>[
+                'total'=>$total,
+                'hasMorePages'=>$hasMorePages
+            ]
+        ];
 
        return array_reverse($order_gruopBy);
 

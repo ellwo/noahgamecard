@@ -5,13 +5,12 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 "Indicates what fields are available at the top level of a query operation."
 type Query {
 
-   GetActivites:[RassedActevityGroupByDate] @guard
-      qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
-
+   GetActivites(page:Int):ActivitesGroupByDatePage @guard
+   qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
    poffers:[Product]
-   userpayorders:OrderGruopByRespons @guard
+   userpayorders(page:Int):OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
-   GetUserNotificationsPG(first:Int! page:Int! ): [UserNotification] @paginate(type:PAGINATOR)
+   GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
 #    categories:[Category]! @where(type:1) @all
    departments:[Department] @all
@@ -201,7 +200,18 @@ type RegisterInfo{
 type OrderGruopByRespons{
     responInfo:ResponInfo
     orders_gr:[OrderGruopBy]
+    paginatorInfo:PaginatorInfo
 
+}
+type ActivitesGroupByDatePage {
+    activites:[RassedActevityGroupByDate]
+    paginatorInfo:PaginatorInfo
+}
+
+type UserNotificationPage{
+
+   data:[UserNotification]
+   paginatorInfo:PaginatorInfo
 }
 
 

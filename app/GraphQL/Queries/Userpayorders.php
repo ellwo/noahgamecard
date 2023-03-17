@@ -16,14 +16,17 @@ final class Userpayorders
 
         $user=User::find(auth()->user()->id);
         if($user!=null){
-        return [
+        $orders=$user->orders_gr($args["page"]??1);
+            return [
 
             "responInfo"=>[
                 "state"=>true,
             "errors"=>null,
             "message"=>"تم بنجاح"
             ],
-            "orders_gr"=>$user->orders_gr()
+            "orders_gr"=>$orders['orders_gr'],
+            'paginatorInfo'=>$orders['paginatorInfo']
+
         ];
         }
         else{

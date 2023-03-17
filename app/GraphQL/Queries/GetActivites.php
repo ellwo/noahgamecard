@@ -20,7 +20,14 @@ final class GetActivites
 
 
 
-            return $user->acivites_groupByDate();
+
+            $activites= $user->acivites_groupByDate($args["page"]??1);
+            return [
+                'activites'=>$activites['activites'],
+                'paginatorInfo'=>$activites['paginatorInfo']
+            ];
+
+
 
 
 
