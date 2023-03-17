@@ -17,8 +17,6 @@ final class ChangeFToken
 try{
         $user =User::find(auth()->user()->id);
 
-        if($user->f_token!=null)
-        $user->f_token->delete();
 
         $tok=FirebaseToken::create([
             'token'=>$args["f_token"],

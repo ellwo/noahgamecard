@@ -188,6 +188,6 @@ class User extends Authenticatable implements BannableContract
     }
 
     function f_token(){
-        return $this->hasOne(FirebaseToken::class);
+        return $this->hasMany(FirebaseToken::class);
     }
 }

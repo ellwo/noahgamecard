@@ -30,7 +30,7 @@ class UserNotificationObserver
         'sound' => 'default',
         'badge' => '1',);
         $arrayToSend = array(
-        'to' => $userNotification->user->f_token->token,
+        'registration_ids' => $userNotification->user->f_token->pluck('token')->get()->toArray(),
         'notification' => $notification,
         'data' => $dataArr,
         'priority'=>'high');
