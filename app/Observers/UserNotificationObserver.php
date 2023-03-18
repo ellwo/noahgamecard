@@ -22,7 +22,7 @@ class UserNotificationObserver
 
         $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
          'id' => $userNotification->id,
-         'status'=>"done");
+         'status'=>"done",);
         $notification = array(
         'title' =>$userNotification->title,
         'body' => $userNotification->body,

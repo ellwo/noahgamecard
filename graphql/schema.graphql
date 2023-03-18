@@ -138,6 +138,9 @@ type Mutation {
     ):ResponInfo @guard
 
 
+    UpdateNotifiy(id:Int!):ResponInfo
+
+
     PayFromRassed(
         input:PayOrdersCartInput
     ):ConfirmResponInfo @guard

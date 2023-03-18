@@ -21,7 +21,7 @@ final class GetUserNotificationsPG
         $user=User::find(auth()->user()->id);
         if($user!=null){
 
-            $data=$user->user_notifications()->paginate(20);
+            $data=$user->user_notifications()->orderBy('created_at','desc')->paginate(20);
 
             return [
                 'data'=>$data,

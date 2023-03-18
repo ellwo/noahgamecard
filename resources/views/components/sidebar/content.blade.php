@@ -96,7 +96,7 @@
 
 </x-sidebar.link>
 
-<x-sidebar.link title="ادارة طلبات الخدمات" href="{{-- route('owne-service-orders') --}}" :isActive="request()->routeIs('owne-service-orders')">
+<x-sidebar.link title="ادارة طلبات الخدمات" href="{{ route('paymentinfo') }}" :isActive="request()->routeIs('owne-service-orders')">
     <x-slot name="icon">
         <x-bi-inbox class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
     </x-slot>

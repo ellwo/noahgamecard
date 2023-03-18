@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\PaymentinfoController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Livewire\Admin\ProductTable;
+use App\Models\Paymentinfo;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,6 +41,7 @@ Route::prefix('admin')->middleware(['role:admin','auth'])->group(function () {
 
     Route::resource('/offers',OfferController::class)->name('index','offers');
     Route::resource('/discount',DiscountController::class)->name('index','discount');
+    Route::resource('/paymentinfo',PaymentinfoController::class)->name('index','paymentinfo');
 
 
 

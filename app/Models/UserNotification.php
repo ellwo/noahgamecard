@@ -13,6 +13,9 @@ class UserNotification extends Model
         'title','img','body',
         'user_id','actions','state'
     ];
+    protected $casts=[
+        'data'=>'array'
+    ];
     public function getUpdatedAtAttribute($value){
 
         $d=new Carbon($value,"Asia/Aden");

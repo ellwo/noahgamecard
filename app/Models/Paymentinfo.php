@@ -15,7 +15,8 @@ class Paymentinfo extends Model
         'mount_pay'
         ,'total_price',
         'state' ,//sate 0 not view by admin, 1 view and prosses,2succesfullay ,3 daney
-        "accepted"
+        "accepted",
+        'note'
     ];
 
 
