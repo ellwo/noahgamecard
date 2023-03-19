@@ -18,9 +18,11 @@ try{
         $user =User::find(auth()->user()->id);
 
 
-        $tok=FirebaseToken::create([
+        $tok=FirebaseToken::updateOrCreate([
             'token'=>$args["f_token"],
-            "user_id"=>$user->id]
+        ],[
+            "user_id"=>$user->id
+        ]
         );
 
         return [
