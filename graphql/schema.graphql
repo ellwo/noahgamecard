@@ -115,7 +115,7 @@ type Mutation {
     #      model_type:String!
     #  model_id:Int! ):ChatRoom @guard
 
-     mylogout(all:Boolean ): ResponInfo @guard
+     MyLogout(all:Boolean ): ResponInfo @guard
 
      crtneworder(
         input:OrderInput!

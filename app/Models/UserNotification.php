@@ -11,7 +11,8 @@ class UserNotification extends Model
     use HasFactory;
     protected $fillable=[
         'title','img','body',
-        'user_id','actions','state'
+        'user_id','actions','state',
+        'data'
     ];
     protected $casts=[
         'data'=>'array'
@@ -102,6 +103,10 @@ class UserNotification extends Model
         return $day;
 
 
+   }
+
+   public function getDataAttribute($value){
+    return json_encode($value);
    }
 
    public function user(){

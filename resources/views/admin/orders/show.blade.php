@@ -212,12 +212,14 @@
                     @method('PUT')
                         @csrf
                     <input type="hidden" name="state" value="2">
+
+
                     <x-button variant="success">
                         قبول الطلب وتنفيذه
                     </x-button>
 
                     </form>
-                    <x-button @click="show_resave_model=true" variant="danger">
+                    <x-button type="button" @click="show_resave_model=true" variant="danger">
                         رفض الطلب
                     </x-button>
 

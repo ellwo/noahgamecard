@@ -32,7 +32,7 @@ class PaymentinfoObserver
             "type"=>"paymentinfo",
             "routeInfo"=>[
                 "routeName"=>"paymentinforeceiptscreen",
-                "data"=>$paymentinfo->with('paymentmethod'),
+                "data"=>$paymentinfo,
             ],
         ];
         UserNotification::create([
