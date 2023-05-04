@@ -175,11 +175,7 @@
           </form>
 
           <!-- Or -->
-          <div class="flex items-center justify-center space-x-2 flex-nowrap">
-            <span class="w-20 h-px bg-gray-300"></span>
-            <span>أو</span>
-            <span class="w-20 h-px bg-gray-300"></span>
-          </div>
+
 
           <!-- Social login links -->
           <!-- Brand icons src https://boxicons.com -->
@@ -191,9 +187,7 @@
 
 
           <!-- Register link -->
-          <div dir="rtl" class="text-sm text-gray-600 dark:text-gray-400">
-            هل لديك حساب بالفعل? <a href="{{route('register')}}" class="text-blue-600 hover:underline">انشاء حساب</a>
-          </div>
+
         </div>
       </main>
     </div>

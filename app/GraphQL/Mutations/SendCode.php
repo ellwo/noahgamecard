@@ -30,7 +30,8 @@ final class SendCode
         { try{
 
 
-        $res=PhoneCode::where('phone','=',auth()->user()->phone)->where('ex_at','>','now()')->delete();
+        $res=PhoneCode::where('phone','=',auth()->user()->phone)
+        ->where('ex_at','>','now()')->delete();
         // TODO implement the resolver
         $date=new DateTime('now');
         $date->modify('+59 minutes');

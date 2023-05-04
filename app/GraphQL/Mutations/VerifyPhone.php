@@ -22,8 +22,9 @@ final class VerifyPhone
         $this->args=$args;
         // TODO implement the resolver
         $user=User::find(auth()->user()->id);
+
          $res=PhoneCode::where('code','=',$args['code'])->where('phone','=',$user->phone)
-         ->where('ex_at','>',"now()")->first();
+         ->where('ex_at','>',now())->first();
 
 
          if($res!=null){
@@ -42,7 +43,7 @@ final class VerifyPhone
             return [
                 "responInfo"=>[
                 'state'=>false,
-                'message'=>'خطاء في الكود'
+                'message'=>'خطاء في الكود غسر صحصح'
                 //.$user->phone."  ".$args["code"]." ".$res->ex_at
             ]];
          }

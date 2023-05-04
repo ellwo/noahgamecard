@@ -26,12 +26,7 @@ class UsersController extends Controller
 
 
 
-        $user=User::find(auth()->user()->id);
-        if($user!=null){
-            return [
-                'usernotifications'=>$user->user_notifications()->paginate(20)
-            ];
-        }
+
         if($request->has('change_language'))
         {app()->setLocale($request['change_language']);
 
