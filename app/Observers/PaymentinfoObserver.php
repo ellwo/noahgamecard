@@ -28,6 +28,13 @@ class PaymentinfoObserver
     public function updated(Paymentinfo $paymentinfo)
     {
         //
+
+
+
+        if($paymentinfo->state==2 || $paymentinfo->state==3){
+
+
+
         $data=[
             "type"=>"paymentinfo",
             "routeInfo"=>[
@@ -41,7 +48,7 @@ class PaymentinfoObserver
             'user_id'=>$paymentinfo->orders()->first()->user->id,
             'data'=>$data
         ]);
-
+    }
     }
 
     /**

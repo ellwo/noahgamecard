@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Paymentinfo extends Model
 {
@@ -16,7 +17,9 @@ class Paymentinfo extends Model
         ,'total_price',
         'state' ,//sate 0 not view by admin, 1 view and prosses,2succesfullay ,3 daney
         "accepted",
-        'note'
+        "orginal_total",
+        'note',
+        "user_id"
     ];
 
 
@@ -32,7 +35,7 @@ class Paymentinfo extends Model
     }
 
 
-    public function orginal_total(){
+    public function orginal_totalll(){
 
         $total=0.0;
         foreach($this->orders as $or){
@@ -47,5 +50,100 @@ class Paymentinfo extends Model
 
     }
 
+    public function getUpdatedAtAttribute($value){
 
+        if(request()->path()=="graphql"){
+        return $value;
+        }
+
+
+        $d=new Carbon($value,"Asia/Aden");
+
+
+        $days=now()->diffInDays($d);
+
+
+        $day=$d->format('Y-M-d');
+
+        switch($days){
+            case 0 : $day="اليوم منذ ";
+            $hours=now()->diffInHours($d);
+            $day.=$hours."ساعة";
+            break;
+
+            case 1 : $day="الامس";
+
+            $day=$d->format(' h:i A  ').$day;
+
+            break;
+            case 2 : $day="منذ يومين";
+
+            $day=$d->format(' h:i A  ').$day;
+
+            break;
+            case 7 :$day="منذ اسبوع";
+
+            $day=$d->format(' h:i A  ').$day;
+            break;
+            case 10 :$day="منذ عشرة ايام ";
+
+            $day=$d->format(' h:i A  ').$day;
+            break;
+            case 15 :$day="منذ نصف شهر";
+
+        $day=$d->format(' h:i A  ').$day;
+
+            break;
+        }
+
+        return $day;
+
+      }
+    public function getCreatedAtAttribute($value){
+
+
+        if(request()->path()=="graphql"){
+            return $value;
+            }
+        $d=new Carbon($value,"Asia/Aden");
+
+        $days=now()->diffInDays($d);
+
+        $day=$d->format('Y-M-d');
+
+        switch($days){
+            case 0 : $day="اليوم منذ ";
+            $hours=now()->diffInHours($d);
+            $day.=$hours."ساعة";
+            break;
+
+            case 1 : $day="الامس";
+
+            $day=$d->format(' h:i A  ').$day;
+
+            break;
+            case 2 : $day="منذ يومين";
+
+            $day=$d->format(' h:i A  ').$day;
+
+            break;
+            case 7 :$day="منذ اسبوع";
+
+            $day=$d->format(' h:i A  ').$day;
+            break;
+            case 10 :$day="منذ عشرة ايام ";
+
+            $day=$d->format(' h:i A  ').$day;
+            break;
+            case 15 :$day="منذ نصف شهر";
+
+        $day=$d->format(' h:i A  ').$day;
+
+            break;
+        }
+
+        return $day;
+
+
+    }
 }

@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+class CheckKEY
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     */
+    public function handle(Request $request, Closure $next)
+    {
+
+
+        if($request->path()=="graphql"){
+        if($request->hasHeader("DNS-APP-KEY")){
+            $res=Hash::check(config('dns_key.key'),$request->header('DNS-APP-KEY'));
+            if($res)
+            return $next($request);
+        }
+
+        $data=[
+         "state"=>false,
+          'message'=>'Opps Something is Wong'
+            ];
+            return
+                  response($data,501);
+        }
+        else
+        {
+            return $next($request);
+
+        }
+
+    }
+}

@@ -20,6 +20,8 @@ final class Poffers
         $user=auth()->user();
         $products=Product::Has('offers')->get();
 
+        return $products;
+
             if($user!=null){
             $mproduct=$user->order_products()->take(4)->get();
         foreach($mproduct as $p)

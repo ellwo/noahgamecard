@@ -23,12 +23,13 @@ final class VerifyPhone
         // TODO implement the resolver
         $user=User::find(auth()->user()->id);
 
-         $res=PhoneCode::where('code','=',$args['code'])->where('phone','=',$user->phone)
-         ->where('ex_at','>',now())->first();
+         $res=PhoneCode::where('code','=',$args['code'])->where('phone','=',$args["phone"])
+         ->where('user_id','=',auth()->user()->id)->where('ex_at','>',now())->first();
 
 
          if($res!=null){
             $user->phone_verified_at=Date::now();
+            $user->phone=$args["phone"];
             $user->save();
             $res->ex_at=Date::now();
             $res->save();

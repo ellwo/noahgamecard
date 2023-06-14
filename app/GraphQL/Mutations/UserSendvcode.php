@@ -28,14 +28,15 @@ final class UserSendvcode
         { try{
 
 
-        $res=PhoneCode::where('phone','=',auth()->user()->phone)->where('ex_at','>',now())->delete();
+        $res=PhoneCode::where('phone','=',$args['phone'])
+        ->where('user_id','=',auth()->user()->id)->where('ex_at','>',now())->delete();
         // TODO implement the resolver
         $date=new DateTime('now');
         $date->modify('+59 minutes');
 
-        $user=User::find(auth()->user()->id);
-        $user->phone=$args['phone'];
-        $user->save();
+       // $user=User::find(auth()->user()->id);
+        //$user->phone=$args['phone'];
+        //$user->save();
 
         $codee=rand(rand(14465,24598550),87952)."";
         $fcodee=substr($codee,0,4);

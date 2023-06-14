@@ -20,6 +20,15 @@ final class MyLogout
             $user = Auth::user();
 
 
+
+
+            if($args["ftoken"]!=""){
+             $ftoken= $user->f_token()->where('token','=',$args["ftoken"])->first();
+            if($ftoken!=null)
+            $ftoken->delete();
+            }
+
+
             $refres=app(RefreshTokenRepository::class);
                 $refres->revokeRefreshTokensByAccessTokenId( Auth::guard('api')->user()->token()->id);
 

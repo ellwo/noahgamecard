@@ -138,10 +138,6 @@
                                 <x-heroicon-o-plus class="w-4"/>
                             </x-button>
                             </div>
-
-
-
-
                         </div>
 
 

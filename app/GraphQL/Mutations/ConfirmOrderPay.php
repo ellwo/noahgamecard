@@ -70,11 +70,14 @@ final class ConfirmOrderPay
 
             $sum_total=0;
             $dissum_total=0;
+            $o_price=0;
 
             foreach($paymentinfo->orders as $or)
             {
 
                 $total_price=$order->product->price * $order->qun;
+                $o_price+=$order->product->price * $order->qun;
+
                 $dis_total_price= $total_price;
 
                $offer=$or->product->hasOffer();
@@ -104,6 +107,7 @@ final class ConfirmOrderPay
 
 
             $paymentinfo->total_price=$sum_total;
+            $paymentinfo->orginal_total=$o_price;
             $paymentinfo->save();
             $order->save();
 
@@ -160,7 +164,7 @@ final class ConfirmOrderPay
             return [
                 "state"=>false,
                 "message"=>"فشلت العملية يرجى اعادة المحاولة مرة اخرى",
-                "errors"=>null,
+                "errors"=>json_encode($data),
             ];
 
         }

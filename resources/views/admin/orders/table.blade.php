@@ -82,7 +82,7 @@
 
             <h4 class="mx-auto">عرض الطلبات ال</h4>
             <hr>
-            <div class="flex p-4 mx-auto space-x-4 ">
+            <div class=" flex-col lg:flex p-4 mx-auto space-x-4 ">
 
                 <div class="flex items-center mb-4">
                      <label for="country-option-1" class="block ml-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -130,7 +130,7 @@
                     <thead class=" dark:text-light bg-light dark:bg-dark">
                         <tr>
                             <th class="p-3">رقم العملية </th>
-                            <th class="p-3">البطائق المطلوبة </th>
+                            <th class="p-3 hidden lg:block">البطائق المطلوبة </th>
                             <th class="p-3 ">وسيلة الدفع</th>
                             <th class="p-3 "> اجمالي السعر</th>
                             <th class="p-3 ">الحالة</th>
@@ -155,7 +155,7 @@
                                 <span class="{{ $paymentinfo->accepted?'text-info':'text-red-800'}}">{{ $paymentinfo->accepted?"تم تاكيد حالة الدفع":"لم يتم تاكيد حالة الدفع" }}</span>
 
                             </td>
-                            <td class="p-3">
+                            <td class="p-3 hidden lg:block">
                                 @foreach ($paymentinfo->orders as $order )
                                 <div class="border p-1 rounded-md">
                                 <div class="flex align-items-center">
@@ -186,7 +186,7 @@
                             </td>
                             <td class="p-3 font-bold">
                                 <div class="flex flex-col">
-                                        <s> {{ $paymentinfo->orginal_total()}}</s>
+                                        <s> {{ $paymentinfo->orginal_total}}</s>
                                         <span>
                                             {{ $paymentinfo->total_price }}
                                         </span>
@@ -207,15 +207,15 @@
                             <td class="flex flex-col p-1" dir="rtl">
 
                                 <div class="flex space-x-2">
-                                    {{ $paymentinfo->orders()->first()->user->name ??""}}
+                                    {{ $paymentinfo->orders[0]->user->name ??""}}
                                  </div><div class="flex space-x-2">
-                                    {{ $paymentinfo->orders()->first()->user->email ??""}}
+                                    {{ $paymentinfo->orders[0]->user->email ??""}}
                                  </div>
                                  <div class="flex space-x-2">
-                                    {{ $paymentinfo->orders()->first()->user->username ??""}}
+                                    {{ $paymentinfo->orders[0]->user->username ??""}}
                                  </div>
                                  <div class="flex space-x-2">
-                                    {{ $paymentinfo->orders()->first()->user->phone ??""}}
+                                    {{ $paymentinfo->orders[0]->user->phone ??""}}
                                  </div>
                                  {{-- <div class="flex space-x-2">
                                     <span class="mx-2 font-bold text-info">العنوان: </span>{{ $order->address }}

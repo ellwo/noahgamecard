@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashBoardController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[DashBoardController::class,'index'])
 ->middleware(['auth', 'verified']);
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
+Route::get('/dashboard',[DashBoardController::class,'index'])
+->middleware(['auth', 'verified'])->name('dashboard');
 
 // useless routes
 // Just to demo sidebar dropdown links active states.

@@ -18,24 +18,20 @@ final class UpdateNotifiy
         try{
             $user=User::find(auth()->user()->id);
 
-            $notifiy=$user->user_notifications()->where('id','=',$args["id"]??0)->first();
-            if($notifiy!=null){
-            $notifiy->state=1;
+
+
+            $notifiy=$user->user_notifications()->whereIn('id',$args["id"]??0)->update(
+                [
+                    'state'=>1
+                ]
+            );
+
         return[
             "message"=>"",
             "state"=>true,
             "errors"=>null
         ]    ;
-        }
 
-        else{
-            return[
-                "message"=>"غير موجود",
-                "state"=>false,
-                "errors"=>null
-            ]    ;
-
-        }
 
         }
         catch(Exception $e){
