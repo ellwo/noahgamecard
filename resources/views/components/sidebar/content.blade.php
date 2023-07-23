@@ -104,6 +104,14 @@
 </x-sidebar.link>
 
 
+<x-sidebar.link title="ادارة عمليات التغذية " href="{{ route('rasseds') }}" :isActive="request()->routeIs('rasseds')">
+    <x-slot name="icon">
+        <x-bi-inbox class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+    </x-slot>
+
+</x-sidebar.link>
+
+
 <x-sidebar.link title="{{__('Setting')}}" href="{{route('sitesetting')}}"  :isActive="request()->routeIs('sitesetting')">
     <x-slot name="icon">
         <x-bi-magnet class="h-6 w-6 cursor-pointer "/>

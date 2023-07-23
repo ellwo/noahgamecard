@@ -31,10 +31,7 @@ class PaymentinfoObserver
 
 
 
-        if($paymentinfo->state==2 || $paymentinfo->state==3){
-
-
-
+        if(($paymentinfo->state==2 || $paymentinfo->state==3) && $paymentinfo->orders->count()>0){
         $data=[
             "type"=>"paymentinfo",
             "routeInfo"=>[
@@ -45,7 +42,23 @@ class PaymentinfoObserver
         UserNotification::create([
             'title'=>($paymentinfo->state==2?'  نجاح تم تنفيذ الطلب ':' فشل الطلب   ')." رقم  ".$paymentinfo->id,
             'body'=>$paymentinfo->state==2?'تم شحن البطائق المطلوبة بنجاح يرجى مراجعة حسابك':' عذرا فشلت العملية وذلك بسبب  '.$paymentinfo->note,
-            'user_id'=>$paymentinfo->orders()->first()->user->id,
+            'user_id'=>$paymentinfo->user_id,
+            'data'=>$data
+        ]);
+    }
+    else if(($paymentinfo->state>0 || $paymentinfo->state==3) && $paymentinfo->rassed_actevity!=null){
+
+     $data=[
+            "type"=>"veed_rassed",
+            "routeInfo"=>[
+                "routeName"=>"rassed",
+                "data"=>$paymentinfo,
+            ],
+          ];
+        UserNotification::create([
+            'title'=>(($paymentinfo->state==2||$paymentinfo->state==1)?'تم تأكيد تغذية حسابك':' عذرا فشلت عملية التغذية    ')." رقم العملية  ".$paymentinfo->id,
+            'body'=>($paymentinfo->state==2||$paymentinfo->state==1)?"تم تغذية رصيدك بنجاح يرجى مراجعة حسابك  مبلغ \n".$paymentinfo->rassed_actevity->amount :' عذرا فشلت عملية التغذية وذلك بسبب  '.$paymentinfo->note,
+            'user_id'=>$paymentinfo->user_id,
             'data'=>$data
         ]);
     }

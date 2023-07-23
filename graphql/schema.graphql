@@ -5,17 +5,18 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 "Indicates what fields are available at the top level of a query operation."
 type Query {
 
-   GetActivites(page:Int):ActivitesGroupByDatePage @guard
+   GetActivites(page:Int lastdate:String):ActivitesGroupByDatePage @guard
    qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
    poffers:[Product]
    userpayorders(page:Int):OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
+   coins:[Coin]@all
    GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
 #    categories:[Category]! @where(type:1) @all
    departments:[Department] @all
    productsByCategroy(department_id:Int @where(operator: "=" )):[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
-   me: User  @auth
+   me: User  @auth @guard
 
     "Find a single user by an identifying attribute."
     user(
@@ -33,6 +34,23 @@ type Query {
     ): [User!]! @paginate(defaultCount: 10)
 }
 
+
+
+type Coin {
+    id:ID
+    name:String
+    nickname:String
+    main_coin:Boolean
+    froms:[CoinValue] @hasMany
+    tos:[CoinValue] @hasMany
+    value:Float
+    icon:String
+}
+type CoinValue {
+    to_coin:Coin @belongsTo
+    from_coin:Coin @belongsTo
+    value:Float
+}
 "Account of a person who utilizes this application."
 type User {
     "Unique primary key."
@@ -84,8 +102,13 @@ type RassedActevity{
     rassed:Rassed @belongsTo
     paymentinfo:Paymentinfo @belongsTo
     amount:Float
+    camount:Float
     code:String
+    coin_id:Int
+    coin:Coin @belongsTo
+    paymentinfo_id:Int
     created_at:DateTime
+    updated_at:DateTime
 }
 
 
@@ -133,12 +156,13 @@ type Mutation {
 
     Veedmyrassed(
         input:VeedmyrassedInput
-    ):ResponInfo @guard
+    ):ConfirmResponInfo @guard
 
 
     UpdateNotifiy(id:[Int]!):ResponInfo
 
 
+CreateNewPaymentOrder(input:PayOrdersCartInput):ConfirmResponInfo @guard
     PayFromRassed(
         input:PayOrdersCartInput
     ):ConfirmResponInfo @guard
@@ -166,7 +190,10 @@ type ResponInfoSendCode{
 
 input VeedmyrassedInput{
     code:String
+    camount:Float
+    coin_id:Int
     paymentmethod_id:Int
+
 }
 type ConfirmResponInfo{
     state:Boolean
@@ -201,13 +228,17 @@ type RegisterInfo{
 }
 type OrderGruopByRespons{
     responInfo:ResponInfo
-    orders_gr:[OrderGruopBy]
+    orders_gr:[Paymentinfo]
     paginatorInfo:PaginatorInfo
+
 
 }
 type ActivitesGroupByDatePage {
     activites:[RassedActevityGroupByDate]
     paginatorInfo:PaginatorInfo
+    orginal_total:Float
+    total_price:Float
+    veed_total:Float
 }
 
 type UserNotificationPage{
@@ -365,6 +396,7 @@ type Paymentinfo{
     orders:[Order] @belongsToMany
     mount_pay:Float
     total_price:Float
+    rassed_actevity:RassedActevity @hasOne
     orginal_total:Float
     created_at: DateTime
     updated_at: DateTime

@@ -2,13 +2,13 @@
 
 namespace App\GraphQL\Queries;
 
+use App\Models\Product;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 final class Qgetemail
 {
@@ -20,6 +20,11 @@ final class Qgetemail
     public function __invoke($_, array $args)
     {
         // TODO implement the resolver
+
+        //new AuthorizationException("You are not authenticated");
+
+
+
 
         $user=User::where($args["column_name"],"=",$args["user"])->first();
 

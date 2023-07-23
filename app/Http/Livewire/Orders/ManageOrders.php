@@ -22,10 +22,11 @@ class ManageOrders extends Component
          $paymentinfos=[];
 
          if($this->status==4)
-        $paymentinfos=Paymentinfo::has('orders')->with('orders','paymentmethod')->orderBy('id','desc')->paginate(10);
+       { $paymentinfos=Paymentinfo::has('orders')->withCount('orders')->with('paymentmethod')->orderBy('id','desc')->paginate(10);
+       }
         else
-        $paymentinfos=Paymentinfo::has('orders')->with('orders')->where('state','=',$this->status)->orderBy('id','desc')->paginate(10);
-
+       { $paymentinfos=Paymentinfo::has('orders')->withCount('orders')->with('paymentmethod')->where('state','=',$this->status)->orderBy('id','desc')->paginate(10);
+}
         return view('admin.orders.table',['paymentinfos'=>$paymentinfos])->layout('components.dashborade.index');
     }
 }

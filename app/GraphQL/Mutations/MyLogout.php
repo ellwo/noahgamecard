@@ -25,7 +25,9 @@ final class MyLogout
             if($args["ftoken"]!=""){
              $ftoken= $user->f_token()->where('token','=',$args["ftoken"])->first();
             if($ftoken!=null)
-            $ftoken->delete();
+            $ftoken->update([
+                'user_id'=>null
+            ]);
             }
 
 

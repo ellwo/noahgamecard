@@ -27,7 +27,7 @@ class Rassed extends Model
     }
 
     public function rassedy(){
-     return $this->actevities->sum('amount');
+     return $this->actevities()->accepted()->sum('amount');
     }
 }
 

@@ -130,7 +130,7 @@
                     <thead class=" dark:text-light bg-light dark:bg-dark">
                         <tr>
                             <th class="p-3">رقم العملية </th>
-                            <th class="p-3 hidden lg:block">البطائق المطلوبة </th>
+                            <th class="p-3 hidden lg:block">عدد البطائق المطلوبة </th>
                             <th class="p-3 ">وسيلة الدفع</th>
                             <th class="p-3 "> اجمالي السعر</th>
                             <th class="p-3 ">الحالة</th>
@@ -155,30 +155,9 @@
                                 <span class="{{ $paymentinfo->accepted?'text-info':'text-red-800'}}">{{ $paymentinfo->accepted?"تم تاكيد حالة الدفع":"لم يتم تاكيد حالة الدفع" }}</span>
 
                             </td>
-                            <td class="p-3 hidden lg:block">
-                                @foreach ($paymentinfo->orders as $order )
-                                <div class="border p-1 rounded-md">
-                                <div class="flex align-items-center">
-                                    <div class="ml-3  justify-start flex flex-col">
-                                        <div class="flex border-b justify-start space-x-2">
-                                            <div class="w-1/3 text-xs font-bold mx-2 border-l-1 ">اسم البطاقة</div>
-                                            <div class="w-2/3 mx-2 text-xs text-info">{{ $order->product->name }}</div>
-                                        </div>
-                                        <div class="flex border-b justify-start space-x-2">
-                                            <div class="w-1/3 text-xs font-bold mx-2 border-l-1 ">الكمية</div>
-                                            <div class="w-2/3 mx-2 text-xs text-info">{{ $order->qun }}</div>
-                                        </div>
-                                        <div class="flex border-b justify-start space-x-2">
-                                            <div class="w-1/3 text-xs font-bold mx-2 border-l-1 ">ID الحساب</div>
-                                            <div class="w-2/3 mx-2 text-xs text-info">{{ $order->g_id }}</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                </div>
-                                <hr>
-                                @endforeach
-
+                            <td class="p-3 hidden text-center text-blue-700 font-bold lg:text-lg lg:block">
+                                {{ $paymentinfo->orders_count
+                                }}
                             </td>
                             <td class="p-3">
                                 <span class="font-bold text-blue-900">{{ $paymentinfo->paymentmethod->name }}</span>
@@ -205,18 +184,13 @@
                             </td>
 
                             <td class="flex flex-col p-1" dir="rtl">
-
+{{--
                                 <div class="flex space-x-2">
                                     {{ $paymentinfo->orders[0]->user->name ??""}}
-                                 </div><div class="flex space-x-2">
-                                    {{ $paymentinfo->orders[0]->user->email ??""}}
-                                 </div>
-                                 <div class="flex space-x-2">
-                                    {{ $paymentinfo->orders[0]->user->username ??""}}
                                  </div>
                                  <div class="flex space-x-2">
                                     {{ $paymentinfo->orders[0]->user->phone ??""}}
-                                 </div>
+                                 </div> --}}
                                  {{-- <div class="flex space-x-2">
                                     <span class="mx-2 font-bold text-info">العنوان: </span>{{ $order->address }}
                                  </div>
@@ -227,7 +201,8 @@
                             </td>
 
                             <td class="flex mt-16">
-
+                                {{ $paymentinfo->user->name }}
+                                {{ $paymentinfo->user->phone }}
 
                             </td>
                             <td class="">

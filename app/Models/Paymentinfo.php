@@ -19,10 +19,16 @@ class Paymentinfo extends Model
         "accepted",
         "orginal_total",
         'note',
-        "user_id"
+        "user_id",
+        'coin_id'
     ];
 
 
+
+    function coin() {
+
+        return $this->belongsTo(Coin::class);
+    }
    public function orders(){
         return $this->belongsToMany(Order::class,'order_paymentinfo');
     }
@@ -34,6 +40,9 @@ class Paymentinfo extends Model
         return $this->belongsTo(User::class);
     }
 
+    function rassed_actevity() {
+        return $this->hasOne(RassedActevity::class);
+    }
 
     public function orginal_totalll(){
 

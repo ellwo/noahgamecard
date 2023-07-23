@@ -2,10 +2,13 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\Coin;
 use App\Models\Order;
 use App\Models\Paymentinfo;
 use App\Models\Paymentmethod;
+use App\Models\RassedActevity;
 use App\Models\User;
+use App\Models\UserNotification;
 use Illuminate\Support\Facades\Validator;
 
 final class CreateNewPaymentOrder
@@ -19,12 +22,132 @@ final class CreateNewPaymentOrder
         // TODO implement the resolver
 
 
+        $vildat = Validator::make(
+            $args['input'],
+        [
+        'paymentmethod_id'=>['required','exists:paymentmethods,id']]
+         );
+
+         if($vildat->fails()){
+            return [
+                'state'=>false,
+                'errors'=>json_encode($vildat->errors()),
+                'message'=>$vildat->errors(),
+                'id'=>null,
+                'code'=>402,
+                'paymetninfo'=>null
+            ];
+         }
+
+        if($args['input']['paymentmethod_id']==2){
+            return $this->payFromRassed($args);
+        }
+
+        else{
+            return $this->pay($args);
+        }
 
 
+
+    }
+
+
+
+    function payFromRassed($args) : array {
 
         $vildat = Validator::make(
             $args['input'],
-        ['code'=>['unique:paymentinfos,code','required','min:6','max:10']]
+        [
+        'paymentmethod_id'=>['required','exists:paymentmethods,id']]
+         );
+
+         if($vildat->fails()){
+            return [
+                'state'=>false,
+                'errors'=>json_encode($vildat->errors()),
+                'message'=>$vildat->errors(),
+                'id'=>null,
+                'code'=>402,
+                'paymetninfo'=>null
+            ];
+         }
+
+
+
+
+        $orders=[];
+        $user=User::find(auth()->user()->id);
+        $total_price=0;
+        $orginal_price=0;
+
+        foreach($args["input"]["orders_input"] as $v){
+            $order=Order::create([
+                'product_id'=>$v["product_id"],
+                "qun"=>$v["qun"],
+                "g_id"=>$v["g_id"],
+                "email"=>$v["email"]??"",
+                "password"=>$v['password']??"",
+                "user_id"=>$user->id
+            ]);
+            $orginal_price+=($order->qun*$order->product->price);
+            $total_price+=$order->total_price();
+            $orders[]=$order->id;
+        }
+
+
+        if($total_price>$user->rassed->rassedy()){
+            $delorders= Order::whereIn('id',$orders)->get();
+            foreach($delorders as $o){
+             $o->delete();
+            }
+            return [
+             "state"=>false,
+             "message"=>"ليس لديك الرصيد الكافي",
+             "paymentinfo"=>null,
+             "errors"=>null
+            ];
+         }
+        $paymentinfo=new Paymentinfo();
+        $paymentinfo->paymentmethod_id=$args["input"]["paymentmethod_id"];
+        $paymentinfo->total_price=$total_price;
+        $paymentinfo->orginal_total=$orginal_price;
+        $paymentinfo->user_id=$user->id;
+        $paymentinfo->code=rand(45,80).time();
+        $paymentinfo->state=1;
+        $paymentinfo->save();
+        $paymentinfo->orders()->attach($orders);
+
+      $rassedActivite=  RassedActevity::create([
+            'amount'=>-$paymentinfo->total_price,
+            'paymentinfo_id'=>$paymentinfo->id,
+            'rassed_id'=>$user->rassed->id,
+            'code'=>$paymentinfo->code,
+            'coin_id'=>Coin::where('main_coin','=',true)->pluck('id')->first()
+        ]);
+
+        $noti=UserNotification::create([
+            "id"=>$rassedActivite->id,
+            'title'=>'نجحت العملية',
+            'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
+        'user_id'=>$user->id]);
+
+
+        return [
+            "state"=>true,
+            "id"=>$paymentinfo->id,
+            "message"=>"تم بنجاح- طلبك تحت المراجعة",
+            "errors"=>null,
+            "code"=>200,
+            'paymentinfo'=>$paymentinfo
+        ];
+        return [];
+    }
+
+    function pay($args) : array {
+        $vildat = Validator::make(
+            $args['input'],
+        ['code'=>['unique:paymentinfos,code','required','min:6','max:10'],
+        'paymentmethod_id'=>['required','exists:paymentmethods,id']]
          ,[
             'code.unique'=>'هذا الكود مستخدم بالفعل ',
             'code.min'=>'يجب ان يكون الكود 6 ارقام على الاقل',
@@ -37,7 +160,7 @@ final class CreateNewPaymentOrder
             return [
                 'state'=>false,
                 'errors'=>json_encode($vildat->errors()),
-                'message'=>'يبدو ان الكود الذي ادخلته غير صحيح ',
+                'message'=>$vildat->errors(),
                 'id'=>null,
                 'code'=>402
             ];
@@ -55,8 +178,8 @@ final class CreateNewPaymentOrder
                 'product_id'=>$v["product_id"],
                 "qun"=>$v["qun"],
                 "g_id"=>$v["g_id"],
-                "email"=>$v["email"],
-                "password"=>$v['password'],
+                "email"=>$v["email"]??"",
+                "password"=>$v['password']??"",
                 "user_id"=>$user->id
             ]);
             $orginal_price+=($order->qun*$order->product->price);
@@ -71,20 +194,13 @@ final class CreateNewPaymentOrder
         $paymentinfo->code=$args["input"]["code"];
         $paymentinfo->save();
         $paymentinfo->orders()->attach($orders);
-
-
         return [
             "state"=>true,
             "id"=>$paymentinfo->id,
             "message"=>"تم بنجاح- طلبك تحت المراجعة",
             "errors"=>null,
             "code"=>200,
+            'paymentinfo'=>$paymentinfo
         ];
-
-
-
-
-
-
     }
 }

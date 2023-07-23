@@ -27,6 +27,7 @@ try{
 
     $user=User::find(auth()->user()->id);
 
+    $or_price=0;
         $orders=[];
 
         $sum_total=0;
@@ -40,6 +41,7 @@ try{
                 "user_id"=>$user->id
             ]);
             $orders[]=$order->id;
+            $or_price+=$order->qun*$order->product->price;
             $sum_total+=$order->total_price();
         }
 
@@ -66,13 +68,16 @@ try{
                 'paymentmethod_id'=>2,
                 "code"=>rand(450,800).time(),
                 "state"=>1,
-                "accepted"=>true
+                "accepted"=>true,
+                "orginal_total"=>$or_price,
+                'total_price'=>$sum_total,
+                'user_id'=>$user->id
             ]
             );
 
             $payinfo->orders()->attach($orders);
-            $payinfo->total_price=$sum_total;
-            $payinfo->save();
+            //$payinfo->total_price=$sum_total;
+           // $payinfo->save();
             $rassedActivite=RassedActevity::create([
                 "rassed_id"=>$user->rassed->id,
                 "paymentinfo_id"=>$payinfo->id,

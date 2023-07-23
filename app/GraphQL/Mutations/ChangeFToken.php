@@ -5,6 +5,7 @@ namespace App\GraphQL\Mutations;
 use App\Models\FirebaseToken;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 final class ChangeFToken
 {
@@ -14,27 +15,50 @@ final class ChangeFToken
      */
     public function __invoke($_, array $args)
     {
-try{
-        $user =User::find(auth()->user()->id);
 
 
-        $tok=FirebaseToken::updateOrCreate([
-            'token'=>$args["f_token"],
-        ],[
-            "user_id"=>$user->id
-        ]
-        );
 
-        return [
-            'state'=>true,
-            'message'=>'تم بنجاح'
+        if (Auth::check()) {
+            try {
+                $user = User::find(auth()->user()->id);
+                $tok = FirebaseToken::updateOrCreate(
+                    [
+                        'token' => $args["f_token"],
+                    ],
+                    [
+                        "user_id" => $user->id,
+                        'device_id'=>$args["device_id"],
+                        'device_name'=>$args["device_name"],
+                        'device_ip'=>$args["device_ip"],
+                    ]
+                );
 
-        ];}
-        catch(Exception $e){
-            return [
-                'state'=>false,
-                'message'=>$e->getMessage()
-            ];
+                return [
+                    'state' => true,
+                    'message' => 'تم بنجاح'
+
+                ];
+            } catch (Exception $e) {
+                return [
+                    'state' => false,
+                    'message' => $e->getMessage()
+                ];
+            }
+
+        }
+        else{
+
+
+            $tok = FirebaseToken::updateOrCreate(
+                [
+                    'token' => $args["f_token"],
+                ],
+                [
+                    'device_id'=>$args["device_id"],
+                    'device_name'=>$args["device_name"],
+                    'device_ip'=>$args["device_ip"],
+                ]
+            );
         }
 
 
