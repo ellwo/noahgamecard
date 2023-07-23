@@ -21,7 +21,8 @@ class CheckKEY
 
         if($request->path()=="graphql"){
         if($request->hasHeader("DNS-APP-KEY")){
-            $res=Hash::check(config('dns_key.key'),$request->header('DNS-APP-KEY'));
+            $res=Hash::check(config('dns_key.key'),
+            $request->header('DNS-APP-KEY'));
             if($res)
             return $next($request);
         }

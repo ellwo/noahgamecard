@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,9 +18,15 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
 
+
+
+        $res=Hash::check(config('dns_key.key'),
+        $request['DNS-APP-KEY']);
+        //if($res)
+        return $res;
 
     // $user=User::find(21);
     // return response($user->orders_gr(1));
