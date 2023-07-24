@@ -191,15 +191,15 @@ class UsersController extends Controller
 
 
 
-        $user->bussinses()->delete();
-        $user->products()->delete();
-        $user->services()->delete();
+    //     $user->bussinses()->delete();
+    //     $user->products()->delete();
+    //     $user->services()->delete();
 
-        $upld= new UploadeController();
-        $upld->delete_file($user->avatar);
-        $user->services()->delete();
-        $user->orders()->delete();
-        $user->chats()->delete();
+    //    // $upld= new UploadeController();
+    //    // $upld->delete_file($user->avatar);
+    //     $user->services()->delete();
+    //     $user->orders()->delete();
+    //     $user->chats()->delete();
                $user->delete();
 
         return redirect()->route('admin.users.index');
