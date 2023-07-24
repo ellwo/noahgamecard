@@ -24,15 +24,15 @@ class AuthenticatedSessionController extends Controller
 
 
 
-        $hashed=Hash::make(config('dns_key.key'));
-        $res=Hash::check(config('dns_key.key'),
-        $request['DNS-APP-KEY']??"");
-        //if($res)
-        return dd([
-            "state "=>$res,
-            "hashed "=>$hashed
+    //     $hashed=Hash::make(config('dns_key.key'));
+    //     $res=Hash::check(config('dns_key.key'),
+    //     $request['DNS-APP-KEY']??"");
+    //     //if($res)
+    //     return dd([
+    //         "state "=>$res,
+    //         "hashed "=>$hashed
 
-    ]);
+    // ]);
 
     // $user=User::find(21);
     // return response($user->orders_gr(1));

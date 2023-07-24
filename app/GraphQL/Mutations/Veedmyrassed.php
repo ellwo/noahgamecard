@@ -94,7 +94,7 @@ final class Veedmyrassed
                 "message" => "تمت اضافة طلب تغذية الرصيد بنجاح",
                 "errors" => null,
                 "code" => 200,
-                "paymetninfo" => $payinfo
+                "paymentinfo" => $payinfo
             ];
         } catch (Exception $e) {
 
