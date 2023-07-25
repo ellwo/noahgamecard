@@ -102,8 +102,6 @@
                         <div>
                             <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم المنتج</label>
                             <input type="text" value="{{ $product->name }}"  name="name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                            <label for="modal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم الموديل</label>
-                            <input type="text" dir="ltr" value="{{ $product->modal }}"  name="modal" id="modal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 
                         </div>
                         <div>
@@ -144,13 +142,7 @@
 
 
                         </div>
-                        <div wire:ignore class="px-2 w-3/4 text-center">
-                        <x-label :value="__('صور اضافية للمنتج')" />
 
-                        <div id="imgs">
-
-                        </div>
-                        </div>
 
 
                     </div>
@@ -167,36 +159,6 @@
  @endphp
   </textarea></div>
 
-                            <div x-data='{note_count:0}' class="flex flex-col space-x-4 space-y-2">
-                                <x-label :value="__('تفاصيل المنتج ')" />
-                                @foreach ($product->note??[] as $k=>$v)
-                                <div class="flex space-x-2">
-                                    <div class="w-1/4" ><input type="text" value="{{ $k }}" name="n_key[]" id="" class="w-full rounded-md text-info dark:text-light font-bold dark:bg-darker p-2" ></div>
-                                    <div class="w-3/4"><input type="text" value="{{ $v }}" name="n_value[]" id="" class="w-full  rounded-md dark:text-light dark:bg-darker p-2"></div>
-                                    </div>
-
-                                @endforeach
-
-
-                                <template x-for="i in note_count" >
-                                    <div class="flex space-x-2">
-                                    <div class="w-1/4" ><input type="text" name="n_key[]" id="" class="w-full rounded-md dark:text-light text-info font-bold dark:bg-darker p-2" ></div>
-                                    <div class="w-3/4"><input type="text" name="n_value[]" id="" class="w-full  rounded-md dark:text-light dark:bg-darker p-2"></div>
-                                    </div>
-
-
-                                </template>
-
-
-                                <x-button variant="success" @click="note_count++" class="mx-auto" type="button">
-                                   اضافة
-                                    <x-heroicon-o-plus class="w-4"/>
-                                </x-button>
-
-
-
-
-                            </div>
 
                             <div class="m-5 mx-auto text-center">
                                 <x-button variant="success" class="mx-auto" >
@@ -231,22 +193,7 @@
 
                          src:"{{ $product->img }}"
             });
-              newimage=new ImagetoServer(
-                    {
-                        url:"{{route('uploade')}}",
-                        id:"imgs",
 
-                    shep:'rect',
-                  //  mx_h:850,
-                //    mx_w:850,
-                        w:850,h:850,
-                    //    withmask:true,
-                   // maskUrl:'{{ config("mysetting.logo") }}',
-                   with_w_h:true,
-                         src:'@json( $product->imgs)',
-                         multi:true,
-
-            });
 
 
         ClassicEditor

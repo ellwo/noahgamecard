@@ -29,14 +29,13 @@ final class ChangeFToken
                         "user_id" => $user->id,
                         'device_id'=>$args["device_id"],
                         'device_name'=>$args["device_name"],
-                        'device_ip'=>$args["device_ip"],
+                        'device_ip'=>request()->ip(),
                     ]
                 );
 
                 return [
                     'state' => true,
                     'message' => 'تم بنجاح'
-
                 ];
             } catch (Exception $e) {
                 return [
@@ -51,14 +50,21 @@ final class ChangeFToken
 
             $tok = FirebaseToken::updateOrCreate(
                 [
-                    'token' => $args["f_token"],
+                    'device_id' => $args["device_id"],
                 ],
                 [
-                    'device_id'=>$args["device_id"],
+                    'token'=>$args["f_token"],
                     'device_name'=>$args["device_name"],
-                    'device_ip'=>$args["device_ip"],
+                    'device_ip'=>request()->ip(),
                 ]
             );
+
+            return [
+                'state' => true,
+                'message' => 'تم بنجاح',
+                'errors'=>null,
+
+            ];
         }
 
 

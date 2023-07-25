@@ -46,22 +46,20 @@ class ProductController extends Controller
         ]);
 
 
-        $note=null;
-        $n_key=$request["n_key"]??[];$n_value=$request["n_value"]??[];
-        for($i=0; $i<count($n_key); $i++){
+        // $note=null;
+        // $n_key=$request["n_key"]??[];$n_value=$request["n_value"]??[];
+        // for($i=0; $i<count($n_key); $i++){
 
-           if($n_key[$i]!=null && $n_value!=null)
-           $note[$n_key[$i]]=$n_value[$i];
-        }
+        //    if($n_key[$i]!=null && $n_value!=null)
+        //    $note[$n_key[$i]]=$n_value[$i];
+        // }
 
         $product=Product::create([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
-            'note' => $note,
             'discrip'=>$request['note'],
             'img' => $request['img'],
             'department_id' => $request['department_id'],
-            'imgs' => $request['imgs'],
             'brand_id'=>$request['brand_id'],
             'user_id'=>auth()->user()->id,
             'required_ep'=>$request['required_ep']??false
@@ -137,22 +135,13 @@ class ProductController extends Controller
             ]);
 
 
-            $note=[];
-            $n_key=$request["n_key"]??[];$n_value=$request["n_value"]??[];
-            for($i=0; $i<count($n_key); $i++){
-
-               if($n_key[$i]!=null && $n_value!=null)
-               $note[$n_key[$i]]=$n_value[$i];
-            }
 
             $product->update([
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
-                'note' => $note,
                 'discrip'=>$request['note'],
                 'img' => $request['img'],
                 'department_id' => $request['department_id'],
-                'imgs' => $request['imgs'],
                 'required_ep'=>$request['required_ep']
             ]);
 

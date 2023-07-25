@@ -21,7 +21,7 @@
              هل انت متأكد من تاكيد التغذية ؟ <br>سيضاف الملبغ لحساب المستخدم فورا
                 <hr>
                     <div wire:ignore class="flex flex-col p-2">
-                        <h6 class="mx-auto flex" dir="rtl">العملة
+                        {{-- <h6 class="mx-auto flex" dir="rtl">العملة
                             <select wire:model.lazy='coin_id'  class="bg-white text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
                              @foreach ($coins as $c)
                              <option
@@ -30,7 +30,7 @@
 
                              @endforeach
                             </select>
-                        </h6>
+                        </h6> --}}
 
                         <div class="flex">
 

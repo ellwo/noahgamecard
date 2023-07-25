@@ -9,6 +9,7 @@ class FirebaseToken extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'token','user_id'
+        'token','user_id',
+        'device_id','device_name','device_ip'
     ];
 }

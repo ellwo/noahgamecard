@@ -6,6 +6,7 @@ use App\Models\Coin;
 use App\Models\Paymentinfo;
 use App\Models\RassedActevity;
 use App\Models\User;
+use App\Models\UserNotification;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -86,9 +87,18 @@ $coustmers=User::whereHas('rassed_acetvities',function($q){
    $rassed_a->amount=$this->amount;
    $rassed_a->save();
    $payment_info->save();
+
    $this->amount=0;
     $this->paymentInfo=-1;
  }
+
+
+
+
+
+
+
+
  function d_accepte()  {
     $payment_info=Paymentinfo::find($this->paymentInfo);
     $payment_info->state=3;

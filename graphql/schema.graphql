@@ -152,7 +152,10 @@ type Mutation {
 
       UserSendvcode(phone:String):ResponInfoSendCode @guard
       VerifyPhone(code:String phone:String):ResponInfoSendCode @guard
-      ChangeFToken(f_token:String):ResponInfo @guard
+      ChangeFToken(f_token:String
+      device_id:String
+      device_name:String
+      ):ResponInfo
 
     Veedmyrassed(
         input:VeedmyrassedInput

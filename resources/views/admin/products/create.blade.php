@@ -11,7 +11,7 @@
         @csrf
         <div dir="rtl" >
 
-    <div class="p-6 overflow-hidden text-2xl mb-4  bg-blue-300 rounded-md shadow-md dark:bg-dark-eval-1">
+    <div class="p-6 mb-4 overflow-hidden text-2xl bg-blue-300 rounded-md shadow-md dark:bg-dark-eval-1">
         اضافة منتج جديد
     </div>
 
@@ -26,7 +26,7 @@
 
                     <x-label for="department_id" :value="__('اختر القسم ')" />
 
-                    <select  wire:model='dept' name="department_id" class="sm:pl-5 sm:pr-10 mx-2 w-4/5 sm:mx-0 dark:bg-darker dark:text-white text-gray-600 bg-white border border-gray-300 rounded-md appearance-none hover:border-gray-400 focus:outline-none">
+                    <select  wire:model='dept' name="department_id" class="w-4/5 mx-2 text-gray-600 bg-white border border-gray-300 rounded-md appearance-none sm:pl-5 sm:pr-10 sm:mx-0 dark:bg-darker dark:text-white hover:border-gray-400 focus:outline-none">
 
                        @foreach( $depts as $ca)
                        <option  value="{{$ca->id}}">{{$ca->name}}</option>
@@ -57,8 +57,6 @@
                     <div>
                         <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم المنتج</label>
                         <input type="text"  value="{{ old('name') }}" name="name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        <label for="modal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم الموديل</label>
-                        <input type="text"  value="{{ old('modal') }}" name="modal" id="modal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 
                     </div>
                     <div>
@@ -78,7 +76,7 @@
 
 
 
-                    <div class="p-8 lg:w-1/3 text-center border rounded-md ">
+                    <div class="p-8 text-center border rounded-md lg:w-1/3 ">
                         <div  wire:ignore>
                             <x-label :value="__('صورة العرض الاساسية')" />
 
@@ -91,22 +89,12 @@
 
                     </div>
 
-
-
-
-                    <div wire:ignore class="px-2 lg:w-2/3 text-center">
-                        <x-label :value="__('صور اضافية للمنتج')" />
-
-                        <div id="imgs">
-
-                        </div>
-                        </div>
                 </div>
 
 
                 <div class="md:flex">
 
-                <div class="px-2 md:w-1/2 space-y-2">
+                <div class="px-2 space-y-2 md:w-1/2">
                     <x-label :value="__('وصف مختصر للمنتج')" />
                     <textarea cols="30" rows="10"
                     name="note" id="note" maxlength="191"
@@ -117,28 +105,6 @@
                      </textarea>
                 </div>
 
-
-                        <div x-data='{note_count:2}' class="flex flex-col md:w-1/2  space-x-4 space-y-2">
-
-                            <x-label :value="__('تفاصيل المنتج ')" />
-
-                            <template x-for="i in note_count" >
-                                <div class="flex space-x-2">
-                                <div class="w-1/4" ><input type="text"  name="n_key[]" id="" class="w-full p-2 font-bold rounded-md dark:text-light dark:bg-darker" ></div>
-                                <div class="w-3/4"><input type="text" name="n_value[]" id="" class="w-full p-2 rounded-md dark:text-light dark:bg-darker"></div>
-                                </div>
-
-
-                            </template>
-
-
-                            <div class="text-center">
-                            <x-button variant="info" @click="note_count++" class="mx-auto" type="button">
-                        اضافة تفاصيل اخرى
-                                <x-heroicon-o-plus class="w-4"/>
-                            </x-button>
-                            </div>
-                        </div>
 
 
 
@@ -173,20 +139,6 @@
                     //maskUrl:'{{ config("mysetting.logo") }}',
 
                     src:"{{ old('img') }}"
-        });
-          newimage=new ImagetoServer(
-                {
-                    url:"{{route('uploade')}}",
-                    id:"imgs",
-                    w:1000,
-                    //mx_w:1000,
-                    h:1000,
-                    with_w_h:true,
-                   // withmask:true,
-                    // maskUrl:'{{ config("mysetting.logo") }}',
-                      src:"@JSON(old('imgs'))",
-
-                     multi:true
         });
 
         ClassicEditor

@@ -46,7 +46,8 @@ class PaymentinfoObserver
             'data'=>$data
         ]);
     }
-    else if(($paymentinfo->state>0 || $paymentinfo->state==3) && $paymentinfo->rassed_actevity!=null){
+    else if(($paymentinfo->state>0 || $paymentinfo->state==3) &&
+    $paymentinfo->rassed_actevity!=null){
 
      $data=[
             "type"=>"veed_rassed",

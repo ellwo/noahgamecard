@@ -6,7 +6,7 @@
 
     <div class=" overflow-x-auto bg-transparent w-full flex items-center justify-center  font-sans ">
         <div class="w-full lg:w-5/6">
-            <div class="rounded-t bg-white dark:bg-dark-eval-2 mb-0 px-4 py-3 border-0">
+            <div class="rounded-t bg-white dark:bg-dark mb-0 px-4 py-3 border-0">
                 <div class="flex flex-wrap items-center">
                     <div class="relative w-full sm:px-4 max-w-full flex-grow sm:flex-1">
                         <h3 class="font-semibold relative mb-4 flex text-base text-blueGray-700">
@@ -24,7 +24,7 @@
                                 placeholder="{{ __('ابحث') }}" />
                         </x-input-with-icon-wrapper>
 
-                        <select  wire:model="deptid" class=" form-select flex-1 rounded-full m-2"
+                        <select  wire:model="deptid" class=" form-select flex-1 dark:bg-darker rounded-full m-2"
                             id="color1">
                             <option @if (isset($deptid) && $deptid == 'all') selected @endif value="all"> القسم /الجميع
                             </option>
@@ -34,15 +34,15 @@
                             @endforeach
                         </select>
                         <div class="w-full  mb-4 flex" dir="auto">
-                            <label class=" text-xs  dark:text-white text-black sm:px-4" for="bydate">ترتيب
+                            <label class=" text-xs  dark:text-white dark:bg-darker text-black sm:px-4" for="bydate">ترتيب
                                 التاريخ</label>
-                            <select class=" rounded-md border text-sm flex-1 " id="bydate" wire:model="dateorder">
+                            <select class=" rounded-md border text-sm flex-1 dark:bg-darker " id="bydate" wire:model="dateorder">
                                 <option value="no">بلا</option>
                                 <option value="ASC"> تصاعدي</option>
                                 <option value="DESC">تنازلي</option>
                             </select>
-                            <label class=" text-xs dark:text-white sm:px-4 text-black" for="byprice">ترتيب السعر</label>
-                            <select class=" rounded-md border text-sm flex-1 " wire:model="priceorder" id="byprice">
+                            <label class=" text-xs dark:text-white sm:px-4 dark:bg-darker text-black" for="byprice">ترتيب السعر</label>
+                            <select class=" rounded-md border text-sm flex-1 dark:bg-darker " wire:model="priceorder" id="byprice">
                                 <option value="no">بلا</option>
                                 <option value="ASC"> تصاعدي</option>
                                 <option value="DESC">تنازلي</option>
@@ -50,15 +50,12 @@
                         </div>
 
                     </div>
-                    <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                    <div class="relative w-full px-4 max-w-full  flex-1 text-right">
 
 
-                        <a href="{{route("products.create")}}" class="cursor-pointer text-white bg-blue-900 btn btn-sm p-1 mb-2  ">
+                        <a href="{{route("products.create")}}" class="cursor-pointer text-white w-1/2 mx-auto bg-blue-900 btn flex rounded-md  p-2 mb-2  ">
                             اضافة منتج
                             <x-bi-cart class="w-6 h-6 text-yellow-400" />
-
-
-
                         </a>
 
 
@@ -78,7 +75,7 @@
 
 
                 <div
-                    class="bg-white overflow-x-auto relative dark:bg-dark-eval-2 dark:text-white w-full shadow-md rounded my-6">
+                    class="bg-white overflow-x-auto relative dark:bg-darker dark:text-white w-full shadow-md rounded my-6">
 
                     <div class="w-full top-0 bottom-0 z-30 bg-white bg-opacity-50 absolute" wire:loading
                         wire:target="changeDept,changePro,subsearch,gotoPage,nextPage,perviousPage">
@@ -97,7 +94,7 @@
 
                                 <th class="py-3 px-2  text-left">المنتج
 
-                                    <select class=" form-select w-6/12 rounded-sm text-sm flex-1 " id="bydate"
+                                    <select class=" form-select w-6/12 dark:bg-darker rounded-sm text-sm flex-1 " id="bydate"
                                         wire:model="dateorder">
                                         <option value="no">بلا</option>
                                         <option value="ASC"> تصاعدي</option>
@@ -106,7 +103,7 @@
                                 </th>
                                 <th class="py-3 px-2  text-left"> عدد الطلبات</th>
                                 <th class="py-3  text-center">السعر
-                                    <select class=" rounded-sm text-sm flex-1 " wire:model="priceorder"
+                                    <select class=" rounded-sm text-sm flex-1  dark:bg-darker" wire:model="priceorder"
                                         id="byprice">
                                         <option value="no">بلا</option>
                                         <option value="ASC"> تصاعدي</option>
@@ -122,7 +119,7 @@
 
                             @foreach ($products as $product)
                                 <tr
-                                    class="border-b relative border-gray-200 hover:bg-gray-100 dark:hover:bg-dark-bg dark:hover:text-black">
+                                    class="border-b relative border-gray-200 hover:bg-gray-100 dark:hover:bg-darker dark:hover:text-black">
                                     <td class="py-3 px-2 mb-4 text-left">
                                         <div class="flex items-center">
                                             <div class="mr-2">
