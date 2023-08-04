@@ -54,7 +54,7 @@ public function department()
 
 
 
-        if(count($this->note)==0 || $this->note==null)
+        if(count($this->note??[])==0 || $this->note==null)
         return null;
         return json_encode($this->note);
 

@@ -12,7 +12,8 @@ class UserNotification extends Model
     protected $fillable=[
         'title','img','body',
         'user_id','actions','state',
-        'data'
+        'data',
+        'sented'
     ];
     protected $casts=[
         'data'=>'array'

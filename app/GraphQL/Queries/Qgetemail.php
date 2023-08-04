@@ -93,8 +93,13 @@ final class Qgetemail
                         "email"=>null,
                         "responinfo"=>
                                ["state"=>false,
-                                 "errors"=>json_encode(["user"=>["هذا المستخدم غير موجود"]]),
-                                    "message"=>" هذا المستخدم غير موجود كلمة السر او اسم المستخدم خطاء"]
+                                 "errors"=>json_encode(
+                                    ["user"=>["تأكد من اسم المستخدم وكلمة السر"],
+                                    "password"=>["كلمة السر غير صحيحه"],
+
+
+                                ]),
+                                    "message"=>" هذا المستخدم غير موجود كلمة السر  خطاء"]
                     ];
                 }
 
@@ -159,6 +164,6 @@ final class Qgetemail
     public function throttleKey()
     {
        // $thkey=$this->args["user"];
-        return Str::lower($this->args['user']).'|'.request()->ip();
+        return Str::lower($this->args['user']);
     }
 }

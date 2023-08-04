@@ -102,7 +102,7 @@ final class CreateNewPaymentOrder
             }
             return [
              "state"=>false,
-             "message"=>"ليس لديك الرصيد الكافي",
+             "message"=>"ليس لديك الرصيد الكافي  \n اجمالي المبلغ  : "." $ ".$total_price."\n رصيدك الحالي :"." $ ".$user->rassed->rassedy(),
              "paymentinfo"=>null,
              "errors"=>null
             ];

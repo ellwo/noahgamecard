@@ -183,6 +183,8 @@
     @endforeach
 </select>
             </h4>
+
+            <x-button class="inline-block w-32  text-center align-middle " variant='info' wire:click='refresh_page'> تحديث </x-button>
             <div class="w-full top-0 right-0 bottom-0 z-30 bg-white bg-opacity-50 fixed" wire:loading
                               >
                             <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>

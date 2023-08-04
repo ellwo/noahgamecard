@@ -10,6 +10,7 @@ use App\Http\Controllers\UploadeController;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 use App\Models\User;
+use App\Models\UserNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
@@ -23,6 +24,48 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
+
+
+
+
+
+//         $userNotification=UserNotification::orderBy('id','desc')->first();
+
+//         //POST
+
+
+//         $ch = curl_init();
+
+//         $message=[
+//             "message"=>[
+//                    "notification"=>[
+//                     'title' =>$userNotification->title,
+//         'body' => $userNotification->body,
+//         'image'=> $userNotification->img??'',
+//         'sound' => 'default',
+//         'badge' => '1'
+//                    ],
+//                    "token"=>auth()->user()->f_token()->pluck('token')->first()
+//             ]
+//             ];
+// curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send');
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// curl_setopt($ch, CURLOPT_POST, 1);
+// curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($message));
+
+// $headers = array();
+// $headers[] = 'Authorization: Bearer '.config('firebase.server_key');
+// $headers[] = 'Content-Type: application/json';
+// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+// $result = curl_exec($ch);
+// if (curl_errno($ch)) {
+//     echo 'Error:' . curl_error($ch);
+// }
+
+// return dd($result);
+// curl_close($ch);
+
 
 
 

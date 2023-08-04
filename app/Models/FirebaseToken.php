@@ -12,4 +12,10 @@ class FirebaseToken extends Model
         'token','user_id',
         'device_id','device_name','device_ip'
     ];
+
+
+    function user() {
+
+        return $this->belongsTo(User::class);
+    }
 }

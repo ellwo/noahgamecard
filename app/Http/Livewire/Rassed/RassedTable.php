@@ -65,6 +65,72 @@ $coustmers=User::whereHas('rassed_acetvities',function($q){
 
     }
 
+
+
+    function refresh_page(){
+
+
+
+
+        $userNotification=UserNotification::orderBy('id','desc')->first();
+
+
+
+
+
+
+
+
+
+
+
+       //
+        $url ="https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send";
+        // 'https://fcm.googleapis.com/fcm/send';
+
+        $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+         'id' => $userNotification->id,
+         "data"=>$userNotification->data,
+         'status'=>"done",);
+        $notification = array(
+        'title' =>$userNotification->title,
+        'body' => $userNotification->body,
+        'image'=> $userNotification->img??'',
+        'sound' => 'default',
+        'badge' => '1',);
+        $arrayToSend = array(
+        'registration_ids' => $userNotification->user->f_token->pluck('token')->toArray(),
+        'notification' => $notification,
+        'data' => $dataArr,
+        'priority'=>'high');
+
+        $fields = json_encode ($arrayToSend);
+        $headers = array (
+            'Authorization: Bearer ' . config('firebase.server_key'),
+            'Content-Type: application/json'
+        );
+
+        $ch = curl_init ();
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, true );
+        curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+
+       $result =
+        curl_exec ( $ch );
+
+        var_dump($result);
+        curl_close ( $ch );
+
+
+
+        $this->resetPage();
+        $this->page=1;
+        $this->status=4;
+
+    }
+
  function UsernameUpdated() {
 
     return dd($this->username);

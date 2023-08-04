@@ -38,6 +38,7 @@ class PaymentinfoObserver
                 "routeName"=>"paymentinforeceiptscreen",
                 "data"=>$paymentinfo,
             ],
+            "created_at"=>date('Y/m/d H:i:s')
         ];
         UserNotification::create([
             'title'=>($paymentinfo->state==2?'  نجاح تم تنفيذ الطلب ':' فشل الطلب   ')." رقم  ".$paymentinfo->id,
@@ -55,6 +56,7 @@ class PaymentinfoObserver
                 "routeName"=>"rassed",
                 "data"=>$paymentinfo,
             ],
+            "created_at"=>date('Y/m/d H:i:s')
           ];
         UserNotification::create([
             'title'=>(($paymentinfo->state==2||$paymentinfo->state==1)?'تم تأكيد تغذية حسابك':' عذرا فشلت عملية التغذية    ')." رقم العملية  ".$paymentinfo->id,
