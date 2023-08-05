@@ -14,6 +14,7 @@ use App\Models\UserNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Http;
 
 class UsersController extends Controller
 {
@@ -27,6 +28,92 @@ class UsersController extends Controller
 
 
 
+
+        // $onesignalAppId = '387916b2-306e-4d0b-bd19-cc8a4cbc08cf'; // Replace with your OneSignal App ID
+        // $onesignalRestApiKey = 'MDdkZjYxMDgtMmJlNi00MzJmLTgwMjktYzllOGVhNjhlYTU3'; // Replace with your OneSignal REST API Key
+
+        // $notificationData = [
+        //     'contents' => [
+        //         'en' => 'You have a new message!', // Customize the notification message here
+        //     ],
+        //     // 'include_player_ids' => [
+        //     //     'player_id_1', // Replace 'player_id_1', 'player_id_2', etc. with the actual player IDs of the users you want to target
+        //     //     'player_id_2',
+        //     //     'player_id_3',
+        //     //     'player_id_4',
+        //     // ],
+        //     'included_segments' => ['All'], // Send to all subscribers
+        // ];
+
+        // $response = Http::withHeaders([
+        //     'Authorization' => 'Basic ' . base64_encode($onesignalRestApiKey . ':'),
+        //     'Content-Type' => 'application/json',
+        // ])->post('https://onesignal.com/api/v1/notifications', $notificationData);
+
+        // if ($response->successful()) {
+        //     // Successfully sent the notification
+        //     // You can access the response data using $response->json()
+        // } else {
+        //     // Failed to send the notification
+        //     // You can access the response data using $response->json()
+        // }
+
+        // return dd($response);
+
+
+        // echo phpinfo();
+
+        // echo '<br/>';
+        // echo '<br/>';
+        // echo '<br/>------------';
+        // echo '<br/>';
+        // return 'hi';
+
+                $userNotification=UserNotification::orderBy('id','desc')->first();
+
+
+         $notificationData = [
+            'title' => $userNotification->title,
+            'body' => $userNotification->body,
+            'data'=>[
+                'data'=>$userNotification->data
+            ]
+        ];
+
+        // Get the FCM registration tokens of your users
+        $registrationTokens =$userNotification->user->f_token->pluck('token')->toArray();
+
+        // [
+        //     'token_user_1',
+        //     'token_user_2',
+        //     // Add more tokens here for other users
+        // ];
+
+        // Prepare the HTTP request data
+        $data = [
+            'message' => [
+                'notification' => $notificationData,
+                'token' => $registrationTokens,
+            ],
+        ];
+
+        // Send the HTTP POST request to the FCM API
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer aced42e4518a051aaefb723bb120c0aa79926f07kk',
+            'Content-Type' => 'application/json',
+        ])->post('https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send', $data);
+
+        // Handle the response or any errors if needed
+        if ($response->successful()) {
+
+            // Successfully sent the notification
+            // You can access the response data using $response->json()
+        } else {
+            // Failed to send the notification
+            // You can access the response data using $response->json()
+        }
+
+        return dd($response);
 
 
 //         $userNotification=UserNotification::orderBy('id','desc')->first();
