@@ -101,7 +101,7 @@ class UsersController extends Controller
 
         // Send the HTTP POST request to the FCM API
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer aced42e4518a051aaefb723bb120c0aa79926f07',
+            'Authorization' => 'Bearer '.config('firebase.server_key'),
             'Content-Type' => 'application/json',
         ])->post('https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send', $data);
 
