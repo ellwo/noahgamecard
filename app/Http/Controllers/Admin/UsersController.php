@@ -77,7 +77,9 @@ class UsersController extends Controller
         $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
          'id' => $userNotification->id,
          "data"=>$userNotification->data,
-         'status'=>"done",);
+         'status'=>"done",
+        'created_at'=>date('Y/m/d H:i:s')
+        );
         $notification = array(
         'title' =>$userNotification->title,
         'body' => $userNotification->body,
