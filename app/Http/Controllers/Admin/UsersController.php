@@ -85,7 +85,7 @@ class UsersController extends Controller
         'sound' => 'default',
         'badge' => '1',);
         $arrayToSend = array(
-        'registration_ids' => $userNotification->user->f_token->pluck('token')->toArray(),
+        'registration_ids' => ['eh26hRwURgGz1k4YogpspB:APA91bE5gZmqglFelCeXQdyxqqICE1vQEqAfPMdMJM7SFlWGhXkWhrYnFH9or08dwbUxxJy-mlt9Lx9nBHWsAcv6QxlfDvKkaogy6xtXfIyRFC-kLXN6le2zv6wONtCT32-uX3rRHfvC'],
         'notification' => $notification,
         'data' => $dataArr,
         'priority'=>'high');
