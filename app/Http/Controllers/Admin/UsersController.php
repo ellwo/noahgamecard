@@ -76,7 +76,9 @@ class UsersController extends Controller
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'data'=>[
-                'data'=>$userNotification->data
+                'data'=>$userNotification->data,
+                'created_at'=>date('Y/m/d H:i:s'),
+                "id"=>$userNotification->id
             ]
         ];
 
@@ -99,7 +101,7 @@ class UsersController extends Controller
 
         // Send the HTTP POST request to the FCM API
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer aced42e4518a051aaefb723bb120c0aa79926f07kk',
+            'Authorization' => 'Bearer aced42e4518a051aaefb723bb120c0aa79926f07',
             'Content-Type' => 'application/json',
         ])->post('https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send', $data);
 
