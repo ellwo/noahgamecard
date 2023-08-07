@@ -60,7 +60,7 @@ final class GetActivites
                 'activites'=>$activites['activites'],
                 'orginal_total'=>$data_pays->sum('orginal_total'),
                 'total_price'=>$data_pays->sum('total_price'),
-                'veed_total'=>0,
+                'veed_total'=>$veed,
             ];
 
         }

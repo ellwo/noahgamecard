@@ -11,7 +11,8 @@ class Department extends Model
 
     protected $fillable=[
         'name','note','type',
-        'img'
+        'img',
+        'reqs'
     ];
     public function products()
     {

@@ -8,7 +8,7 @@ type Query {
    GetActivites(page:Int lastdate:String):ActivitesGroupByDatePage @guard
    qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
    poffers:[Product]
-   userpayorders(page:Int):OrderGruopByRespons @guard
+   userpayorders(page:Int toDate:String fromDate:String):OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
    coins:[Coin]@all
    GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard

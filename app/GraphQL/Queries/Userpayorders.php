@@ -16,16 +16,31 @@ final class Userpayorders
 
         $user=User::find(auth()->user()->id);
         if($user!=null){
-        $orders=$user->orders_gr($args["page"]??1);
+
+
+            $fromDate= date('Y-m-d H:i:s',strtotime($args['fromDate']));
+            //  strtotime($args['fromDate']??$user->created_at);
+            $toDate=date('Y-m-d H:i:s',strtotime($args['toDate']));
+
+        $_GET["page"] = $args["page"]??1;
+        \request()->request->set("page", 1);
+
+        $porders =  $user->paymentinfos()->has('orders')->with('orders')
+        ->whereBetween('created_at',[$fromDate,$toDate])->orderBy('created_at', 'desc')->paginate(20);
+
             return [
 
             "responInfo"=>[
                 "state"=>true,
             "errors"=>null,
-            "message"=>"تم بنجاح"
+            "message"=>"تم بنجاح ".$args["fromDate"]."||".$toDate." "
             ],
-            "orders_gr"=>$orders['orders_gr'],
-            'paginatorInfo'=>$orders['paginatorInfo']
+            'orders_gr' => $porders,
+            'paginatorInfo' => [
+                'total' => $porders->total(),
+                'hasMorePages' => $porders->hasMorePages(),
+                "currentPage"=>$args["page"]??1
+            ]
 
         ];
         }
@@ -36,7 +51,8 @@ final class Userpayorders
                 "errors"=>"خطاء",
                 "message"=>"غير مسجل دخول"
                 ],
-                "orders_gr"=>null
+                "orders_gr"=>null,
+                "paginatorInfo"=>null
 
             ];
         }
