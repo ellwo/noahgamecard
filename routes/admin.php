@@ -15,7 +15,7 @@ use App\Models\Paymentinfo;
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('admin')->middleware(['role:مدخل بيانات','auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
 
 
     Route::get('/products-table',ProductTable::class)->name('products-table');

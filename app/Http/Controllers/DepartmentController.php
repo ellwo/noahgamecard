@@ -11,6 +11,12 @@ class DepartmentController extends Controller
     //
 
 
+    public function __construct()
+{
+    $this->middleware(['permission:ادارة الاقسام']);
+}
+
+
     public function index(Request $request)
     {
         return view('admin.department.show');

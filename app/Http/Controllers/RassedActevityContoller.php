@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class RassedActevityContoller extends Controller
 {
+
+
+
+    public function __construct()
+{
+    $this->middleware(['permission:ادارة التغذية']);
+}
     /**
      * Display a listing of the resource.
      *

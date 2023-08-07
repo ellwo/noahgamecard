@@ -14,6 +14,12 @@ class ProductController extends Controller
     //
 
 
+
+    public function __construct()
+{
+    $this->middleware(['permission:ادارة المنتجات']);
+}
+
     public function index()
     {
         # code...

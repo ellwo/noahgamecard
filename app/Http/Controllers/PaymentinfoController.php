@@ -10,6 +10,11 @@ class PaymentinfoController extends Controller
     //
 
 
+
+    public function __construct()
+{
+    $this->middleware(['permission:ادارة الطلبات']);
+}
     public function index(Request $request){
 
         return view('admin.orders.index');

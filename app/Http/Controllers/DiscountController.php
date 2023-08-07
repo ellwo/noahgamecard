@@ -10,6 +10,12 @@ class DiscountController extends Controller
 {
     //
 
+
+
+    public function __construct()
+{
+    $this->middleware(['permission:ادارة العمولات']);
+}
     /**
      * Display a listing of the resource.
      *

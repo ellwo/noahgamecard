@@ -56,6 +56,7 @@ final class ChangeFToken
                     'token'=>$args["f_token"],
                     'device_name'=>$args["device_name"],
                     'device_ip'=>request()->ip(),
+                    "user_id"=>null
                 ]
             );
 
