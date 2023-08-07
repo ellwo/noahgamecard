@@ -29,7 +29,8 @@ class UserNotificationObserver
         $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
          'id' => $userNotification->id,
          "data"=>$userNotification->data,
-         'status'=>"done",);
+         'status'=>"done",
+         'created_at'=>date('Y/m/d H:i:s'));
         $notification = array(
         'title' =>$userNotification->title,
         'body' => $userNotification->body,
@@ -57,8 +58,6 @@ class UserNotificationObserver
 
         $result =
          curl_exec ( $ch );
-
-         var_dump($result);
         curl_close ( $ch );
 
     //     try{
