@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Http;
-
+use Illuminate\Validation\Rules;
 class UsersController extends Controller
 {
     /**
@@ -69,92 +69,92 @@ class UsersController extends Controller
         // echo '<br/>';
         // return 'hi';
 
-                $userNotification=UserNotification::orderBy('id','desc')->first();
+        //         $userNotification=UserNotification::orderBy('id','desc')->first();
 
 
-        $url = 'https://fcm.googleapis.com/fcm/send';
+        // $url = 'https://fcm.googleapis.com/fcm/send';
 
-        $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-         'id' => $userNotification->id,
-         "data"=>$userNotification->data,
-         'status'=>"done",
-        'created_at'=>date('Y/m/d H:i:s')
-        );
-        $notification = array(
-        'title' =>$userNotification->title,
-        'body' => $userNotification->body,
-        'image'=> $userNotification->img??'',
-        'sound' => 'default',
-        'badge' => '1',);
-        $arrayToSend = array(
-        'registration_ids' => ['eh26hRwURgGz1k4YogpspB:APA91bE5gZmqglFelCeXQdyxqqICE1vQEqAfPMdMJM7SFlWGhXkWhrYnFH9or08dwbUxxJy-mlt9Lx9nBHWsAcv6QxlfDvKkaogy6xtXfIyRFC-kLXN6le2zv6wONtCT32-uX3rRHfvC'],
-        'notification' => $notification,
-        'data' => $dataArr,
-        'priority'=>'high');
+        // $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+        //  'id' => $userNotification->id,
+        //  "data"=>$userNotification->data,
+        //  'status'=>"done",
+        // 'created_at'=>date('Y/m/d H:i:s')
+        // );
+        // $notification = array(
+        // 'title' =>$userNotification->title,
+        // 'body' => $userNotification->body,
+        // 'image'=> $userNotification->img??'',
+        // 'sound' => 'default',
+        // 'badge' => '1',);
+        // $arrayToSend = array(
+        // 'registration_ids' => ['eh26hRwURgGz1k4YogpspB:APA91bE5gZmqglFelCeXQdyxqqICE1vQEqAfPMdMJM7SFlWGhXkWhrYnFH9or08dwbUxxJy-mlt9Lx9nBHWsAcv6QxlfDvKkaogy6xtXfIyRFC-kLXN6le2zv6wONtCT32-uX3rRHfvC'],
+        // 'notification' => $notification,
+        // 'data' => $dataArr,
+        // 'priority'=>'high');
 
-        $fields = json_encode ($arrayToSend);
-        $headers = array (
-            'Authorization: key=' . config('firebase.server_key'),
-            'Content-Type: application/json'
-        );
+        // $fields = json_encode ($arrayToSend);
+        // $headers = array (
+        //     'Authorization: key=' . config('firebase.server_key'),
+        //     'Content-Type: application/json'
+        // );
 
-        $ch = curl_init ();
-        curl_setopt ( $ch, CURLOPT_URL, $url );
-        curl_setopt ( $ch, CURLOPT_POST, true );
-        curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
-        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+        // $ch = curl_init ();
+        // curl_setopt ( $ch, CURLOPT_URL, $url );
+        // curl_setopt ( $ch, CURLOPT_POST, true );
+        // curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+        // curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        // curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
 
-        $result =
-         curl_exec ( $ch );
+        // $result =
+        //  curl_exec ( $ch );
 
-        return var_dump($result);
-        curl_close ( $ch );
+        // return var_dump($result);
+        // curl_close ( $ch );
 
-         $notificationData = [
-            'title' => $userNotification->title,
-            'body' => $userNotification->body,
-            'data'=>[
-                'data'=>$userNotification->data,
-                'created_at'=>date('Y/m/d H:i:s'),
-                "id"=>$userNotification->id
-            ]
-        ];
-
-        // Get the FCM registration tokens of your users
-        $registrationTokens =$userNotification->user->f_token->pluck('token')->toArray();
-
-        // [
-        //     'token_user_1',
-        //     'token_user_2',
-        //     // Add more tokens here for other users
+        //  $notificationData = [
+        //     'title' => $userNotification->title,
+        //     'body' => $userNotification->body,
+        //     'data'=>[
+        //         'data'=>$userNotification->data,
+        //         'created_at'=>date('Y/m/d H:i:s'),
+        //         "id"=>$userNotification->id
+        //     ]
         // ];
 
-        // Prepare the HTTP request data
-        $data = [
-            'message' => [
-                'notification' => $notificationData,
-                'token' => $registrationTokens,
-            ],
-        ];
+        // // Get the FCM registration tokens of your users
+        // $registrationTokens =$userNotification->user->f_token->pluck('token')->toArray();
 
-        // Send the HTTP POST request to the FCM API
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer '.config('firebase.server_key'),
-            'Content-Type' => 'application/json',
-        ])->post('https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send', $data);
+        // // [
+        // //     'token_user_1',
+        // //     'token_user_2',
+        // //     // Add more tokens here for other users
+        // // ];
 
-        // Handle the response or any errors if needed
-        if ($response->successful()) {
+        // // Prepare the HTTP request data
+        // $data = [
+        //     'message' => [
+        //         'notification' => $notificationData,
+        //         'token' => $registrationTokens,
+        //     ],
+        // ];
 
-            // Successfully sent the notification
-            // You can access the response data using $response->json()
-        } else {
-            // Failed to send the notification
-            // You can access the response data using $response->json()
-        }
+        // // Send the HTTP POST request to the FCM API
+        // $response = Http::withHeaders([
+        //     'Authorization' => 'Bearer '.config('firebase.server_key'),
+        //     'Content-Type' => 'application/json',
+        // ])->post('https://fcm.googleapis.com/v1/projects/noohcardgame/messages:send', $data);
 
-        return dd($response);
+        // // Handle the response or any errors if needed
+        // if ($response->successful()) {
+
+        //     // Successfully sent the notification
+        //     // You can access the response data using $response->json()
+        // } else {
+        //     // Failed to send the notification
+        //     // You can access the response data using $response->json()
+        // }
+
+        // return dd($response);
 
 
 //         $userNotification=UserNotification::orderBy('id','desc')->first();
@@ -252,20 +252,54 @@ class UsersController extends Controller
         }
         $roles = Role::get()->pluck('name', 'name');
 
-        return view('admin.users.create', compact('roles'));
+        $permissions = Permission::get()->pluck('name', 'name');
+
+        return view('admin.users.create', compact('roles','permissions'));
     }
 
     /**
      * Store a newly created User in storage.
      *
-     * @param  \App\Http\Requests\StoreUsersRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUsersRequest $request)
+    public function store(Request $request)
     {
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
+
+
+
+
+
+
+
+        $this->validate($request,[
+        'name' => 'required',
+        'username' =>['min:4','regex:/^[a-z\d_.]{2,20}$/i','required','string', 'max:191', 'unique:users'],
+        'phone' => ['string','min:9', 'max:9', 'unique:users'],
+        'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+        'password' => ['required',
+        Rules\Password::defaults()->
+        mixedCase()->
+        min(8)->
+        letters()->
+        numbers()->symbols()],
+    ],[
+        'username.regex'=>'ادخل اسم مستخدم صحيح',
+        'username.unique'=>'اسم المستخدم مستخدم بالفعل',
+        'email.unique'=>'عذرا هذا البريد مستخدم بالفعل',
+        'password.mixedCase'=>'يجب ان تحتوي كلمة السر على حرف واحد على الاقل Aاو s',
+        'password.*'=>' يجب ان تحتوي كلمة السر على حرف واحد على الاقل ورقم ورمز مثل ($%^&@)',
+        'password.numbers'=>' يجب ان تحتوي كلمة السر على حرف واحد على الاقل ورقم ورمز مثل ($%^&@)',
+        'password.symbols'=>' يجب ان تحتوي كلمة السر على حرف واحد على الاقل ورقم ورمز مثل ($%^&@)',
+    ]);
+
+
+
+
+
+
         $user = User::create($request->all());
         $roles = $request->input('roles') ? $request->input('roles') : [];
         $user->assignRole($roles);
@@ -287,13 +321,14 @@ class UsersController extends Controller
         }
         $roles = Role::get()->pluck('name', 'name');
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        $permissions = Permission::get()->pluck('name', 'name');
+
+        return view('admin.users.edit', compact('user', 'roles','permissions'));
     }
 
     /**
      * Update User in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsersRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -331,9 +366,10 @@ class UsersController extends Controller
        ]);
 
 
-        $roles = $request->input('roles') ? $request->input('roles') : [];
-        $user->syncRoles($roles);
-
+       $roles = $request->input('roles') ? $request->input('roles') : [];
+       $user->syncRoles($roles);
+       $permissions = $request->input('permissions') ? $request->input('permissions') : [];
+       $user->syncPermissions($permissions);
         return redirect()->route('admin.users.index');
     }
 

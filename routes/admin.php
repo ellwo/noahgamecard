@@ -15,7 +15,7 @@ use App\Models\Paymentinfo;
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('admin')->middleware(['role:admin','auth'])->group(function () {
+Route::prefix('admin')->middleware(['role:مدخل بيانات','auth'])->group(function () {
 
 
     Route::get('/products-table',ProductTable::class)->name('products-table');
@@ -30,8 +30,6 @@ Route::prefix('admin')->middleware(['role:admin','auth'])->group(function () {
     Route::get('/contact',[ContactController::class,'index'])->name('admin.contacts');
     Route::get('/contact/{contact}',[ContactController::class,'replay'])->name('admin.contacts.replay');
     Route::post('/contact.update/{contact}',[ContactController::class,'update'])->name('admin.contacts.update');
-
-
 
 
     Route::get('/departments.show',\App\Http\Livewire\Admin\DepartmentTable::class)->name('departments.show');

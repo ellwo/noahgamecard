@@ -257,9 +257,10 @@ document.addEventListener("alpine:init", () => {
 });
 
 
+Alpine.plugin(collapse);
+
 window.Alpine = Alpine;
 // All javascript code in this project for now is just for demo DON'T RELY ON IT
 
-Alpine.plugin(collapse);
 
 Alpine.start();

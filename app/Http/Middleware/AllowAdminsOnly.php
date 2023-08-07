@@ -19,7 +19,7 @@ class AllowAdminsOnly
     {
 
         if(Auth::check()){
-        if (! Gate::allows('users_manage')) {
+        if ( Gate::allows('NOT_ADMIN')) {
 
             $email=auth()->user()->email;
             Auth::logout();
