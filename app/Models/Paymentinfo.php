@@ -61,7 +61,7 @@ class Paymentinfo extends Model
 
     public function getUpdatedAtAttribute($value){
 
-        if(request()->path()=="graphql"){
+        if(request()->getBasePath()=="graphql"){
         return $value;
         }
 
@@ -111,7 +111,7 @@ class Paymentinfo extends Model
     public function getCreatedAtAttribute($value){
 
 
-        if(request()->path()=="graphql"){
+        if(request()->getBasePath()=="graphql"){
             return $value;
             }
         $d=new Carbon($value,"Asia/Aden");
