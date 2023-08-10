@@ -117,7 +117,12 @@ class UserNotification extends Model
    }
 
    public function getDataAttribute($value){
+
+
+    if(count($value??[])>0)
     return json_encode($value);
+    else
+    return null;
    }
 
    public function user(){
