@@ -72,38 +72,38 @@ class Paymentinfo extends Model
         $days=now()->diffInDays($d);
 
 
-        $day=$d->format('Y-M-d');
+        $day=$d->format('Y-M-d H:i:s');
 
-        switch($days){
-            case 0 : $day="اليوم منذ ";
-            $hours=now()->diffInHours($d);
-            $day.=$hours."ساعة";
-            break;
+        // switch($days){
+        //     case 0 : $day="اليوم منذ ";
+        //     $hours=now()->diffInHours($d);
+        //     $day.=$hours."ساعة";
+        //     break;
 
-            case 1 : $day="الامس";
+        //     case 1 : $day="الامس";
 
-            $day=$d->format(' h:i A  ').$day;
+        //     $day=$d->format(' h:i A  ').$day;
 
-            break;
-            case 2 : $day="منذ يومين";
+        //     break;
+        //     case 2 : $day="منذ يومين";
 
-            $day=$d->format(' h:i A  ').$day;
+        //     $day=$d->format(' h:i A  ').$day;
 
-            break;
-            case 7 :$day="منذ اسبوع";
+        //     break;
+        //     case 7 :$day="منذ اسبوع";
 
-            $day=$d->format(' h:i A  ').$day;
-            break;
-            case 10 :$day="منذ عشرة ايام ";
+        //     $day=$d->format(' h:i A  ').$day;
+        //     break;
+        //     case 10 :$day="منذ عشرة ايام ";
 
-            $day=$d->format(' h:i A  ').$day;
-            break;
-            case 15 :$day="منذ نصف شهر";
+        //     $day=$d->format(' h:i A  ').$day;
+        //     break;
+        //     case 15 :$day="منذ نصف شهر";
 
-        $day=$d->format(' h:i A  ').$day;
+        // $day=$d->format(' h:i A  ').$day;
 
-            break;
-        }
+        //     break;
+        // }
 
         return $day;
 
@@ -118,38 +118,36 @@ class Paymentinfo extends Model
 
         $days=now()->diffInDays($d);
 
-        $day=$d->format('Y-M-d');
+        $day=$d->format('Y-M-d H:i:s');
 
-        switch($days){
-            case 0 : $day="اليوم منذ ";
-            $hours=now()->diffInHours($d);
-            $day.=$hours."ساعة";
-            break;
+     //   switch($days){
+            // case 0 : $day="اليوم منذ ";
+            // $hours=now()->diffInHours($d);
+            // $day.=$hours."ساعة";
+            // break;
 
-            case 1 : $day="الامس";
+            // case 1 : $day="الامس";
 
-            $day=$d->format(' h:i A  ').$day;
+            // $day=$d->format(' h:i A  ').$day;
 
-            break;
-            case 2 : $day="منذ يومين";
+            // break;
+            // case 2 : $day="منذ يومين";
 
-            $day=$d->format(' h:i A  ').$day;
+            // $day=$d->format(' h:i A  ').$day;
 
-            break;
-            case 7 :$day="منذ اسبوع";
+            // break;
+            // case 7 :$day="منذ اسبوع";
 
-            $day=$d->format(' h:i A  ').$day;
-            break;
-            case 10 :$day="منذ عشرة ايام ";
+            // $day=$d->format(' h:i A  ').$day;
+            // break;
+            // case 10 :$day="منذ عشرة ايام ";
 
-            $day=$d->format(' h:i A  ').$day;
-            break;
-            case 15 :$day="منذ نصف شهر";
+            // $day=$d->format(' h:i A  ').$day;
+            // break;
+            // case 15 :$day="منذ نصف شهر";
 
-        $day=$d->format(' h:i A  ').$day;
-
-            break;
-        }
+//        }
+//        $day=$d->format(' h:i A  ').$day;
 
         return $day."  path/".request()->getBasePath();
 
