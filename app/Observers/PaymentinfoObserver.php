@@ -64,6 +64,15 @@ class PaymentinfoObserver
             'user_id'=>$paymentinfo->user_id,
             'data'=>$data
         ]);
+
+
+        if($paymentinfo->state==3 && $paymentinfo->rassed_actevity!=null){
+
+            $paymentinfo->rassed_actevity->update([
+                'amount'=>0
+            ]);
+
+        }
     }
     }
 

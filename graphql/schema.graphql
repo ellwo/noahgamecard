@@ -256,7 +256,7 @@ type UserNotification{
     title:String
     body:String
     img:String
-    created_at:String
+    created_at:DateTime
     actions:String
     data:String
     state:Int
@@ -282,13 +282,28 @@ type Product {
 type Department{
     id:ID!
     name:String!
-    typegender:Int
-    type:Int
     note:String
     products:[Product] @hasMany
     parts:[Part]
     img:String
+    reqsQL:[ProductReqs] @method(name: "reqsQL")
+    reqs:String
 
+}
+
+type ProductReqs{
+    lable:String
+    isreq:Boolean
+}
+
+type OrderReqs{
+    lable:String
+    value:String
+
+}
+input ProductReqsInput{
+    lable:String
+    value:String
 }
 
 type Role{
@@ -338,6 +353,7 @@ type Order{
     g_id:String
     email:String
     password:String
+    reqsQL:[OrderReqs] @method(name: "reqsQL")
     processe_token:Processetoken @method (name : "processe_token_one")
      created_at: DateTime
     "When the account was last updated."
@@ -352,6 +368,7 @@ input OrderInput{
     password:String
     product_id:Int
     paymentmethod_id:Int
+    reqs:[ProductReqsInput]
 }
 
 input PayOrdersCartInput{
@@ -396,6 +413,7 @@ type Paymentinfo{
     state:Int
     accepted:Boolean
     user:User @belongsTo
+    note:String
     orders:[Order] @belongsToMany
     mount_pay:Float
     total_price:Float

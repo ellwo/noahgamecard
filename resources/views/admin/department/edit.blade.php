@@ -23,6 +23,59 @@
 
             @enderror
             </div>
+
+
+            <div x-data="{reqcount:0}" class="flex flex-col">
+
+                <x-label :value="__('الحقول المطلوبة عند الشحن')" />
+
+
+                @foreach ( $dept->reqs??[] as $req)
+
+                <div class="lg:flex  p-4 justify-between items-center border rounded-md space-x-2">
+
+                    <x-label :value="__('اسم الحقل')" />
+                    <x-input name="reqname[]" required class=" p-2
+            border text-right " placeholder="اسم الحقل" value="{{ $req['lable'] }}"/>
+            <x-label for="req1" :value="__('مطلوب الحقل (ضروري؟)')" />
+           <input type="checkbox"
+           @if($req['isreq']!=false)
+           checked
+           @endif
+
+           name="reqisreq[]" id="req1">
+           <x-button :bill="true" type="button"  onclick="$(this).parent().remove()" variant="danger">
+            حذف
+           </x-button>
+
+        </div>
+                @endforeach
+
+
+        <template x-for="i in reqcount" >
+
+            <div class="lg:flex  p-4 justify-between items-center border rounded-md space-x-2">
+
+                <x-label :value="__('اسم الحقل')" />
+                <x-input name="reqname[]" required class=" p-2
+        border text-right " placeholder="اسم الحقل" value=""/>
+        <x-label  :value="__('مطلوب الحقل (ضروري؟)')" />
+       <input type="checkbox" name="reqisreq[]" >
+
+       <x-button type="button" @click="reqcount--" onclick="$(this).parent().remove()" variant="danger">
+        حذف
+       </x-button>
+
+    </div>
+
+        </template>
+        <div class="text-center">
+            <x-button variant="info" @click="reqcount++" class="mx-auto" type="button">
+        اضافة حقل جديد
+                <x-heroicon-o-plus class="w-4"/>
+            </x-button>
+            </div>
+            </div>
             <div>
                 <label class="uppercase  md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('ملاحظات')}}</label>
                 <textarea

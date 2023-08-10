@@ -32,6 +32,8 @@ class PaymentinfoController extends Controller
         $paymentinfo->note=$request["note"]??"تم تنفيذ الطلب ";
         $paymentinfo->save();
 
+
+
         return redirect()->route('paymentinfo')->with('status','تم الحفظ بنجاح');
 
 

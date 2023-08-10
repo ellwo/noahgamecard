@@ -17,9 +17,32 @@ class Order extends Model
         'g_id',
         'email',
         'password',
-        'state'
+        'state',
+        'reqs'
     ];
 
+    protected $casts =[
+        'reqs'=>'array',
+    ];
+
+
+
+    function reqsQL(){
+
+        $r=[];
+        foreach($this->reqs??[] as $req){
+
+            $r[]=[
+                'lable'=>$req['lable'],
+                "value"=>$req['value']
+            ];
+
+        }
+
+
+        return $r;
+
+    }
 
     public function product(){
 

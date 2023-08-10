@@ -32,6 +32,20 @@ class DepartmentController extends Controller
 
     public function store(Request $request){
 
+
+
+
+
+
+
+        $reqs=[];
+
+
+
+
+
+
+
         if($request->isMethod('POST')){
 
 
@@ -40,10 +54,26 @@ class DepartmentController extends Controller
                 'imgurl'=>'required'
             ]);
 
+
+
+        if(isset($request["reqname"])){
+
+            $i=0;
+            foreach($request["reqname"]??[] as $name){
+                $reqs[]=[
+                    "lable"=>$name,
+                    "type"=>"text",
+                    "isreq"=>$request["reqisreq"][$i]??false
+                ];
+                                $i++;
+            }
+
+        }
                 $dept=Department::create([
                    'name'=>$request['name'],
                     'note'=>$request['note'],
-                    'img'=>$request['imgurl']
+                    'img'=>$request['imgurl'],
+                    "reqs"=>$reqs
 
                 ]);
 
@@ -63,6 +93,9 @@ class DepartmentController extends Controller
 
     public function edit(Department $dept)
     {
+
+        //$req=json_decode($dept->reqs);
+      //  return dd($req[0]->lable);
         return view('admin.department.edit',['dept'=>$dept]);
         # code...
     }
@@ -74,10 +107,26 @@ class DepartmentController extends Controller
                 'name'=>'required',
                 'imgurl'=>'required'
             ]);
+
+            $reqs=[];
+        if(isset($request["reqname"])){
+
+            $i=0;
+            foreach($request["reqname"]??[] as $name){
+                $reqs[]=[
+                    "lable"=>$name,
+                    "type"=>"text",
+                    "isreq"=>$request["reqisreq"][$i]??false
+                ];
+                                $i++;
+            }
+
+        }
                     $dept->update([
                         'name' => $request['name'],
                         'note' => $request['note'],
-                        'img' => $request['imgurl']
+                        'img' => $request['imgurl'],
+                        'reqs'=>$reqs
                     ]);
                     Cache::flush();
                     session()->flash('statt', 'ok');

@@ -62,7 +62,7 @@ class UserNotification extends Model
         return $day;
 
       }
-    public function getCreatedAtAttribute($value){
+    public function getCreatedopAtAttribute($value){
 
         $d=new Carbon($value,"Asia/Aden");
 
@@ -73,6 +73,16 @@ class UserNotification extends Model
         switch($days){
             case 0 : $day="اليوم منذ ";
             $hours=now()->diffInHours($d);
+            if($hours==0)
+            {
+                $munit=now()->diffInHours($d);
+
+                $day.=$munit."دقيقة";
+
+            }
+
+
+            else
             $day.=$hours."ساعة";
             break;
 

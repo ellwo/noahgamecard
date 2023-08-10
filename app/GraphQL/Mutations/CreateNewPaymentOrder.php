@@ -87,7 +87,8 @@ final class CreateNewPaymentOrder
                 "g_id"=>$v["g_id"],
                 "email"=>$v["email"]??"",
                 "password"=>$v['password']??"",
-                "user_id"=>$user->id
+                "user_id"=>$user->id,
+                'reqs'=>$v['reqs']
             ]);
             $orginal_price+=($order->qun*$order->product->price);
             $total_price+=$order->total_price();
@@ -180,7 +181,8 @@ final class CreateNewPaymentOrder
                 "g_id"=>$v["g_id"],
                 "email"=>$v["email"]??"",
                 "password"=>$v['password']??"",
-                "user_id"=>$user->id
+                "user_id"=>$user->id,
+                'reqs'=>$v['reqs']
             ]);
             $orginal_price+=($order->qun*$order->product->price);
             $total_price+=$order->total_price();

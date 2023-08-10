@@ -14,10 +14,38 @@ class Department extends Model
         'img',
         'reqs'
     ];
+    protected $casts =[
+        'reqs'=>'array',
+    ];
     public function products()
     {
         return $this->hasMany(Product::class);
         # code...
+    }
+
+
+
+
+    function reqsQL() {
+
+
+
+
+
+
+            $r=[];
+            foreach($this->reqs??[] as $req){
+
+                $r[]=[
+                    'lable'=>$req['lable'],
+                    "isreq"=>$req['isreq']!=false ? true: false
+                ];
+
+            }
+
+
+            return $r;
+
     }
 
 }
