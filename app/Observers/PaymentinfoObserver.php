@@ -60,7 +60,7 @@ class PaymentinfoObserver
           ];
         UserNotification::create([
             'title'=>(($paymentinfo->state==2||$paymentinfo->state==1)?'تم تأكيد تغذية حسابك':' عذرا فشلت عملية التغذية    ')." رقم العملية  ".$paymentinfo->id,
-            'body'=>($paymentinfo->state==2||$paymentinfo->state==1)?"تم تغذية رصيدك بنجاح يرجى مراجعة حسابك  مبلغ \n".$paymentinfo->rassed_actevity->amount :' عذرا فشلت عملية التغذية وذلك بسبب  '.$paymentinfo->note,
+            'body'=>($paymentinfo->state==2||$paymentinfo->state==1)?"تم تغذية رصيدك بنجاح يرجى مراجعة حسابك  مبلغ \n".$paymentinfo->orginal_total :' عذرا فشلت عملية التغذية وذلك بسبب  '.$paymentinfo->note,
             'user_id'=>$paymentinfo->user_id,
             'data'=>$data
         ]);
