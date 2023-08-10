@@ -87,14 +87,15 @@ $coustmers=User::whereHas('rassed_acetvities',function($q){
 
  function v_accepte()  {
     $payment_info=Paymentinfo::find($this->paymentInfo);
-    $payment_info->state=1;
-   $rassed= $payment_info->rassed_actevity->id;
-   $payment_info->total_price=$this->amount;
-   $payment_info->orginal_total=$this->amount;
+    $rassed= $payment_info->rassed_actevity->id;
+    $rassed_a=RassedActevity::find($rassed);
+    $rassed_a->amount=$this->amount;
+    $rassed_a->save();
 
-   $rassed_a=RassedActevity::find($rassed);
-   $rassed_a->amount=$this->amount;
-   $rassed_a->save();
+
+    $payment_info->total_price=$this->amount;
+    $payment_info->orginal_total=$this->amount;
+    $payment_info->state=2;
    $payment_info->save();
 
    $this->amount=0;
