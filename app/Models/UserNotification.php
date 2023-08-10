@@ -119,7 +119,7 @@ class UserNotification extends Model
    public function getDataAttribute($value){
 
 
-    if(count(json_decode($value)??[])>0)
+    if($value!=null)
     return json_encode($value);
     else
     return null;
