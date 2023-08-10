@@ -27,7 +27,7 @@
 
                 <div class="flex flex-col p-2">
                     <x-label value="ادخل ملاحظات الرفض " />
-                    <textarea name="note" class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name=""
+                    <textarea dir="rtl" name="note" class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name=""
                         id="" cols="30" rows="5"></textarea>
 
                 </div>
@@ -82,27 +82,16 @@
                                                                 class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
                                                                 {{ $order->qun }}</div>
                                                         </div>
+
+                                                        @foreach ($order->reqs??[] as $r)
                                                         <div class="flex border-b justify-start space-x-2">
-                                                            <div class="w-1/3 py-2 text-xs font-bold mx-2 border-l-1 ">ID
-                                                                الحساب</div>
-                                                            <div
-                                                                class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
-                                                                {{ $order->g_id }}</div>
-                                                        </div>
-                                                        <div class="flex border-b justify-start space-x-2">
-                                                            <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">البريد
-                                                                الالكتروني</div>
-                                                            <div
-                                                                class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
-                                                                {{ $order->email ?? 'لايوجد' }}</div>
-                                                        </div>
-                                                        <div class="flex border-b justify-start space-x-2">
-                                                            <div class="w-1/3 text-xs  py-2 font-bold mx-2 border-l-1 ">كلمة
-                                                                المرور</div>
+                                                            <div class="w-1/3 text-xs  py-2 font-bold mx-2 border-l-1 ">{{ $r['lable'] }}</div>
                                                             <div
                                                                 class="w-2/3 mx-2 text-xs py-2 text-info dark:text-info-light">
-                                                                {{ $order->password ?? 'لايوجد' }}</div>
+                                                                {{ $r['value']}}</div>
                                                         </div>
+                                                        @endforeach
+
 
                                                     </div>
                                                 </div>
@@ -185,7 +174,7 @@
                                                         </div>
                                                         <div class="w-2/3  mx-2 text-sm p-1">
                                                             <span
-                                                                class="{{ $paymentinfo->accepted ? 'text-green-600' : 'text-red-800' }}">{{ $paymentinfo->accepted ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span>
+                                                                class="{{ $paymentinfo->state!=0 ? 'text-green-600' : 'text-red-800' }}">{{ $paymentinfo->state!=0 ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span>
                                                             <br>
                                                             <span
                                                                 class="px-2 {{ $paymentinfo->state == 0 ? 'bg-m_primary-lighter' : ($paymentinfo->state == 1 ? 'bg-info' : ($paymentinfo->state == 2 ? 'bg-green-600' : 'bg-red-400')) }} rounded-md text-darker">@php
@@ -210,7 +199,7 @@
 
                                                             <br>
                                                             <span class="px-2 ">
-                                                                {{ ' المبلغ المدفوع ' . $paymentinfo->mount_pay . "$" }}
+                                                                {{ ' المبلغ المدفوع ' . $paymentinfo->total_price . "$" }}
                                                             </span>
 
                                                         </div>

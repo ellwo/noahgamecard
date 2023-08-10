@@ -152,7 +152,7 @@
                                 <span>كود العملية</span>
                                 {{ $paymentinfo->code }}
                                 <hr>
-                                <span class="{{ $paymentinfo->accepted?'text-info':'text-red-800'}}">{{ $paymentinfo->accepted?"تم تاكيد حالة الدفع":"لم يتم تاكيد حالة الدفع" }}</span>
+                                <span class="{{ $paymentinfo->state!=0 ? 'text-green-600' : 'text-red-800' }}">{{ $paymentinfo->state!=0 ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span>
 
                             </td>
                             <td class="p-3 hidden text-center text-blue-700 font-bold lg:text-lg lg:block">
