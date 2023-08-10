@@ -126,11 +126,21 @@ final class CreateNewPaymentOrder
             'coin_id'=>Coin::where('main_coin','=',true)->pluck('id')->first()
         ]);
 
+        $data=[
+            "type"=>"veed_rassed",
+            "routeInfo"=>[
+                "routeName"=>"rassed",
+                "data"=>$paymentinfo,
+            ],
+            "created_at"=>date('Y/m/d H:i:s')
+          ];
         $noti=UserNotification::create([
             "id"=>$rassedActivite->id,
             'title'=>'نجحت العملية',
             'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
-        'user_id'=>$user->id]);
+        'user_id'=>$user->id,
+          'data'=>$data
+    ]);
 
 
         return [
