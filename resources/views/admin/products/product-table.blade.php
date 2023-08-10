@@ -153,7 +153,7 @@
                                     </td>
                                     <td class="py-3  text-center">
                                         <span
-                                            class="bg-purple-200 mb-6 text-blue-700 font-bold py-1 px-3 rounded-full text-xs">{{ $product->price }}/RY</span>
+                                            class="bg-purple-200 mb-6 text-blue-700 font-bold py-1 px-3 rounded-full text-xs">{{ $product->price }}/$</span>
                                     </td>
                                     <td class="py-3   text-right">
                                         <div class="flex item-center justify-center">
