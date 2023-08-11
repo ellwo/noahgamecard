@@ -41,7 +41,6 @@
 <div x-data="mainState" :class="{ dark: isDarkMode }" @resize.window="handleWindowResize" x-cloak>
     <div class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-bg dark:text-gray-200">
         <!-- Sidebar -->
-        <x-adminsidebar.sidebar.sidebar />
         <!-- Page Wrapper -->
         <div class="flex  flex-col min-h-screen"
              :class="{
