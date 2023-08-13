@@ -23,7 +23,7 @@
     </style>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
 
 
@@ -42,8 +42,7 @@
 
 
 
-    <div   x-data="setup()" @resize.window="handleWindowResize"
-    x-init="
+    <div   x-data="setup()" @resize.window="handleWindowResize" x-init="$refs.loading.classList.add('hidden');
     setColors('mycolor'); isSidebarOpen=false" :class="{ 'dark': isDark}">
 
 
@@ -53,6 +52,10 @@
 
     <div   class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
             <!-- Loading screen -->
+
+        <x-loading/>
+
+
                         <!-- Sidebar -->
 
 
@@ -79,6 +82,7 @@
     </div>
 
 
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @livewireScripts
 
     @isset($script)

@@ -42,6 +42,7 @@ final class SendCode
 
         $codee=rand(rand(14465,24598550),87952)."";
         $fcodee=substr($codee,0,4);
+
         $code=PhoneCode::create([
             'phone'=>$args["phone"],
             "code"=>$fcodee,

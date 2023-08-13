@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UploadeController;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
+use App\Mail\RestorAccountMail;
 use App\Models\User;
 use App\Models\UserNotification;
+use App\Notifications\RestorAccountNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
@@ -27,6 +29,10 @@ class UsersController extends Controller
     {
 
 
+
+
+        $user = auth()->user(); // Replace with the user you want to notify
+       // $user->notify(new RestorAccountNotification("155632"));
 
 
         // $onesignalAppId = '387916b2-306e-4d0b-bd19-cc8a4cbc08cf'; // Replace with your OneSignal App ID

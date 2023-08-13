@@ -2,9 +2,9 @@
 
 
 
-    <div x-data="setup()" x-init=" setColors('mycolor');"
-     :class="{ 'dark': isDark}">
+    <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors('mycolor');" :class="{ 'dark': isDark}">
         <!-- Loading screen -->
+        <x-loading />
         <div
           class="flex flex-col items-center justify-center min-h-screen p-4 space-y-4 antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light"
         >
