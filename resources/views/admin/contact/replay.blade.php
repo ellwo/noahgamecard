@@ -28,6 +28,9 @@
 
                 <div class="space-y-4">
                 <textarea name="replay" class="text-right bg-white rounded-md dark:bg-dark-bg w-full" placeholder="اكتب الرد هنا"></textarea>
+                @error('replay')
+                    <span class="text-danger text-sm " dir="rtl">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <button class="mx-auto mt-4 bg-success p-2 rounded-md">

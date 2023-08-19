@@ -31,6 +31,8 @@ final class MyLogout
             }
 
 
+
+
             $refres=app(RefreshTokenRepository::class);
                 $refres->revokeRefreshTokensByAccessTokenId( Auth::guard('api')->user()->token()->id);
 

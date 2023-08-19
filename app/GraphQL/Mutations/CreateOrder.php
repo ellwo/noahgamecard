@@ -163,7 +163,6 @@ $roles=['product_id' => ['required','exists:products,id']
             'dtotal_price'=>$dis_total_price,
             'token'=>Hash::make($token),
             'expired_at'=>$processe_token->expired_at
-
         ];
         //$processe_token->processe()->
 

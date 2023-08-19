@@ -62,7 +62,7 @@
             </button>
 
             <!-- Notification button -->
-            <button @click="openNotificationsPanel"
+            {{-- <button @click="openNotificationsPanel"
                 class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
                 <span class="sr-only">Open Notification panel</span>
                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -81,10 +81,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-            </button>
+            </button> --}}
 
             <!-- Settings button -->
-            <button @click="openSettingsPanel"
+            {{-- <button @click="openSettingsPanel"
                 class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
                 <span class="sr-only">Open settings panel</span>
                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -96,26 +96,29 @@
                 </svg>
             </button>
 
-            <a href="{{-- route('inbox') --}}"
+            <a href=""
             class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
             <span class="sr-only">Open settings panel</span>
             <x-heroicon-s-chat class="w-7 h-7"/>
-        </a>
+        </a> --}}
 
             <!-- User avatar button -->
-            <div class="relative" x-data="{ open: false }">
-                <button @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
+            <div class="relative mx-4" x-data="{ open: false }">
+                <button
                     type="button" aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
-                    class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
+                    class="transition-opacity duration-200  rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+                    @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
+                    >
                     <span class="sr-only">User menu</span>
-                    <img class="w-10 h-10 rounded-full" src="{{auth()->user()->avatar}}"
-                        alt="Img" />
+                <x-heroicon-s-user class="h-10 text-primary"/>
+                    {{auth()->user()->username}}
+
                 </button>
 
                 <!-- User dropdown menu -->
 
-                {{-- <x-dashborade.usersubmenu totop="{{true}}"/>
-             --}}
+                <x-dashborade.usersubmenu totop="{{true}}"/>
+
             </div>
         </nav>
 

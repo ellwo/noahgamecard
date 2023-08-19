@@ -1,7 +1,7 @@
 <div x-ref="loading"
-class="fixed inset-0 z-50 flex items-center justify-center text-2xl text-white bg-white">
+class="fixed inset-0 z-50 flex items-center justify-center md:text-2xl text-white bg-white">
 
-<div class="w-64 h-64 mx-auto text-center sm:w-32 sm:h-32 "  >
+<div class="w-24 h-24 mx-auto text-center sm:w-32 sm:h-32 "  >
     <svg viewBox="0 0 860.1 876.5">
       <path
         class="animate-spin from-blue-900"

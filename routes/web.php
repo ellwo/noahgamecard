@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[DashBoardController::class,'index'])
 ->middleware(['auth', 'verified']);
 
-Route::get('/contact',[ContactController::class,'index'])->name('contact');
+
+//post.create_contact
+Route::view('/contact-us','contact-us')->name('contact-us');
+Route::post('/post.create_contact',[ContactController::class,'sendmeassge'])->name('post.create_contact');
 Route::get('/dashboard',[DashBoardController::class,'index'])
 ->middleware(['auth', 'verified'])->name('dashboard');
 

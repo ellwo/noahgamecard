@@ -33,7 +33,6 @@ final class Userpayorders
                     $date=new DateTime($fromDate);
                     $toDate=$date->modify('+24 hours');
                     $toDate=date('Y-m-d H:i:s',strtotime($toDate->format('Y-m-d H:i:s')));
-
                 }
 
                 else {

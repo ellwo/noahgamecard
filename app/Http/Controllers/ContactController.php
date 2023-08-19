@@ -64,7 +64,7 @@ $data = json_decode($response, true);
 
 // Access the player data
 
-return dd($data);
+//return dd($data);
 if (isset($data['data'])) {
     $playerData = $data['data'];
     // Process and display the player data as needed
@@ -97,7 +97,11 @@ if (isset($data['data'])) {
 
     public function replay(Contact $contact)
     {
+
+
+    //    return dd($orders);
         # code...
+
         return view('admin.contact.replay',['contact'=>$contact]);
     }
 
@@ -128,7 +132,7 @@ if (isset($data['data'])) {
         ]);
 
         }
-       $contact=new Contact([
+       $contact=Contact::create([
            'name'=>$request['name'],
            'email'=>$request['email'],
            'message'=>$request['message'],
@@ -136,11 +140,11 @@ if (isset($data['data'])) {
            'subject'=>$request['subject']
        ]);
 
-        $contact->save();
+//        $contact->save();
 
 
 
-       return redirect()->route('Home')->with('stat','ok')->with('status','تم ارسال الرسالة بنجاح ');
+       return redirect()->back()->with('stat','ok')->with('status','تم ارسال الرسالة بنجاح ');
 
 
     }

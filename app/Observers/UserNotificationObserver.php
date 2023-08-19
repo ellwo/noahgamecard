@@ -60,6 +60,7 @@ class UserNotificationObserver
          curl_exec ( $ch );
         curl_close ( $ch );
 
+
     //     try{
 
     //     if($result!=false)

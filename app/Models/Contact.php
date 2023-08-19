@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
-    protected $fillable=['name','reply','subject','phone','email','message'];
+    protected $fillable=['name','reply',
+    'subject','phone','email','message'];
     public function getUpdatedAtAttribute($value){
 
         $d=new Carbon($value,"Asia/Aden");

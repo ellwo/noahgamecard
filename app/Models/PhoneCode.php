@@ -19,4 +19,9 @@ class PhoneCode extends Model
 
         return $value > now();
     }
+
+
+    public function processe_token(){
+        return $this->morphMany(Processetoken::class,'processe');
+    }
 }

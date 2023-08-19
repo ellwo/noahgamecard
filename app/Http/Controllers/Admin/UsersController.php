@@ -32,9 +32,6 @@ class UsersController extends Controller
 
 
 
-        $user = auth()->user(); // Replace with the user you want to notify
-        $user->notify(new CustomPasswordCodeNotification("155632"));
-
 
         // $onesignalAppId = '387916b2-306e-4d0b-bd19-cc8a4cbc08cf'; // Replace with your OneSignal App ID
         // $onesignalRestApiKey = 'MDdkZjYxMDgtMmJlNi00MzJmLTgwMjktYzllOGVhNjhlYTU3'; // Replace with your OneSignal REST API Key

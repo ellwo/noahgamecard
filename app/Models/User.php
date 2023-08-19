@@ -90,7 +90,8 @@ class User extends Authenticatable implements BannableContract
     // $user->orders()->
     public  function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasManyThrough(Order::class,Paymentinfo::class);
+       //return $this->hasMany(Order::class);
     }
 
 

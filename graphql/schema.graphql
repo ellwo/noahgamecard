@@ -8,6 +8,7 @@ type Query {
    GetActivites(page:Int lastdate:String):ActivitesGroupByDatePage @guard
    qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
    poffers:[Product]
+   GetOrdersReport(toDate:String fromDate:String):OrderRespons
    userpayorders(page:Int toDate:String fromDate:String):OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
    coins:[Coin]@all
@@ -168,6 +169,7 @@ type Mutation {
     UpdateNotifiy(id:[Int]!):ResponInfo
 
 
+
 CreateNewPaymentOrder(input:PayOrdersCartInput):ConfirmResponInfo @guard
     PayFromRassed(
         input:PayOrdersCartInput
@@ -182,11 +184,33 @@ CreateNewPaymentOrder(input:PayOrdersCartInput):ConfirmResponInfo @guard
         input:ConfirmOrderPayInput
     ):ConfirmResponInfo @guard
 
-
-
+    RequstRestoreAccountCode(
+        type:String
+        value:String
+    ):ResponInfo
     # sendEamilVN:User
+
+    CheckRestoreAccountCode(
+        type:String
+        input:String
+        code:String
+    ):CheckCodeResponse
+    RestPasswordAccount(
+        email:String
+        code:String
+        token:String
+        type:String
+        password:String
+    ):CheckCodeResponse
+
 }
 
+type CheckCodeResponse{
+    responInfo:ResponInfo
+    token:String
+    email:String
+    code:String
+}
 
 
 type ResponInfoSendCode{
@@ -222,6 +246,7 @@ type ResponInfo{
     id:Int
     errors:String
     message:String
+    code:Int
 }
 
 type RegisterInfo{
@@ -236,8 +261,12 @@ type OrderGruopByRespons{
     responInfo:ResponInfo
     orders_gr:[Paymentinfo]
     paginatorInfo:PaginatorInfo
+}
 
 
+type OrderRespons{
+    responInfo:ResponInfo
+    orders:[Order]
 }
 type ActivitesGroupByDatePage {
     activites:[RassedActevityGroupByDate]
@@ -350,7 +379,7 @@ type Order{
     id:ID
     product:Product @belongsTo
     user:User @belongsTo
-    paymentinfo:Paymentinfo @method(name: "paymentinfo_one")
+    paymentinfo:Paymentinfo @belongsTo
     qun:Int
     state:Int
     g_id:String

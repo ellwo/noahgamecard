@@ -1,6 +1,6 @@
 <div>
 
-    <div class="max-w-5xl mx-auto rounded-md p-8 bg-white dark:bg-dark-eval-2">
+    <div class="max-w-5xl mx-auto rounded-md p-8 bg-white dark:bg-darker">
         <h1 class="text-right text-xl font-bold">
             ادارة الرسائل الواردة
         </h1>

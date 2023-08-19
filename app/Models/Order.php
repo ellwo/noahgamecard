@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,7 @@ use Spatie\Permission\Models\Role;
 class Order extends Model
 {
     use HasFactory;
+    use LaravelSubQueryTrait;
     protected $fillable=[
         'qun',
         'product_id',
@@ -18,7 +20,8 @@ class Order extends Model
         'email',
         'password',
         'state',
-        'reqs'
+        'reqs',
+        'paymentinfo_id'
     ];
 
     protected $casts =[
@@ -54,10 +57,10 @@ class Order extends Model
     }
 
     public function paymentinfo(){
-        return $this->belongsToMany(Paymentinfo::class,'order_paymentinfo');
+        return $this->belongsTo(Paymentinfo::class,);
     }
     public function paymentinfo_one(){
-        return $this->paymentinfo()->first();
+        return $this->paymentinfo();
     }
 
     public function processe_token(){
