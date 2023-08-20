@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Queries;
 
+use App\Models\Paymentinfo;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
@@ -63,19 +64,29 @@ final class GetOrdersReport
 
 
 
-            $userorders=$user->orders()->whereHas('paymentinfo',function($q)use($fromDate,$toDate){
+            $userorders=$user->orders()
+            ->whereHas('paymentinfo',function($q)use($fromDate,$toDate){
 
                 $q->where('state','!=',3)
                 ->whereBetween('created_at', [$fromDate, $toDate]);
-        })->withSum('paymentinfo:total_price')->get() ;
+        })->get() ;
+
+        $pays=Paymentinfo::whereHas('orders',function($q)use($userorders){
+
+            $q->whereIn('id',$userorders->pluck('id')->toArray());
+        });
+        $total_price=$pays->sum('total_price');
+        $orginal_total=$pays->sum('orginal_total');
 
             return [
                         "responInfo" => [
                             "state" => true,
                             "errors" => null,
-                            "message" => "تم بنجاح " . $fromDate."sum==".$userorders[0]->paymentinfo_total_price_sum . "||" . $toDate . " "
+                            "message" => "تم بنجاح " . $fromDate."sum==" . "||" . $toDate . " "
                         ],
                         "orders" => $userorders,
+                        'total_price'=>$total_price,
+                        'orginal_total'=>$orginal_total
 
                     ];
 

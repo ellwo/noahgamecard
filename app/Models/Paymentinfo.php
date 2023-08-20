@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 class Paymentinfo extends Model
 {
-    use HasFactory;
+    use HasFactory,LaravelSubQueryTrait;
     protected $fillable=[
         'code',
         'paymentmethod_id',
@@ -31,8 +32,8 @@ class Paymentinfo extends Model
     }
     function orders(){
 
-   // return $this->hasMany(Order::class);
-        return $this->belongsToMany(Order::class,'order_paymentinfo');
+    return $this->hasMany(Order::class);
+   //     return $this->belongsToMany(Order::class,'order_paymentinfo');
     }
 
     public function paymentmethod(){

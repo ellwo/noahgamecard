@@ -267,6 +267,8 @@ type OrderGruopByRespons{
 type OrderRespons{
     responInfo:ResponInfo
     orders:[Order]
+    total_price:Float
+    orginal_total:Float
 }
 type ActivitesGroupByDatePage {
     activites:[RassedActevityGroupByDate]
