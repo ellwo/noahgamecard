@@ -62,7 +62,7 @@ final class ConfirmOrderPay
             $paymentMethod=$paymentinfo->paymentmethod;
 
             $order=Order::find($data["order_id"]);
-            $paymentinfo->orders()->attach($order);
+            $paymentinfo->orders()->save($order);
             $order->state=1;
             $order->processe_token()->delete();
 

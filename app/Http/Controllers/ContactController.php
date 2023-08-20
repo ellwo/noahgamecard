@@ -30,7 +30,7 @@ class ContactController extends Controller
 $randomPlayerId = $this->generateRandomPlayerId();
 
 // API endpoint URL for searching a player by ID
-$url = "https://api.pubg.com/shards/steam/players/$randomPlayerId";
+$url = "https://api.pubg.com/shards/steam/players/5245499203";
 
 // Create a new cURL resource
 $curl = curl_init();
@@ -65,7 +65,7 @@ $data = json_decode($response, true);
 
 // Access the player data
 
-//return dd($data);
+return dd($data);
 if (isset($data['data'])) {
     $playerData = $data['data'];
     // Process and display the player data as needed
@@ -93,11 +93,6 @@ if (isset($data['data'])) {
 
 
 
-              foreach(Paymentinfo::has('orders')->get() as $p){
-                $p->orders()->update([
-                    'orders.paymentinfo_id'=>$p->id
-                ]);
-              }
 
         return view('admin.contact.index');
         # code...

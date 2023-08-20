@@ -116,7 +116,7 @@ final class CreateNewPaymentOrder
         $paymentinfo->code=rand(45,80).time();
         $paymentinfo->state=1;
         $paymentinfo->save();
-        $paymentinfo->orders()->attach($orders);
+        $paymentinfo->orders()->saveMany($orders);
 
       $rassedActivite=  RassedActevity::create([
             'amount'=>-$paymentinfo->total_price,
@@ -205,7 +205,7 @@ final class CreateNewPaymentOrder
         $paymentinfo->user_id=$user->id;
         $paymentinfo->code=$args["input"]["code"];
         $paymentinfo->save();
-        $paymentinfo->orders()->attach($orders);
+        $paymentinfo->orders()->saveMany($orders);
         return [
             "state"=>true,
             "id"=>$paymentinfo->id,

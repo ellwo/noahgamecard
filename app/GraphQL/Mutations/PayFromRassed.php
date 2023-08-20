@@ -75,7 +75,7 @@ try{
             ]
             );
 
-            $payinfo->orders()->attach($orders);
+            $payinfo->orders()->saveMany($orders);
             //$payinfo->total_price=$sum_total;
            // $payinfo->save();
             $rassedActivite=RassedActevity::create([
