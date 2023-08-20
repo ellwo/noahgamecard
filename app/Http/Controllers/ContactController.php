@@ -16,11 +16,6 @@ class ContactController extends Controller
         $playerId =5245499203;
         // 51422956208     //mt_rand(1000000000, 88888888886);
         return $playerId;
-    }
-
-    public function index()
-    {
-
 
         $apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmOGViMzdhMC04ZjkxLTAxM2ItYzcyZi0wOWZlOTFiMjk0MWIiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNjc2NDg4MDczLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6ImNoZWNrdXNlcl9ieV9pIn0.7BMOzaCo8NP0iXa8Ob9RpFIeYW3E7mhzXbo098s0n2M';
 
@@ -92,6 +87,12 @@ if (isset($data['data'])) {
 }
 
 
+
+
+    }
+
+    public function index()
+    {
 
 
         return view('admin.contact.index');
