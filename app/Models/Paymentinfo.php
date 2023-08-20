@@ -29,7 +29,9 @@ class Paymentinfo extends Model
 
         return $this->belongsTo(Coin::class);
     }
-   public function orders(){
+    function orders(){
+
+   // return $this->hasMany(Order::class);
         return $this->belongsToMany(Order::class,'order_paymentinfo');
     }
 

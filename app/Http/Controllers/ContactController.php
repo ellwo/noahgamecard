@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Paymentinfo;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -89,6 +90,14 @@ if (isset($data['data'])) {
 } else {
     // Handle the case when the player data is not found
 }
+
+
+
+              foreach(Paymentinfo::has('orders')->get() as $p){
+                $p->orders()->update([
+                    'orders.paymentinfo_id'=>$p->id
+                ]);
+              }
 
         return view('admin.contact.index');
         # code...
