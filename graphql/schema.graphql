@@ -5,11 +5,12 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 "Indicates what fields are available at the top level of a query operation."
 type Query {
 
+   ads:[Ad]@all
    GetActivites(page:Int lastdate:String):ActivitesGroupByDatePage @guard
    qgetemail(column_name:String user:String password:String ):ResponGetEmailInfo
    poffers:[Product]
    GetOrdersReport(toDate:String fromDate:String):OrderRespons
-   userpayorders(page:Int toDate:String fromDate:String):OrderGruopByRespons @guard
+   userpayorders(page:Int toDate:String fromDate:String search:String):OrderGruopByRespons @guard
    paymentmethods:[Paymentmethod] @all
    coins:[Coin]@all
    GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard
@@ -40,6 +41,10 @@ type Query {
 
 
 
+type  Ad{
+    id:ID
+    img:String
+}
 type Coin {
     id:ID
     name:String
@@ -203,6 +208,9 @@ CreateNewPaymentOrder(input:PayOrdersCartInput):ConfirmResponInfo @guard
         password:String
     ):CheckCodeResponse
 
+
+    UpdateUser(input:UpdateUserInput):UpdateUserRespone @guard
+
 }
 
 type CheckCodeResponse{
@@ -264,6 +272,17 @@ type OrderGruopByRespons{
 }
 
 
+
+input UpdateUserInput{
+    email:String
+    username:String
+    name:String
+}
+
+type UpdateUserRespone{
+    responInfo:ResponInfo
+    user:User
+}
 type OrderRespons{
     responInfo:ResponInfo
     orders:[Order]

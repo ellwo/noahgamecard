@@ -33,6 +33,6 @@
       </g>
     </g>
   </svg> --}}
-  <img x-show="isSidebarOpen || isSidebarHovered" src="{{config("mysetting.logo")}}" class="h-8 dark:hidden">
-  <img x-show="!isSidebarOpen && !isSidebarHovered" src="{{config("mysetting.site_header_logo")}}" class="h-8">
-  <img x-show="isSidebarOpen || isSidebarHovered" src="{{config("mysetting.site_header_logo")}}" class="h-8 hidden dark:block">
+  <img x-show="isSidebarOpen || isSidebarHovered" src="{{config("mysetting.logo")}}" class="h-24 dark:hidden">
+  <img x-show="!isSidebarOpen && !isSidebarHovered" src="{{config("mysetting.site_header_logo")}}" class="h-24">
+  <img x-show="isSidebarOpen || isSidebarHovered" src="{{config("mysetting.site_header_logo")}}" class="h-24 hidden dark:block">

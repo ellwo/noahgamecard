@@ -82,6 +82,17 @@
 @endcan
 
 
+@can('ادارة الاعلانات')
+    <x-sidebar.link title="ادارة الاعلانات" href="{{ route('ad')}}" :isActive="request()->routeIs('ad')">
+    <x-slot name="icon">
+        <x-bi-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+    </x-slot>
+
+</x-sidebar.link>
+
+@endcan
+
+
 @can('ادارة العروض')
 
 <x-sidebar.link title="ادارة العروض " href="{{ route('offers')}}" :isActive="request()->routeIs('offers')">

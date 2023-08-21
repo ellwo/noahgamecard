@@ -176,13 +176,15 @@
                 {
                     url:"{{route('uploade')}}",
                     id:"logo",
-                    w:100,
-                    h:100,
-                    hv:100,
+                    w:300,
+                    h:300,
                     shep:'rect',
                     with_w_h:true,
                      src:"{{ config('mysetting.logo') }}"
+
         });
+
+
         // her=new ImagetoServer(
         //         {
         //             url:"{{route('uploade')}}",
@@ -199,8 +201,9 @@
                 {
                     url:"{{route('uploade')}}",
                     id:"site_header_logo",
-                    w:100,
-                    h:100,
+                    w:300,
+                    h:300,
+                    shep:'rect',
                     with_w_h:true,
                      src:"{{ config('mysetting.site_header_logo') }}"
         });

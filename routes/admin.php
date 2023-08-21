@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
+    Route::resource('ad',AdController::class)->name('index','ad');
 
     Route::get('/products-table',ProductTable::class)->name('products-table');
     Route::resource('/products',ProductController::class)->name('index','products');
