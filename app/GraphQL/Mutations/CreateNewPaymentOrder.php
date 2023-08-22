@@ -92,7 +92,7 @@ final class CreateNewPaymentOrder
             ]);
             $orginal_price+=($order->qun*$order->product->price);
             $total_price+=$order->total_price();
-            $orders[]=$order->id;
+            $orders[]=$order;
         }
 
 
