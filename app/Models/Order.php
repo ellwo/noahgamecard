@@ -12,6 +12,7 @@ class Order extends Model
 {
     use HasFactory;
     use LaravelSubQueryTrait;
+    use \Znck\Eloquent\Traits\BelongsToThrough;
     protected $fillable=[
         'qun',
         'product_id',
@@ -47,6 +48,11 @@ class Order extends Model
 
     }
 
+
+    function department() {
+
+        return $this->belongsToThrough(Department::class,Product::class);
+    }
     public function product(){
 
         return $this->belongsTo(Product::class);

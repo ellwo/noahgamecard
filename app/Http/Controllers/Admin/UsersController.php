@@ -10,6 +10,7 @@ use App\Http\Controllers\UploadeController;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 use App\Mail\RestorAccountMail;
+use App\Models\Order;
 use App\Models\User;
 use App\Models\UserNotification;
 use App\Notifications\CustomPasswordCodeNotification;
@@ -28,7 +29,6 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-
 
 
 

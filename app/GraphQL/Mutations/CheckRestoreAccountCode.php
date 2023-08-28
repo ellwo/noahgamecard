@@ -24,7 +24,7 @@ final class CheckRestoreAccountCode
 
             $user = User::where($args['type'], '=', $args['input'])->first();
 
-            $res = PhoneCode::where('code', '=', $args['code'])->where($args['type'], '=', $args["input"])
+            $res = PhoneCode::where('code', '=', $args['code'])->where('phone', '=', $args["input"])
                 ->where('user_id', '=', $user->id)->where('ex_at', '>', now())->first();
 
 

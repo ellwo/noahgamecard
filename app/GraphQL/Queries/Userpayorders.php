@@ -17,7 +17,7 @@ final class Userpayorders
     {
         // TODO implement the resolver
 
-        if(isset($args['fromDate']) && isset($args['toDate'])){
+        if(isset($args['fromDate']) && isset($args['toDate'])   ){
 
             try{
                 $user = User::find(auth()->user()->id);
@@ -52,7 +52,7 @@ final class Userpayorders
 
                             $date=new DateTime($toDate);
                             $toDate=$date->modify('+24 hours');
-                            $toDate=date('Y-m-d H:i:s',strtotime($toDate));
+                            $toDate=date('Y-m-d H:i:s',strtotime($toDate->format('Y-m-d H:i:s')));
 
                         }
 

@@ -91,7 +91,7 @@ final class RequstRestoreAccountCode
 
 
                 try{
-                $user->notify(new CustomPasswordCodeNotification($fcodee));
+              //  $user->notify(new CustomPasswordCodeNotification($fcodee));
 
             return [
                 'state'=>true,
