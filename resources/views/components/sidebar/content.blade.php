@@ -7,47 +7,6 @@
     </x-sidebar.link>
 
 
-<x-sidebar.dropdown title="حسابي " :active="request()->routeIs('profile')">
-
-    <x-slot name="icon" >
-        <span aria-hidden="true">
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-        </span>
-    </x-slot>
-    <x-sidebar.sublink href="{{-- route('profile') --}}" title="استعراض " :active="request()->routeIs('profile')">
-
-    </x-sidebar.sublink>
-
-
-    <x-sidebar.sublink href="{{-- route('profile.create') --}}" title="تعديل البيانات " :active="request()->routeIs('profile')">
-
-    </x-sidebar.sublink>
-
-
-</x-sidebar.dropdown>
-
-
-<x-sidebar.link title="لوحة التحكم" href="{{-- route('dashboard') --}}" :isActive="request()->routeIs('dashboard')">
-    <x-slot name="icon">
-        <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
-    </x-slot>
-</x-sidebar.link>
-
-
-
-
-{{-- @role('admin')
-       <x-sidebar.content-admin />
-@endrole
- --}}
-
-
-
-
 
 
 

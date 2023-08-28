@@ -58,6 +58,26 @@
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
+                            عدد طلبات التغذية المعلقة
+                        </h6>
+                        <span class="text-xl font-semibold">{{ $unread__veed_count }}</span>
+                        <a href="{{ route('paymentinfo') }}">
+                        <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                            ادارة طلبات التغذية
+                        </span>
+                        </a>
+                    </div>
+                    <div>
+                        <span>
+                            <x-bi-watch class="w-12 h-12 text-yellow-400 dark:text-primary"/>
+                        </span>
+                    </div>
+                </div>
+
+                <div  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                    <div class="flex space-y-2 flex-col">
+                        <h6
+                            class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             عدد الطلبات المنفذة
                         </h6>
                         <span class="text-xl font-semibold">{{ $orders_done }}</span>
