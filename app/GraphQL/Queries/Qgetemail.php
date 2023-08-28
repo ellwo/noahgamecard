@@ -39,7 +39,7 @@ final class Qgetemail
 
 
                 if(
-                    Auth::guard('web')->attempt(["email"=>$user->email,"password"=>$args["password"]],false))
+                    Auth::attempt(["email"=>$user->email,"password"=>$args["password"]],false))
                 {
 
                     if($user->isBanned())
