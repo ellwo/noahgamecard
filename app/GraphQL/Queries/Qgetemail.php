@@ -2,7 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Models\Product;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
