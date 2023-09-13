@@ -21,6 +21,8 @@ Route::get('/',[DashBoardController::class,'index'])
 
 //post.create_contact
 Route::view('/contact-us','contact-us')->name('contact-us');
+Route::view('/privacy-policy','privacy-policy')->name('privacy-policy');
+
 Route::post('/post.create_contact',[ContactController::class,'sendmeassge'])->name('post.create_contact');
 Route::get('/dashboard',[DashBoardController::class,'index'])
 ->middleware(['auth', 'verified'])->name('dashboard');
