@@ -14,6 +14,8 @@ class CoinController extends Controller
      */
     public function index()
     {
+
+        return view('admin.coins.index');
         //
     }
 
@@ -36,6 +38,47 @@ class CoinController extends Controller
     public function store(Request $request)
     {
         //
+
+        $coins=Coin::where('main_coin','=',0)->get();
+        $roles=[];
+        $data=[];
+        foreach ($coins as $c) {
+            # code...
+            //1
+            $roles[]=[
+                'coin_value'.$c->id=>'numeric|required|min:1'
+            ];
+            $data[]=[
+                'id'=>$request['coin_id'.$c->id],
+                'value'=>$request['coin_value'.$c->id],
+                'name'=>$request['coin_name'.$c->id],
+                'img'=>$request['coin_img'.$c->id]
+            ];
+        }
+        $roles=[$roles];
+
+        $r=[
+            'coin_value2'=>['required','numeric'],
+            'coin_value1'=>['required','numeric']
+        ];
+        $this->validate($request,$r);
+
+
+
+        foreach ($coins as $c) {
+            # code...
+            //
+            $c->update([
+                'id'=>$request['coin_id'.$c->id],
+                'value'=>$request['coin_value'.$c->id],
+                'name'=>$request['coin_name'.$c->id],
+                'icon'=>$request['coin_img'.$c->id],
+                'nickname'=>$request['coin_nickname'.$c->id],
+            ]);
+        }
+
+        return back()->with('status','تم تعديل البيانات بنجاح');
+        return 'no problame';
     }
 
     /**

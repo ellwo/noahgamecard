@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coin;
 use App\Models\Paymentinfo;
 use App\Models\RassedActevity;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RassedActevityContoller extends Controller
@@ -39,6 +41,7 @@ class RassedActevityContoller extends Controller
     public function create()
     {
         //
+        return view('admin.rassed.veed_rassed');
     }
 
     /**
@@ -50,6 +53,38 @@ class RassedActevityContoller extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'user_id'=>['required','exists:users,id'],
+            'code'=>['required','unique:paymentinfos,code'],
+            'amount'=>['required']
+        ]);
+
+
+        $paymentinfo=Paymentinfo::create([
+            'user_id'=>$request['user_id'],
+            'state'=>0,
+            'total_price'=>$request['amount'],
+            'orginal_price'=>$request['amount'],
+            'code'=>$request['code'],
+            'paymentmethod_id'=>2,
+        ]);
+
+        $user=User::find($request['user_id']);
+        $rassed_id=$user->rassed->id;
+        RassedActevity::create([
+            'amount'=>$request['amount'],
+            'paymentinfo_id'=>$paymentinfo->id,
+            'rassed_id'=>$rassed_id,
+            'code'=>$paymentinfo['code']
+        ]);
+        $paymentinfo->state=2;
+        $paymentinfo->save();
+
+        return redirect()->route('rasseds')->with('status','تم تغذية الحساب بنجاح');
+
+
+
+
     }
 
     /**

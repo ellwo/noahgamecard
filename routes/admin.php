@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\CoinController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\OfferController;
@@ -44,6 +46,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/discount',DiscountController::class)->name('index','discount');
     Route::resource('/paymentinfo',PaymentinfoController::class)->name('index','paymentinfo');
     Route::resource('/rasseds',RassedActevityContoller::class)->name('index','rasseds');
+
+    Route::resource('/clients',ClientController::class)->name('index','users');
+    Route::resource('/coins',CoinController::class)->name('index','coins');
 
 
 

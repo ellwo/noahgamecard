@@ -13,130 +13,129 @@
             <!-- State cards -->
             <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-3">
 
-                <div  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                <a href="{{ route('depts') }}" dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                         عدد  الاقسام
                         </h6>
                         <span class="text-xl font-semibold">{{ $d_count }}</span>
-                        <a href="{{ route('depts') }}">
+
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة الاقسام
                         </span>
-                        </a>
                     </div>
                     <div>
 
                         <span>
                             <x-bi-key class="w-12 h-12 text-blue-400 dark:text-primary-dark" />
                         </span>
-
                     </div>
-                </div>
-                <div  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                </a>
+
+                <a  href="{{ route('paymentinfo') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             عدد الطلبات المعلقة
                         </h6>
                         <span class="text-xl font-semibold">{{ $unread__orders_count }}</span>
-                        <a href="{{ route('paymentinfo') }}">
+
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة الطلبات
                         </span>
-                        </a>
+
                     </div>
                     <div>
                         <span>
                             <x-bi-watch class="w-12 h-12 text-yellow-400 dark:text-primary"/>
                         </span>
                     </div>
-                </div>
+                </a>
 
-                <div  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+
+
+                <a href="{{ route('rasseds') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             عدد طلبات التغذية المعلقة
                         </h6>
                         <span class="text-xl font-semibold">{{ $unread__veed_count }}</span>
-                        <a href="{{ route('paymentinfo') }}">
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة طلبات التغذية
                         </span>
-                        </a>
                     </div>
                     <div>
                         <span>
                             <x-bi-watch class="w-12 h-12 text-yellow-400 dark:text-primary"/>
                         </span>
                     </div>
-                </div>
+                </a>
 
-                <div  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                <a href="{{ route('paymentinfo') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             عدد الطلبات المنفذة
                         </h6>
                         <span class="text-xl font-semibold">{{ $orders_done }}</span>
-                        <a href="{{ route('paymentinfo') }}">
+
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة الطلبات
                         </span>
-                        </a>
+
                     </div>
                     <div>
                         <span>
                             <x-bi-check class="w-12 h-12 text-green-500 dark:text-primary"/>
                         </span>
                     </div>
-                </div>
+                </a>
 
-                <div  dir="rtl" class="flex items-center  justify-between p-4 bg-white rounded-md dark:bg-darker">
+                <a href="{{ route('admin.users.index') }}" dir="rtl" class="flex items-center  justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             اجمالي عدد المستخدمين
                         </h6>
                         <span class="text-xl font-semibold">{{ $users_count }}</span>
-                        <a href="{{ route('admin.users.index') }}">
+
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة المستخدمين
                         </span>
-                        </a>
+
                     </div>
                     <div>
                         <span>
                             <x-heroicon-s-user class="w-12 h-12 text-dark dark:text-primary"/>
                         </span>
                     </div>
-                </div>
+                </a>
 
-                <div dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                <a  href="{{ route('products') }}" dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex flex-col space-y-2">
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                             عدد المنتجات المعروضة
                         </h6>
                         <span class="text-xl font-semibold">{{ $products_count }}</span>
-                        <a target="_blank" href="{{ route('products') }}">
+
                         <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             ادارة المنتجات
                         </span>
-                        </a>
                     </div>
                     <div>
                         <span>
                             <x-bi-bag-fill class="w-12 h-12 text-primary dark:text-primary-dark" />
                         </span>
                     </div>
-                </div>
+                </a>
 
 
 
             </div>
+
 
 
 

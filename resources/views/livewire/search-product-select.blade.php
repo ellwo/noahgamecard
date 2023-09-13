@@ -21,14 +21,12 @@
 
 
 
-    {{ $product_id }}
-
     <input type="hidden" name="product_id" value="{{ $product_id }}">
 
     <div  @click.away="$wire.set('show_drop',0);" style="position:relative" class="w-full ">
         <input
         type="text"
-        placeholder="Search Contacts..."
+        placeholder="ادخل اسم المنتج"
         wire:model="query"
         wire:click="togelshow"
         wire:keydown.escape="resetselect"

@@ -65,6 +65,7 @@
 
                     </div>
 
+
                 </div>
 
                 <div class="flex mt-4 dark:text-white flex-col ">
@@ -86,6 +87,21 @@
 
 
 
+                    <h4 class="text-right flex my-2" dir="rtl">عدد العناصر
+                        <select wire:model='paginate_num'  class="bg-white  bg-white rounded-md text-dark text-xs dark:text-white dark:bg-dark border-0">
+                            <option value="10">10</option>
+                            <option value="10">15</option>
+                            <option value="20">20</option>
+                           <option
+                            value="50">
+
+                            <span class="p-1 text-xs text-info">50</span></option>
+                            <option
+                            value="100">
+                            <span class="p-1 text-xs text-info">100</span></option>
+
+                        </select>
+                        </h4>
 
 
                     <table class="min-w-max w-full table-auto overflow-x-auto">
@@ -149,7 +165,7 @@
                                     </td>
 
                                     <td class="px-2">
-                                        <span> {{ $product->countoforders() }}</span>
+                                        <span> {{ $product->orders_count }}</span>
                                     </td>
                                     <td class="py-3  text-center">
                                         <span
@@ -157,22 +173,7 @@
                                     </td>
                                     <td class="py-3   text-right">
                                         <div class="flex item-center justify-center">
-                                            <div
-                                                class="w-4  mr-2 mt-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
-                                                <a target="_blank" class=""
-                                                    href="{{ url('product/all/' . $product->id) }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </a>
 
-
-                                            </div>
                                             <a href="{{ route('products.edit',$product) }}"
                                                 class="w-4 mr-2 mt-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

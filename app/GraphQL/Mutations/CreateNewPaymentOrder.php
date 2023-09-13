@@ -108,6 +108,13 @@ final class CreateNewPaymentOrder
              "errors"=>null
             ];
          }
+
+
+         foreach ($orders as $order) {
+            # code...
+
+            $orginal_price=($order->qun*$order->product->price);
+            $total_price=$order->total_price();
         $paymentinfo=new Paymentinfo();
         $paymentinfo->paymentmethod_id=$args["input"]["paymentmethod_id"];
         $paymentinfo->total_price=$total_price;
@@ -116,15 +123,16 @@ final class CreateNewPaymentOrder
         $paymentinfo->code=rand(45,80).time();
         $paymentinfo->state=1;
         $paymentinfo->save();
-        $paymentinfo->orders()->saveMany($orders);
+        $paymentinfo->orders()->save($order);
 
-      $rassedActivite=  RassedActevity::create([
+        $rassedActivite=  RassedActevity::create([
             'amount'=>-$paymentinfo->total_price,
             'paymentinfo_id'=>$paymentinfo->id,
             'rassed_id'=>$user->rassed->id,
             'code'=>$paymentinfo->code,
             'coin_id'=>Coin::where('main_coin','=',true)->pluck('id')->first()
         ]);
+
 
         $data=[
             "type"=>"veed_rassed",
@@ -136,11 +144,23 @@ final class CreateNewPaymentOrder
           ];
         $noti=UserNotification::create([
             "id"=>$rassedActivite->id,
-            'title'=>'نجحت العملية',
+            'title'=>'ملاحظة',
             'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
         'user_id'=>$user->id,
           'data'=>$data
     ]);
+
+
+         }
+        // $paymentinfo=new Paymentinfo();
+        // $paymentinfo->paymentmethod_id=$args["input"]["paymentmethod_id"];
+        // $paymentinfo->total_price=$total_price;
+        // $paymentinfo->orginal_total=$orginal_price;
+        // $paymentinfo->user_id=$user->id;
+        // $paymentinfo->code=rand(45,80).time();
+        // $paymentinfo->state=1;
+        // $paymentinfo->save();
+        // $paymentinfo->orders()->saveMany($orders);
 
 
         return [

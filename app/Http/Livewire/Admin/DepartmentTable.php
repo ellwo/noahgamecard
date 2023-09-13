@@ -14,6 +14,7 @@ class DepartmentTable extends Component
     public $search="";
     public $showform=0;
     public $deleteDept="no";
+    public $paginate_num=20;
 
     // public function getQueryString()
     // {
@@ -28,7 +29,7 @@ class DepartmentTable extends Component
     public function render()
     {
 
-            $departments=Department::withCount('products as products_count')->orderBy('updated_at','desc')->paginate(5);
+            $departments=Department::withCount('products as products_count')->orderBy('updated_at','desc')->paginate($this->paginate_num);
 
 
 

@@ -9,9 +9,11 @@ use Livewire\WithPagination;
 class ContactTable extends Component
 {
     use WithPagination;
+    public $paginate_num=20;
+
     public function render()
     {
-        $contacts=Contact::orderBy('created_at')->paginate(5);
+        $contacts=Contact::orderBy('created_at')->paginate($this->paginate_num);
         return view('admin.contact.contact-table',['contacts'=>$contacts]);
     }
 }

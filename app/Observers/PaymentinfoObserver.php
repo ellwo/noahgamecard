@@ -38,11 +38,26 @@ class PaymentinfoObserver
                 "routeName"=>"paymentinforeceiptscreen",
                 "data"=>$paymentinfo,
             ],
-            "created_at"=>date('Y/m/d H:i:s')
+            "created_at"=>date('Y/m/d H:i:s'),
+            'total_price'=>$paymentinfo->total_price
         ];
+        $order=$paymentinfo->orders[0];
+        $body=$order->product->name." عدد /:".$order->qun;
+
+        foreach ($order->reqs as $value) {
+            # code.
+            if($value['value']!=null){
+                $body.="\n  ";
+                $body.=$value['lable']." : ".$value['value'];
+
+            }
+        }
+
+
+
         UserNotification::create([
             'title'=>($paymentinfo->state==2?'  نجاح تم تنفيذ الطلب ':' فشل الطلب   ')." رقم  ".$paymentinfo->id,
-            'body'=>$paymentinfo->state==2?'تم شحن البطائق المطلوبة بنجاح يرجى مراجعة حسابك':' عذرا فشلت العملية وذلك بسبب  '.$paymentinfo->note,
+            'body'=>$paymentinfo->state==2?$body:$body.'\n'.' عذرا فشلت العملية وذلك بسبب  '.$paymentinfo->note,
             'user_id'=>$paymentinfo->user_id,
             'data'=>$data
         ]);

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
+use Illuminate\Database\Query\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,7 +18,7 @@ class ProductTable extends Component
    public $deptid;
    public $editproid="no";
    public $deleteproid="no";
-
+   public $paginate_num=20;
 
     /**
      * @param string $deleteproid
@@ -61,17 +62,17 @@ class ProductTable extends Component
             if($this->dateorder=="no" && $this->priceorder=="no"){
 
                 $products = Product::where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderByDesc("updated_at")->paginate(5);
+                    ->orderByDesc("updated_at")->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
             else if($this->priceorder!="no"){
                 $this->dateorder="no";
                 $products = Product::where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderBy("price",$this->priceorder)->paginate(5);
+                    ->orderBy("price",$this->priceorder)->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
             else if($this->dateorder!="no"){
                 $this->priceorder="no";
                 $products = Product::where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderBy("updated_at",$this->dateorder)->paginate(5);
+                    ->orderBy("updated_at",$this->dateorder)->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
 
 
@@ -83,15 +84,15 @@ class ProductTable extends Component
             if($this->dateorder=="no" && $this->priceorder=="no"){
 
                 $products = Product::where("department_id",$this->deptid)->where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderByDesc("updated_at")->paginate(5);
+                    ->orderByDesc("updated_at")->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
             else if($this->priceorder!="no"){
                 $products = Product::where("department_id",$this->deptid)->where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderBy("price",$this->priceorder)->paginate(5);
+                    ->orderBy("price",$this->priceorder)->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
             else if($this->dateorder!="no"){
                 $products = Product::where("department_id",$this->deptid)->where("name", "LIKE", "%" . $this->search . "%")
-                    ->orderBy("updated_at",$this->dateorder)->paginate(5);
+                    ->orderBy("updated_at",$this->dateorder)->withCount('orders as orders_count')->paginate($this->paginate_num);
             }
 
 

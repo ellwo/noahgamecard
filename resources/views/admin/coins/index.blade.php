@@ -1,7 +1,7 @@
 <x-dashe-layout>
 
 
-    @livewire('admin.discount-table', key(time()))
+    @livewire('admin.manage-coin-table', key(time()))
 
 
 

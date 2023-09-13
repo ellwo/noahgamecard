@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use App\Notifications\CustomRestPasswordNotification;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,7 +18,7 @@ use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable implements BannableContract
 {
     use HasApiTokens, HasFactory, HasRoles, Notifiable, Bannable
-    ;
+    ,LaravelSubQueryTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -104,7 +105,8 @@ class User extends Authenticatable implements BannableContract
     function rassed_acetvities()
     {
 
-        return $this->hasManyThrough(RassedActevity::class, Rassed::class);
+        return $this->hasManyThrough(RassedActevity::class,
+         Rassed::class);
     }
 
     public function rassedy()

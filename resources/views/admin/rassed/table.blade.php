@@ -116,7 +116,7 @@
 
 
 
-            <div dir="rtl" class="items-center justify-between mb-4 space-x-2 space-y-2 md:flex md:mx-auto lg:w-2/3">
+            <div dir="rtl" class="items-center justify-between mb-4 space-x-2 space-y-2 md:flex md:mx-auto lg:w-1/3">
                 <div class="w-full pr-4">
                     <div class="relative md:w-full">
                         <input  wire:model.lazy="search" type="search"
@@ -134,71 +134,96 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex transition-shadow shadow">
-                        <div class="relative flex flex-col items-center space-y-2 ">
-                            <x-label value="بحث "  />
-
-
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div  class="flex transition-shadow rounded-lg shadow">
-                        <div class="flex flex-col items-center w-full space-y-2 ">
-                           {{-- <x-button href="{{ route('product.create',['username'=>$type!='all'&&$type!='useronly'?$username:'me']) }}" class='block w-32' variant="success">
-                            اضافة جديد
-                            <x-heroicon-o-plus class="w-4 h-4"/>
-                           </x-button> --}}
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <h4 class="mx-auto flex" dir="rtl">عرض الطلبات ال
-                <select wire:model.lazy='status'  class="bg-white text-dark text-xs dark:text-white dark:bg-dark border-0 bg-transparent">
-                    <option value="4">الكل</option>
-                   <option
-                    value="0">
-                    <span class="p-1 text-xs text-info">المعلقة</span></option>
-                    <option
-                    value="1">
-                    <span class="p-1 text-xs text-info">المؤكدة</span></option>
-                    <option
-                    value="3">
-                    <span class="p-1 text-xs text-info">المرفوضة</span></option>
-                </select>
-            </h4>
-            <hr>
-            <h4 class="mx-auto flex" dir="rtl">عرض الطلبات العميل :
 
-   <select wire:model.lazy='username'  class="bg-white text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
-    <option value="all">جميع الحسابات </option>
-    @foreach ($coustmers as $c)
-    <option
-    {{-- wire:click="choseBuss('{{ $c->username }}')"
-     --}}
-    value="{{ $c->id }}">{{ $c->name }}
+            <div class="flex flex-col space-y-2 lg:w-1/3 mx-auto justify-end justify-items-end">
 
-    <span class="p-1 text-xs text-info">{{ "tel:".$c->phone }} </span></option>
-    @endforeach
-</select>
-            </h4>
+                <h4 class=" flex" dir="rtl">
+                    <span class="w-1/3">عرض الطلبات ال</span>
+                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark border-0 rounded-md bg-transparent">
+                        <option value="4">الكل</option>
+                       <option
+                        value="0">
+                        <span class="p-1 text-xs text-info">المعلقة</span></option>
+                        <option
+                        value="2">
+                        <span class="p-1 text-xs text-info">المؤكدة</span></option>
+                        <option
+                        value="3">
+                        <span class="p-1 text-xs text-info">المرفوضة</span></option>
+                    </select>
+                </h4>
 
-            <x-button class="inline-block w-32  text-center align-middle " variant='info' wire:click='refresh_page'> تحديث </x-button>
+            <h4 class=" flex" dir="rtl">
+                <span class="w-1/3">عرض الطلبات العميل :
+                </span>
+                {{-- <select wire:model.lazy='username'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
+                 <option value="all">جميع العملاء </option>
+                 @foreach ($coustmers as $c)
+                 <option
+                  value="{{ $c->id }}">{{ $c->name }}
+
+                 <span class="p-1 text-xs text-info">{{ "tel:".$c->phone }} </span></option>
+                 @endforeach
+             </select> --}}
+             <div class="w-2/3">
+                @livewire('search-user-select',[
+                       'product_id'=>old('user_id')
+                   ])</div>
+                         </h4>
+
+
+                         <div  class="flex transition-shadow rounded-lg shadow">
+                            <div class="flex flex-col items-center w-full space-y-2 ">
+                               <x-button href="{{ route('rasseds.create'  ) }}" class='block w-32' variant="success">
+                                اضافة جديد
+                                <x-heroicon-o-plus class="w-4 h-4"/>
+                               </x-button>
+                            </div>
+                        </div>
+                         <div class="w-full text-center flex">
+
+                         <x-button class=" mx-auto  "  pill="true" variant='info' wire:click='refresh_page'> تحديث
+
+                            <x-heroicon-s-refresh class="text-white w-8 h-8"/>
+
+                       </x-button>
+                         </div>
+            </div>
+             <br>
+
+
             <div class="w-full top-0 right-0 bottom-0 z-30 bg-white bg-opacity-50 fixed" wire:loading
                               >
                             <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
                         </div>
             <div class="flex flex-col w-full mx-auto overflow-x-scroll md:overflow-x-hidden ">
+
+            <h4 class="text-right flex mx-4" dir="rtl">عدد العناصر
+                <select wire:model='paginate_num'  class="bg-white  bg-white rounded-md text-dark text-xs dark:text-white dark:bg-dark border-0">
+                    <option value="10">10</option>
+                    <option value="10">15</option>
+                    <option value="20">20</option>
+                   <option
+                    value="50">
+                    <span class="p-1 text-xs text-info">50</span></option>
+                    <option
+                    value="100">
+                    <span class="p-1 text-xs text-info">100</span></option>
+
+                </select>
+                </h4>
                 <table dir="rtl" class="table lg:px-4 space-y-6 text-xs border-separate md:min-w-full sm:text-sm text-dark dark:text-light">
                     <thead class=" dark:text-light bg-light dark:bg-dark">
                         <tr>
                             <th class="p-3">رقم العملية </th>
                             <th class="p-3 hidden md:block">وسيلة الدفع</th>
-                            <th class="p-3 "> المبلغ المدخل من المستخدم</th>
+                            <th class="p-3 "> المبلغ المدخل من العميل</th>
                             <th class="p-3 "> المبلغ المؤكد </th>
                             <th class="p-3 ">الحالة</th>
-                            <th class="p-3 ">تاريخ </th>
+                            <th class="p-3 text-right">تاريخ </th>
                             <th class="p-3 text-center ">العميل <br>
 
                             </th>
@@ -232,16 +257,26 @@
                             <td class="md:p-3 hidden md:block">
                                 <span class="font-bold text-blue-900 dark:text-gray-200">{{ $paymentinfo->paymentmethod->name }}</span>
                             </td>
-                            <td class="md:p-3 text-center lg:font-bold text-xs ">
-                                <span class="bg-warning p-1 rounded-md"> {{ $paymentinfo->rassed_actevity->camount." /".$paymentinfo->rassed_actevity->coin?->nickname}} </span><span>{{ $paymentinfo->rassed_actevity->coin?->name }}</span>
+                            <td class="md:p-3  lg:font-bold text-xs ">
+                               <div class="text-center flex flex-col justify-center">
+
+                                <span class="bg-m_primary-lighter  p-1 rounded-md"> {{ $paymentinfo->rassed_actevity->camount." /".$paymentinfo->rassed_actevity->coin?->nickname}} </span>
+                                <span>{{ $paymentinfo->rassed_actevity->coin?->name }}</span>
+                               </div>
                             </td>
                             <td class="text-center">
-                                <span class="bg-info p-1 rounded-md">{{ $paymentinfo->rassed_actevity->amount}}</span>
+                                <div class="text-center flex flex-col justify-center">
+                                    <span class="bg-info text-white p-1 rounded-md">
+                                        {{ $paymentinfo->rassed_actevity->amount." / $"}}</span>
+                                </div>
                             </td>
-                            <td class="md:p-3">
-                                <span class="px-2 {{ $paymentinfo->state==0?"bg-m_primary-lighter":($paymentinfo->state==1? "bg-info":($paymentinfo->state==2?'bg-green-600':'bg-red-400')) }} rounded-md text-darker">@php
-                                    echo  $paymentinfo->state==0?"لم يتم التأكيد":($paymentinfo->state==1? "مؤكدة ":($paymentinfo->state==2?'مؤكدة':'مرفوض'));
-                                @endphp</span>
+                            <td class="md:p-3 ">
+                                <div class="text-center flex flex-col justify-center">
+
+                                    <span class="px-2 p-1 {{ $paymentinfo->state==0?"bg-m_primary-lighter":($paymentinfo->state==1? "bg-m_primary-lighter":($paymentinfo->state==2?'bg-green-600':'bg-red-400')) }} rounded-md text-white">@php
+                                        echo  $paymentinfo->state==0?"معلقة":($paymentinfo->state==1? "معلقة ":($paymentinfo->state==2?'مؤكدة':'مرفوض'));
+                                    @endphp</span>
+                                </div>
                             </td>
 
                             <td class="p-3 " >
@@ -273,15 +308,25 @@
                             <td class="">
                                 <div class="flex flex-col space-y-1">
 
-                                <a @click="show_resave_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex bg-green-600 rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
-                                    <i class="text-base "><x-heroicon-s-check class="w-5 h-5"/></i>
-                                    قبول وتأكيد
+                                    @if ($paymentinfo->state == 2 || $paymentinfo->state==3)
+
+                                <a @click="show_resave_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex text-white bg-warning rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
+                                    <i class=" "><x-bi-pen class="w-5 h-5"/></i>
+                                   تعديل المبلغ
                                 </a>
+                                    @else
+
+                                    <a @click="show_resave_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex bg-green-600 rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
+                                        <i class="text-base "><x-heroicon-s-check class="w-5 h-5"/></i>
+                                        قبول وتأكيد
+                                    </a>
 
                                 <a @click="show_deny_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex bg-red-700 rounded-md cursor-pointer text-white mt-2 hover:text-dark p-2  dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-x class="w-5 h-5"/></i>
                                     رفض
                                 </a>
+                                    @endif
+
                                 </div>
                             </td>
                         </tr>

@@ -44,12 +44,12 @@
 
             var img=new ImagetoServer({
                 url:"{{ route('uploade') }}",
-                src:"{{ $ad->img}}",
+                src:"{{ old('img',$ad->img)}}",
                 id:'img',
-                h:400,
-                w:712,
-                with_w_h:true,
+                h:600,
+                w:1412,
                 shep:'rect',
+                with_w_h:true
 
 
             });

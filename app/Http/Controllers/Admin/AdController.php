@@ -93,15 +93,11 @@ class AdController extends Controller
     {
         $this->validate($request,[
             'img'=>'required|string',
-            'note'=>'string|max:150',
-            'link'=>'required'
         ]);
 
 
         $ad->update([
             'img'=>$request['img'],
-            'note'=>$request['note'],
-            'link'=>$request['link'],
             'active'=>1
 
         ]);

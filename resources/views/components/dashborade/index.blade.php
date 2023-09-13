@@ -47,7 +47,11 @@
 
 
 
-
+<style>
+    canvas{
+        width: 60%;
+    }
+</style>
 
 
 

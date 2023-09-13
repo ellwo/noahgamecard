@@ -27,7 +27,7 @@ class RassedActevity extends Model
 
 
         return $query->whereHas('paymentinfo',function($q){
-               return $q->where('state','>=',1)->where("state","<",3);
+               return $q->where('state','=',2)->orWhere('state','=',1);
         });
     }
     function paymentinfo(){

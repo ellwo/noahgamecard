@@ -22,7 +22,16 @@ class RassedTable extends Component
     public $note="";
     public $status=4;
     public $coin_id=1;
+    public $paginate_num=20;
 
+
+
+    protected  $listeners= ['updatedUser'=>'changeUser'];
+
+
+    function changeUser($id)  {
+        $this->username=$id;
+    }
     public function render()
     {
 
@@ -39,7 +48,7 @@ $paymentinfos =Paymentinfo::whereHas('rassed_actevity',function($q){
         $quer->where('user_id','=',$this->username);
     });
     }
-})->where('state','=',$this->status)->where('code','LIKE','%'.$this->search.'%')->orderBy('updated_at','desc')->paginate(15);
+})->where('state','=',$this->status)->where('code','LIKE','%'.$this->search.'%')->orderBy('updated_at','desc')->paginate($this->paginate_num);
 }
 else{
 
@@ -53,7 +62,7 @@ else{
         });
         }
 
-    })->where('code','LIKE','%'.$this->search.'%')->orderBy('updated_at','desc')->paginate(15);
+    })->where('code','LIKE','%'.$this->search.'%')->orderBy('updated_at','desc')->paginate($this->paginate_num);
 
 }
 
@@ -71,7 +80,11 @@ $coustmers=User::whereHas('rassed_acetvities',function($q){
         $this->resetPage();
         $this->page=1;
         $this->status=4;
+    }
 
+
+    public function updatedSearch(){
+        $this->resetPage();
     }
 
  function UsernameUpdated() {

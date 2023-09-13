@@ -11,11 +11,13 @@ class AdTablebanners extends Component
 
     public $search='';
     public $deleted_ad='no';
+    public $paginate_num=20;
+
     use WithPagination;
     public function render()
     {
 
-        $ads=Ad::orderBy('updated_at','desc')->paginate(5);
+        $ads=Ad::orderBy('updated_at','desc')->paginate($this->paginate_num);
        // return dd($ads);
         return view('admin.adbanners.ad-table',['ads'=>$ads]);
     }

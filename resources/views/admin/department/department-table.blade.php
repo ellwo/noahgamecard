@@ -55,6 +55,20 @@
                         </div>
 
 
+                        <h4 class="text-right flex" dir="rtl">عدد العناصر
+                            <select wire:model='paginate_num'  class="bg-white  bg-white rounded-md text-dark text-xs dark:text-white dark:bg-dark border-0">
+                                <option value="10">10</option>
+                                <option value="10">15</option>
+                                <option value="20">20</option>
+                               <option
+                                value="50">
+                                <span class="p-1 text-xs text-info">50</span></option>
+                                <option
+                                value="100">
+                                <span class="p-1 text-xs text-info">100</span></option>
+
+                            </select>
+                            </h4>
                         <table class="min-w-max w-full table-auto overflow-x-auto">
                             <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm ">

@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory,LaravelSubQueryTrait;
 
     public $fillable=[
         'name',
@@ -74,5 +75,13 @@ public function department()
         // $dta["data"]=$data;
         return $data;
 
+    }
+
+    function orders() {
+
+        return $this->hasMany(Order::class)->whereHas('paymentinfo',function($q){
+            $q->where('state','!=',3);
+
+        });
     }
 }
