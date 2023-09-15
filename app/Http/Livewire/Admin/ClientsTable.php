@@ -26,7 +26,10 @@ class ClientsTable extends Component
 
         ->withSum(['rassed_acetvities:amount as pay_sum' =>
         function (Builder $query) {
-            $query->where('amount','<',0);
+            $query->where('amount','<',0)
+            ->whereHas('paymentinfo',function($q){
+                $q->where('state','=',2)->orWhere('state','=',1);
+            });
         }])->withSum(['rassed_acetvities:amount as veed_sum' =>
         function (Builder $query) {
             $query->where('amount','>',0)->whereHas('paymentinfo',function($q){
