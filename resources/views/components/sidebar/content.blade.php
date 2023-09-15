@@ -1,4 +1,7 @@
-<x-perfect-scrollbar as="nav" aria-label="main" class="  h-screen space-y-4 flex-1 gap-4 px-3">
+<x-perfect-scrollbar as="div"
+x-data="perfectScroll"
+aria-label="main"
+class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
 
     <x-sidebar.link title="لوحة التحكم " href="{{ route('dashboard') }}" :isActive="request()->routeIs('dashboard')">
         <x-slot name="icon">
@@ -20,6 +23,10 @@
 
  @endcan
 
+
+ <x-sidebar.link title="اكواد تفعيل الحسابات" href="{{ route('codes')}}"
+ :isActive="request()->routeIs('codes')||request()->routeIs('codes.*')">
+</x-sidebar.link>
 
 
 

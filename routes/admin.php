@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\CodeContoller;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
@@ -49,8 +50,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     Route::resource('/clients',ClientController::class)->name('index','users');
     Route::resource('/coins',CoinController::class)->name('index','coins');
-
-
+    Route::resource('/codes',CodeContoller::class)->name('index','codes');
 
 
 
