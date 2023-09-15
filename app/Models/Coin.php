@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Coin extends Model
 {
     use HasFactory;
+    use Loggable;
 
    protected $fillable=[
         'name','nickname','icon','main_coin',

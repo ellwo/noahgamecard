@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Order extends Model
     use HasFactory;
     use LaravelSubQueryTrait;
     use \Znck\Eloquent\Traits\BelongsToThrough;
+    use Loggable;
     protected $fillable=[
         'qun',
         'product_id',

@@ -6,10 +6,12 @@ use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 class Paymentinfo extends Model
 {
     use HasFactory,LaravelSubQueryTrait;
+
+use Loggable;
     protected $fillable=[
         'code',
         'paymentmethod_id',

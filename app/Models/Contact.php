@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
     use HasFactory;
+    use Loggable;
     protected $fillable=['name','reply',
     'subject','phone','email','message'];
     public function getUpdatedAtAttribute($value){
