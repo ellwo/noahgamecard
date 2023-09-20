@@ -35,7 +35,8 @@ class DepartmentTable extends Component
 
             if($this->dept_id!="no"){
             $dept=Department::find($this->dept_id);
-        return view('admin.department.department-table',compact('departments'),compact('dept'))->layout('components.dashboard.index');
+        return view('admin.department.department-table',compact('departments'),compact('dept'))
+        ->layout('components.dashboard.index');
 
 
         }

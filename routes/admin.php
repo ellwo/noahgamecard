@@ -12,6 +12,7 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PaymentinfoController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProviderProductController;
 use App\Http\Controllers\RassedActevityContoller;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Livewire\Admin\ProductTable;
@@ -51,7 +52,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/clients',ClientController::class)->name('index','users');
     Route::resource('/coins',CoinController::class)->name('index','coins');
     Route::resource('/codes',CodeContoller::class)->name('index','codes');
-
+    Route::resource('/provider_products',ProviderProductController::class)->name('index','provider_products');
+    
 
 
 

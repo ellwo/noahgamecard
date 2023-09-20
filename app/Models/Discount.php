@@ -14,10 +14,16 @@ class Discount extends Model
 
     protected $fillable=[
         'dis_persint','role_id',
-        'note'
+        'note',
+        'department_id'
     ];
 
 
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
    public function role(){
 
     return $this->belongsTo(Role::class,'role_id');

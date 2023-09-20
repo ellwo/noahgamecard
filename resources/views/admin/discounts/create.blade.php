@@ -25,6 +25,19 @@
             </select>
 
             </div>
+            
+            <x-label :value="__('اختيار القسم  ')" />
+            <div>
+
+                <select name="department_id" id="role_id" 
+                 class="border rounded-md w-1/2 bg-white dark:bg-darker text-black dark:text-white">
+
+            @foreach ($depts as $d )
+                <option value="{{ $d->id }}">{{ $d->name }}</option>
+            @endforeach
+            </select>
+
+            </div>
 
 
 

@@ -23,7 +23,7 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        //
+        
         return view('admin.discounts.index');
     }
 
@@ -57,7 +57,8 @@ class DiscountController extends Controller
 
         $offer=Discount::create([
             'role_id'=>$request['role_id'],
-            'dis_persint'=>$request['dis_persint']
+            'dis_persint'=>$request['dis_persint'],
+            'department_id'=>$request['department_id']
 
         ]);
 
@@ -108,11 +109,11 @@ class DiscountController extends Controller
 
         $discount->update([
             'role_id'=>$request['role_id'],
-            'dis_persint'=>$request['dis_persint']
+            'dis_persint'=>$request['dis_persint'],
+            'department_id'=>$request['department_id']
         ]);
 
         return redirect()->route('discount')->with('status','تم الحفظ بنجاح');
-
     }
 
     /**

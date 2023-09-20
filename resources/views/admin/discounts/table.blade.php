@@ -30,22 +30,7 @@
 
 
             <div class="items-center justify-between mb-4 space-x-2 space-y-2 md:flex md:mx-auto lg:w-2/3">
-                <div class="w-full pr-4">
-                    <div class="relative md:w-full">
-                        <input wire:model='search' type="search"
-                            class="w-full py-2 pl-10 pr-4 font-medium text-gray-600 rounded-lg shadow  focus:outline-none focus:shadow-outline"
-                            placeholder="Search...">
-                        <div class="absolute top-0 left-0 inline-flex items-center p-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24"
-                                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                                <circle cx="10" cy="10" r="7" />
-                                <line x1="21" y1="21" x2="15" y2="15" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+            
                 <div>
                     {{-- <div class="flex transition-shadow shadow">
                         <div class="relative flex flex-col items-center space-y-2 ">
@@ -91,13 +76,14 @@
 
                 </select>
                 </h4>
-                <table class="table px-4 space-y-6 text-xs border-separate md:min-w-full sm:text-sm text-dark dark:text-light">
+                <table dir="rtl" class="table px-4 space-y-6 text-xs border-separate md:min-w-full sm:text-sm text-dark dark:text-light">
                     <thead class=" dark:text-light bg-light dark:bg-dark">
                         <tr>
                             <th class="p-3">الامتياز</th>
-                            <th class="p-3 text-left">نسبة العمولة</th>
-                            <th class="p-3 text-left">تاريخ الاضافة</th>
-                             <th class="p-3 text-left">عمليات</th>
+                            <th class="p-3">القسم</th>
+                            <th class="p-3 text-center">نسبة العمولة</th>
+                            <th class="p-3 text-center">تاريخ الاضافة</th>
+                             <th class="p-3 text-center">عمليات</th>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -105,23 +91,21 @@
                         @foreach ($discounts as $ad)
 
                         <tr class="bg-white dark:bg-dark">
-                            <td class="p-3">
-                                <div class="flex align-items-center">
-
-                                    <div dir="auto" class="ml-3">
+                            <td class="p-3 text-center">
                                     {{ $ad->role->name }}
-                                    </div>
-                                </div>
                             </td>
-                            <td class="p-3">
-                                <s class="font-sans"> {{ $ad->dis_persint."%" }}</s>
-
+                            <td class="p-3 text-center">
+                                    {{ $ad->department?->name }}
+                            </td>
+                            
+                            <td class="p-3 text-center">
+                                {{ $ad->dis_persint."%" }}
                             </td>
 
-                            <td class="p-3">
+                            <td class="p-3 text-center">
                                 {{$ad->created_at}}
                             </td>
-                            <td class="p-3 ">
+                            <td class="p-3 text-center ">
 
                                 <a
                                 href="{{ route('discount.edit',['discount'=>$ad]) }}" class="mx-2 text-gray-400 hover:text-yellow-700">
@@ -153,13 +137,13 @@
             border-radius: 20px;
         }
 
-        tr td:nth-child(n+4),
-        tr th:nth-child(n+4) {
+        tr td:nth-child(1),
+        tr th:nth-child(1) {
             border-radius: 0 .625rem .625rem 0;
         }
 
-        tr td:nth-child(1),
-        tr th:nth-child(1) {
+        tr td:nth-child(n+5),
+        tr th:nth-child(n+5) {
             border-radius: .625rem 0 0 .625rem;
         }
     </style>

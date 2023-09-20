@@ -11,8 +11,9 @@
             </x-button>
         </div>
         <hr>
-        <form  dir="auto" method="POST" action="{{ route('discount.store') }}" class="mx-auto flex flex-col w-3/4  space-x-2 space-y-3  dark:bg-dark">
+        <form  dir="auto" method="POST" action="{{ route('discount.update',$discount) }}" class="mx-auto flex flex-col w-3/4  space-x-2 space-y-3  dark:bg-dark">
 
+            @method('PUT')
             @csrf
             <x-label :value="__('اختيار الامتياز  ')" />
             <div>
@@ -21,6 +22,23 @@
 
             @foreach ($roles as $role )
                 <option  @if($role->id==$discount->role->id) selected @endif value="{{ $role->id }}">{{ $role->name }}</option>
+            @endforeach
+            </select>
+
+            </div>
+            
+            <x-label :value="__('اختيار القسم  ')" />
+            <div>
+
+                <select name="department_id" id="role_id" 
+                 class="border rounded-md w-1/2 bg-white dark:bg-darker text-black dark:text-white">
+
+            @foreach ($depts as $d )
+                <option 
+                @if ($d->id==$discount->department_id)
+                    checked
+                @endif
+                value="{{ $d->id }}">{{ $d->name }}</option>
             @endforeach
             </select>
 

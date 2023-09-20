@@ -37,6 +37,11 @@ use Loggable;
     return $this->hasMany(Order::class);
    //     return $this->belongsToMany(Order::class,'order_paymentinfo');
     }
+    
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
 
     public function paymentmethod(){
         return $this->belongsTo(Paymentmethod::class);

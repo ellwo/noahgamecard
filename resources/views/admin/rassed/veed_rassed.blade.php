@@ -20,9 +20,7 @@
 
                 @enderror
             </div>
-
-
-
+ 
              <div x-show="p_price!=0" class="flex px-4" >
             <span>العميل</span>
             <span class="font-bold text-red-600" x-text="p_price"></span>

@@ -82,8 +82,6 @@ class Order extends Model
     public function total_price(){
         $total_price=$this->product->price * $this->qun;
         $dis_total_price= $total_price;
-     //   $user=auth()->user();
-
        $offer=$this->product->hasOffer();
        if($offer!=null)
       {
@@ -99,9 +97,10 @@ class Order extends Model
       $dis_persint=Discount::whereHas('role',
          function (Builder $query)use($role_id){
             $query->where('id','=',$role_id);
-              })->first();
-
-               $dis_total_price= $total_price-($total_price*$dis_persint->dis_persint);
+              })->where('department_id','=',$this->product->department_id)->first();
+              if($dis_persint!=null){
+                $dis_total_price= $total_price-($total_price*$dis_persint->dis_persint);
+              }
             }
       }
       return $dis_total_price;
