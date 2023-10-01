@@ -5495,7 +5495,7 @@ document.addEventListener("alpine:init", function () {
       updateBarChart: updateBarChart,
       updateDoughnutChart: updateDoughnutChart,
       updateLineChart: updateLineChart,
-      isSidebarOpen: window.innerWidth > 1024,
+      isSidebarOpen: window.innerWidth > 500,
       isSidebarHovered: false,
       handleSidebarHover: function handleSidebarHover(value) {
         if (window.innerWidth < 1024) {
@@ -5504,11 +5504,7 @@ document.addEventListener("alpine:init", function () {
         this.isSidebarHovered = value;
       },
       handleWindowResize: function handleWindowResize() {
-        if (window.innerWidth <= 1024) {
-          this.isSidebarOpen = false;
-        } else {
-          this.isSidebarOpen = true;
-        }
+        this.isSidebarOpen = true;
       },
       scrollingDown: false,
       scrollingUp: false,

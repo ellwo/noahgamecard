@@ -76,7 +76,7 @@
 
 
     <div x-data="setup()" @resize.window="handleWindowResize" x-init="$refs.loading.classList.add('hidden');
-    setColors('mycolor'); isSidebarOpen=false" :class="{ 'dark': isDark}">
+    setColors('mycolor'); " :class="{ 'dark': isDark}">
 
 
     <div   class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
