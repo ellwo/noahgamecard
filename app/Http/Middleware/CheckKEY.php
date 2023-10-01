@@ -17,7 +17,7 @@ class CheckKEY
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+       // return $next($request);
 
 
         if($request->path()=="graphql"){
