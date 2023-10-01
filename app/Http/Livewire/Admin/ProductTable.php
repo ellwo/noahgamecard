@@ -135,20 +135,24 @@ class ProductTable extends Component
     public function deletePro($id){
         $product=Product::find($id);
 
-        if($product->countoforders()>0)
-        {
+        $product->update([
+            'active'=>!$product->active
+        ]);
 
-            $product->orders()->delete();
-            $product->normalorders()->delete();
-            $product->cartorders()->delete();
-            $product->cartordernromals()->delete();
+        // if($product->countoforders()>0)
+        // {
 
-        }
+        //     $product->orders()->delete();
+        //     $product->normalorders()->delete();
+        //     $product->cartorders()->delete();
+        //     $product->cartordernromals()->delete();
 
-        $product->parts()->detach();
-        $product->delete();
-        session()->flash('statt','ok');
-        session()->flash('message','تم الحذف');
+        // }
+
+        // $product->parts()->detach();
+        // $product->delete();
+        // session()->flash('statt','ok');
+        // session()->flash('message','تم الحذف');
 
         $this->deleteproid="no";
 

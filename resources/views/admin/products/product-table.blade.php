@@ -118,6 +118,7 @@
                                     </select>
                                 </th>
                                 <th class="py-3 px-2  text-left"> عدد الطلبات</th>
+                                <th class="py-3 px-2  text-left"> الحالة </th>
                                 <th class="py-3  text-center">السعر
                                     <select class=" rounded-sm text-sm flex-1  dark:bg-darker" wire:model="priceorder"
                                         id="byprice">
@@ -164,8 +165,38 @@
 
                                     </td>
 
-                                    <td class="px-2">
+                                    <td  class="px-2">
                                         <span> {{ $product->orders_count }}</span>
+                                    </td>
+                                    <td x-data='{isActive:{{$product->active??0}}}'>
+                                        
+                                        <div class="flex flex-col">
+
+                                            <button aria-hidden="true" class="relative focus:outline-none" x-cloak wire:click="deletePro({{$product->id}})" @click="isActive=!isActive;">
+                                                <div
+                                                    class="w-12 h-6 transition rounded-full outline-none  dark:"
+                                                    :class="{
+                                                        'bg-success':isActive,
+                                                        'bg-gray-400':!isActive
+                                                    }"
+                                                    >
+                                                </div>
+                                                <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 border rounded-full shadow-sm"
+                                                    :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isActive,
+                                                     'translate-x-6 text-primary-100 bg-white': isActive }">
+    
+    
+                                                </div>
+                                            </button>
+
+                                            <div x-show="!isActive" class="">
+                                                غير نشط
+                                              </div>
+                                              <div x-show="isActive" class="">
+                                                   نشط
+                                                </div>
+                                        </div>
+
                                     </td>
                                     <td class="py-3  text-center">
                                         <span
@@ -195,20 +226,30 @@
                                         </div>
                                         @if ($deleteproid != 'no' && $deleteproid==$product->id)
                                         <div x-data="{dpm{{ $deleteproid }}: 1}">
-                                            <div x-show="dpm{{ $deleteproid }}" class="dialog">
+                                            
+                                            
+            <div x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+            class="fixed inset-0 bg-darker opacity-10 z-30" @click='dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}' 
+            wire:click="setDeleteproid('no')"
+            x-show="dpm{{ $deleteproid }}">
+
+        </div>
+                                            <div x-show="dpm{{ $deleteproid }}" class="dialog p-4 w-1/3  fixed z-50 bg-white top-1/3 left-1/2 rounded-md">
                                                 <div class="dialog-content">
-                                                    <div class="dialog-header dark:text-black">هل انت متاكد من الحذف
+                                                    <div class="dialog-header dark:text-black">هل انت متاكد من الغاء تنشيط هذا المنتج . .؟
                                                     </div>
                                                     <div class="dialog-body lg:flex" dir="auto">
-                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg "> سيتم حذق جميع
-                                                            الارتباطات المتعلقة بهذا المنتج
+                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg "> 
+                                                            لن يظهر هذا المنتج عند العملاء بعد هذه العملية ولكن سيظهر في الطلبات في حال كان مرتبط بطلبات من قبل 
                                                         </h1>
                                                     </div>
                                                     <div class="dialog-footer flex mx-auto">
                                                         <button type="button" class="bg-blue-700 text-white rounded-box p-2 " wire:click="setDeleteproid('no')"
                                                             @click="dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}">الغاء</button>
                                                         <button type="button" wire:click="deletePro({{ $deleteproid }})"
-                                                            class="bg-red-700 text-white rounded-box p-2">حذف </button>
+                                                            class="bg-red-700 text-white rounded-box p-2"> تأكيد</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -110,8 +110,13 @@ file_put_contents(public_path().'/'.$path,base64_decode($img));
 
                 // $pathh= Storage::disk('public')->put($path,base64_decode($img));
              //   $urllll=config('app.url').'/'.$path;
+             if(env('APP_ENV') == 'production')
+             {     
                 $urllll="https://".request()->getHttpHost().'/'.$path;
-
+             }
+             else
+             $urllll="http://".request()->getHttpHost().'/'.$path;
+            
 
                 // $urllll =Storage::disk('public')->url($path);
 

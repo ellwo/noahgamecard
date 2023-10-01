@@ -19,6 +19,12 @@ class ClientProvider extends Model
     ];
 
 
+
+    public function scopeActive($query)
+    {
+        return $this->where('active','=',1);
+        # code...
+    }
     public function active_departments()
     {
         return $this->belongsToMany(Department::class,'provider_department')

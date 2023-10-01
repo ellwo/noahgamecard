@@ -11,6 +11,7 @@ class ProviderProductForm extends Component
 
     public Product $product;
     public $product_id=-1;
+    public $provider_id=-1;
     public $req_count=1;
     protected $rules=[
         'product.name'=>'required'
@@ -19,18 +20,21 @@ class ProviderProductForm extends Component
     public function  mount($deptid="all",$search="",$provider_id=1){
         $this->product =Product::first();
         $this->product_id=$this->product_id;
-      //  $this->
+       $this->provider_id=$provider_id;
+      
  
     }
     public function render()
     {
     
 
-        $provider=ClientProvider::find(1);
-        $products=Product::all();
+        $provider=ClientProvider::active()->get();
+        $products=Product::active()->wheredoesntHave('provider_products',function($q){
+            $q->where('client_provider_id','=',$this->provider_id);
+        })->get();
         return view('admin.provider-products.create-form',
     ['products'=>$products,
-'provider'=>$provider]);
+'providers'=>$provider]);
     }
 
 

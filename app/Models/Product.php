@@ -21,7 +21,8 @@ class Product extends Model
         'price',
         'required_ep',
         'user_id',
-        'department_id'
+        'department_id',
+        'active'
     ];
 
     protected $casts =[
@@ -48,6 +49,11 @@ public function department()
 
 
 
+public function scopeActive($q)
+{
+    return $q->where('active','=',1);
+    # code...
+}
 public function provider_products()
 {
     return $this->hasMany(ProviderProduct::class);

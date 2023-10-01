@@ -62,38 +62,7 @@
                 <input type="radio" name="required_ep" id="status" @if($product->required_ep) checked @endif value="1" />
             </label>
                 </div>
-
-
-                    {{-- @livewire('admin.dept-part-mulit-select', ['type' => 1,'selected'=>$product->parts->pluck('id')->toArray(),'dept'=>$product->department_id], key(time())) --}}
-{{--
-
-                    <input type="hidden" name="owner_id" value="{{ $product->owner_id}}"/>
-                    <input type="hidden" name="owner_type" value="{{ $product->owner_type }}"/>
-
-                @if ($product->owner_type=="App\Models\User")
-
-
-
-                @else
-                <div>
-                    @include('components.mulit-select',[
-                        'inputname'=>'parts',
-                        'items'=>$product->owner->department->parts,
-                        'id'=>'parts',
-                        'lablename'=>'الفئات' ,
-                        'selected'=> $product->parts->pluck('id')->toArray()
-                            ])
-                    </div>
-
-
-                    <input type="hidden" name="department_id" value="{{ $product->depratment_id!=null?$product->depratment_id:$product->owner->department->id }}">
-
-
-                @endif --}}
-
-
-
-
+ 
             </div>
 
 

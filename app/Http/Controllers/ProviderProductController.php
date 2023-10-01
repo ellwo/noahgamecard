@@ -17,15 +17,10 @@ class ProviderProductController extends Controller
     public function index()
     {
         //
-        $provider=new ClientProvider([
-            'name'=>'toponline',
-            'phone'=>'775212843'
-        ]);
-        $products=Product::all();
-        return view('admin.provider-products.create',[
-            'products'=>$products,
-            'provider'=>$provider
-        ]);
+
+
+
+        return view('admin.provider-products.index');
     }                
 
     /**
@@ -36,6 +31,7 @@ class ProviderProductController extends Controller
     public function create()
     {
         //
+        return view('admin.provider-products.create');
     }
 
     /**
@@ -47,6 +43,18 @@ class ProviderProductController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+
+
+
+
+
+
+
+
+
         $reqs=[];
 
         for($i=0; $i<count($request['reqname']??[]); $i++){
@@ -60,39 +68,60 @@ class ProviderProductController extends Controller
         }
 
 
-        $product=Product::find($request['product_id']);
+
+      $providerProduct=  ProviderProduct::create([
+            'product_id'=>$request['product_id'],
+            'price'=>$request['price'],
+            'name'=>$request['name'],
+            'client_provider_id'=>$request['client_provider_id']??1,
+            'active'=>$request['active']??0,
+            'reqs'=>$reqs,
+              
+        ]);
+
+
+        if($request['active']??0==1){
+
+            $product=Product::find($request['product_id']);
+            $product->provider_products()
+            ->where('id','!=',$providerProduct->id)->update([
+                'active'=>0
+            ]);
+        }
+        return back()->with('status','تم الحفظ بنجاح');
+        // $product=Product::find($request['product_id']);
 
 
 
 
-        $order=$product->orders()->orderBy('created_at','desc')->first();
+        // $order=$product->orders()->orderBy('created_at','desc')->first();
 
-        // return dd($order->reqs);
+        // // return dd($order->reqs);
 
-        foreach($order->reqs as $v){
+        // foreach($order->reqs as $v){
 
-            $lable=$v['lable'];
-            $value=$v['value'];
+        //     $lable=$v['lable'];
+        //     $value=$v['value'];
             
 
-        $i=0;
-            foreach($reqs as $r){
-                if($r['lable']==$v['lable']){
-                    $reqs[$i]['val']=$value;
-                }
-                $i++;
-            }
+        // $i=0;
+        //     foreach($reqs as $r){
+        //         if($r['lable']==$v['lable']){
+        //             $reqs[$i]['val']=$value;
+        //         }
+        //         $i++;
+        //     }
 
-        }
-
-
+        // }
 
 
 
-        $query="";
-        foreach($reqs as $r){
-        $query.=$r['name']."=".$r['val']."&";
-        }
+
+
+        // $query="";
+        // foreach($reqs as $r){
+        // $query.=$r['name']."=".$r['val']."&";
+        // }
 
 
         return dd($query);

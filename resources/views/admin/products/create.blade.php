@@ -102,6 +102,7 @@
                     @php
                      echo old('note');
                     @endphp
+                                                             شحن شدات ببجي لشراء الملابس وادوات ببجي 
                      </textarea>
                 </div>
 

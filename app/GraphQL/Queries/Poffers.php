@@ -18,7 +18,7 @@ final class Poffers
 
 
         $user=auth()->user();
-        $products=Product::Has('offers')->get();
+        $products=Product::active()->Has('offers')->get();
 
         return $products;
 
