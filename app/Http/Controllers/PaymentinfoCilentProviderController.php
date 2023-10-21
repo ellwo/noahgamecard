@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ClientProvider;
+use App\Models\PaymentinfoCilentProvider;
 use Illuminate\Http\Request;
 
-class ClientProviderController extends Controller
+class PaymentinfoCilentProviderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ClientProviderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ClientProvider  $clientProvider
+     * @param  \App\Models\PaymentinfoCilentProvider  $paymentinfoCilentProvider
      * @return \Illuminate\Http\Response
      */
-    public function show(ClientProvider $clientProvider)
+    public function show(PaymentinfoCilentProvider $paymentinfoCilentProvider)
     {
         //
     }
@@ -52,10 +52,10 @@ class ClientProviderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ClientProvider  $clientProvider
+     * @param  \App\Models\PaymentinfoCilentProvider  $paymentinfoCilentProvider
      * @return \Illuminate\Http\Response
      */
-    public function edit(ClientProvider $clientProvider)
+    public function edit(PaymentinfoCilentProvider $paymentinfoCilentProvider)
     {
         //
     }
@@ -64,10 +64,10 @@ class ClientProviderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ClientProvider  $clientProvider
+     * @param  \App\Models\PaymentinfoCilentProvider  $paymentinfoCilentProvider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClientProvider $clientProvider)
+    public function update(Request $request, PaymentinfoCilentProvider $paymentinfoCilentProvider)
     {
         //
     }
@@ -75,10 +75,10 @@ class ClientProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ClientProvider  $clientProvider
+     * @param  \App\Models\PaymentinfoCilentProvider  $paymentinfoCilentProvider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClientProvider $clientProvider)
+    public function destroy(PaymentinfoCilentProvider $paymentinfoCilentProvider)
     {
         //
     }

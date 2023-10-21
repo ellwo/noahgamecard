@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\RassedActevity;
 
 class RassedActevityObserver
@@ -14,6 +15,30 @@ class RassedActevityObserver
      */
     public function created(RassedActevity $rassedActevity)
     {
+
+        if(env('APP_ENV','local') == 'local')
+        {
+
+            if($rassedActevity->paymentinfo->orders->count()>0){
+                $product=$rassedActevity->paymentinfo->order->product;
+
+                if($product->provider_product->count()>0){
+    
+                    $clientProvider=$product->provider_product()->first()->client_provider;
+    
+                    if($clientProvider->id==1){
+                        
+                        dispatch(new TopOnlinePayByAPIJob($rassedActevity->paymentinfo));
+                    }
+                    
+    
+                }
+    
+            }
+    
+
+        }
+        
         //
     }
 

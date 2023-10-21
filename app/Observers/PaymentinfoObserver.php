@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\Paymentinfo;
+use App\Models\PaymentinfoExecuteBy;
 use App\Models\UserNotification;
 
 class PaymentinfoObserver
@@ -18,28 +19,6 @@ class PaymentinfoObserver
     {
 
 
-        if(env('APP_ENV') == 'production')
-        {
-
-            if($paymentinfo->orders->count()>0){
-                $product=$paymentinfo->order->product;
-    
-    
-                if($product->provider_product->count()>0){
-    
-                    $clientProvider=$product->provider_product()->first()->client_provider;
-    
-                    if($clientProvider->id==1){
-                        dispatch(new TopOnlinePayByAPIJob($paymentinfo));
-                    }
-                    
-    
-                }
-    
-            }
-    
-
-        }
         
     }
 

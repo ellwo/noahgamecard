@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PaymentinfoExecuteBy extends Model
 {
-    use HasFactory;
+    use HasFactory,LaravelSubQueryTrait;
 
     protected $fillable=[
         'paymentinfo_id',
@@ -27,4 +28,12 @@ class PaymentinfoExecuteBy extends Model
     {
         return $this->morphTo();
     }
+
+    public function rassed_actevity()
+    {
+
+        return $this->paymentinfo->rassed_actevity();
+        # code...
+    }
+
 }

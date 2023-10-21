@@ -28,6 +28,12 @@ use Loggable;
 
 
 
+    public function excuted_status()
+    {
+        return $this->hasMany(PaymentinfoExecuteBy::class);
+        # code...
+    }
+
     function coin() {
 
         return $this->belongsTo(Coin::class);

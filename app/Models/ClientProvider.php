@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ClientProvider extends Model
 {
-    use HasFactory;
+    use HasFactory,LaravelSubQueryTrait;
     protected $fillable=[
         'name',
         'phone',
@@ -20,6 +21,27 @@ class ClientProvider extends Model
 
 
 
+    public function pays_excutes()
+    {
+        return $this->morphMany(PaymentinfoExecuteBy::class, 'execute');
+    }
+
+    public function rassed_acetvities(){
+
+        //return $this->hasManyThrough(Paymentinfo::class,$this->pays_excutes());
+        //return $this->hasManyThrough();
+        return RassedActevity::whereHas('paymentinfo',function($q){
+            $q->whereIn('id',$this->pays_excutes()->pluck('paymentinfo_id')->toArray());
+        })->whereHas('paymentinfo',function($qq){
+            $qq->where('state','=',2)->orWhere('state','!=',2);
+        });
+        return $this->pays_excutes()->rassed_acetvities();
+    }
+    public function pay_sum()
+    {
+        # code...
+        return $this->rassed_acetvities()->sum('amount');
+    }
     public function scopeActive($query)
     {
         return $this->where('active','=',1);

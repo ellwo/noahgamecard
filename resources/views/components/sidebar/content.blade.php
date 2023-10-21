@@ -38,6 +38,19 @@ class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
     </x-slot>
 </x-sidebar.link>
  @endcan
+
+
+ <x-sidebar.dropdown title="ادارة المزودين" :active="Str::contains(request()->route()->uri(), 'provider')">
+    <x-slot name="icon">
+        <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+    </x-slot>
+
+    <x-sidebar.sublink title="المزودين" href="{{ route('clients-provider') }}"
+        :active="request()->routeIs('clients-provider')" />
+    <x-sidebar.sublink title="منتجات المزودين" href="{{ route('provider_products') }}"
+        :active="request()->routeIs('provider_products')" />
+</x-sidebar.dropdown>
+
  @can('ادارة اسعار الصرف')
 
  <x-sidebar.link title="ادارة اسعار العملات" href="{{ route('coins')}}" :isActive="request()->routeIs('coins')||request()->routeIs('coins.*')">

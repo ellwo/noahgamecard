@@ -20,7 +20,9 @@ class ProviderProductController extends Controller
 
 
 
-        return view('admin.provider-products.index');
+        return view('admin.provider-products.index',[
+            'client'=>$_GET['client']??-1
+        ]);
     }                
 
     /**
@@ -147,6 +149,7 @@ class ProviderProductController extends Controller
     public function edit(ProviderProduct $providerProduct)
     {
         //
+        return view('admin.provider-products.edit',['product'=>$providerProduct]);
     }
 
     /**
@@ -159,6 +162,49 @@ class ProviderProductController extends Controller
     public function update(Request $request, ProviderProduct $providerProduct)
     {
         //
+
+
+
+
+
+
+
+
+        $reqs=[];
+
+        for($i=0; $i<count($request['reqname']??[]); $i++){
+            $reqs[]=[
+                'name'=>$request['reqname'][$i],
+                'lable'=>$request['reqvalue'][$i],
+                'def_val'=>$request['reqdef_val'][$i],
+                'val'=>$request['reqdef_val'][$i],
+                
+            ];
+        }
+
+
+        return dd($reqs);
+
+      $providerProduct->update([
+            'product_id'=>$request['product_id'],
+            'price'=>$request['price'],
+            'name'=>$request['name'],
+            'client_provider_id'=>$request['client_provider_id']??1,
+            'active'=>$request['active']??0,
+            'reqs'=>$reqs,
+              
+        ]);
+
+
+        if($request['active']??0==1){
+
+            $product=Product::find($request['product_id']);
+            $product->provider_products()
+            ->where('id','!=',$providerProduct->id)->update([
+                'active'=>0
+            ]);
+        }
+        return back()->with('status','تم الحفظ بنجاح');
     }
 
     /**

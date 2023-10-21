@@ -7,7 +7,7 @@
     <div class=" overflow-x-auto bg-transparent w-full flex items-center justify-center  font-sans ">
         <div class="w-full lg:w-5/6">
             <div class="rounded-t bg-white dark:bg-darker mb-4 mt-4 px-4 py-3 border-0">
-                <div class="flex flex-wrap items-center">
+                <div dir="rtl" class="flex flex-wrap items-center">
                     <div class="relative w-full sm:px-4 max-w-full flex-grow sm:flex-1">
                         <h3 class="font-semibold relative mb-4 flex text-base text-blueGray-700">
                             {{ __('منتجات المزودين') }}
@@ -15,22 +15,36 @@
                             <span class="rounded-full p-1 bg-indigo-500 ">+</span>
 
                         </h3>
-                        <x-input-with-icon-wrapper>
-                            <x-slot name="icon" role="button">
-                                <x-bi-search aria-hidden="true" class="w-5 h-5" />
-                            </x-slot>
-                            <x-input wire:model="search" name="search" withicon id="search"
-                                class="block rounded-full w-full" type="text" :value="old('name')" required autofocus
-                                placeholder="{{ __('ابحث') }}" />
-                        </x-input-with-icon-wrapper>
-
+                        <div class="relative md:w-full">
+                            <input wire:model.lazy="search" type="search"
+                                class="w-full py-2 pl-10 pr-4 font-medium text-gray-600 rounded-lg shadow focus:outline-none focus:shadow-outline"
+                                placeholder="ابحث...">
+                            <div class="absolute top-0 left-0 inline-flex items-center p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                                    <circle cx="10" cy="10" r="7" />
+                                    <line x1="21" y1="21" x2="15" y2="15" />
+                                </svg>
+                            </div>
+                        </div>
                         <select  wire:model="deptid" class=" form-select flex-1 dark:bg-darker rounded-full m-2"
                             id="color1">
                             <option  value="all"> القسم /الجميع
                             </option>
                             @foreach ($depts as $dept)
                                 <option  value="{{ $dept->id }}">
-                                    القسم/{{ $dept->name }}</option>
+                                    {{ $dept->name }}</option>
+                            @endforeach
+                        </select>
+                        <select  wire:model="client" class=" form-select flex-1 dark:bg-darker rounded-full m-2"
+                            id="color1">
+                            <option  value="all"> المزود /الجميع
+                            </option>
+                            @foreach ($clients as $dept)
+                                <option  value="{{ $dept->id }}">
+                                   {{ $dept->name }}</option>
                             @endforeach
                         </select>
                         <div class="w-full  mb-4 flex" dir="auto">
@@ -201,7 +215,8 @@
                                     <td class="py-3   text-right">
                                         <div class="flex item-center justify-center">
 
-                                            <div wire:click="setDeleteproid({{ $product->id }})"
+                                            <a href="{{ route('provider_products.edit', $product) }}"
+                                            {{-- wire:click="setDeleteproid({{ $product->id }})" --}}
                                                 class="w-4 flex mr-2 mt-2 cursor-pointer transform hover:text-red-800 hover:scale-110">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor">
@@ -209,7 +224,7 @@
                                                     stroke-width="2"
                                                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                             </svg>
-                                            </div>
+                                        </a>
                                         </div>
                                         @if ($deleteproid != 'no' && $deleteproid==$product->id)
                                         <div x-data="{dpm{{ $deleteproid }}: 1}">

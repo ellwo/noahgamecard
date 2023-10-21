@@ -16,6 +16,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "haruncpi/laravel-user-activity": "^1.0",
         "joselfonseca/lighthouse-graphql-passport-auth": "^8.0",
+        "kreait/laravel-firebase": "^4.2",
+        "laravel-notification-channels/fcm": "^2.7",
         "laravel/framework": "^8.75",
         "laravel/passport": "*",
         "laravel/sanctum": "^2.11",

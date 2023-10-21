@@ -25,6 +25,12 @@ class ProviderProduct extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+public function scopeActive($q)
+{
+    return $q->where('active','=',1);
+    # code...
+}
     public function client_provider()
     {
         return $this->belongsTo(ClientProvider::class);

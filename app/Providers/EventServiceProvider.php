@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Paymentinfo;
+use App\Models\RassedActevity;
 use App\Models\UserNotification;
 use App\Observers\PaymentinfoObserver;
+use App\Observers\RassedActevityObserver;
 use App\Observers\UserNotificationObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -33,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
     {
         UserNotification::observe(UserNotificationObserver::class);
         Paymentinfo::observe(PaymentinfoObserver::class);
+        RassedActevity::observe(RassedActevityObserver::class);
         //
     }
 }

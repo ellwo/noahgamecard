@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ClientProviderController;
 use App\Http\Controllers\Admin\CodeContoller;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
@@ -50,6 +51,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/rasseds',RassedActevityContoller::class)->name('index','rasseds');
 
     Route::resource('/clients',ClientController::class)->name('index','users');
+    Route::resource('/clients-provider',ClientProviderController::class)->name('index','clients-provider');
     Route::resource('/coins',CoinController::class)->name('index','coins');
     Route::resource('/codes',CodeContoller::class)->name('index','codes');
     Route::resource('/provider_products',ProviderProductController::class)->name('index','provider_products');

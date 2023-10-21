@@ -6,15 +6,15 @@
 
 
 
-        <div x-show="open_delete" class="absolute flex flex-col p-8 space-y-4 bg-white rounded-md top-24 right-1/2">
+        <div x-show="open_delete" class="absolute z-50 flex flex-col p-8 space-y-4 bg-white rounded-md top-24 right-1/2">
             <span class="w-full text-danger">تنويه</span>
             <hr>
-            هل انت متاكد من الحذف ؟
+            هل انت متأكد من الغاء تنشيط المزود سيتم الغاء تنشيط جميع المنتجات المرتبطة  ؟
             <div class="flex justify-between space-x-2">
       <x-button variant='success' @click='open_delete=false'
-       wire:click='delete_order({{$delete_orderid}})'
+       wire:click='deletePro({{$delete_orderid}})'
       >تأكيد</x-button>
-      <x-button variant='danger' x-on:click="open_delete=false;$wire.set('delete_orderid','no')" > الغاء</x-button>
+      <x-button variant='danger' x-on:click="open_delete=false;$wire.set('delete_orderid',-1)" > الغاء</x-button>
             </div>
         </div>
 
@@ -119,9 +119,9 @@
                             <th class="p-3 tdp text-right">اسم المزود </th>
                             <th class="p-3 tdp text-right "> رقم الهاتف  </th>
                             <th class="p-3 tdp text-right ">  اجمالي المشتروات</th>
-                            <th class="p-3 tdp text-right "> الاقسام المرتبطة</th>
+                            <th class="p-3 tdp text-right "> عدد المنتجات المرتبطة</th>
                             <th class="p-3 tdp text-right ">الرصيد الحالي  </th>
-                            <th class="p-3 tdp text-right ">نوع العميل</th>
+                            <th class="p-3 tdp text-right ">الحالة</th>
                             <th class="p-3 text-right ">عمليات</th>
                         </tr>
                     </thead>
@@ -133,7 +133,7 @@
                         <tr class="bg-white dark:bg-dark">
 
                             <td class="tdp flex flex-col">
-                                {{ $user->name."\n@".$user->username }}
+                                {{ $user->name }}
                                 {{-- <span class="text-info text-xs font-semibold">
 
                                 {{ $user->username."@" }}
@@ -154,42 +154,88 @@
                             </td>
                             <td class="p-0 tdp text-danger font-bold lg:text-lg">
                                 <div class="flex flex-col">
-                                    {{abs( $user->pay_sum) }}
+                                    {{abs( $user->pay_sum()) }}
                                 </div>
                             </td>
-                            <td class="p-0 tdp text-blue-700 font-bold lg:text-lg">
+                            <td class="p-0 tdp  flex flex-col justify-center text-blue-700 font-bold lg:text-lg">
+                                {{ $user->provider_products()->active()->count() }}
 
-                                {{ $user->veed_sum }}
+                                <a target="_blank" href="{{ route('provider_products',['client'=>$user->id]) }}"  class="mr-2 flex text-sm text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                    <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
+                                    عرض المنتجات
+                                </a>
+                            
                             </td>
 
                             <td dir="ltr" class="p-0 tdp text-right text-success font-bold lg:text-lg" >
-                                {{$user->rassedy()}}
-
+                                {{ $user->rassed }}
+                              
                             </td>
 
 
-                            <td class="tdp ">
+                            <td class="block text-center" x-data='{isActive:{{$user->active??0}}}'>
+                                        
+                                <div class="flex flex-col justify-center text-center">
 
-                                <div class="flex flex-col justify-center">
+                                    @if ($user->active)
 
-                                @if ($user->hasRole('تاجر'))
-                                <span class="bg-success rounded-lg text-center w-2/3 text-white p-1">
-                                    تاجر
+                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak 
+                                    
+                                    {{-- wire:click="deletePro({{$user->id}})"
+                                     --}}
+                                    @click="open_delete=!open_delete; $wire.set('delete_orderid',{{$user->id}})">
+                                        <div
+                                            class="w-12 h-6 transition rounded-full outline-none  dark:"
+                                            :class="{
+                                                'bg-success':isActive,
+                                                'bg-gray-400':!isActive
+                                            }"
+                                            >
+                                        </div>
+                                        <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 border rounded-full shadow-sm"
+                                            :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isActive,
+                                             'translate-x-6 text-primary-100 bg-white': isActive }">
 
-                                </span>
-                                     @else
-                                     <span class="bg-info text-center rounded-lg w-2/3  text-white p-1">
 
-                                     عادي
-                                     </span>
-                                     @endif
+                                        </div>
+                                    </button>                                        
+                                    @else
+                                        
+                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak 
+                                    
+                                     wire:click="active_client({{$user->id}})"
+                                     
+                                    @click="isActive=true">
+                                        <div
+                                            class="w-12 h-6 transition rounded-full outline-none  dark:"
+                                            :class="{
+                                                'bg-success':isActive,
+                                                'bg-gray-400':!isActive
+                                            }"
+                                            >
+                                        </div>
+                                        <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 border rounded-full shadow-sm"
+                                            :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isActive,
+                                             'translate-x-6 text-primary-100 bg-white': isActive }">
 
+
+                                        </div>
+                                    </button>
+                                    @endif
+
+                                    <div x-show="!isActive" class="">
+                                        غير نشط
+                                      </div>
+                                      <div x-show="isActive" class="">
+                                           نشط
+                                        </div>
                                 </div>
+
                             </td>
                             <td class="">
                                 <div class="flex">
 
-                                <a href="{{ route('clients.show',$user) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                <a href="{{ route('provider_products',['client'=>$user->id]) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض تفاصيل
                                 </a>

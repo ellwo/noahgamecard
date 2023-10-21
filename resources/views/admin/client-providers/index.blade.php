@@ -6,7 +6,7 @@
       exportable
       /> --}}
 
-      @livewire('admin.clients-table', key(time()))
+      @livewire('admin.client-provider-table', key(time()))
 
 
 

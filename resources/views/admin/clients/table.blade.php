@@ -220,6 +220,8 @@
         tr th:nth-child(n+7) {
             border-radius:  .625rem 0 0 .625rem ;
         }
+        
+        
 
         tr td:nth-child(1),
         tr th:nth-child(1) {
