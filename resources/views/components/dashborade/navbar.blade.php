@@ -61,7 +61,10 @@
                 </div>
             </button>
 
+            @can('ادارة الطلبات')
+
                  @livewire('admin-notfiy', key(time()))
+                 @endcan
 
             <!-- Notification button -->
             {{-- <button @click="openNotificationsPanel"
@@ -108,7 +111,7 @@
             <div class="relative mx-4" x-data="{ open: false }">
                 <button
                     type="button" aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
-                    class="transition-opacity duration-200  rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+                    class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
                     @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
                     >
                     <span class="sr-only">User menu</span>

@@ -1,7 +1,7 @@
 <x-perfect-scrollbar as="div"
 x-data="perfectScroll"
 aria-label="main"
-class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
+class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
 
     <x-sidebar.link title="لوحة التحكم " href="{{ route('dashboard') }}" :isActive="request()->routeIs('dashboard')">
         <x-slot name="icon">
@@ -40,6 +40,9 @@ class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
  @endcan
 
 
+
+ @can('ادارة المزودين')
+
  <x-sidebar.dropdown title="ادارة المزودين" :active="Str::contains(request()->route()->uri(), 'provider')">
     <x-slot name="icon">
         <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
@@ -50,12 +53,12 @@ class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
     <x-sidebar.sublink title="منتجات المزودين" href="{{ route('provider_products') }}"
         :active="request()->routeIs('provider_products')" />
 </x-sidebar.dropdown>
-
+@endcan
  @can('ادارة اسعار الصرف')
 
  <x-sidebar.link title="ادارة اسعار العملات" href="{{ route('coins')}}" :isActive="request()->routeIs('coins')||request()->routeIs('coins.*')">
     <x-slot name="icon">
-        <x-bi-coin class="h-6 w-6 cursor-pointer "/>
+        <x-bi-coin class="w-6 h-6 cursor-pointer "/>
       </x-slot>
 </x-sidebar.link>
 
@@ -146,7 +149,7 @@ class="flex flex-col  overflow-y-scroll flex-1 gap-4 px-3">
 
 <x-sidebar.link title="{{__('Setting')}}" href="{{route('sitesetting')}}"  :isActive="request()->routeIs('sitesetting')">
     <x-slot name="icon">
-        <x-bi-magnet class="h-6 w-6 cursor-pointer "/>
+        <x-bi-magnet class="w-6 h-6 cursor-pointer "/>
     </x-slot>
 </x-sidebar.link>
 @endif

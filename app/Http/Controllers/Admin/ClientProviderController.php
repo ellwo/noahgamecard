@@ -21,10 +21,10 @@ class ClientProviderController extends Controller
 
            $lable=$v['lable'];
            $value=$v['value'];
-           
+
 
        $i=0;
-      
+
            foreach($reqs as $r){
                if($r['lable']==$v['lable']){
                    $reqs[$i]['val']=$value;
@@ -64,9 +64,9 @@ class ClientProviderController extends Controller
         return $token;
 
         # code...
-        
+
      }
-     
+
 
 
     /**
@@ -77,28 +77,28 @@ class ClientProviderController extends Controller
     public function index()
     {
 
-        $username="777777777";
-        $password="Asd777777777";
-        $id=17577;
-        $mobile="777777777";
-        $transid=rand(1,4766522);
-        $hashPassword=md5($password);
-        $token=md5($hashPassword.$transid.$username.$mobile);
-        $pay=Paymentinfo::find(121);
-        $url="https://toponline.yemoney.net/api/yr/gameswcards";
-        //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
+    //     $username="777777777";
+    //     $password="Asd777777777";
+    //     $id=17577;
+    //     $mobile="777777777";
+    //     $transid=rand(1,4766522);
+    //     $hashPassword=md5($password);
+    //     $token=md5($hashPassword.$transid.$username.$mobile);
+    //     $pay=Paymentinfo::find(121);
+    //     $url="https://toponline.yemoney.net/api/yr/gameswcards";
+    //     //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
 
-       // $response= Http::get($url);
+    //    // $response= Http::get($url);
 
-      // return dd($token);
-       $queryParams=$this->getParametres($pay);
-       $queryParams['token']=$token;
-       $queryParams['userid']=$id;
-       $queryParams['transid']=$transid;
-       $queryParams['mobile']=$mobile;
-        $queryParams['uniqcode']="325";
-        $queryParams['playerid']="005555";
-        $queryParams['type']="pubg";
+    //   // return dd($token);
+    //    $queryParams=$this->getParametres($pay);
+    //    $queryParams['token']=$token;
+    //    $queryParams['userid']=$id;
+    //    $queryParams['transid']=$transid;
+    //    $queryParams['mobile']=$mobile;
+    //     $queryParams['uniqcode']="325";
+    //     $queryParams['playerid']="005555";
+    //     $queryParams['type']="pubg";
 
     //    return dd($queryParams);
 
@@ -112,13 +112,13 @@ class ClientProviderController extends Controller
         //     'type' => 'pubg',
         //     'uniqcode' => 63,
         // ];
-        
+
        // $response = Http::get('https://toponline.yemoney.net/api/yr/gameswcards', $queryParams);
 //       return dd($response);
      //  dd($response->json(),$queryParams); // it's null
     //   dd($response->collect()); // it's null
   //     dd($response->object()); // it's null
-       
+
    //    return dd($res);
         // $ch = curl_init ();
         // curl_setopt ( $ch, CURLOPT_URL, $url );
