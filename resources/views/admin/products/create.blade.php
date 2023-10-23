@@ -35,21 +35,6 @@
                   </div>
         </div>
 
-        <div>
-
-
-            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">الحالة</label>
-
-        <label>
-            مطلوب ال ID فقط
-        <input  type="radio" name="required_ep" id="status"  checked value="0" />
-    </label>
-    <br>
-    <label>
-        مطلوب ال الايميل وكلمة السر
-        <input type="radio" name="required_ep" id="status"  value="1" />
-    </label>
-        </div>
 
 
             <div  class="" wire:ignore x-show="step==1">
@@ -76,7 +61,7 @@
 
 
 
-                    <div class="p-8 text-center border rounded-md lg:w-1/3 ">
+                    <div class="p-8 text-center border rounded-md lg:w-2/3 ">
                         <div  wire:ignore>
                             <x-label :value="__('صورة العرض الاساسية')" />
 
@@ -101,9 +86,7 @@
                      class="w-full px-2 py-1 mr-2 text-black text-opacity-50 rounded shadow appearance-none ckeditor dark:bg-primary-darker dark:text-light focus:outline-none focus:shadow-outline focus:border-primary" >
                     @php
                      echo old('note');
-                    @endphp
-                                                             شحن شدات ببجي لشراء الملابس وادوات ببجي 
-                     </textarea>
+                    @endphp</textarea>
                 </div>
 
 

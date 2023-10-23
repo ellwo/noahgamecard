@@ -1909,7 +1909,7 @@ function convert_to_base64_orginal_w(e, color, inputimg, id, urll, inputname, w,
 
 
                 // $("#"+divid+"imgv").html(convasimg);
-                convasimg.classList.add('h-64');
+                convasimg.classList.add('max-h-64');
 
                 if (withmask == true) {
                     var imgLogo = new Image();

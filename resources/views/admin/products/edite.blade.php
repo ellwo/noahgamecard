@@ -1,9 +1,9 @@
 <x-dashe-layout>
 
 
-    <div x-data="{step:1}"   class="md:max-w-5xl items-center p-4 mx-auto">
+    <div x-data="{step:1}"   class="items-center p-4 mx-auto md:max-w-5xl">
 
-        <form action="{{ route('products.update',$product) }}" method="POST" class="rounded-lg bg-white dark:bg-darker" >
+        <form action="{{ route('products.update',$product) }}" method="POST" class="bg-white rounded-lg dark:bg-darker" >
 
             @method('PUT')
             <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -19,7 +19,7 @@
 
                 </div>
 
-                <div  class=" space-y-4 text-center" x-show='step==1'>
+                <div  class="space-y-4 text-center " x-show='step==1'>
 
 
 
@@ -30,7 +30,7 @@
 
                     <x-label for="department_id" :value="__('اختر القسم ')" />
 
-                    <select  wire:model='dept' name="department_id" class="sm:pl-5 sm:pr-10 mx-2 w-4/5 sm:mx-0 dark:bg-darker dark:text-white text-gray-600 bg-white border border-gray-300 rounded-md appearance-none hover:border-gray-400 focus:outline-none">
+                    <select  wire:model='dept' name="department_id" class="w-4/5 mx-2 text-gray-600 bg-white border border-gray-300 rounded-md appearance-none sm:pl-5 sm:pr-10 sm:mx-0 dark:bg-darker dark:text-white hover:border-gray-400 focus:outline-none">
 
 
                        @foreach( $depts as $ca)
@@ -47,21 +47,6 @@
                     </select>
                   </div>
 
-                  <div>
-
-
-                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">الحالة</label>
-
-                <label>
-                    مطلوب ال ID فقط
-                <input  type="radio" name="required_ep" id="status"  @if(!$product->required_ep) checked @endif value="0" />
-            </label>
-            <br>
-            <label>
-                مطلوب ال الايميل وكلمة السر
-                <input type="radio" name="required_ep" id="status" @if($product->required_ep) checked @endif value="1" />
-            </label>
-                </div>
 
 
                     {{-- @livewire('admin.dept-part-mulit-select', ['type' => 1,'selected'=>$product->parts->pluck('id')->toArray(),'dept'=>$product->department_id], key(time())) --}}
@@ -97,8 +82,8 @@
             </div>
 
 
-                <div  class=" " wire:ignore x-show="step==1">
-                    <div class="grid gap-6 mb-6 lg:grid-cols-3 p-4">
+                <div  class="" wire:ignore x-show="step==1">
+                    <div class="grid gap-6 p-4 mb-6 lg:grid-cols-3">
                         <div>
                             <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم المنتج</label>
                             <input type="text" value="{{ $product->name }}"  name="name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -108,12 +93,12 @@
                             <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">السعر</label>
                             <input type="text" value="{{ $product->price }}" name="price"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required>
                         </div>
-                        <div class="flex space-x-2 justify-between">
+                        <div class="flex justify-between space-x-2">
 
                             {{-- <div>
                             <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">الماركة العلامة التجارية  </label>
 
-                            <select  name="brand_id" class="rounded-xl bg-white appearance-none dark:bg-darker text-darker dark:text-light" id="">
+                            <select  name="brand_id" class="bg-white appearance-none rounded-xl dark:bg-darker text-darker dark:text-light" id="">
                                 @foreach ($brands as $b )
 
                                 <option  @if ($b->id==$product->brand_id)
@@ -132,7 +117,7 @@
 
                     </div>
                     <div class="flex ">
-                        <div class="rounded-md flex flex-col w-1/4 border p-8 text-center  ">
+                        <div class="flex flex-col p-8 text-center border rounded-md lg:w-2/3 ">
                             <div  wire:ignore>
                                 <x-label :value="__('صورة العرض الاساسية')" />
 
@@ -221,7 +206,7 @@
                 </div>
 
     {{--
-                <div  class="flex w-1/2 mx-auto justify-between mt-4 ">
+                <div  class="flex justify-between w-1/2 mx-auto mt-4 ">
 
                     <x-button x-show="step<2" type="button" class="block" variant="success" @click="step=step+1; $wire.set('step',{{ $step+1 }})" >التالي </x-button>
 

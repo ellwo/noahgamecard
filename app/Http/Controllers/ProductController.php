@@ -148,7 +148,7 @@ class ProductController extends Controller
                 'discrip'=>$request['note'],
                 'img' => $request['img'],
                 'department_id' => $request['department_id'],
-                'required_ep'=>$request['required_ep']
+                'required_ep'=>$request['required_ep']??false
             ]);
 
             $parts=explode(',',$request->parts);
