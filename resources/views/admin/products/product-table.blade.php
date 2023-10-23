@@ -78,8 +78,7 @@
                 <div
                     class="bg-white overflow-x-auto relative dark:bg-darker dark:text-white w-full shadow-md rounded my-6">
 
-                    <div class="w-full top-0 bottom-0 z-30 bg-white bg-opacity-50 absolute" wire:loading
-                        wire:target="changeDept,changePro,subsearch,gotoPage,nextPage,perviousPage">
+                    <div class="w-full top-0 bottom-0 z-30 bg-white bg-opacity-50 absolute" wire:loading>
                         <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
                     </div>
 
@@ -169,7 +168,7 @@
                                         <span> {{ $product->orders_count }}</span>
                                     </td>
                                     <td x-data='{isActive:{{$product->active??0}}}'>
-                                        
+
                                         <div class="flex flex-col">
 
                                             <button aria-hidden="true" class="relative focus:outline-none" x-cloak wire:click="deletePro({{$product->id}})" @click="isActive=!isActive;">
@@ -184,8 +183,8 @@
                                                 <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 border rounded-full shadow-sm"
                                                     :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isActive,
                                                      'translate-x-6 text-primary-100 bg-white': isActive }">
-    
-    
+
+
                                                 </div>
                                             </button>
 
@@ -217,12 +216,12 @@
                                         </div>
                                         @if ($deleteproid != 'no' && $deleteproid==$product->id)
                                         <div x-data="{dpm{{ $deleteproid }}: 1}">
-                                            
-                                            
+
+
             <div x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            class="fixed inset-0 bg-darker opacity-10 z-30" @click='dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}' 
+            class="fixed inset-0 bg-darker opacity-10 z-30" @click='dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}'
             wire:click="setDeleteproid('no')"
             x-show="dpm{{ $deleteproid }}">
 
@@ -232,8 +231,8 @@
                                                     <div class="dialog-header dark:text-black">هل انت متاكد من الغاء تنشيط هذا المنتج . .؟
                                                     </div>
                                                     <div class="dialog-body lg:flex" dir="auto">
-                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg "> 
-                                                            لن يظهر هذا المنتج عند العملاء بعد هذه العملية ولكن سيظهر في الطلبات في حال كان مرتبط بطلبات من قبل 
+                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg ">
+                                                            لن يظهر هذا المنتج عند العملاء بعد هذه العملية ولكن سيظهر في الطلبات في حال كان مرتبط بطلبات من قبل
                                                         </h1>
                                                     </div>
                                                     <div class="dialog-footer flex mx-auto">
