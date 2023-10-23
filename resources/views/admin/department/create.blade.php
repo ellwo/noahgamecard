@@ -6,7 +6,7 @@
             <h1>اضافة قسم  (الاقسام)</h1>
         </div>
         <hr>
-        <form  dir="auto" method="POST" action="{{ route('depts.store') }}" class="flex flex-col  mx-auto space-x-2 space-y-3 dark:bg-dark">
+        <form  dir="auto" method="POST" action="{{ route('depts.store') }}" class="flex flex-col mx-auto space-x-2 space-y-3 dark:bg-dark">
 
             @csrf
             <x-label :value="__('اسم القسم ')" />
@@ -22,11 +22,24 @@
 
             @enderror
             </div>
+            <x-label :value="__('ترتيب  القسم ')" />
+
+            <div >
+            <x-input name="order_num" required class=" p-2
+            @error('order_num')
+            border-danger
+            @enderror border text-right " type="number" placeholder="رقم ترتيب القسم" value="{{ old('order_num') }}"/>
+
+            @error('order_num')
+            <span class="text-sm text-danger">{{ $message }}</span>
+
+            @enderror
+            </div>
             <div>
                 <x-label :value="__('ملاحظات ')" />
                 <textarea
                     name="note"
-                    class="py-1 px-1 w-full rounded-lg border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" rows="3" >
+                    class="w-full px-1 py-1 mt-1 border-2 border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" rows="3" >
           </textarea>
             </div>
 
@@ -34,11 +47,10 @@
 
                 <x-label :value="__('الحقول المطلوبة عند الشحن')" />
 
-            <div class="lg:flex  p-4 justify-between items-center border rounded-md space-x-2">
+            <div class="items-center justify-between p-4 space-x-2 border rounded-md lg:flex">
 
                     <x-label :value="__('اسم الحقل')" />
-                    <x-input name="reqname[]" required class=" p-2
-            border text-right " placeholder="اسم الحقل" value="ID الحساب "/>
+                    <x-input name="reqname[]" required class="p-2 text-right border " placeholder="اسم الحقل" value="ID الحساب "/>
             <x-label for="req1" :value="__('مطلوب الحقل (ضروري؟)')" />
            <input type="checkbox" name="reqisreq[]" id="req1">
 
@@ -46,15 +58,14 @@
 
         <template x-for="i in reqcount" >
 
-            <div class="lg:flex  p-4 justify-between items-center border rounded-md space-x-2">
+            <div class="items-center justify-between p-4 space-x-2 border rounded-md lg:flex">
 
                 <x-label :value="__('اسم الحقل')" />
-                <x-input name="reqname[]" required class=" p-2
-        border text-right " placeholder="اسم الحقل" value=""/>
+                <x-input name="reqname[]" required class="p-2 text-right border " placeholder="اسم الحقل" value=""/>
         <x-label  :value="__('مطلوب الحقل (ضروري؟)')" />
        <input type="checkbox" name="reqisreq[]" >
 
-       <x-button type="button" @click="reqcount--" onclick="$(this).parent().remove()" variant="danger">
+       <x-button type="button" @click="reqcount--" onclick="$(this).parent().removeClass('rounded-md items-center justify-between p-4 space-x-2  border');$(this).parent().html(''); " variant="danger">
         حذف
        </x-button>
     </div>

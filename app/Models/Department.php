@@ -15,7 +15,8 @@ class Department extends Model
     protected $fillable=[
         'name','note','type',
         'img',
-        'reqs'
+        'reqs',
+        'order_num'
     ];
     protected $casts =[
         'reqs'=>'array',

@@ -76,7 +76,8 @@
                                 <th class="py-3 px-2  text-left">القسم
 
                                     </th>
-                                <th class="py-3 px-2  text-left"> عدد المنتجات</th>
+                                    <th class="py-3 px-2  text-left">رقم ترتيب القسم</th>
+                                    <th class="py-3 px-2  text-left"> عدد المنتجات</th>
 
                                 <th class="py-3  text-center">Actions</th>
                             </tr>
@@ -100,6 +101,10 @@
                                         <span class=" mb-6 mt-4 text-green-600 font-bold py-1 px-1  text-xs">
                                     {{date('d/M/Y', strtotime($d->updated_at))}}
                                             </span></div></td>
+
+                                            <td>
+                                                {{$d->order_num}}
+                                            </td>
 
 
                                 <td>

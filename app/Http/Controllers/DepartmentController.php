@@ -51,7 +51,8 @@ class DepartmentController extends Controller
 
             $this->validate($request,[
                 'name'=>'required',
-                'imgurl'=>'required'
+                'imgurl'=>'required',
+                'order_num'=>['required','unique:departments,order_num']
             ]);
 
 
@@ -73,7 +74,8 @@ class DepartmentController extends Controller
                    'name'=>$request['name'],
                     'note'=>$request['note'],
                     'img'=>$request['imgurl'],
-                    "reqs"=>$reqs
+                    "reqs"=>$reqs,
+                    'order_num'=>$request['order_num']
 
                 ]);
 
@@ -105,7 +107,9 @@ class DepartmentController extends Controller
 
             $this->validate($request,[
                 'name'=>'required',
-                'imgurl'=>'required'
+                'imgurl'=>'required',
+                'order_num'=>['required','unique:departments,order_num']
+
             ]);
 
             $reqs=[];
@@ -126,7 +130,8 @@ class DepartmentController extends Controller
                         'name' => $request['name'],
                         'note' => $request['note'],
                         'img' => $request['imgurl'],
-                        'reqs'=>$reqs
+                        'reqs'=>$reqs,
+                    'order_num'=>$request['order_num']
                     ]);
                     Cache::flush();
                     session()->flash('statt', 'ok');
