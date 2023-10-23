@@ -12,6 +12,7 @@ class AdminNotify extends Model
         'title',
         'body',
         'link',
-        'readed'
+        'readed',
+        'type'
     ];
 }

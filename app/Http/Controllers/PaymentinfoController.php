@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AdminNotifyEvent;
+use App\Models\AdminNotify;
 use App\Models\Paymentinfo;
 use Illuminate\Http\Request;
 
@@ -62,7 +64,6 @@ class PaymentinfoController extends Controller
     public function show(Paymentinfo $paymentinfo){
 
 
-        return dd($this->getParametres($paymentinfo));
         return view('admin.orders.show',['paymentinfo'=>$paymentinfo]);
     }
 

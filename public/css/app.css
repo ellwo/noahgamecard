@@ -2063,6 +2063,8 @@ video {
 }.hover\:text-red-700:hover {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
+}.hover\:text-primary:hover {
+  color: var(--color-primary);
 }.hover\:text-primary-light:hover {
   color: var(--color-primary-light);
 }.hover\:text-gray-800:hover {
@@ -2076,8 +2078,6 @@ video {
   color: rgb(248 113 113 / var(--tw-text-opacity));
 }.hover\:text-darker:hover {
   color: var(--darker);
-}.hover\:text-primary:hover {
-  color: var(--color-primary);
 }.hover\:text-blue-400:hover {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
@@ -2139,14 +2139,14 @@ video {
 }.focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}.focus\:bg-primary-100:focus {
+  background-color: var(--color-primary-100);
 }.focus\:bg-indigo-100:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(224 231 255 / var(--tw-bg-opacity));
 }.focus\:bg-gray-50:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}.focus\:bg-primary-100:focus {
-  background-color: var(--color-primary-100);
 }.focus\:text-gray-500:focus {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2184,6 +2184,8 @@ video {
   --tw-ring-color: var(--color-primary-light);
 }.focus\:ring-primary:focus {
   --tw-ring-color: var(--color-primary);
+}.focus\:ring-primary-darker:focus {
+  --tw-ring-color: var(--color-primary-darker);
 }.focus\:ring-purple-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(168 85 247 / var(--tw-ring-opacity));
@@ -2211,8 +2213,6 @@ video {
 }.focus\:ring-blue-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
-}.focus\:ring-primary-darker:focus {
-  --tw-ring-color: var(--color-primary-darker);
 }.focus\:ring-primary_color:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 125 0 / var(--tw-ring-opacity));
@@ -2360,12 +2360,12 @@ video {
   background-color: var(--darker);
 }.dark .dark\:hover\:bg-dark:hover {
   background-color: var(--dark);
+}.dark .dark\:hover\:bg-primary-dark:hover {
+  background-color: var(--color-primary-dark);
 }.dark .dark\:hover\:bg-primary-darker:hover {
   background-color: var(--color-primary-darker);
 }.dark .dark\:hover\:bg-light:hover {
   background-color: var(--light);
-}.dark .dark\:hover\:bg-primary-dark:hover {
-  background-color: var(--color-primary-dark);
 }.dark .dark\:hover\:text-light:hover {
   color: var(--light);
 }.dark .dark\:hover\:text-black:hover {

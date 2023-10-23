@@ -1,34 +1,52 @@
 <?php
 
-namespace App\Observers;
+namespace App\Jobs;
 
-use App\Jobs\SendNotifiyToUsers;
-use App\Models\FirebaseToken;
 use App\Models\UserNotification;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use App\Models\FirebaseToken;
 use Exception;
-use Kreait\Firebase\Messaging\AndroidConfig;
+//use Kreait\Firebase\Messaging\AndroidConfig;
 // use NotificationChannels\Fcm\FcmMessage;
 use Kreait\Laravel\Firebase\Facades\Firebase;
 use Kreait\Firebase\Messaging\CloudMessage;
 
-class UserNotificationObserver
+class SendNotifiyToUsers implements ShouldQueue
 {
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /**
-     * Handle the UserNotification "created" event.
+     * Create a new job instance.
      *
-     * @param  \App\Models\UserNotification  $userNotification
      * @return void
      */
-    protected $notification;
-    public function created(UserNotification $userNotification)
-    {
 
-        //$userNotification->data["created_at"]=$userNotification->created_at;
-        //$userNotification->save();
-        $this->sendFMC($userNotification);
-       // dispatch(new SendNotifiyToUsers($userNotification));
+     protected UserNotification  $userNotification;
+     protected $notification;
+     
+    public function __construct(UserNotification $userNotification)
+    {
+        //
+
+        $this->userNotification=$userNotification;
     }
 
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        //
+        $this->sendFMC($this->userNotification);
+
+    }
     function sendFMC($userNotification)
     {
 
@@ -92,7 +110,7 @@ class UserNotificationObserver
             FirebaseToken::whereIn('token', $invalidTargets)->delete();
 
             $userNotification->update([
-                'sented' => true
+                'sented' => 1
             ]);
         } catch (Exception $e) {
         }
@@ -133,50 +151,5 @@ class UserNotificationObserver
         // }
 
 
-    }
-
-
-    /**
-     * Handle the UserNotification "updated" event.
-     *
-     * @param  \App\Models\UserNotification  $userNotification
-     * @return void
-     */
-    public function updated(UserNotification $userNotification)
-    {
-        //
-    }
-
-    /**
-     * Handle the UserNotification "deleted" event.
-     *
-     * @param  \App\Models\UserNotification  $userNotification
-     * @return void
-     */
-    public function deleted(UserNotification $userNotification)
-    {
-        //
-    }
-
-    /**
-     * Handle the UserNotification "restored" event.
-     *
-     * @param  \App\Models\UserNotification  $userNotification
-     * @return void
-     */
-    public function restored(UserNotification $userNotification)
-    {
-        //
-    }
-
-    /**
-     * Handle the UserNotification "force deleted" event.
-     *
-     * @param  \App\Models\UserNotification  $userNotification
-     * @return void
-     */
-    public function forceDeleted(UserNotification $userNotification)
-    {
-        //
     }
 }

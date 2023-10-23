@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Events\RassedActevityCreated;
 use App\Models\Coin;
 use App\Models\Order;
 use App\Models\Paymentinfo;
@@ -142,13 +143,13 @@ final class CreateNewPaymentOrder
             ],
             "created_at"=>date('Y/m/d H:i:s')
           ];
-        $noti=UserNotification::create([
-            "id"=>$rassedActivite->id,
-            'title'=>'ملاحظة',
-            'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
-        'user_id'=>$user->id,
-          'data'=>$data
-    ]);
+    //     $noti=UserNotification::create([
+    //         "id"=>$rassedActivite->id,
+    //         'title'=>'ملاحظة',
+    //         'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
+    //     'user_id'=>$user->id,
+    //       'data'=>$data
+    // ]);
 
 
          }

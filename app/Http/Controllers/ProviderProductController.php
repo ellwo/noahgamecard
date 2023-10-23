@@ -90,7 +90,7 @@ class ProviderProductController extends Controller
                 'active'=>0
             ]);
         }
-        return back()->with('status','تم الحفظ بنجاح');
+        return redirect()->route('provider_products')->with('status','تم الحفظ بنجاح');
         // $product=Product::find($request['product_id']);
 
 
@@ -172,6 +172,7 @@ class ProviderProductController extends Controller
 
         $reqs=[];
 
+//        return dd($_POST);
         for($i=0; $i<count($request['reqname']??[]); $i++){
             $reqs[]=[
                 'name'=>$request['reqname'][$i],
@@ -180,10 +181,11 @@ class ProviderProductController extends Controller
                 'val'=>$request['reqdef_val'][$i],
                 
             ];
+            if($reqs[$i]['lable']!="")
+            $reqs[$i]['val']=null;
         }
 
-
-        return dd($reqs);
+      //  return dd($reqs,$providerProduct->reqs);
 
       $providerProduct->update([
             'product_id'=>$request['product_id'],
@@ -204,7 +206,7 @@ class ProviderProductController extends Controller
                 'active'=>0
             ]);
         }
-        return back()->with('status','تم الحفظ بنجاح');
+        return redirect()->route('provider_products')->with('status','تم الحفظ بنجاح');
     }
 
     /**

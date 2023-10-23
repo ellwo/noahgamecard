@@ -77,7 +77,7 @@
                     <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark border-0 rounded-md bg-transparent">
                         <option value="4">الكل</option>
                        <option
-                        value="0">
+                        value="1">
                         <span class="p-1 text-xs text-info">المعلقة</span></option>
                         <option
                         value="2">

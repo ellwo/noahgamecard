@@ -18,7 +18,8 @@ class CreateAdminNotifiesTable extends Migration
             $table->text('title')->nullable();
             $table->text('link')->nullable();
             $table->text('body')->nullable();
-            $table->integer('readed')->nullable();
+            $table->integer('readed')->default(0);
+            $table->integer('type')->default(0);
             $table->timestamps();
         });
     }

@@ -24,6 +24,9 @@ class ProviderProductEditForm extends Component
        $this->provider_id=$provider_id;
        $this->pr_product_id=$pr_product;
       
+       $pr_provider=ProviderProduct::find($this->pr_product_id);
+       $this->product=$pr_provider->product;
+      $this->product_id=$pr_provider->product->id;
  
     }
     public function render()
@@ -32,8 +35,8 @@ class ProviderProductEditForm extends Component
 
         $provider=ClientProvider::active()->get();
         $pr_provider=ProviderProduct::find($this->pr_product_id);
-        $this->product=$pr_provider->product;
-        $this->product_id=$pr_provider->product->id;
+        //$this->product=$pr_provider->product;
+       // $this->product_id=$pr_provider->product->id;
 
         $products=Product::active()->get();
         return view('admin.provider-products.edit-form',

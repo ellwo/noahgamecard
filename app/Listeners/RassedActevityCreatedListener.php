@@ -1,47 +1,75 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Listeners;
 
+use App\Events\RassedActevityCreated;
+use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\AdminNotify;
-use App\Models\ClientProvider;
 use App\Models\Paymentinfo;
 use App\Models\PaymentinfoExecuteBy;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 
-class TopOnlinePayByAPIJob implements ShouldQueue
+class RassedActevityCreatedListener
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
     /**
-     * Create a new job instance.
+     * Create the event listener.
      *
      * @return void
      */
-    public Paymentinfo $paymentinfo;
-    public $userid = 17577;
-    public $mobile = "777777777";
-    public $username = "777777777";
-    public $password = "Asd777777777";
-    public $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
-    public $chack_url='https://toponline.yemoney.net/api/yr/info';
-    
-    public function __construct(Paymentinfo $paymentinfo)
+
+     public Paymentinfo $paymentinfo;
+     public $userid = 17577;
+     public $mobile = "777777777";
+     public $username = "777777777";
+     public $password = "Asd777777777";
+     public $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
+     public $chack_url='https://toponline.yemoney.net/api/yr/info';
+    public function __construct()
     {
-        $this->paymentinfo = $paymentinfo;
+        //
     }
 
     /**
-     * Execute the job.
+     * Handle the event.
      *
+     * @param  \App\Events\RassedActevityCreated  $event
      * @return void
      */
-    public function handle()
+    public function handle(RassedActevityCreated $event)
+    {
+
+
+        if($event->rassedActevity->paymentinfo->orders->count()>0){
+            $product=$event->rassedActevity->paymentinfo->order->product;
+
+            if($product->provider_product->count()>0){
+
+                $clientProvider=$product->provider_product()->first()->client_provider;
+
+                if($clientProvider->id==1){
+                    
+                   // $this->paymentinfo=$event->rassedActevity->paymentinfo;
+                   
+                   $this->paymentinfo=$event->rassedActevity->paymentinfo;
+                 $this->handle_process();
+                   //dispatch(new TopOnlinePayByAPIJob($event->rassedActevity->paymentinfo));
+                }
+                
+
+            }
+
+        }
+        //
+    }
+
+
+
+
+
+
+    public function handle_process()
     {
 
 

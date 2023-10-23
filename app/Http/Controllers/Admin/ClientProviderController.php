@@ -113,13 +113,13 @@ class ClientProviderController extends Controller
         //     'uniqcode' => 63,
         // ];
         
-        $response = Http::get('https://toponline.yemoney.net/api/yr/gameswcards', $queryParams);
+       // $response = Http::get('https://toponline.yemoney.net/api/yr/gameswcards', $queryParams);
 //       return dd($response);
-       dd($response->json(),$queryParams); // it's null
+     //  dd($response->json(),$queryParams); // it's null
     //   dd($response->collect()); // it's null
   //     dd($response->object()); // it's null
        
-       return dd($res);
+   //    return dd($res);
         // $ch = curl_init ();
         // curl_setopt ( $ch, CURLOPT_URL, $url );
         // $result =

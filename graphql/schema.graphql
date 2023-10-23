@@ -19,7 +19,7 @@ type Query {
 #    categories:[Category]! @where(type:1) @all
    departments:[Department] @all
    productsByCategroy(department_id:Int @where(operator: "=" ) ):[Product]! 
-    @paginate(type: PAGINATOR scopes:["active"]) @orderBy(column: "created_at", direction: DESC)
+    @paginate(type: PAGINATOR scopes:["active"]) @orderBy(column: "price", direction: ASC)
    me: User  @auth @guard
 
     "Find a single user by an identifying attribute."

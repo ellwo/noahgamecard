@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\RassedActevityCreated;
+use App\Listeners\RassedActevityCreatedListener;
+use App\Models\AdminNotify;
 use App\Models\Paymentinfo;
 use App\Models\RassedActevity;
 use App\Models\UserNotification;
+use App\Observers\AdminNotifyObserver;
 use App\Observers\PaymentinfoObserver;
 use App\Observers\RassedActevityObserver;
 use App\Observers\UserNotificationObserver;
@@ -24,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        RassedActevityCreated::class => [
+            RassedActevityCreatedListener::class
+        ]
     ];
 
     /**
@@ -36,6 +43,7 @@ class EventServiceProvider extends ServiceProvider
         UserNotification::observe(UserNotificationObserver::class);
         Paymentinfo::observe(PaymentinfoObserver::class);
         RassedActevity::observe(RassedActevityObserver::class);
+        AdminNotify::observe(AdminNotifyObserver::class);
         //
     }
 }

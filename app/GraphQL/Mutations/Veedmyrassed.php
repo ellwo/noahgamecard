@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Mutations;
 
+use App\Models\AdminNotify;
 use App\Models\Coin;
 use App\Models\Paymentinfo;
 use App\Models\Paymentmethod;
@@ -80,6 +81,12 @@ final class Veedmyrassed
                 "rassed_id" => $rassed->id,
                 'camount' => $args['input']['camount'],
                 'coin_id' => $args['input']['coin_id']
+            ]);
+
+            AdminNotify::create([
+                'title'=>'طلب تغذية جديد ',
+                'body'=>$payinfo->user->name."\n"."المبلغ  المدخل : ".$args['input']['camount']."\n"." العملة ".$ra->coin->name,
+                'link'=>route('rasseds')
             ]);
 
 

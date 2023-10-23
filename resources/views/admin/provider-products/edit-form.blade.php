@@ -119,15 +119,13 @@
                         border text-right " placeholder="اسم الحقل" />
                         <x-label  :value="__('  القيمة المسندة')" />
                         <input type="text" name="reqdef_val[]"  class=" p-2
-                        border text-right " placeholder="قيمة ثابته"  @if($req['lable']!=null) disabled  @endif  value="{{$req['val']??$req['lable']}}"/> 
-                         @if ($req['lable']!=null)
+                        border text-right dark:bg-dark" placeholder="قيمة ثابته"  @if($req['lable']!=null) readonly  @endif  value="{{$req['val']??$req['lable']}}"/> 
+                        
+                        @if ($req['lable']!=null)
                          <input type="hidden" name="reqvalue[]" value="{{$req['lable']}}">
-                         <input type="hidden" name="reqdef_val[]" value="{{$req['val']}}">
-                             
                          @else
                              
                          <input type="hidden" name="reqvalue[]" value="">
-                         <input type="hidden" name="reqdef_val[]" value="{{$req['val']}}">
                          @endif        
                     </div>
             
@@ -180,7 +178,7 @@
             
                     </template>
                     <div class="text-center">
-                        <x-button variant="info" @click='reqcount++;' wire:click='req_count_plus()' class="mx-auto" type="button">
+                        <x-button variant="info" @click='reqcount++;'  class="mx-auto" type="button">
                     اضافة حقل جديد
                             <x-heroicon-o-plus class="w-4"/>
                         </x-button>

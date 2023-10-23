@@ -38,7 +38,7 @@ class RassedTable extends Component
 
 if($this->status!=4)
 {
-$paymentinfos =Paymentinfo::whereHas('rassed_actevity',function($q){
+$paymentinfos =Paymentinfo::whereDoesntHave('order')->whereHas('rassed_actevity',function($q){
 
 
     if($this->username==-1)
@@ -52,7 +52,7 @@ $paymentinfos =Paymentinfo::whereHas('rassed_actevity',function($q){
 }
 else{
 
-    $paymentinfos =Paymentinfo::whereHas('rassed_actevity',function($q){
+    $paymentinfos =Paymentinfo::whereDoesntHave('order')->whereHas('rassed_actevity',function($q){
 
         if($this->username==-1)
         $q->where('amount','>=',0);

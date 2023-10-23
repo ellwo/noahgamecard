@@ -33,7 +33,7 @@ class ClientProvider extends Model
         return RassedActevity::whereHas('paymentinfo',function($q){
             $q->whereIn('id',$this->pays_excutes()->pluck('paymentinfo_id')->toArray());
         })->whereHas('paymentinfo',function($qq){
-            $qq->where('state','=',2)->orWhere('state','!=',2);
+            $qq->where('state','=',2);
         });
         return $this->pays_excutes()->rassed_acetvities();
     }
