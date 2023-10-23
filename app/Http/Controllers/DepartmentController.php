@@ -105,11 +105,20 @@ class DepartmentController extends Controller
     public function update(Request $request,Department $dept){
 
 
+
+
+              if($request['order_num']!= $dept->order_num)
             $this->validate($request,[
                 'name'=>'required',
                 'imgurl'=>'required',
                 'order_num'=>['required','unique:departments,order_num']
 
+            ]);
+            else
+            $this->validate($request,[
+                'name'=>'required',
+                'imgurl'=>'required',
+                'order_num'=>['required']
             ]);
 
             $reqs=[];
