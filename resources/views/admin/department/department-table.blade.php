@@ -32,6 +32,15 @@
 
                         </h3>
 
+                        <x-input-with-icon-wrapper>
+                            <x-slot name="icon" role="button">
+                                <x-bi-search aria-hidden="true" class="w-5 h-5" />
+                            </x-slot>
+                            <x-input dir="auto" wire:model="search" name="search" withicon id="search"
+                                class="block rounded-full w-full" type="text" :value="old('name')" required autofocus
+                                placeholder="{{ __('ابحث') }}" />
+                        </x-input-with-icon-wrapper>
+
                     </div>
 
 
@@ -50,7 +59,7 @@
                     <div class="bg-white overflow-x-auto relative dark:bg-dark-eval-2 dark:text-white w-full shadow-md rounded my-6">
 
                         <div class="w-full top-0 bottom-0 z-30 bg-white bg-opacity-50 absolute" wire:loading
-                             wire:target="changeDept,changePro,subsearch,gotoPage,nextPage,perviousPage,setDept_id" >
+                           >
                             <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
                         </div>
 
@@ -78,6 +87,7 @@
                                     </th>
                                     <th class="py-3 px-2  text-left">رقم ترتيب القسم</th>
                                     <th class="py-3 px-2  text-left"> عدد المنتجات</th>
+                                    <th class="py-3 px-2  text-left"> الحالة</th>
 
                                 <th class="py-3  text-center">Actions</th>
                             </tr>
@@ -111,27 +121,47 @@
                                     {{$d->products_count}}
                                 </td>
 
+                                <td x-data='{isActive:{{$d->active??0}}}'>
+
+                                    <div class="flex flex-col">
+
+                                        <button aria-hidden="true" class="relative focus:outline-none" x-cloak wire:click="deletePro({{$d->id}})" @click="isActive=!isActive;">
+                                            <div
+                                                class="w-12 h-6 transition rounded-full outline-none  dark:"
+                                                :class="{
+                                                    'bg-success':isActive,
+                                                    'bg-gray-400':!isActive
+                                                }"
+                                                >
+                                            </div>
+                                            <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 border rounded-full shadow-sm"
+                                                :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isActive,
+                                                 'translate-x-6 text-primary-100 bg-white': isActive }">
+
+
+                                            </div>
+                                        </button>
+
+                                        <div x-show="!isActive" class="">
+                                            غير نشط
+                                          </div>
+                                          <div x-show="isActive" class="">
+                                               نشط
+                                            </div>
+                                    </div>
+                                </td>
+
 
                                 <td class="py-3   text-right">
                                     <div class="flex item-center justify-center">
                                         <div class="w-4  mr-2 mt-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
-                                            <a target="_blank" class="" href="{{url('product/'.$d->id)}}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </a>
+                                       
 
 
                                         </div>
                                         <a href="{{ route('depts.edit',['dept'=>$d]) }}"  class="w-4 mr-2 mt-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                            </svg>
-                                        </a>
-                                        <a wire:click="setDeleteDept({{$d->id}})" class="w-4 mr-2 mt-2 cursor-pointer transform hover:text-red-800 hover:scale-110">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                             </svg>
                                         </a>
                                     </div>
@@ -145,8 +175,7 @@
                                 </div>
                                 <div class="dialog-body lg:flex" dir="auto">
                                     <h1 class="text-xl text-red-800 font-bold p-4 rounded-lg ">
-                                        سيتم حذف جميع منتجات هذا القسم وطلباته ؟
-                                        هل انت متأكد من الحذف ؟؟!!
+                                        سيتم الغاء تنشيط القسم ولن يظهر لدى المستخدمين 
                                     </h1>
                                 </div>
                                 <div class="dialog-footer flex mx-auto">

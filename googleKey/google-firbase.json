@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "noohcardgame",
+  "private_key_id": "16455ed40e06a859e4962a5cc1c1659678414425",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDOQfY/SlOU4p8Z\nN7+xHwHBFsQqhnDBMXzSpOfQ0o7qTJlLXBqZCl0JTDA3MHdwM8baMMLtwZvcelfx\nzpCCtPJ9JrKRroZ34rPx6yxvlFFoEcGKocxutyKLP3GvfF9Riz0GE/3YGUxjg9Du\nKr4Y2SEWbO8oRAKjPJhrNxczk+OaHsu9HYwTaKrj4GHvYjrB1bByjkJKlYIh+Rkl\nE6fGgxfCNcahuYLtSQnk91tPzz+QUPRsUWDgvvzXj4liwELQFEs0kc92ev2rvMsi\nmiJNyxjIhv52HpMjAo+UKbGpobuMCgJoWBJcZBHQKYKAIQ8UWfKFcVgqqnzprap5\nG4rzLFq3AgMBAAECggEATaqc9TwhuQCU9EP/1MxeNr1B5Nl2/+iInjEmcYW39xYc\n6zmlcldqrSOZTE7dysxUZrjRzgGHlUAkeZNU60MDxIib2SukyuP86m2p7+IjvVJi\nVLeUaWRgh5q+TlxA8E3EDtPcVFFCaH6sX+KMboLkaLNgYwMpExqwMj8uZ2ea3t9o\nltv59ICf+ZOgwlXrG/tCN8mbeui7msAejIM1WdCX1sN+gGBrT5OJVUk/Vw/9aAme\nopwjkzIU0vyv9xW4JI0ycr9ZhOiGB6Y7oQsOB16DxjcHoAkVHHUfv55nwsGvjuxW\nGcmw5uTLOWYlg6ii6IrPzpW65neIsR7w1DLy8KL6cQKBgQDvt5f7uDszUvvWZHhT\nrXxpbkHkAHCoT8d74u4Y33diK6zNxgjdHKP69EsUkDCob1VJ2Z+XuQAnRwnW5g5S\nlP6Yzem6QR82GdVEmf+cxrlIAOeAYq27XTl61yYZ/sHF2p8I9kC+L9MIaCb7YP9k\n4KUUJH/lBmZQJIFoHqrzE+OXqwKBgQDcRIvCRN5Kav3fvDkJz7aOC1/7ZyrHfGLa\nzxB6/s1I1nbTbneTSaze4YrN+cfp+OOHwb2794hPcYKd4zCLxRolrFPt6Rddwd6H\nWaqRnmziTbmIKzWzjX7tpJJ8KlSuK8k9Ob5rd5d3l8F5zc0Copp0Lg4WFpwxfmht\nOdklvvtNJQKBgEz8AiRF80U1Vklw9K+y3Gyjiyek+IklLeRcaai1Q4rUied/vOL9\nyq/SerY85FODhbl02WsJb8ItbzyDn3/n96etIW2+cj6Wp0YjytJXg7NbDv3NMwwk\nEUyhAcyBY0uePUrMgthRVY2ynSpH6V1FQ96nJiewGXWNc72zc6Ui8wmHAoGBALn9\nPy2YzUJ1OU00N81rELC8Nh2oLV0oUKiF81qH0HtSbB93xYwex9OjCnuGECImQKmf\nFEClcPnz1ODQt2st0ThCXNQk39ARJX+QXRB8f2BPVPv/0GZ+cdDkB7TEYaB35ILI\nQVupLcKT55CcECHLfzPet5I7IURBgpfIIu1WaAfpAoGBAJ8wA51Cy54SIQCZKn+4\nRFlCSyj2+6I00iEzzVeAPRgEi555bCu4parN/Yr6UwklOz5MCJgkxykOv0gISCzt\nwqyxnDFmtnYuR1p0PXL3BKuwOQhG/MIhskuCtGEc4q2fC8MAJxB1rBhYMc3Jv8b/\ncKNL+caXOp62NxCOQ56Rx60Z\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-38q9d@noohcardgame.iam.gserviceaccount.com",
+  "client_id": "102697860160630576007",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-38q9d%40noohcardgame.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

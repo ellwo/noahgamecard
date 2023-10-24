@@ -17,7 +17,7 @@ type Query {
    GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
 #    categories:[Category]! @where(type:1) @all
-   departments:[Department] @orderBy(column: "order_num", direction: ASC) @all
+   departments:[Department] @where(active:true) @orderBy(column: "order_num", direction: ASC) @all
    productsByCategroy(department_id:Int @where(operator: "=" ) ):[Product]!
     @paginate(type: PAGINATOR scopes:["active"]) @orderBy(column: "price", direction: ASC)
    me: User  @auth @guard

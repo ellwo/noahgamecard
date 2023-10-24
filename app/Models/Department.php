@@ -16,7 +16,8 @@ class Department extends Model
         'name','note','type',
         'img',
         'reqs',
-        'order_num'
+        'order_num',
+        'active'
     ];
     protected $casts =[
         'reqs'=>'array',

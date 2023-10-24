@@ -29,21 +29,16 @@ class DepartmentTable extends Component
     public function render()
     {
 
-            $departments=Department::withCount('products as products_count')->orderBy('updated_at','desc')->paginate($this->paginate_num);
+            $departments=Department::withCount('products as products_count')
+            ->where('name','LIKE','%'.$this->search."%")
+            ->orderBy('updated_at','desc')->
+            paginate($this->paginate_num);
 
 
 
-            if($this->dept_id!="no"){
-            $dept=Department::find($this->dept_id);
-        return view('admin.department.department-table',compact('departments'),compact('dept'))
-        ->layout('components.dashboard.index');
+           return view('admin.department.department-table',compact('departments'))->layout('components.dashboard.index');
 
-
-        }
-        else{
-            return view('admin.department.department-table',compact('departments'))->layout('components.dashboard.index');
-
-        }
+        
 
     }
 
@@ -70,8 +65,9 @@ class DepartmentTable extends Component
         if($this->deleteDept!="no") {
         $dept=    Department::find($this->deleteDept);
 
-        $dept->products()->delete();
-        $dept->delete();
+        $dept->update([
+            'active'=>true
+        ]);
 
             session()->flash('statt','ok');
             session()->flash('message','تم الحذف');
@@ -79,6 +75,15 @@ class DepartmentTable extends Component
 
         }
     }
+    public function deletePro($id){
+        $dept=    Department::find($id);
+
+        $dept->update([
+            'active'=>!$dept->active
+        ]);
+
+    }
+ 
 
 
 }

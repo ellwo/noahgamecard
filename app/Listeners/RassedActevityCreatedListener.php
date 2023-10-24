@@ -122,7 +122,7 @@ class RassedActevityCreatedListener
 
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..
             $check = $this->chack_state($transid);
-            if ($check['isDone']) {
+            if ($check['resultCode']=="0" && $check['isDone']=="1") {
                 // اذا الرصيد نقص معناته انه نجحت العملية
                 $state = 2;
 

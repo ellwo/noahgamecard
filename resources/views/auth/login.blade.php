@@ -152,7 +152,7 @@
                 <div class="relative inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="remembr_me"
+                    name="remember"
                     class="w-10 h-4 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
                   />
                   <span
