@@ -131,7 +131,7 @@ class RassedActevityCreatedListener
             } else {
                 //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                 $state = 3;
-                $error_note = $check['resultDesc'];
+                $error_note = $check['reason'];
             }
 
             // $this->paymentinfo->update([
