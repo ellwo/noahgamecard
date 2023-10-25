@@ -124,7 +124,8 @@ class RassedActevityCreatedListener
 
 
 
-            CheckTopOnlineProssce::dispatchAfterResponse($this->paymentinfo,$transid);
+            CheckTopOnlineProssce::dispatch($this->paymentinfo,$transid)
+            ->delay(now()->addMinutes(1));;
 
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..
             // $check = $this->chack_state($transid);
