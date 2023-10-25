@@ -142,7 +142,6 @@ class RassedActevityCreatedListener
             $pay=Paymentinfo::find($this->paymentinfo->id);
             $pay->state=$state;
             $pay->note=$error_note;
-            $pay->save();
 
             $product = $this->paymentinfo->order->product;
             $clientProvider = $product->provider_product()->first()->client_provider;
@@ -155,6 +154,8 @@ class RassedActevityCreatedListener
                 'note' => $error_note
             ]);
             $this->paymentinfo->excuted_status()->save($byh);
+            $pay->save();
+
         }
     }
 
