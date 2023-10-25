@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\RassedActevityCreated;
 use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\AdminNotify;
+use App\Models\ClientProvider;
 use App\Models\Paymentinfo;
 use App\Models\PaymentinfoExecuteBy;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -49,14 +50,14 @@ class RassedActevityCreatedListener
                 $clientProvider=$product->provider_product()->first()->client_provider;
 
                 if($clientProvider->id==1){
-                    
+
                    // $this->paymentinfo=$event->rassedActevity->paymentinfo;
-                   
+
                    $this->paymentinfo=$event->rassedActevity->paymentinfo;
                  $this->handle_process();
                    //dispatch(new TopOnlinePayByAPIJob($event->rassedActevity->paymentinfo));
                 }
-                
+
 
             }
 
@@ -73,7 +74,7 @@ class RassedActevityCreatedListener
     {
 
 
-        $queryParams = $this->getParametres();//Fileds 
+        $queryParams = $this->getParametres();//Fileds
         $transid = rand(1, 485);//TransID
         $queryParams['token'] = $this->genurateToken($transid);//Token
         $queryParams['transid'] = $transid;//
@@ -82,7 +83,7 @@ class RassedActevityCreatedListener
         $response = Http::get($this->pay_url, $queryParams);
         //       return dd($response);
         $result = $response->json(); // it's null
-        
+
         if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
