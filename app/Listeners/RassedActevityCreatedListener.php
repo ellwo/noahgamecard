@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\RassedActevityCreated;
+use App\Jobs\CheckTopOnlineProssce;
 use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\AdminNotify;
 use App\Models\ClientProvider;
@@ -121,40 +122,45 @@ class RassedActevityCreatedListener
 
         } else {
 
+
+
+            CheckTopOnlineProssce::dispatch($this->paymentinfo,$transid)
+            ->delay(now()->addMinutes(1));
+
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..
-            $check = $this->chack_state($transid);
-            if ($check['resultCode']=="0" && $check['isDone']=="1") {
-                // اذا الرصيد نقص معناته انه نجحت العملية
-                $state = 2;
+            // $check = $this->chack_state($transid);
+            // if ($check['resultCode']=="0" && $check['isDone']==1) {
+            //     // اذا الرصيد نقص معناته انه نجحت العملية
+            //     $state = 2;
 
-                $error_note = "تم تنفيذ العملية بنجاح";
-            } else {
-                //مالم معناته فشل الطلب بسبب ان الايدي خطاء
-                $state = 3;
-                $error_note = $check['reason'];
-            }
+            //     $error_note = "تم تنفيذ العملية بنجاح";
+            // } else {
+            //     //مالم معناته فشل الطلب بسبب ان الايدي خطاء
+            //     $state = 3;
+            //     $error_note = $check['reason'];
+            // }
 
-            // $this->paymentinfo->update([
+            // // $this->paymentinfo->update([
+            // //     'state' => $state,
+            // //     'note' => $error_note
+            // // ]);
+
+            // $pay=Paymentinfo::find($this->paymentinfo->id);
+            // $pay->state=$state;
+            // $pay->note=$error_note;
+
+            // $product = $this->paymentinfo->order->product;
+            // $clientProvider = $product->provider_product()->first()->client_provider;
+
+            // $byh = PaymentinfoExecuteBy::create([
+            //     'paymentinfo_id' => $this->paymentinfo->id,
             //     'state' => $state,
+            //     'execute_type' => ClientProvider::class,
+            //     'execute_id' => $clientProvider->id,
             //     'note' => $error_note
             // ]);
-
-            $pay=Paymentinfo::find($this->paymentinfo->id);
-            $pay->state=$state;
-            $pay->note=$error_note;
-
-            $product = $this->paymentinfo->order->product;
-            $clientProvider = $product->provider_product()->first()->client_provider;
-
-            $byh = PaymentinfoExecuteBy::create([
-                'paymentinfo_id' => $this->paymentinfo->id,
-                'state' => $state,
-                'execute_type' => ClientProvider::class,
-                'execute_id' => $clientProvider->id,
-                'note' => $error_note
-            ]);
-            $this->paymentinfo->excuted_status()->save($byh);
-            $pay->save();
+            // $this->paymentinfo->excuted_status()->save($byh);
+            // $pay->save();
 
         }
     }
