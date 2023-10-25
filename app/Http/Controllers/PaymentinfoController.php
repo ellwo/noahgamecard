@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Events\AdminNotifyEvent;
 use App\Models\AdminNotify;
 use App\Models\Paymentinfo;
+use App\Models\PaymentinfoExecuteBy;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PaymentinfoController extends Controller
@@ -34,10 +36,10 @@ class PaymentinfoController extends Controller
 
            $lable=$v['lable'];
            $value=$v['value'];
-           
+
 
        $i=0;
-      
+
            foreach($reqs as $r){
                if($r['lable']==$v['lable']){
                    $reqs[$i]['val']=$value;
@@ -63,6 +65,7 @@ class PaymentinfoController extends Controller
 
     public function show(Paymentinfo $paymentinfo){
 
+        // return dd($paymentinfo->excuted_status[0]->execute->name,$paymentinfo->excuted_by);
 
         return view('admin.orders.show',['paymentinfo'=>$paymentinfo]);
     }
@@ -72,10 +75,16 @@ class PaymentinfoController extends Controller
 
         $paymentinfo->state=$request["state"];
         $paymentinfo->note=$request["note"]??"تم تنفيذ الطلب ";
+
+        $payBy=PaymentinfoExecuteBy::create([
+            'paymentinfo_id'=>$paymentinfo->id,
+            'state'=>$request['state'],
+            'note'=>$request["note"]??"تم تنفيذ الطلب ",
+            'execute_id'=>auth()->user()->id,
+            'execute_type'=>User::class,
+        ]);
+
         $paymentinfo->save();
-
-
-
         return redirect()->route('paymentinfo')->with('status','تم الحفظ بنجاح');
 
 

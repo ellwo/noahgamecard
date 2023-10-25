@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Haruncpi\LaravelUserActivity\Traits\Loggable;
+
 class Paymentinfo extends Model
 {
-    use HasFactory,LaravelSubQueryTrait;
+    use HasFactory, LaravelSubQueryTrait,\Znck\Eloquent\Traits\BelongsToThrough;
 
-use Loggable;
-    protected $fillable=[
+    use Loggable;
+    protected $fillable = [
         'code',
         'paymentmethod_id',
         'prove_img',
-        'mount_pay'
-        ,'total_price',
-        'state' ,//sate 0 not view by admin, 1 view and prosses,2succesfullay ,3 daney
+        'mount_pay', 'total_price',
+        'state', //sate 0 not view by admin, 1 view and prosses,2succesfullay ,3 daney
         "accepted",
         "orginal_total",
         'note',
@@ -33,62 +33,80 @@ use Loggable;
         return $this->hasMany(PaymentinfoExecuteBy::class);
         # code...
     }
+    public function excuted_by()
+    {
+        return $this->hasOne(PaymentinfoExecuteBy::class)->where('state', '=', $this->state);
+        # code...
+    }
 
-    function coin() {
+
+    function coin()
+    {
 
         return $this->belongsTo(Coin::class);
     }
-    function orders(){
+    function orders()
+    {
 
-    return $this->hasMany(Order::class);
-   //     return $this->belongsToMany(Order::class,'order_paymentinfo');
+        return $this->hasMany(Order::class);
+        //     return $this->belongsToMany(Order::class,'order_paymentinfo');
     }
-    
+
     public function order()
     {
         return $this->hasOne(Order::class);
     }
 
-    public function paymentmethod(){
+    function product() {
+        return $this->order->product();
+    }
+    function department() {
+        return $this->product->department();
+    }
+
+    public function paymentmethod()
+    {
         return $this->belongsTo(Paymentmethod::class);
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    function rassed_actevity() {
+    function rassed_actevity()
+    {
         return $this->hasOne(RassedActevity::class);
     }
 
-    public function orginal_totalll(){
+    public function orginal_totalll()
+    {
 
-        $total=0.0;
-        foreach($this->orders as $or){
-            $total+=($or->product->price*$or->qun);
+        $total = 0.0;
+        foreach ($this->orders as $or) {
+            $total += ($or->product->price * $or->qun);
         }
 
-        if($total!=0)
-        return $total;
+        if ($total != 0)
+            return $total;
         else
-        return $this->total_price;
-
-
+            return $this->total_price;
     }
 
-    public function getUpdatedAtAttribute($value){
+    public function getUpdatedAtAttribute($value)
+    {
 
-        if(request()->path()=="graphql"){
-        return $value;
+        if (request()->path() == "graphql") {
+            return $value;
         }
 
 
-        $d=new Carbon($value,"Asia/Aden");
+        $d = new Carbon($value, "Asia/Aden");
 
 
-        $days=now()->diffInDays($d);
+        $days = now()->diffInDays($d);
 
 
-        $day=$d->format('Y-M-d H:i:s');
+        $day = $d->format('Y-M-d H:i:s');
 
         // switch($days){
         //     case 0 : $day="اليوم منذ ";
@@ -122,51 +140,49 @@ use Loggable;
         // }
 
         return $day;
+    }
+    public function getCreatedAtAttribute($value)
+    {
 
-      }
-    public function getCreatedAtAttribute($value){
 
-
-        if(request()->path()=="graphql"){
+        if (request()->path() == "graphql") {
             return $value;
-            }
-        $d=new Carbon($value,"Asia/Aden");
+        }
+        $d = new Carbon($value, "Asia/Aden");
 
-        $days=now()->diffInDays($d);
+        $days = now()->diffInDays($d);
 
-        $day=$d->format('Y-M-d H:i:s');
+        $day = $d->format('Y-M-d H:i:s');
 
-     //   switch($days){
-            // case 0 : $day="اليوم منذ ";
-            // $hours=now()->diffInHours($d);
-            // $day.=$hours."ساعة";
-            // break;
+        //   switch($days){
+        // case 0 : $day="اليوم منذ ";
+        // $hours=now()->diffInHours($d);
+        // $day.=$hours."ساعة";
+        // break;
 
-            // case 1 : $day="الامس";
+        // case 1 : $day="الامس";
 
-            // $day=$d->format(' h:i A  ').$day;
+        // $day=$d->format(' h:i A  ').$day;
 
-            // break;
-            // case 2 : $day="منذ يومين";
+        // break;
+        // case 2 : $day="منذ يومين";
 
-            // $day=$d->format(' h:i A  ').$day;
+        // $day=$d->format(' h:i A  ').$day;
 
-            // break;
-            // case 7 :$day="منذ اسبوع";
+        // break;
+        // case 7 :$day="منذ اسبوع";
 
-            // $day=$d->format(' h:i A  ').$day;
-            // break;
-            // case 10 :$day="منذ عشرة ايام ";
+        // $day=$d->format(' h:i A  ').$day;
+        // break;
+        // case 10 :$day="منذ عشرة ايام ";
 
-            // $day=$d->format(' h:i A  ').$day;
-            // break;
-            // case 15 :$day="منذ نصف شهر";
+        // $day=$d->format(' h:i A  ').$day;
+        // break;
+        // case 15 :$day="منذ نصف شهر";
 
-//        }
-//        $day=$d->format(' h:i A  ').$day;
+        //        }
+        //        $day=$d->format(' h:i A  ').$day;
 
-        return $day."  path/".request()->getBasePath();
-
-
+        return $day . "  path/" . request()->getBasePath();
     }
 }

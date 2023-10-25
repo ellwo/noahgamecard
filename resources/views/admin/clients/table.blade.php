@@ -189,9 +189,9 @@
                             <td class="">
                                 <div class="flex">
 
-                                <a href="{{ route('clients.show',$user) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                <a href="{{ route('paymentinfo',['username'=>$user->id]) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
-                                    عرض تفاصيل
+                                    عرض العمليات
                                 </a>
                                 </div>
                             </td>
@@ -220,8 +220,8 @@
         tr th:nth-child(n+7) {
             border-radius:  .625rem 0 0 .625rem ;
         }
-        
-        
+
+
 
         tr td:nth-child(1),
         tr th:nth-child(1) {

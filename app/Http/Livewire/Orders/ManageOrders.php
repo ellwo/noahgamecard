@@ -10,14 +10,29 @@ class ManageOrders extends Component
 {
     use WithPagination;
     public $type="";
-    public $username=-1;
+    public $username;
     public $search="";
     public $delete_orderid="no";
     public $status=4;
     public $paginate_num=20;
+    public $deptid;
     protected  $listeners= ['updatedUser'=>'changeUser'];
 
 
+    protected $queryString=['search','page','deptid','username'];
+
+
+
+    // public function getQueryString()
+    // {
+    //     return ['deptid'=>$this->deptid];
+    // }
+
+    public function mount($deptid="all",$username=-1)
+    {
+        $this->deptid=$deptid;
+        $this->username=$username;
+    }
 
     public function render()
     {
@@ -46,7 +61,14 @@ class ManageOrders extends Component
 
 
         })
-        ->orderBy('id','desc')->paginate($this->paginate_num);
+        ->whereHas('order',function($o){
+            if($this->deptid!="all"){
+
+            $o->whereHas('product',function($proq){
+                $proq->where('department_id','=',$this->deptid);
+            });
+            }
+        })->orderBy('id','desc')->paginate($this->paginate_num);
        }
         else
        {
@@ -67,10 +89,19 @@ class ManageOrders extends Component
 
             }
 
+
+
             })
         ->withCount('orders')
         ->with('paymentmethod')
-        ->where('state','=',$this->status)->orderBy('id','desc')->paginate($this->paginate_num);
+        ->where('state','=',$this->status)->whereHas('order',function($o){
+            if($this->deptid!="all"){
+
+            $o->whereHas('product',function($proq){
+                $proq->where('department_id','=',$this->deptid);
+            });
+            }
+        })->orderBy('id','desc')->paginate($this->paginate_num);
 }
         return view('admin.orders.table',['paymentinfos'=>$paymentinfos])->layout('components.dashborade.index');
     }
@@ -82,6 +113,8 @@ class ManageOrders extends Component
         $this->status=4;
         $this->search="";
         $this->username=-1;
+        $this->deptid="all";
+        $this->emit('reset');
     }
 
 

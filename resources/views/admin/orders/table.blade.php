@@ -73,8 +73,8 @@
             <div class="flex flex-col space-y-2 lg:w-1/3 mx-auto justify-end justify-items-end">
 
                 <h4 class=" flex" dir="rtl">
-                    <span class="w-1/3">عرض الطلبات ال</span>
-                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark border-0 rounded-md bg-transparent">
+                    <span class="w-1/3 my-auto">عرض الطلبات ال</span>
+                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-md dark:text-white dark:bg-dark rounded-md bg-white">
                         <option value="4">الكل</option>
                        <option
                         value="1">
@@ -88,8 +88,22 @@
                     </select>
                 </h4>
 
+                <h4 class=" flex" dir="rtl">
+                    <span class="w-1/3 my-auto">عرض بحسب القسم</span>
+
+                <select  wire:model="deptid" class=" form-select flex-1 dark:bg-darker rounded-md my-2"
+                id="color1">
+                <option  value="all"> القسم /الجميع
+                </option>
+                @foreach ($depts as $dept)
+                    <option value="{{ $dept->id }}">
+                        {{ $dept->name }}</option>
+                @endforeach
+            </select>
+                </h4>
+
             <h4 class=" flex" dir="rtl">
-                <span class="w-1/3">عرض الطلبات العميل :
+                <span class="w-1/3 my-auto">عرض الطلبات العميل :
                 </span>
                 {{-- <select wire:model.lazy='username'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
                  <option value="all">جميع العملاء </option>
@@ -102,7 +116,7 @@
              </select> --}}
              <div class="w-2/3">
                 @livewire('search-user-select',[
-                       'product_id'=>old('user_id')
+                       'user'=>$username
                    ])</div>
                          </h4>
                          <div class="w-full text-center flex">
@@ -163,7 +177,7 @@
                             <th class="p-3 text-right">رقم العملية </th>
                             <th class="p-3 text-right hidden lg:block"> البطائق  </th>
                             <th class="p-3 text-right ">  السعر</th>
-                            <th class="p-3 text-right ">الحالة</th>
+                            <th class="p-3 text-center ">الحالة</th>
                             <th class="p-3 text-right ">تاريخ </th>
                             <th class="p-3 text-right ">العميل</th>
                             <th class="p-3 text-right ">عمليات</th>
@@ -177,6 +191,7 @@
                         <tr class="bg-white dark:bg-dark">
 
                             <td>
+                                <br>
                                 {{ $paymentinfo->id }}
                                 <hr>
                                 <span></span>
@@ -187,7 +202,7 @@
                             </td>
                             <td class="p-0 hidden text-center text-blue-700 font-bold lg:text-lg lg:block">
 
-                                <div class="lg:w-2/3 w-full">
+                                <div class="w-full p-2">
 
 
                                     @foreach ($paymentinfo->orders as $order)
@@ -210,12 +225,15 @@
                                                     </div>
 
                                                     @foreach ($order->reqs??[] as $r)
+
+                                                    @if($r['value']!="")
                                                     <div class="flex border-b justify-start space-x-2">
                                                         <div class="w-1/3 text-xs  py-2 font-bold mx-2 border-l-1 ">{{ $r['lable'] }}</div>
                                                         <div
                                                             class="w-2/3 mx-2 text-xs py-2 text-info dark:text-info-light">
                                                             {{ $r['value']}}</div>
                                                     </div>
+                                                    @endif
                                                     @endforeach
 
 
@@ -225,7 +243,7 @@
                                     @endforeach
                                 </div>
                             </td>
-                            <td class="p-0 font-bold">
+                            <td class="p-0 font-bold text-right">
                                 <div class="flex flex-col">
 
                                     @if ($paymentinfo->orginal_total-$paymentinfo->total_price>0)
@@ -243,10 +261,19 @@
 
                                 </div>
                             </td>
-                            <td class="p-0">
-                                <span class="px-2 {{ $paymentinfo->state==0?"bg-m_primary-lighter":($paymentinfo->state==1? "bg-info":($paymentinfo->state==2?'bg-green-600':'bg-red-400')) }} rounded-md text-darker">@php
+                            <td class="p-0 text-right">
+                                <div class="flex flex-col justify-center m-4 text-center">
+                                <span class="px-2 {{ $paymentinfo->state==0?"bg-m_primary-lighter":($paymentinfo->state==1? "bg-info":($paymentinfo->state==2?'bg-green-600':'bg-red-400')) }} rounded-md text-white p-2">@php
                                     echo  $paymentinfo->state==0?"لم يتم التأكيد":($paymentinfo->state==1? "في انتظار التنفيذ ":($paymentinfo->state==2?'منفذ':'مرفوض'));
                                 @endphp</span>
+
+@if($paymentinfo->state==2 || $paymentinfo->state==3)
+         <span class="font-bold text-blue-700">بواسطة : </span>
+         <span>{{$paymentinfo->excuted_by?->execute->name}}</span>
+         <span dir="ltr" class="text-xs">{{date('Y-m-d h:i A',strtotime($paymentinfo->excuted_by?->created_at))}}</span>
+
+        @endif
+    </div>
                             </td>
 
                             <td dir="ltr" class="p-0 text-right" >

@@ -94,7 +94,11 @@ $coustmers=User::whereHas('rassed_acetvities',function($q){
 
  function accepte($id)  {
     $pa=RassedActevity::find($id);
+    if($pa->amount==0)
     $this->amount=$pa->camount;
+    else
+    $this->amount=$pa->amount;
+
     $this->paymentInfo=$pa->paymentinfo_id;
  }
 

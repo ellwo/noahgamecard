@@ -1,5 +1,5 @@
 <section x-data='{open_delete:false}'>
-    <div class="relative " x-data="{ show_resave_model: false,show_deny_model:false }">
+    <div class="relative " x-data="{ show_resave_model: false,show_deny_model:false,amount_u:0,coin_u:'دولار' }">
 
 
 
@@ -15,7 +15,7 @@
                 x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                 @click.away="show_resave_model=false" x-show="show_resave_model"
-                class="fixed z-40 flex flex-col p-8 space-y-4 bg-white border rounded-md text-darker top-24 lg:left-1/2 lg:right-1/5">
+                class="fixed z-40 flex flex-col p-8 space-y-4 bg-white border rounded-md text-darker w-1/3 top-24 lg:left-1/2 ">
                 <span class="w-full text-3xl font-bold text-right text-danger">ملاحظة</span>
                 <hr>
              هل انت متأكد من تاكيد التغذية ؟ <br>سيضاف الملبغ لحساب المستخدم فورا
@@ -32,10 +32,20 @@
                             </select>
                         </h6> --}}
 
-                        <div class="flex">
+                        <div class="flex flex-col space-y-2">
 
-                            <x-label value="المبلغ " />
+
+                            <x-label value=" المبلغ المدخل من المستخدم " />
+                            <span type="text"   x-text="amount_u" readonly class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name="">
+                            </span>
+
+                            <x-label value=" العملة المدخل من المستخدم " />
+                            <span type="text"   x-text="coin_u" readonly class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name="">
+                            </span>
+
+                            <x-label value="المبلغ المؤكد " />
                             <input type="text"   wire:model.lazy="amount" class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name=""/>
+                            <span class="text-danger font-bold">ملاحظة هامة يجب ادخال المبلغ المؤكد بعملة الدولار </span>
 
                         </div>
 
@@ -141,8 +151,8 @@
             <div class="flex flex-col space-y-2 lg:w-1/3 mx-auto justify-end justify-items-end">
 
                 <h4 class=" flex" dir="rtl">
-                    <span class="w-1/3">عرض الطلبات ال</span>
-                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark border-0 rounded-md bg-transparent">
+                    <span class="w-1/3 my-auto">عرض الطلبات ال</span>
+                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark  dark:text-white dark:bg-dark rounded-md bg-white">
                         <option value="4">الكل</option>
                        <option
                         value="0">
@@ -157,7 +167,7 @@
                 </h4>
 
             <h4 class=" flex" dir="rtl">
-                <span class="w-1/3">عرض الطلبات العميل :
+                <span class="w-1/3 my-auto">عرض الطلبات العميل :
                 </span>
                 {{-- <select wire:model.lazy='username'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
                  <option value="all">جميع العملاء </option>
@@ -195,7 +205,7 @@
              <br>
 
 
-            <div class="w-full top-0 right-0 bottom-0 z-30 bg-white bg-opacity-50 fixed" wire:loading
+            <div class="w-full top-0 right-0 bottom-0 z-50 bg-white bg-opacity-50 fixed" wire:loading
                               >
                             <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
                         </div>
@@ -280,11 +290,13 @@
                             </td>
 
                             <td class="p-3 " >
-
-                                {{$paymentinfo->updated_at}}
+                                <span dir="ltr">
+                                    {{date('Y/m/d h:i A',strtotime($paymentinfo->updated_at))}}</span>
                             </td>
 
                             <td class="flex flex-col p-1 text-center justify-center items-center" dir="rtl">
+
+                                <div class="my-auto">
 
                                 <div class="flex space-x-2">
                                     {{ $paymentinfo->rassed_actevity->rassed->user->name ??""}}
@@ -292,6 +304,7 @@
                                  <div class="flex space-x-2">
                                     {{ $paymentinfo->rassed_actevity->rassed->user->phone ??""}}
                                  </div>
+                                </div>
                                  {{-- <div class="flex space-x-2">
                                     <span class="mx-2 font-bold text-info">العنوان: </span>{{ $order->address }}
                                  </div>
@@ -310,13 +323,13 @@
 
                                     @if ($paymentinfo->state == 2 || $paymentinfo->state==3)
 
-                                <a @click="show_resave_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex text-white bg-warning rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
+                                <a @click="show_resave_model=true; amount_u={{  $paymentinfo->rassed_actevity->camount }}; coin_u='{{  $paymentinfo->rassed_actevity->coin?->name }}';  $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex text-white bg-warning rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
                                     <i class=" "><x-bi-pen class="w-5 h-5"/></i>
                                    تعديل المبلغ
                                 </a>
                                     @else
 
-                                    <a @click="show_resave_model=true; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex bg-green-600 rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
+                                    <a @click="show_resave_model=true;  amount_u={{  $paymentinfo->rassed_actevity->camount }}; coin_u='{{  $paymentinfo->rassed_actevity->coin?->name }}'; $wire.accepte({{ $paymentinfo->rassed_actevity->id }})"  class="mr-2 flex bg-green-600 rounded-md text-xs md:text-sm  cursor-pointer hover:text-dark p-2  dark:hover:text-gray-100">
                                         <i class="text-base "><x-heroicon-s-check class="w-5 h-5"/></i>
                                         قبول وتأكيد
                                     </a>

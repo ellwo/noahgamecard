@@ -12,6 +12,8 @@ class SearchUserSelect extends Component
     public $highlightIndex;
     public $user=-1;
     public $show_drop=0;
+    protected  $listeners= ['reset'=>'resetselect'];
+
     public function mount($user=-1)
     {
         $this->user=$user;

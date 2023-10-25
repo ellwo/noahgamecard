@@ -34,7 +34,7 @@
             wire:keydown.arrow-up="decrementHighlight"
             wire:keydown.arrow-down="incrementHighlight"
             wire:keydown.enter="selectContact"
-       class="form-control w-3/4 rounded-md p-4 dark:bg-primary-dark relative" />
+       class="form-control  w-full rounded-md p-2 dark:bg-primary-dark relative" />
 
        @if ($show_drop==1)
 

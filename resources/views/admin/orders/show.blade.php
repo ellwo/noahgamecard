@@ -50,14 +50,14 @@
                     <div class="text-center mb-2 lg:text-4xl text-xl font-bold mx-auto">
                         تفاصيل الطلب رقم : {{ $paymentinfo->id }}
                     </div>
-                    <div class="lg:m-6 lg:p-6 shadow-sm rounded-md border dark:bg-dark">
-                        <div dir="rtl" class="flex mx-auto   space-y-4 xl:w-2/3 flex-col">
+                    <div class=" shadow-sm rounded-md border mx-auto xl:w-2/3 dark:bg-dark">
+                        <div dir="rtl" class="flex mx-auto   space-y-4 w-full flex-col">
 
 
 
 
                             <div class="flex space-y-4 flex-col">
-                                <div class="flex lg:flex-col flex-wrap border-b justify-start space-x-2">
+                                <div class="flex lg:flex-col flex-wrap  justify-start space-x-2">
                                     <div class="lg:w-1/3 w-full">
                                         <div class="lg:text-xl font-bold">البطائق المطلوبة </div>
                                     </div>
@@ -72,14 +72,14 @@
                                                             <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">اسم
                                                                 البطاقة</div>
                                                             <div
-                                                                class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
+                                                                class="w-2/3 mx-2 py-2 text-xs text-blue-700 dark:text-info-light">
                                                                 {{ $order->product->name }}</div>
                                                         </div>
                                                         <div class="flex border-b justify-start space-x-2">
                                                             <div class="w-1/3 py-2 text-xs font-bold mx-2 border-l-1 ">الكمية
                                                             </div>
                                                             <div
-                                                                class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
+                                                                class="w-2/3 mx-2 py-2 text-xs text-blue-700 dark:text-info-light">
                                                                 {{ $order->qun }}</div>
                                                         </div>
 
@@ -87,7 +87,7 @@
                                                         <div class="flex border-b justify-start space-x-2">
                                                             <div class="w-1/3 text-xs  py-2 font-bold mx-2 border-l-1 ">{{ $r['lable'] }}</div>
                                                             <div
-                                                                class="w-2/3 mx-2 text-xs py-2 text-info dark:text-info-light">
+                                                                class="w-2/3 mx-2 text-xs py-2 text-blue-700 dark:text-info-light">
                                                                 {{ $r['value']}}</div>
                                                         </div>
                                                         @endforeach
@@ -99,7 +99,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="flex lg:flex-col flex-wrap border-b justify-start space-x-2">
+                                <div class="flex lg:flex-col flex-wrap  justify-start space-x-2">
                                     <div class="lg:w-1/3 w-full">
                                         <div class="lg:text-xl font-bold">معلومات العميل </div>
                                     </div>
@@ -122,17 +122,7 @@
 
                                                     </div>
                                                     <div class="flex  justify-start space-x-2">
-                                                        <div class="w-1/3 text-xs font-bold mx-2 border-l-1 ">امتياز
-                                                            العميل</div>
-                                                        <div
-                                                            class="w-2/3 mx-2 flex flex-wrap dark:text-info-light text-xs text-info">
-                                                            @foreach ($paymentinfo->orders()->first()->user->roles as $role)
-                                                                <span
-                                                                    class="bg-m_primary-lighter m-2 p-1  text-dark rounded-md inline-block ">
-                                                                    {{ $role->name }}
-                                                                </span>
-                                                            @endforeach
-                                                        </div>
+                                                        
 
                                                     </div>
                                                 </div>
@@ -140,7 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex lg:flex-col flex-wrap border-b justify-start space-x-2">
+                                <div class="flex lg:flex-col flex-wrap justify-start space-x-2">
                                     <div class="lg:w-1/3 w-full">
                                         <div class="lg:text-xl font-bold">معلومات الدفع </div>
                                     </div>
@@ -162,7 +152,7 @@
                                                     <div class="flex border-b justify-start space-x-2">
                                                         <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">كود
                                                             العملية</div>
-                                                        <div class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
+                                                        <div class="w-2/3 mx-2 py-2 text-xs text-blue-700 dark:text-info-light">
                                                             <span class="">
                                                                 {{ $paymentinfo->code }}
                                                             </span>
@@ -182,10 +172,30 @@
                                                                 @endphp</span>
 
                                                         </div>
-
                                                     </div>
-
                                                     <div class="flex w-full border-b justify-start space-x-2">
+                                                        <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">ملاحظات
+                                                        </div>
+                                                        <div class="w-2/3  mx-2 text-sm p-1">
+                                                            
+                                                            <span>{{$paymentinfo->note}}</span>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    @if($paymentinfo->state==2 || $paymentinfo->state==3)
+                                                    <div class="flex w-full border-b justify-start space-x-2">
+                                                        <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">تم بواسطة 
+                                                        </div>
+                                                        <div class="w-2/3  mx-2 text-sm p-1">
+                                                            
+                                                            <span>{{$paymentinfo->excuted_by?->execute->name}}</span>
+
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    <div class="flex w-full justify-start space-x-2">
                                                         <div class="w-1/3 text-xs font-bold mx-2 border-l-1 ">اجمالي
                                                             المبلغ</div>
                                                         <div class="w-2/3  mx-2 text-sm p-1">
@@ -217,6 +227,8 @@
 
 
 
+                            @if($paymentinfo->state==1)
+
                             <div class="flex flex-wrap justify-between space-x-4">
                                 <form action="{{ route('paymentinfo.update', $paymentinfo) }}" method="post">
                                     @method('PUT')
@@ -232,9 +244,9 @@
                                 <x-button type="button" @click="show_resave_model=true" variant="danger">
                                     رفض الطلب
                                 </x-button>
-
-
                             </div>
+                            @endif
+
 
 
                         </div>
