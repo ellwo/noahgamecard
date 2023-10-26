@@ -62,7 +62,7 @@ final class Userpayorders
 
                     $porders =  $user->paymentinfos()->whereHas('orders')
                         ->whereBetween('created_at', [$fromDate, $toDate])
-                        ->orderBy('created_at', 'desc')->paginate(20);
+                        ->orderBy('created_at', 'desc')->paginate(20,['*'],'page',$args['page']);
 
 
                         /**->where('id','LIKE','%'.$args['search']."%")
@@ -80,7 +80,7 @@ final class Userpayorders
                         'paginatorInfo' => [
                             'total' => $porders->total(),
                             'hasMorePages' => $porders->hasMorePages(),
-                            "currentPage" => $args["page"] ?? 1
+                            "currentPage" => $porders->currentPage()
                         ]
 
                     ];
@@ -114,22 +114,25 @@ final class Userpayorders
         }
         else{
 
+
+            $_GET["page"] = $args["page"] ?? 1;
+            \request()->request->set("page", 1);
             $user=User::find(auth()->user()->id);
             $porders =  $user->paymentinfos()->whereHas('orders')
-            ->orderBy('created_at', 'desc')->paginate(20);
+            ->orderBy('created_at', 'desc')->paginate(20,['*'],'page',$args['page']);
 
             return [
 
                 "responInfo" => [
                     "state" => true,
                     "errors" => null,
-                    "message" => "Done"
+                    "message" => "Done here the Bug Here طلباتي ".$porders->currentPage()."   argsPage".$args['page']."   Get".$_GET['page']
                 ],
                 'orders_gr' => $porders,
                 'paginatorInfo' => [
                     'total' => $porders->total(),
                     'hasMorePages' => $porders->hasMorePages(),
-                    "currentPage" => $args["page"] ?? 1
+                    "currentPage" => $porders->currentPage()
                 ]
 
             ];

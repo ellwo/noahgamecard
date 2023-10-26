@@ -24,8 +24,8 @@ final class GetUserNotificationsPG
 
 
             $unread=$user->user_notifications()->where('state','=',0)->count();
-            if($unread<15)
-            $unread=15;
+            if($unread<20)
+            $unread=20;
 
             $data=$user->user_notifications()->orderBy('created_at','desc')
             ->paginate($unread);

@@ -8,9 +8,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use App\Models\ClientProvider;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class CheckTopOnlineProssce implements ShouldQueue
 {
@@ -46,6 +48,15 @@ class CheckTopOnlineProssce implements ShouldQueue
     {
         //
         $check = $this->chack_state($this->transid);
+
+
+
+
+        while($check['isBan']==0){
+            $check=$this->chack_state($this->transid);
+        }
+
+
         if ($check['resultCode']=="0" && $check['isDone']==1) {
             // اذا الرصيد نقص معناته انه نجحت العملية
             $state = 2;
@@ -54,7 +65,9 @@ class CheckTopOnlineProssce implements ShouldQueue
         } else {
             //مالم معناته فشل الطلب بسبب ان الايدي خطاء
             $state = 3;
-            $error_note = $check['reason'];
+
+            if(Str::contains($check['reason'],'Invalid Player ID'))
+            $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
         }
 
         // $this->paymentinfo->update([
