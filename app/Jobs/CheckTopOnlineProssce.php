@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\AdminNotify;
 use App\Models\Paymentinfo;
 use App\Models\PaymentinfoExecuteBy;
 use Illuminate\Bus\Queueable;
@@ -51,46 +52,65 @@ class CheckTopOnlineProssce implements ShouldQueue
 
 
 
+        if($check->json()==null || $check->status()==404){
+            AdminNotify::create([
+                'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
+               ]);
 
-        while($check['isBan']==0){
-            $check=$this->chack_state($this->transid);
+        }
+        else{
+
+            $check=$check->json();
+
+            $i=0;
+            while($check['isBan']==0){
+                $check=$this->chack_state($this->transid);
+           $i++;
+            }
+    
+    
+         
+    
+    
+            if ($check['resultCode']=="0" && $check['isDone']==1) {
+                // اذا الرصيد نقص معناته انه نجحت العملية
+                $state = 2;
+    
+                $error_note = "تم تنفيذ العملية بنجاح";
+            } else {
+                //مالم معناته فشل الطلب بسبب ان الايدي خطاء
+                $state = 3;
+    
+                if(Str::contains($check['reason'],'Invalid Player ID'))
+                $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
+            }
+    
+            // $this->paymentinfo->update([
+            //     'state' => $state,
+            //     'note' => $error_note
+            // ]);
+    
+            $pay=Paymentinfo::find($this->paymentinfo->id);
+            $pay->state=$state;
+            $pay->note=$error_note;
+    
+            $product = $this->paymentinfo->order->product;
+            $clientProvider = $product->provider_product()->first()->client_provider;
+    
+            $byh = PaymentinfoExecuteBy::create([
+                'paymentinfo_id' => $this->paymentinfo->id,
+                'state' => $state,
+                'execute_type' => ClientProvider::class,
+                'execute_id' => $clientProvider->id,
+                'note' => $error_note
+            ]);
+            $this->paymentinfo->excuted_status()->save($byh);
+            $pay->save();
+
         }
 
 
-        if ($check['resultCode']=="0" && $check['isDone']==1) {
-            // اذا الرصيد نقص معناته انه نجحت العملية
-            $state = 2;
-
-            $error_note = "تم تنفيذ العملية بنجاح";
-        } else {
-            //مالم معناته فشل الطلب بسبب ان الايدي خطاء
-            $state = 3;
-
-            if(Str::contains($check['reason'],'Invalid Player ID'))
-            $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
-        }
-
-        // $this->paymentinfo->update([
-        //     'state' => $state,
-        //     'note' => $error_note
-        // ]);
-
-        $pay=Paymentinfo::find($this->paymentinfo->id);
-        $pay->state=$state;
-        $pay->note=$error_note;
-
-        $product = $this->paymentinfo->order->product;
-        $clientProvider = $product->provider_product()->first()->client_provider;
-
-        $byh = PaymentinfoExecuteBy::create([
-            'paymentinfo_id' => $this->paymentinfo->id,
-            'state' => $state,
-            'execute_type' => ClientProvider::class,
-            'execute_id' => $clientProvider->id,
-            'note' => $error_note
-        ]);
-        $this->paymentinfo->excuted_status()->save($byh);
-        $pay->save();
     }
 
     function chack_state($transid)
@@ -107,7 +127,7 @@ class CheckTopOnlineProssce implements ShouldQueue
 
         $res = $response->json();
 
-        return $res;
+        return $response;
     }
     function genurateToken($transid)
     {

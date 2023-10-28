@@ -85,7 +85,7 @@ class ClientProviderController extends Controller
     //     $hashPassword=md5($password);
     //     $token=md5($hashPassword.$transid.$username.$mobile);
     //     $pay=Paymentinfo::find(121);
-         $url="https://toponline.yemoney.net/api/yr/gameswcards";
+         $url="https://toponline.yemoney.net/api/yr/gameswcardsisi";
     //     //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
 
 
@@ -117,12 +117,12 @@ class ClientProviderController extends Controller
         'mobile' => $mobile,
         'action' => 'status'
     ];
-    $res = Http::get($url, $paras);
+    // $res = Http::get($url, $paras);
 
-    $res = $res->json();
+    // $res = $res->json();
 
 
-    return dd($response->json(),$res);
+    return dd($response->status());
         // $queryParams = [
         //     'userid' => '17577',
         //     //'mobile' => "778514141",

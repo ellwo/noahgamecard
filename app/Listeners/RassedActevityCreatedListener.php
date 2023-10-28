@@ -54,6 +54,7 @@ class RassedActevityCreatedListener
 
                    // $this->paymentinfo=$event->rassedActevity->paymentinfo;
 
+                 
                    $this->paymentinfo=$event->rassedActevity->paymentinfo;
                  $this->handle_process();
                    //dispatch(new TopOnlinePayByAPIJob($event->rassedActevity->paymentinfo));
@@ -85,13 +86,23 @@ class RassedActevityCreatedListener
         //       return dd($response);
         $result = $response->json(); // it's null
 
+        if($response->json()==null || $response->status()==404){
+            AdminNotify::create([
+                'title' => 'لم يستطع الاتصال بالمزود Toponline',
+                'body' => " يرجى التأكد من المزود نفسه توب اونلاين",
+                'link' => route('paymentinfo.show', $this->paymentinfo)
+            ]);
+        }
+        else
+        
         if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
                 'body' => " يرجى التأكد من صحة معلومات الاتصال (اسم المستخدم,كلمة المرور وبقية التفاصيل)",
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
-        } else if ($response->json('resultCode') == "1658" && $response->json('remainAmount') != null) {
+        }
+         else if ($response->json('resultCode') == "1658" && $response->json('remainAmount') != null) {
             $body = "اجمالي العملية " . $this->paymentinfo->total_price . "\n" . "رصيدك الحالي " . $response->json('remainAmount') . " ريال يمني ";
             AdminNotify::create([
                 'title' => 'رصيدك غير لدى توب اونلاين كافي لتنفيذ عملية ',
