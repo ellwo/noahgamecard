@@ -54,7 +54,7 @@ class RassedActevityCreatedListener
 
                    // $this->paymentinfo=$event->rassedActevity->paymentinfo;
 
-                 
+
                    $this->paymentinfo=$event->rassedActevity->paymentinfo;
                  $this->handle_process();
                    //dispatch(new TopOnlinePayByAPIJob($event->rassedActevity->paymentinfo));
@@ -94,7 +94,7 @@ class RassedActevityCreatedListener
             ]);
         }
         else
-        
+
         if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
@@ -110,6 +110,12 @@ class RassedActevityCreatedListener
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
         } else if ($response->json('resultCode') == "1220") {
+
+            AdminNotify::create([
+                'title' => 'اي دي اللاعب خطاء',
+                'body' => " فشلت العملية",
+                'link' => route('paymentinfo.show', $this->paymentinfo)
+            ]);
             $product = $this->paymentinfo->order->product;
             $clientProvider = $product->provider_product()->first()->client_provider;
 

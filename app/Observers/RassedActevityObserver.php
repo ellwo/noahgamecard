@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Events\RassedActevityCreated;
+use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\RassedActevity;
 use Exception;
 
@@ -14,18 +15,19 @@ class RassedActevityObserver
      * @param  \App\Models\RassedActevity  $rassedActevity
      * @return void
      */
- 
+
     public function created(RassedActevity $rassedActevity)
     {
 
-      
+
 
             try{
-            event(new RassedActevityCreated($rassedActevity));
+                TopOnlinePayByAPIJob::dispatchAfterResponse($rassedActevity);
+            // event(new RassedActevityCreated($rassedActevity));
         }catch(Exception $e){
-            
+
         }
-    
+
     }
 
     /**

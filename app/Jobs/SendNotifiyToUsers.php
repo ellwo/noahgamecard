@@ -28,7 +28,7 @@ class SendNotifiyToUsers implements ShouldQueue
 
      protected UserNotification  $userNotification;
      protected $notification;
-     
+
     public function __construct(UserNotification $userNotification)
     {
         //
@@ -47,6 +47,7 @@ class SendNotifiyToUsers implements ShouldQueue
         $this->sendFMC($this->userNotification);
 
     }
+
     function sendFMC($userNotification)
     {
 
@@ -110,7 +111,7 @@ class SendNotifiyToUsers implements ShouldQueue
             FirebaseToken::whereIn('token', $invalidTargets)->delete();
 
             $userNotification->update([
-                'sented' => 1
+                'sented' => true
             ]);
         } catch (Exception $e) {
         }
@@ -152,4 +153,5 @@ class SendNotifiyToUsers implements ShouldQueue
 
 
     }
+
 }
