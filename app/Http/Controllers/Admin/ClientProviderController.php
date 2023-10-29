@@ -126,18 +126,18 @@ class ClientProviderController extends Controller
     //     //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
 
 
-    //   // return dd($token);
-    $pay=Paymentinfo::first();
-    // TopOnlinePayByAPIJob::dispatchAfterResponse($pay->rassed_actevity);
-    $transid=rand(1,4569);
-    $queryParams=$this->getParametres($pay);
-    //    $queryParams['token']=$token;
-       $queryParams['userid']=$id;
-        $queryParams['transid']=$transid;
-        $queryParams['token']=$this->genurateToken($transid);
+    // //   // return dd($token);
+    // $pay=Paymentinfo::first();
+    // // TopOnlinePayByAPIJob::dispatchAfterResponse($pay->rassed_actevity);
+    // $transid=rand(1,4569);
+    // $queryParams=$this->getParametres($pay);
+    // //    $queryParams['token']=$token;
+    //    $queryParams['userid']=$id;
+    //     $queryParams['transid']=$transid;
+    //     $queryParams['token']=$this->genurateToken($transid);
 
-    $queryParams['mobile']=$mobile;
-    //     $queryParams['playerid']="005555";
+    // $queryParams['mobile']=$mobile;
+    // //     $queryParams['playerid']="005555";
     //     $queryParams['type']="pubg";
 
     //    return dd($queryParams);
@@ -145,15 +145,15 @@ class ClientProviderController extends Controller
     // $response= Http::get($url,$queryParams);
 
 
-    $url = 'https://toponline.yemoney.net/api/yr/info';
-    // $transid="2303";
-    $paras = [
-        'transid' => $transid,
-        'token' => $this->genurateToken($transid),
-        'userid' => $id,
-        'mobile' => $mobile,
-        'action' => 'status'
-    ];
+    // $url = 'https://toponline.yemoney.net/api/yr/info';
+    // // $transid="2303";
+    // $paras = [
+    //     'transid' => $transid,
+    //     'token' => $this->genurateToken($transid),
+    //     'userid' => $id,
+    //     'mobile' => $mobile,
+    //     'action' => 'status'
+    // ];
     // $res = Http::get($url, $paras);
 
     // $res = [];
