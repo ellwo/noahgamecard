@@ -154,7 +154,13 @@
                             </td>
                             <td class="p-0 tdp text-danger font-bold lg:text-lg">
                                 <div class="flex flex-col">
-                                    {{abs( $user->pay_sum()) }}
+                                    <span>
+                                        {{abs( $user->pay_sum()) }} / بحسب سعرنا
+                                    </span>
+                                    <span>
+                                        {{abs( $user->pay_sum_orgin()) }} / بحسب سعر المزود
+
+                                    </span>
                                 </div>
                             </td>
                             <td class="p-0 tdp  flex flex-col justify-center text-blue-700 font-bold lg:text-lg">
