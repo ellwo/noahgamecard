@@ -16,9 +16,9 @@ class AdminNotfiy extends Component
     {
 
         $readed_notifs=AdminNotify::where('readed','=',1)->paginate(20);
-        $this->unread_count=$readed_notifs->total();
         $notifs=AdminNotify::orderBy('created_at','desc')->paginate(20);
- 
+        $this->unread_count=$notifs->total();
+
         return view('livewire.admin-notfiy',[
             'notifs'=>$notifs,
             'readed_notifs'=>$readed_notifs
@@ -36,7 +36,7 @@ class AdminNotfiy extends Component
         ]);
 
         redirect()->to($n->link);
-        
+
         # code...
     }
 }
