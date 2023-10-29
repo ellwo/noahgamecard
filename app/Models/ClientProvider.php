@@ -5,6 +5,8 @@ namespace App\Models;
 use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 class ClientProvider extends Model
 {
@@ -37,7 +39,7 @@ class ClientProvider extends Model
         });
         return $this->pays_excutes()->rassed_acetvities();
     }
-    public function pay_sum()
+    public function pay_sum_orgin()
     {
 
         # code...
@@ -50,11 +52,51 @@ class ClientProvider extends Model
         }
 
         return $sum;
-
-
         return $this->rassed_acetvities()->sum('amount');
+    }
+    public function pay_sum()
+    {
+
+        # code..
+        return $this->rassed_acetvities()->sum('amount');
+    }
+
+
+    public $userid = 17577;
+    public $mobile = "777777777";
+    public $username = "777777777";
+    public $password = "Asd777777777";
+    public $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
+    public $chack_url='https://toponline.yemoney.net/api/yr/info';
+
+    function rassedy() {
+
+     $url = 'https://toponline.yemoney.net/api/yr/info';
+     $transid="2303";
+     $paras = [
+         'transid' => $transid,
+         'token' => $this->genurateToken($transid),
+         'userid' => $this->userid,
+         'mobile' => $this->mobile,
+         'action' => 'balance'
+     ];
+    //  Cache::forget('rassed');
+     $res =Cache::remember('rassed',60*60,function()use($url,$paras){
+       //return
+       $respone= Http::get($url, $paras);
+       return $respone->json('balance');
+     });
+     return $res;
 
     }
+
+    function genurateToken($transid)
+    {
+        $hashPassword = md5($this->password);
+        $token = md5($hashPassword . $transid . $this->username . $this->mobile);
+        return $token;
+    }
+
     public function scopeActive($query)
     {
         return $this->where('active','=',1);

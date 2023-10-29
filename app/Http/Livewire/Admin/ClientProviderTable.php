@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\ClientProvider;
+use App\Models\Coin;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -16,8 +17,11 @@ class ClientProviderTable extends Component
     public $search="",
     $paginate_num=20,
     $delete_orderid=-1;
+    public $coin=null;
     public function render()
     {
+
+        $this->coin=Coin::where('nickname','=','R.Y')->first();
         $users=ClientProvider::where(function($q){
             $q->where('name','LIKE','%'.$this->search.'%')
             ->orWhere('phone','LIKE','%'.$this->search.'%')

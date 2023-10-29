@@ -164,23 +164,25 @@
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض المنتجات
                                 </a>
-                            
+
                             </td>
 
                             <td dir="ltr" class="p-0 tdp text-right text-success font-bold lg:text-lg" >
-                                {{ $user->rassed }}
-                              
+                                {{ $user->rassedy()  }} ريال يمني
+                                <br>
+                                {{  number_format((float)( $user->rassedy()/$coin?->value), 2, '.', ''); }} دولار امريكي
+
                             </td>
 
 
                             <td class="block text-center" x-data='{isActive:{{$user->active??0}}}'>
-                                        
+
                                 <div class="flex flex-col justify-center text-center">
 
                                     @if ($user->active)
 
-                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak 
-                                    
+                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak
+
                                     {{-- wire:click="deletePro({{$user->id}})"
                                      --}}
                                     @click="open_delete=!open_delete; $wire.set('delete_orderid',{{$user->id}})">
@@ -198,13 +200,13 @@
 
 
                                         </div>
-                                    </button>                                        
+                                    </button>
                                     @else
-                                        
-                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak 
-                                    
+
+                                    <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak
+
                                      wire:click="active_client({{$user->id}})"
-                                     
+
                                     @click="isActive=true">
                                         <div
                                             class="w-12 h-6 transition rounded-full outline-none  dark:"

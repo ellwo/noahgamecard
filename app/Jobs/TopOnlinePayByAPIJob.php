@@ -80,8 +80,9 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         $queryParams['userid'] = $this->userid;
         $queryParams['mobile']=$this->mobile;
         // $queryParams['uniqcode']="63";
-         
+
         $response = Http::get($this->pay_url, $queryParams);
+
         //       return dd($response);
         $result = $response->json(); // it's null
 
@@ -130,8 +131,8 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             $pay->note="ID الحساب غير صحيح ";
             $pay->save();
 
-        } 
-        
+        }
+
         else if($response->json('resultCode')=="1658"){
             AdminNotify::create([
                 'title' => '  الفئة غير متوفرة Toponline',

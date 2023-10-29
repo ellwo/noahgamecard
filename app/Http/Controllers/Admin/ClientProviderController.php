@@ -114,13 +114,14 @@ class ClientProviderController extends Controller
 
 
 
-    //     $username="777777777";
-    //     $password="Asd777777777";
+       $username="777777777";
+        $password="Asd777777777";
         $id=17577;
         $mobile="777777777";
-    //     $transid=rand(1,4766522);
-    //     $hashPassword=md5($password);
-    //     $token=md5($hashPassword.$transid.$username.$mobile);
+         $transid=rand(1,4766522);
+         $hashPassword=md5($password);
+         $token=md5($hashPassword.$transid.$username.$mobile);
+
     //     $pay=Paymentinfo::find(121);
          $url="https://toponline.yemoney.net/api/yr/gameswcards";
     //     //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
@@ -129,14 +130,15 @@ class ClientProviderController extends Controller
     // //   // return dd($token);
     // $pay=Paymentinfo::first();
     // // TopOnlinePayByAPIJob::dispatchAfterResponse($pay->rassed_actevity);
-    // $transid=rand(1,4569);
-    // $queryParams=$this->getParametres($pay);
-    // //    $queryParams['token']=$token;
-    //    $queryParams['userid']=$id;
+  //   $transid=rand(1,4569);
+     $queryParams=[];
+     //$this->getParametres($pay);
+    $queryParams['token']=$token;
+        $queryParams['userid']=$id;
     //     $queryParams['transid']=$transid;
     //     $queryParams['token']=$this->genurateToken($transid);
 
-    // $queryParams['mobile']=$mobile;
+     $queryParams['mobile']=$mobile;
     // //     $queryParams['playerid']="005555";
     //     $queryParams['type']="pubg";
 
@@ -145,21 +147,21 @@ class ClientProviderController extends Controller
     // $response= Http::get($url,$queryParams);
 
 
-    // $url = 'https://toponline.yemoney.net/api/yr/info';
-    // // $transid="2303";
-    // $paras = [
-    //     'transid' => $transid,
-    //     'token' => $this->genurateToken($transid),
-    //     'userid' => $id,
-    //     'mobile' => $mobile,
-    //     'action' => 'status'
-    // ];
-    // $res = Http::get($url, $paras);
-
+    //  $url = 'https://toponline.yemoney.net/api/yr/info';
+    //  $transid="2303";
+    //  $paras = [
+    //      'transid' => $transid,
+    //      'token' => $this->genurateToken($transid),
+    //      'userid' => $id,
+    //      'mobile' => $mobile,
+    //      'action' => 'balance'
+    //  ];
+    //  $res = Http::get($url, $paras);
+    //  $res->json('balance')
     // $res = [];
 
 
-    // return dd($response->json(),$res);
+    //  return dd($res->json('balance'));
         // $queryParams = [
         //     'userid' => '17577',
         //     //'mobile' => "778514141",
