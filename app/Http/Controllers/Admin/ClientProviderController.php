@@ -81,7 +81,6 @@ class ClientProviderController extends Controller
     {
 
         $p=Paymentinfo::find(109);
-        $p2=Paymentinfo::find(108);
 
         $p->state=2;
 
@@ -113,32 +112,6 @@ class ClientProviderController extends Controller
             $p->excuted_status()->save($byh);
 
 
-        $body="المنتج :  ".$p2->order->product->name;
-        $body.="\n";
-        $body.="السعر : ".$p2->orginal_total;
-        $body.="\n";
-        $body.="العميل : ".$p2->user->name;
-
-        AdminNotify::create([
-            'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
-            'body'=>$body,
-            'link'=>route('paymentinfo.show',$p2)
-        ]);
-        $p2->state=2;
-        $p2->save();
-
-
- $product = $p2->order->product;
- $clientProvider = $product->provider_product()->first()->client_provider;
-
- $byh = PaymentinfoExecuteBy::create([
-     'paymentinfo_id' => $p2->id,
-     'state' => 2,
-     'execute_type' => ClientProvider::class,
-     'execute_id' => $clientProvider->id,
-     'note' => "تم التنفيذ بنجاح"
- ]);
- $p2->excuted_status()->save($byh);
 
 
     //     $username="777777777";
