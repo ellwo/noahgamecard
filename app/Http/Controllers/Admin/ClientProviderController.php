@@ -85,31 +85,31 @@ class ClientProviderController extends Controller
         $p->state=2;
 
 
-        $body="المنتج :  ".$p->order->product->name;
-        $body.="\n";
-        $body.="السعر : ".$p->orginal_total;
-        $body.="\n";
-        $body.="العميل : ".$p->user->name;
+//         $body="المنتج :  ".$p->order->product->name;
+//         $body.="\n";
+//         $body.="السعر : ".$p->orginal_total;
+//         $body.="\n";
+//         $body.="العميل : ".$p->user->name;
 
 
-        AdminNotify::create([
-            'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
-            'body'=>$body,
-            'link'=>route('paymentinfo.show',$p)
-        ]);
+//         AdminNotify::create([
+//             'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+//             'body'=>$body,
+//             'link'=>route('paymentinfo.show',$p)
+//         ]);
 
-        $p->save();
- $product = $p->order->product;
-            $clientProvider = $product->provider_product()->first()->client_provider;
+//         $p->save();
+//  $product = $p->order->product;
+//             $clientProvider = $product->provider_product()->first()->client_provider;
 
-            $byh = PaymentinfoExecuteBy::create([
-                'paymentinfo_id' => $p->id,
-                'state' => 2,
-                'execute_type' => ClientProvider::class,
-                'execute_id' => $clientProvider->id,
-                'note' => "تم التنفيذ بنجاح"
-            ]);
-            $p->excuted_status()->save($byh);
+//             $byh = PaymentinfoExecuteBy::create([
+//                 'paymentinfo_id' => $p->id,
+//                 'state' => 2,
+//                 'execute_type' => ClientProvider::class,
+//                 'execute_id' => $clientProvider->id,
+//                 'note' => "تم التنفيذ بنجاح"
+//             ]);
+//             $p->excuted_status()->save($byh);
 
 
 
