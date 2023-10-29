@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\TopOnlinePayByAPIJob;
+use App\Models\AdminNotify;
 use App\Models\ClientProvider;
 use App\Models\Paymentinfo;
+use App\Models\PaymentinfoExecuteBy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 class ClientProviderController extends Controller
@@ -77,6 +79,67 @@ class ClientProviderController extends Controller
      */
     public function index()
     {
+
+        $p=Paymentinfo::find(109);
+        $p2=Paymentinfo::find(108);
+
+        $p->state=2;
+
+
+        $body="المنتج :  ".$p->order->product->name;
+        $body.="\n";
+        $body.="السعر : ".$p->orginal_total;
+        $body.="\n";
+        $body.="العميل : ".$p->user->name;
+
+
+        AdminNotify::create([
+            'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+            'body'=>$body,
+            'link'=>route('paymentinfo.show',$p)
+        ]);
+
+        $p->save();
+ $product = $p->order->product;
+            $clientProvider = $product->provider_product()->first()->client_provider;
+
+            $byh = PaymentinfoExecuteBy::create([
+                'paymentinfo_id' => $p->id,
+                'state' => 2,
+                'execute_type' => ClientProvider::class,
+                'execute_id' => $clientProvider->id,
+                'note' => "تم التنفيذ بنجاح"
+            ]);
+            $p->excuted_status()->save($byh);
+
+
+        $body="المنتج :  ".$p2->order->product->name;
+        $body.="\n";
+        $body.="السعر : ".$p2->orginal_total;
+        $body.="\n";
+        $body.="العميل : ".$p2->user->name;
+
+        AdminNotify::create([
+            'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+            'body'=>$body,
+            'link'=>route('paymentinfo.show',$p2)
+        ]);
+        $p2->state=2;
+        $p2->save();
+
+
+ $product = $p2->order->product;
+ $clientProvider = $product->provider_product()->first()->client_provider;
+
+ $byh = PaymentinfoExecuteBy::create([
+     'paymentinfo_id' => $p2->id,
+     'state' => 2,
+     'execute_type' => ClientProvider::class,
+     'execute_id' => $clientProvider->id,
+     'note' => "تم التنفيذ بنجاح"
+ ]);
+ $p2->excuted_status()->save($byh);
+
 
     //     $username="777777777";
     //     $password="Asd777777777";
