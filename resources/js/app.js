@@ -228,7 +228,7 @@ document.addEventListener("alpine:init", () => {
             updateBarChart,
             updateDoughnutChart,
             updateLineChart,
-            isSidebarOpen: window.innerWidth > 500,
+            isSidebarOpen: window.innerWidth > 1024,
             isSidebarHovered: false,
             handleSidebarHover(value) {
                 if (window.innerWidth < 1024) {
@@ -237,7 +237,12 @@ document.addEventListener("alpine:init", () => {
                 this.isSidebarHovered = value;
             },
             handleWindowResize() {
+                if (window.innerWidth <= 1024) {
+                    this.isSidebarOpen = false;
+                } else {
+
                     this.isSidebarOpen = true;
+                }
             },
             scrollingDown: false,
             scrollingUp: false,

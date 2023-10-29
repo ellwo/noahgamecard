@@ -63,7 +63,21 @@
 
             @can('ادارة الطلبات')
 
-                 @livewire('admin-notfiy', key(time()))
+
+    <div class="relative p-1">
+
+        <button @click="openNotificationsPanel"
+        class="p-2 transition-colors duration-200 rounded-full text-primary-dark bg-primary hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
+        <span class="sr-only">Open Notification panel</span>
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+    </button>
+    <span id="unread_count" class="unread_count absolute top-0 p-1 right-0 w-6 h-6 text-xs rounded-full bg-danger text-white text-center justify-center">
+    </span>
+        </div>
                  @endcan
 
             <!-- Notification button -->
@@ -160,19 +174,28 @@
                 </button>
 
                 <!-- Notification button -->
-                <button
-                    @click="openNotificationsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
-                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
-                    <span class="sr-only">Open notifications panel</span>
+                @can('ادارة الطلبات')
+
+
+            
+            
+                    <button @click="openNotificationsPanel"
+                    class="p-2 relative transition-colors duration-200 rounded-full text-primary-dark bg-primary hover:text-primary dark:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
+                    <span class="sr-only">Open Notification panel</span>
                     <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
+                    <span id="unread_count" class="unread_count absolute top-0 p-1 right-0 w-6 h-6 text-xs rounded-full bg-danger text-white text-center justify-center">
+                    </span>
                 </button>
+             
+                             @endcan
+            
 
                 <!-- Search button -->
-                <button
+                {{-- <button
                     @click="openSearchPanel(); $nextTick(() => { $refs.searchInput.focus(); setTimeout(() => {isMobileSubMenuOpen= false}, 100) })"
                     class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
                     <span class="sr-only">Open search panel</span>
@@ -181,10 +204,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                </button>
+                </button> --}}
 
                 <!-- Settings button -->
-                <button @click="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
+                {{-- <button @click="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
                     class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
                     <span class="sr-only">Open settings panel</span>
                     <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -194,22 +217,26 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                </button>
+                </button> --}}
             </div>
 
             <!-- User avatar button -->
             <div class="relative ml-auto" x-data="{ open: false }">
-                <button @click="open = !open" type="button" aria-haspopup="true"
-                    :aria-expanded="open ? 'true' : 'false'"
-                    class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
-                    <span class="sr-only">User menu</span>
-                    <img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg"
-                        alt="Ahmed Kamel" />
-                </button>
+              
+                <button
+                type="button" aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
+                class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+                @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })"
+                >
+                <span class="sr-only">User menu</span>
+            <x-heroicon-s-user class="h-10 text-primary"/>
+                {{auth()->user()->username}}
+
+            </button>
 
                 <!-- User dropdown menu -->
-                {{-- <x-dashborade.usersubmenu totop="{{true}}"/>
-             --}}
+              <x-dashborade.usersubmenu totop="{{true}}"/>
+            
             </div>
         </nav>
     </div>

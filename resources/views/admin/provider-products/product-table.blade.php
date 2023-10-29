@@ -129,12 +129,7 @@
                                 </th>
                                 <th class="py-3 px-2  text-right"> الحالة</th>
                                 <th class="py-3  text-right">السعر
-                                    <select class=" rounded-sm text-sm flex-1  dark:bg-darker" wire:model="priceorder"
-                                        id="byprice">
-                                        <option value="no">بلا</option>
-                                        <option value="ASC"> تصاعدي</option>
-                                        <option value="DESC">تنازلي</option>
-                                    </select>
+                                  
                                 </th>
 
                                 <th class="py-3  text-center">Actions</th>
@@ -149,15 +144,15 @@
                                     <td class="py-3 px-2 mb-4 text-right">
                                         <div class="flex items-center">
                                             
-                                            <span dir="auto" class="font-bold w-44  truncate">{{ $product->name }}
+                                            <span dir="auto" class="font-bold ">{{ $product->name }}
                                                 <span
-                                                    class="block w-1/2 text-blue-700 dark:text-white sm:block font-light text-xs ">
+                                                    class="block  text-blue-700 dark:text-white  font-light text-xs ">
 
                                                         المنتج الاساسي / {{ $product->product->name }}
                                                   
                                                 </span>
                                                 <span
-                                                class="block w-1/2 text-blue-700 dark:text-white sm:block font-light text-xs ">
+                                                class="block  text-blue-700 dark:text-white  font-light text-xs ">
 
                                                     القسم/ {{ $product->product->department->name }}
                                             </span>

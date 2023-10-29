@@ -74,11 +74,13 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
         $queryParams = $this->getParametres();//Fileds
-        $transid = rand(1, 485);//TransID
+        $transid = $this->paymentinfo->id+rand(1,136);//TransID
         $queryParams['token'] = $this->genurateToken($transid);//Token
         $queryParams['transid'] = $transid;//
         $queryParams['userid'] = $this->userid;
         $queryParams['mobile']=$this->mobile;
+        // $queryParams['uniqcode']="63";
+         
         $response = Http::get($this->pay_url, $queryParams);
         //       return dd($response);
         $result = $response->json(); // it's null
@@ -125,13 +127,24 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             // ]);
             $pay=Paymentinfo::find($this->paymentinfo->id);
             $pay->state=3;
-            $pay->note="ID اللاعب غير صحيح ";
+            $pay->note="ID الحساب غير صحيح ";
             $pay->save();
 
-        } else {
+        } 
+        
+        else if($response->json('resultCode')=="1658"){
+            AdminNotify::create([
+                'title' => '  الفئة غير متوفرة Toponline',
+                'body' => $response->json('resultDesc'),
+                'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
+            ]);
+        }
+        else {
 
 
 
+
+            if($this->paymentinfo->order->product->provider_product()->first()->direct)
             CheckTopOnlineProssce::dispatchAfterResponse($this->paymentinfo,$transid);
 
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..

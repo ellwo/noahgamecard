@@ -15,7 +15,7 @@ class ProviderProduct extends Model
         'url',
         'client_provider_id',
         'active',
-        'reqs'
+        'reqs','direct'
     ];
     protected $casts =[
         'reqs'=>'array',

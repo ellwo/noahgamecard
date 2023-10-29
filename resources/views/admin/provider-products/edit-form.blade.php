@@ -12,8 +12,11 @@
             @csrf
             <div dir="rtl" >
 
-        <div class="p-6 mb-4 overflow-hidden text-2xl bg-blue-300 rounded-md shadow-md dark:bg-dark-eval-1">
+        <div class="p-6 mb-4 overflow-hidden flex justify-between text-2xl bg-blue-300 rounded-md shadow-md dark:bg-dark-eval-1">
             تعديل منتج
+            <x-button href="{{route('provider_products')}}">
+                عودة الى القائمة
+            </x-button>
         </div>
 
 
@@ -78,6 +81,22 @@
                 <label>
                     غير نشط
                     <input type="radio" name="active" id="status" @if(!$pr_product->active) checked @endif value="0" />
+                </label>
+                    </div>
+
+                    <div class="relative flex w-1/2 items-center justify-between space-x-4 space-y-2 ">
+
+
+                        <label for="direct" class="block mx-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">نوع التنفيذ</label>
+
+                    <label>
+                      مباشر
+                    <input  type="radio" name="direct" id="direct"  @if($pr_product->direct) checked @endif   value="1" />
+                </label>
+                <br>
+                <label>
+                    غير مباشر
+                    <input type="radio" name="direct" id="direct"  @if(!$pr_product->direct) checked @endif value="0" />
                 </label>
                     </div>
                     </div>

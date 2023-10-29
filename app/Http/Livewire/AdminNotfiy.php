@@ -4,20 +4,25 @@ namespace App\Http\Livewire;
 
 use App\Models\AdminNotify;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdminNotfiy extends Component
 {
+    use WithPagination;
     public $unread_count=0;
-    public $notifs=[];
- 
+    // public $notifs;
+    // public $readed_notifs;
     public function render()
     {
 
-               
-        $this->unread_count=AdminNotify::where('readed','=',0)->count();
-        $this->notifs=AdminNotify::orderBy('created_at','desc')->get();
+        $readed_notifs=AdminNotify::where('readed','=',1)->paginate(20);
+        $this->unread_count=$readed_notifs->total();
+        $notifs=AdminNotify::orderBy('created_at','desc')->paginate(20);
  
-        return view('livewire.admin-notfiy')->layout('components.dashborade.index');
+        return view('livewire.admin-notfiy',[
+            'notifs'=>$notifs,
+            'readed_notifs'=>$readed_notifs
+        ])->layout('components.dashborade.index');
     }
 
 

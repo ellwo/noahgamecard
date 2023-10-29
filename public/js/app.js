@@ -5495,7 +5495,7 @@ document.addEventListener("alpine:init", function () {
       updateBarChart: updateBarChart,
       updateDoughnutChart: updateDoughnutChart,
       updateLineChart: updateLineChart,
-      isSidebarOpen: window.innerWidth > 500,
+      isSidebarOpen: window.innerWidth > 1024,
       isSidebarHovered: false,
       handleSidebarHover: function handleSidebarHover(value) {
         if (window.innerWidth < 1024) {
@@ -5504,7 +5504,11 @@ document.addEventListener("alpine:init", function () {
         this.isSidebarHovered = value;
       },
       handleWindowResize: function handleWindowResize() {
-        this.isSidebarOpen = true;
+        if (window.innerWidth <= 1024) {
+          this.isSidebarOpen = false;
+        } else {
+          this.isSidebarOpen = true;
+        }
       },
       scrollingDown: false,
       scrollingUp: false,
@@ -5556,7 +5560,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "",
+  key: "de7f56b6b5f3e4986ad3",
   cluster: "mt1",
   forceTLS: true
 });

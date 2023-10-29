@@ -10,21 +10,6 @@
     </div>
 
 
-    <div class="relative p-1">
-
-    <button @click="openNotificationsPanel"
-    class="p-2 transition-colors duration-200 rounded-full text-primary-dark bg-primary hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
-    <span class="sr-only">Open Notification panel</span>
-    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
-        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-    </svg>
-</button>
-<span class="absolute top-0 p-1 right-0 w-6 h-6 text-xs rounded-full bg-danger text-white text-center justify-center">
-    {{ $unread_count}}
-</span>
-    </div>
 
     <div wire:ignore x-transition:enter="transition duration-300 ease-in-out" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="transition duration-300 ease-in-out"
@@ -60,14 +45,14 @@
                         <button @click.prevent="activeTabe = 'action'"
                             class="px-px pb-4 transition-all duration-200 transform translate-y-px border-b focus:outline-none"
                             :class="{'border-primary-dark dark:border-primary': activeTabe == 'action', 'border-transparent': activeTabe != 'action'}">
-                            Action
+                            غير مقرؤ
                         </button>
                       
-                        {{-- <button @click.prevent="activeTabe = 'user'"
+                        <button @click.prevent="activeTabe = 'user'"
                             class="px-px pb-4 transition-all duration-200 transform translate-y-px border-b focus:outline-none"
                             :class="{'border-primary-dark dark:border-primary': activeTabe == 'user', 'border-transparent': activeTabe != 'user'}">
-                            User
-                        </button> --}}
+                            مقرؤ
+                        </button>
 
                     </div>
                 </div>
@@ -78,8 +63,9 @@
                 <!-- Action tab -->
                 <div class="space-y-4" x-show.transition.in="activeTabe == 'action'">
                    
+                    {{$notifs->links()}}
                    @foreach ($notifs as $n)
-                   <a href="#" wire:click="click_item({{$n->id}})" class="block">
+                   <a href="#" wire:click="click_item({{$n->id}})" class="block bg-gray-200 dark:bg-dark">
                     <div class="flex px-4 space-x-4">
                         <div class="relative flex-shrink-0">
                             <span
@@ -99,11 +85,11 @@
                                 {{$n->title}}
                             </h5>
                             <p
-                                class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
+                                class="text-sm font-normal text-gray-800  dark:text-primary-lighter">
                                 {{$n->body}}
                             </p>
                             <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 
-                                {{date('',strtotime($n->created_at))}}
+                                {{date('Y/m/d h:i A',strtotime($n->created_at))}}
                             </span>
                         </div>
                     </div>
@@ -112,12 +98,49 @@
                    @endforeach
                 </div>
 
+                <div class="space-y-4" x-show.transition.in="activeTabe == 'user'">
+                   {{$readed_notifs->links()}}
+                    @foreach ($readed_notifs as $n)
+                    <a href="#" wire:click="click_item({{$n->id}})" class="block">
+                     <div class="flex px-4 space-x-4">
+                         <div class="relative flex-shrink-0">
+                             <span
+                                 class="z-10 inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
+                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                         d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                 </svg>
+                             </span>
+                             <div
+                                 class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker">
+                             </div>
+                         </div>
+                         <div class="flex-1 overflow-hidden">
+                             <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
+                                 {{$n->title}}
+                             </h5>
+                             <p
+                                 class="text-sm font-normal text-gray-400  dark:text-primary-lighter">
+                                 {{$n->body}}
+                             </p>
+                             <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 
+                                 {{date('Y/m/d h:i A',strtotime($n->created_at))}}
+                             </span>
+                         </div>
+                     </div>
+                 </a>
+                    
+                    @endforeach
+                 </div>
+
                 <!-- User tab -->
               
             </div>
         </div>
     </section> 
 
+    {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
         <script>
 
 Audio.prototype.play = (function(play) {
@@ -138,10 +161,14 @@ return function () {
 })(Audio.prototype.play);
 document.addEventListener('DOMContentLoaded',function(){
 
+
+    $('.unread_count').html('{{$unread_count}}');
     window.Echo.channel('private-admin-notifiy')
   .listen('AdminNotifyEvent', (data) => {
     console.log('New notification:', data);
-    @this.set('unread_count',{{$unread_count+1}});
+    @this.set('unread_count',{{$unread_count+1}});   
+
+    $('.unread_count').html('{{$unread_count}}');
     document.getElementById("sound").play();
 //     var audio = new Audio('{{asset("notifiy.wav")}}');
 // audio.play();

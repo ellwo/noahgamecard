@@ -106,7 +106,8 @@
                 @auth
 
                 <x-dashborade.navbar/>
-
+                @livewire('admin-notfiy', key(time()))
+    
                 @endauth
 
                 <main class="flex-1 px-4 sm:px-6">
@@ -402,7 +403,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    @can('ادارة الطلبات')
 
+
+    @endcan
     <script src="{{ asset('js/uploadeimage.js') }}"></script>
 
     @isset($script)

@@ -18,7 +18,7 @@ class ProviderProductForm extends Component
     ];
 
     public function  mount($deptid="all",$search="",$provider_id=1){
-        $this->product =Product::first();
+        $this->product =Product::active()->first();
         $this->product_id=$this->product_id;
        $this->provider_id=$provider_id;
       

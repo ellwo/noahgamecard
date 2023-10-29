@@ -78,6 +78,7 @@ class ProviderProductController extends Controller
             'client_provider_id'=>$request['client_provider_id']??1,
             'active'=>$request['active']??0,
             'reqs'=>$reqs,
+            'direct'=>$request['direct']
               
         ]);
 
@@ -194,6 +195,7 @@ class ProviderProductController extends Controller
             'client_provider_id'=>$request['client_provider_id']??1,
             'active'=>$request['active']??0,
             'reqs'=>$reqs,
+            'direct'=>$request['direct']
               
         ]);
 

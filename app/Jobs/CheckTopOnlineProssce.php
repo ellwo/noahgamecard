@@ -77,11 +77,36 @@ class CheckTopOnlineProssce implements ShouldQueue
                 // اذا الرصيد نقص معناته انه نجحت العملية
                 $state = 2;
     
+                $body="المنتج :  ".$this->paymentinfo->order->product->name;
+                $body.="\n";
+                $body.="السعر : ".$this->paymentinfo->orginal_total;
+                $body.="\n";
+                $body.="العميل : ".$this->paymentinfo->user->name;
+                
+                
+                AdminNotify::create([
+                    'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+                    'body'=>$body,
+                    'link'=>route('paymentinfo.show',$this->paymentinfo)
+                ]);
                 $error_note = "تم تنفيذ العملية بنجاح";
             } else {
                 //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                 $state = 3;
     
+
+                $body="المنتج :  ".$this->paymentinfo->order->product->name;
+                $body.="\n";
+                $body.="السعر : ".$this->paymentinfo->orginal_total;
+                $body.="\n";
+                $body.="العميل : ".$this->paymentinfo->user->name;
+                
+                
+                AdminNotify::create([
+                    'title'=>'عملية تم رفضها بواسطة TopOnline  ',
+                    'body'=>$body,
+                    'link'=>route('paymentinfo.show',$this->paymentinfo)
+                ]);
                 if(Str::contains($check['reason'],'Invalid Player ID'))
                 $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
             }
