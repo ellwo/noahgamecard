@@ -122,7 +122,9 @@ class ClientProviderController extends Controller
          $hashPassword=md5($password);
          $token=md5($hashPassword.$transid.$username.$mobile);
 
-    //     $pay=Paymentinfo::find(121);
+        //  $paymentinfo=Paymentinfo::find(113);
+
+        //  TopOnlinePayByAPIJob::dispatchAfterResponse($paymentinfo->rassed_actevity);
          $url="https://toponline.yemoney.net/api/yr/gameswcards";
     //     //?userid=".$id."&"."moblie=778514141&tansid=".$transid."&token=$token&".$this->getParametres($pay)."uniqcode=63"
 

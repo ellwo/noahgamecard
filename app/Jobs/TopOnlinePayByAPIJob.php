@@ -93,9 +93,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
         }
-        else
-
-        if ($response->json('resultCode') == "1008") {
+        else if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
                 'body' => " يرجى التأكد من صحة معلومات الاتصال (اسم المستخدم,كلمة المرور وبقية التفاصيل)",
@@ -109,10 +107,18 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'body' => $body,
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
-        } else if ($response->json('resultCode') == "1220") {
+        }
+
+        else if($response->json('resultCode')=="1658"){
+            AdminNotify::create([
+                'title' => '  الفئة غير متوفرة Toponline',
+                'body' => $response->json('resultDesc'),
+                'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
+            ]);
+        }
+        else if ($response->json('resultCode') == "1220") {
             $product = $this->paymentinfo->order->product;
             $clientProvider = $product->provider_product()->first()->client_provider;
-
             $byh = PaymentinfoExecuteBy::create([
                 'paymentinfo_id' => $this->paymentinfo->id,
                 'state' => 3,
@@ -133,13 +139,6 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
         }
 
-        else if($response->json('resultCode')=="1658"){
-            AdminNotify::create([
-                'title' => '  الفئة غير متوفرة Toponline',
-                'body' => $response->json('resultDesc'),
-                'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
-            ]);
-        }
         else {
 
 

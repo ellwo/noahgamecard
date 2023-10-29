@@ -68,22 +68,22 @@ class CheckTopOnlineProssce implements ShouldQueue
                 $check=$this->chack_state($this->transid);
            $i++;
             }
-    
-    
-         
-    
-    
+
+
+
+
+
             if ($check['resultCode']=="0" && $check['isDone']==1) {
                 // اذا الرصيد نقص معناته انه نجحت العملية
                 $state = 2;
-    
+
                 $body="المنتج :  ".$this->paymentinfo->order->product->name;
                 $body.="\n";
                 $body.="السعر : ".$this->paymentinfo->orginal_total;
                 $body.="\n";
                 $body.="العميل : ".$this->paymentinfo->user->name;
-                
-                
+
+
                 AdminNotify::create([
                     'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
                     'body'=>$body,
@@ -93,15 +93,15 @@ class CheckTopOnlineProssce implements ShouldQueue
             } else {
                 //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                 $state = 3;
-    
+
 
                 $body="المنتج :  ".$this->paymentinfo->order->product->name;
                 $body.="\n";
                 $body.="السعر : ".$this->paymentinfo->orginal_total;
                 $body.="\n";
                 $body.="العميل : ".$this->paymentinfo->user->name;
-                
-                
+
+
                 AdminNotify::create([
                     'title'=>'عملية تم رفضها بواسطة TopOnline  ',
                     'body'=>$body,
@@ -109,20 +109,22 @@ class CheckTopOnlineProssce implements ShouldQueue
                 ]);
                 if(Str::contains($check['reason'],'Invalid Player ID'))
                 $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
+            else
+            $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
             }
-    
+
             // $this->paymentinfo->update([
             //     'state' => $state,
             //     'note' => $error_note
             // ]);
-    
+
             $pay=Paymentinfo::find($this->paymentinfo->id);
             $pay->state=$state;
             $pay->note=$error_note;
-    
+            $pay->save();
             $product = $this->paymentinfo->order->product;
             $clientProvider = $product->provider_product()->first()->client_provider;
-    
+
             $byh = PaymentinfoExecuteBy::create([
                 'paymentinfo_id' => $this->paymentinfo->id,
                 'state' => $state,
@@ -131,7 +133,6 @@ class CheckTopOnlineProssce implements ShouldQueue
                 'note' => $error_note
             ]);
             $this->paymentinfo->excuted_status()->save($byh);
-            $pay->save();
 
         }
 
