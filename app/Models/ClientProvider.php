@@ -39,8 +39,21 @@ class ClientProvider extends Model
     }
     public function pay_sum()
     {
+
         # code...
+
+        $sum=0.0;
+        foreach ($this->rassed_acetvities() as $r) {
+            # code...
+
+            $sum+=$r->paymentinfo->order->product->provider_products()->where('client_provider_id','=',$this->id)->first()->price;
+        }
+
+        return $sum;
+
+
         return $this->rassed_acetvities()->sum('amount');
+
     }
     public function scopeActive($query)
     {
