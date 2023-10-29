@@ -22,7 +22,7 @@ class RassedActevityObserver
 
 
             try{
-                TopOnlinePayByAPIJob::dispatchAfterResponse($rassedActevity);
+                TopOnlinePayByAPIJob::dispatch($rassedActevity);
             // event(new RassedActevityCreated($rassedActevity));
         }catch(Exception $e){
 
