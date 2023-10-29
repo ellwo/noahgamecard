@@ -43,8 +43,9 @@ class ClientProvider extends Model
     {
 
         $sum=0.0;
-        foreach ($this->rassed_acetvities() as $r) {
-            $sum+=$r->paymentinfo->order->product->provider_products()->where('client_provider_id','=',$this->id)->first()->price;
+        foreach ($this->rassed_acetvities as $r) {
+            $sum+=$r->paymentinfo->order->product
+            ->provider_products()->where('client_provider_id','=',$this->id)->first()->price;
         }
 
         return $sum;
