@@ -42,8 +42,10 @@ class ClientProvider extends Model
     public function pay_sum_orgin()
     {
 
+
+        // return $this->rassed_acetvities()->get()->first();
         $sum=0.0;
-        foreach ($this->rassed_acetvities as $r) {
+        foreach ($this->rassed_acetvities()->get() as $r) {
             $sum+=$r->paymentinfo->order->product
             ->provider_products()->where('client_provider_id','=',$this->id)->first()->price;
         }
