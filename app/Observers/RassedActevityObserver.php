@@ -21,12 +21,12 @@ class RassedActevityObserver
 
 
 
-            try{
-                TopOnlinePayByAPIJob::dispatch($rassedActevity);
-            // event(new RassedActevityCreated($rassedActevity));
-        }catch(Exception $e){
+            // try{
+               // TopOnlinePayByAPIJob::dispatch($rassedActevity);
+             event(new RassedActevityCreated($rassedActevity));
+        // }catch(Exception $e){
 
-        }
+        // }
 
     }
 
