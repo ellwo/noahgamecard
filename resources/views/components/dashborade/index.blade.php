@@ -9,7 +9,7 @@
     <title>{{ config('app.name') }}</title>
  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="{{asset('log.svg')}}">
+    <link rel="icon" href="{{Config::get('mysetting.site_header_logo')}}">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
         rel="stylesheet" />
@@ -107,7 +107,7 @@
 
                 <x-dashborade.navbar/>
                 @livewire('admin-notfiy', key(time()))
-    
+
                 @endauth
 
                 <main class="flex-1 px-4 sm:px-6">
