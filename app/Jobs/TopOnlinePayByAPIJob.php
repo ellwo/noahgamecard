@@ -27,7 +27,6 @@ class TopOnlinePayByAPIJob implements ShouldQueue
      *
      * @return void
      */
-    public $tries = 10;
     public Paymentinfo $paymentinfo;
     public RassedActevity $rassedActevity;
     public $userid = 17577;
@@ -110,6 +109,8 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'body' => " يرجى التأكد من صحة معلومات الاتصال (اسم المستخدم,كلمة المرور وبقية التفاصيل)",
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
+
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
         } else if ($response->json('resultCode') == "1658" && $response->json('remainAmount') != null) {
             $body = "اجمالي العملية " . $this->paymentinfo->total_price . "\n" . "رصيدك الحالي " . $response->json('remainAmount') . " ريال يمني ";
             AdminNotify::create([
@@ -117,32 +118,20 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'body' => $body,
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
+
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
         } else if ($response->json('resultCode') == "1658") {
             AdminNotify::create([
                 'title' => '  الفئة غير متوفرة Toponline',
                 'body' => $response->json('resultDesc'),
                 'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
             ]);
-        } else if ($response->json('resultCode') == "1220") {
-            $product = $this->paymentinfo->order->product;
-            $clientProvider = $product->provider_product()->first()->client_provider;
-            $byh = PaymentinfoExecuteBy::create([
-                'paymentinfo_id' => $this->paymentinfo->id,
-                'state' => 3,
-                'execute_type' => ClientProvider::class,
-                'execute_id' => $clientProvider->id,
-                'note' => "فشل الطلب ID اللاعب غير صحيح"
-            ]);
-            $this->paymentinfo->excuted_status()->save($byh);
 
-            // $this->paymentinfo->update([
-            //     'state' => 3,
-            //     'note' => "ID اللاعب غير صحيح "
-            // ]);
-            $pay = Paymentinfo::find($this->paymentinfo->id);
-            $pay->state = 3;
-            $pay->note = "ID الحساب غير صحيح ";
-            $pay->save();
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
+        } else if ($response->json('resultCode') == "1220") {
+
+
+            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ');
         } else {
 
 
@@ -179,9 +168,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     $check = $check->json();
 
                     $i = 0;
-                    while ($check['isBan'] == 0) {
-
-
+                    while ($check['isBan'] == 0 && $check['isDone']==0)  {
                         try {
 
                             $check = $this->chack_state($transid)->json();
@@ -211,7 +198,10 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                             'body' => $body,
                             'link' => route('paymentinfo.show', $this->paymentinfo)
                         ]);
-                        $error_note = "تم تنفيذ العملية بنجاح";
+
+                        // "Player Name"
+                        $error_note = $check['note'];
+
                     } else {
                         //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                         $state = 3;
@@ -240,22 +230,8 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     //     'state' => $state,
                     //     'note' => $error_note
                     // ]);
+                    $this->updatePay($state,$error_note);
 
-                    $pay = Paymentinfo::find($this->paymentinfo->id);
-                    $pay->state = $state;
-                    $pay->note = $error_note;
-                    $pay->save();
-                    $product = $this->paymentinfo->order->product;
-                    $clientProvider = $product->provider_product()->first()->client_provider;
-
-                    $byh = PaymentinfoExecuteBy::create([
-                        'paymentinfo_id' => $this->paymentinfo->id,
-                        'state' => $state,
-                        'execute_type' => ClientProvider::class,
-                        'execute_id' => $clientProvider->id,
-                        'note' => $error_note
-                    ]);
-                    $this->paymentinfo->excuted_status()->save($byh);
                 }
             } else {
 
@@ -300,6 +276,25 @@ class TopOnlinePayByAPIJob implements ShouldQueue
     }
 
 
+
+    function updatePay($state,$error_note) {
+
+        $pay = Paymentinfo::find($this->paymentinfo->id);
+        $pay->state = $state;
+        $pay->note = $error_note;
+        $pay->save();
+        $product = $this->paymentinfo->order->product;
+        $clientProvider = $product->provider_product()->first()->client_provider;
+
+        $byh = PaymentinfoExecuteBy::create([
+            'paymentinfo_id' => $this->paymentinfo->id,
+            'state' => $state,
+            'execute_type' => ClientProvider::class,
+            'execute_id' => $clientProvider->id,
+            'note' => $error_note
+        ]);
+        $this->paymentinfo->excuted_status()->save($byh);
+    }
 
 
 
