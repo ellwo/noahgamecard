@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Models\ClientProvider;
+use Exception;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
@@ -48,8 +49,14 @@ class CheckTopOnlineProssce implements ShouldQueue
     public function handle()
     {
         //
-        $check = $this->chack_state($this->transid);
+        try{
 
+            $check = $this->chack_state($this->transid);
+
+        }
+        catch(Exception $e){
+            throw $e;
+        }
 
 
         if($check->json()==null || $check->status()==404){
@@ -65,7 +72,13 @@ class CheckTopOnlineProssce implements ShouldQueue
 
             $i=0;
             while($check['isBan']==0){
-                $check=$this->chack_state($this->transid);
+          
+                try{
+                    $check=$this->chack_state($this->transid)->json();
+
+                }catch(Exception $e){
+                    throw $e;
+                }
            $i++;
             }
 
@@ -83,6 +96,9 @@ class CheckTopOnlineProssce implements ShouldQueue
                 $body.="\n";
                 $body.="العميل : ".$this->paymentinfo->user->name;
 
+                $body.="\n";
+                $body.="عدد المحاولات  : ".$i;
+
 
                 AdminNotify::create([
                     'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
@@ -93,6 +109,7 @@ class CheckTopOnlineProssce implements ShouldQueue
             } else {
                 //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                 $state = 3;
+                
 
 
                 $body="المنتج :  ".$this->paymentinfo->order->product->name;
@@ -100,8 +117,8 @@ class CheckTopOnlineProssce implements ShouldQueue
                 $body.="السعر : ".$this->paymentinfo->orginal_total;
                 $body.="\n";
                 $body.="العميل : ".$this->paymentinfo->user->name;
-
-
+                $body.="\n";
+                $body.="عدد المحاولات  : ".$i;
                 AdminNotify::create([
                     'title'=>'عملية تم رفضها بواسطة TopOnline  ',
                     'body'=>$body,
@@ -149,9 +166,13 @@ class CheckTopOnlineProssce implements ShouldQueue
             'mobile' => $this->mobile,
             'action' => 'status'
         ];
-        $response = Http::get($url, $paras);
+        try{
 
-        $res = $response->json();
+            $response = Http::get($url, $paras);
+
+        }catch(Exception $e){
+            throw $e;
+        }
 
         return $response;
     }

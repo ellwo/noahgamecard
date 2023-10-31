@@ -122,7 +122,7 @@ class ClientProviderController extends Controller
          $hashPassword=md5($password);
          $token=md5($hashPassword.$transid.$username.$mobile);
 
-        //  $paymentinfo=Paymentinfo::find(113);
+        //   $pay=Paymentinfo::find(113);
 
         //  TopOnlinePayByAPIJob::dispatchAfterResponse($paymentinfo->rassed_actevity);
          $url="https://toponline.yemoney.net/api/yr/gameswcards";
@@ -132,34 +132,37 @@ class ClientProviderController extends Controller
     // //   // return dd($token);
     // $pay=Paymentinfo::first();
     // // TopOnlinePayByAPIJob::dispatchAfterResponse($pay->rassed_actevity);
-  //   $transid=rand(1,4569);
+    //  $transid=rand(1,4569);
      $queryParams=[];
-     //$this->getParametres($pay);
+//     $this->getParametres($pay);
     $queryParams['token']=$token;
         $queryParams['userid']=$id;
-    //     $queryParams['transid']=$transid;
-    //     $queryParams['token']=$this->genurateToken($transid);
+         $queryParams['transid']=$transid;
+         $queryParams['token']=$this->genurateToken($transid);
 
      $queryParams['mobile']=$mobile;
-    // //     $queryParams['playerid']="005555";
-    //     $queryParams['type']="pubg";
-
+    $queryParams['playerid']="55555";
+     $queryParams['type']="pubg";
+     $queryParams['uniqcode'] = '60';
     //    return dd($queryParams);
 
-    // $response= Http::get($url,$queryParams);
+     $response= Http::get($url,$queryParams);
 
 
-    //  $url = 'https://toponline.yemoney.net/api/yr/info';
-    //  $transid="2303";
-    //  $paras = [
-    //      'transid' => $transid,
-    //      'token' => $this->genurateToken($transid),
-    //      'userid' => $id,
-    //      'mobile' => $mobile,
-    //      'action' => 'balance'
-    //  ];
-    //  $res = Http::get($url, $paras);
-    //  $res->json('balance')
+     $url = 'https://toponline.yemoney.net/api/yr/info';
+    // $transid="2303";
+     $paras = [
+         'transid' => $transid,
+         'token' => $this->genurateToken($transid),
+         'userid' => $id,
+         'mobile' => $mobile,
+         'action' => 'status'
+     ];
+     $res = Http::get($url, $paras);
+    //  $res->json('balance');
+
+    return dd($response->json(),$res->json());
+    
     // $res = [];
 
 

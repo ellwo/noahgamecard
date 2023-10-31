@@ -6,6 +6,7 @@ use App\Events\RassedActevityCreated;
 use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\RassedActevity;
 use Exception;
+use Illuminate\Support\Facades\Artisan;
 
 class RassedActevityObserver
 {
@@ -21,12 +22,8 @@ class RassedActevityObserver
 
 
 
-            // try{
-               TopOnlinePayByAPIJob::dispatchAfterResponse($rassedActevity);
-            //  event(new RassedActevityCreated($rassedActevity));
-        // }catch(Exception $e){
+               TopOnlinePayByAPIJob::dispatch($rassedActevity);
 
-        // }
 
     }
 

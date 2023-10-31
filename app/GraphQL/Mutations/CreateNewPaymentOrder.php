@@ -40,13 +40,11 @@ final class CreateNewPaymentOrder
             ];
          }
 
-        if($args['input']['paymentmethod_id']==2){
+      //  if($args['input']['paymentmethod_id']==2){
             return $this->payFromRassed($args);
-        }
+        
 
-        else{
-            return $this->pay($args);
-        }
+        
 
 
 

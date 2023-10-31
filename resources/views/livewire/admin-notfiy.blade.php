@@ -66,7 +66,7 @@
                     {{$notifs->links()}}
                    @foreach ($notifs as $n)
                    <a href="#" wire:click="click_item({{$n->id}})" class="block bg-gray-200 dark:bg-dark">
-                    <div class="flex px-4 space-x-4">
+                    <div class="flex px-4 text-right space-x-4">
                         <div class="relative flex-shrink-0">
                             <span
                                 class="z-10 inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
@@ -101,8 +101,8 @@
                 <div class="space-y-4" x-show.transition.in="activeTabe == 'user'">
                    {{$readed_notifs->links()}}
                     @foreach ($readed_notifs as $n)
-                    <a href="#" wire:click="click_item({{$n->id}})" class="block">
-                     <div class="flex px-4 space-x-4">
+                    <a  href="#" wire:click="click_item({{$n->id}})" class="block">
+                     <div  class="flex text-right px-4 space-x-4">
                          <div class="relative flex-shrink-0">
                              <span
                                  class="z-10 inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
@@ -120,7 +120,7 @@
                              <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
                                  {{$n->title}}
                              </h5>
-                             <p
+                             <p 
                                  class="text-sm font-normal text-gray-400  dark:text-primary-lighter">
                                  {{$n->body}}
                              </p>
