@@ -158,10 +158,10 @@ class ClientProviderController extends Controller
          'mobile' => $mobile,
          'action' => 'status'
      ];
-     $res = Http::get($url, $paras);
+    //  $res = Http::get($url, $paras);
     //  $res->json('balance');
 
-    return dd($res->json());
+    // return dd($res->json());
 
     // $res = [];
 
