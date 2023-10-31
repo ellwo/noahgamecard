@@ -213,8 +213,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         $body .= "السعر : " . $this->paymentinfo->orginal_total;
                         $body .= "\n";
                         $body .= "العميل : " . $this->paymentinfo->user->name;
-                        $body .= "\n";
-                        $body .= "عدد المحاولات  : " . $i;
+
                         AdminNotify::create([
                             'title' => 'عملية تم رفضها بواسطة TopOnline  ',
                             'body' => $body,
