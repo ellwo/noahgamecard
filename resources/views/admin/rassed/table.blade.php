@@ -11,7 +11,7 @@
             </div>
 
 
-            <div dir="rtl" x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
+            <div  dir="rtl" x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                 @click.away="show_resave_model=false" x-show="show_resave_model"
@@ -44,7 +44,7 @@
                             </span>
 
                             <x-label value="المبلغ المؤكد " />
-                            <input type="text"   wire:model.lazy="amount" class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name=""/>
+                            <input  type="text"   wire:model="amount" class="rounded-md dark:text-white dark:bg-darker text-dark bg-white p-2" name=""/>
                             <span class="text-danger font-bold">ملاحظة هامة يجب ادخال المبلغ المؤكد بعملة الدولار </span>
 
                         </div>
@@ -81,7 +81,9 @@
                 x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                 @click.away="show_deny_model=false" dir="rtl" x-show="show_deny_model"
-                class="fixed z-40 flex flex-col p-8 space-y-4 bg-white dark:bg-dark left-1/4 border lg:w-1/2 rounded-md text-darker top-24 mx-auto">
+                class="fixed z-40 flex flex-col p-8 space-y-4 bg-white dark:bg-dark left-1/4 border lg:w-1/2 rounded-md text-darker top-24 mx-auto"
+                
+                >
                 <span class="w-full text-3xl font-bold text-right text-danger">ملاحظة</span>
                 <hr>
                 يرجى ادخال سبب رفض الطلب !

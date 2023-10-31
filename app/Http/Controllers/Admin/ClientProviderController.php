@@ -138,7 +138,7 @@ class ClientProviderController extends Controller
     $queryParams['token']=$token;
         $queryParams['userid']=$id;
          $queryParams['transid']=$transid;
-         $queryParams['token']=$this->genurateToken($transid);
+        //  $queryParams['token']=$this->genurateToken($transid);
 
      $queryParams['mobile']=$mobile;
     $queryParams['playerid']="55555";
@@ -146,7 +146,7 @@ class ClientProviderController extends Controller
      $queryParams['uniqcode'] = '60';
     //    return dd($queryParams);
 
-     $response= Http::get($url,$queryParams);
+    //  $response= Http::get($url,$queryParams);
 
 
      $url = 'https://toponline.yemoney.net/api/yr/info';
@@ -158,10 +158,10 @@ class ClientProviderController extends Controller
          'mobile' => $mobile,
          'action' => 'status'
      ];
-     $res = Http::get($url, $paras);
+    //  $res = Http::get($url, $paras);
     //  $res->json('balance');
 
-    return dd($response->json(),$res->json());
+    // return dd($response->json(),$res->json());
     
     // $res = [];
 
