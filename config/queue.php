@@ -6,7 +6,7 @@ return [
     |--------------------------------------------------------------------------
     | Default Queue Connection Name
     |--------------------------------------------------------------------------
-    |
+    |/usr/local/bin/php  /home/noahnyuu/tryapi/noahgamecard/artisan  schedule:run
     | Laravel's queue API supports an assortment of back-ends via a single
     | API, giving you convenient access to each back-end using the same
     | syntax for every one. Here you may define a default connection.

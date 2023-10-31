@@ -27,6 +27,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
      *
      * @return void
      */
+    public $tries = 10;
     public Paymentinfo $paymentinfo;
     public RassedActevity $rassedActevity;
     public $userid = 17577;
@@ -90,8 +91,8 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             return;
         }
 
-        Log::channel('top_online')->info($response);
-        Log::channel('top_online')->info($queryParams);
+        // Log::channel('top_online')->info($response);
+        // Log::channel('top_online')->info($queryParams);
         // Log::channel('top_online')->info($response->json());
 
         //       return dd($response);
@@ -257,7 +258,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     $this->paymentinfo->excuted_status()->save($byh);
                 }
             } else {
-                
+
                 CheckTopOnlineProssce::dispatch($this->paymentinfo, $transid)->onQueue('hourly');
             }
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..
