@@ -108,6 +108,11 @@
                         </div>
                     </div>
                 </div>
+                <x-button class=" mx-auto  "  pill="true" variant='info' wire:click='refresh_page'> تحديث
+
+                    <x-heroicon-s-refresh class="text-white w-8 h-8"/>
+
+               </x-button>
                 </div>
 
                 <hr>

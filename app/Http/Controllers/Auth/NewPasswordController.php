@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
+use Laravel\Passport\TokenRepository;
+use Laravel\Passport\RefreshTokenRepository;
 
 class NewPasswordController extends Controller
 {
@@ -49,6 +51,14 @@ class NewPasswordController extends Controller
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
                 ])->save();
+
+                foreach ($user->tokens as $token) {
+
+                    $tokenRepository = app(TokenRepository::class);
+                    $refreshTokenRepository = app(RefreshTokenRepository::class);
+                    $tokenRepository->revokeAccessToken($token->id);
+                    $refreshTokenRepository->revokeRefreshTokensByAccessTokenId($token->id);
+                }
 
                 event(new PasswordReset($user));
             }

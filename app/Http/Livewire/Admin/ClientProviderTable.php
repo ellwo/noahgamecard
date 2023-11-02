@@ -8,7 +8,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Support\Facades\Cache;
 
 class ClientProviderTable extends Component
 {
@@ -80,5 +80,16 @@ class ClientProviderTable extends Component
         });
         $this->delete_orderid=-1;
         # code...
+    }
+    
+
+    function refresh_page(){
+        $this->resetPage();
+        $this->page=1;
+        $this->search="";
+
+        dd(Cache::get('rassed'));
+        Cache::forget('rassed');
+
     }
 }
