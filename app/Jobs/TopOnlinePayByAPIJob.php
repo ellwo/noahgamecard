@@ -110,7 +110,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
 
-            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$response->json('resultDesc'));
         } else if ($response->json('resultCode') == "1658" && $response->json('remainAmount') != null) {
             $body = "اجمالي العملية " . $this->paymentinfo->total_price . "\n" . "رصيدك الحالي " . $response->json('remainAmount') . " ريال يمني ";
             AdminNotify::create([
@@ -119,7 +119,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
 
-            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$body)."\n".$response->json('resultDesc');
         } else if ($response->json('resultCode') == "1658") {
             AdminNotify::create([
                 'title' => '  الفئة غير متوفرة Toponline',
@@ -127,11 +127,11 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
             ]);
 
-            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ');
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ', $response->json('resultDesc'));
         } else if ($response->json('resultCode') == "1220") {
 
 
-            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ');
+            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
         } else {
 
 
@@ -229,7 +229,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     //     'state' => $state,
                     //     'note' => $error_note
                     // ]);
-                    $this->updatePay($state,$error_note);
+                    $this->updatePay($state,$error_note,$check['reason']."\n------note-----\n".$check['note']);
 
                 }
             } else {
@@ -276,7 +276,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
 
-    function updatePay($state,$error_note) {
+    function updatePay($state,$error_note,$top_note="") {
 
         $pay = Paymentinfo::find($this->paymentinfo->id);
         $pay->state = $state;
@@ -290,7 +290,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             'state' => $state,
             'execute_type' => ClientProvider::class,
             'execute_id' => $clientProvider->id,
-            'note' => $error_note
+            'note' => $top_note
         ]);
         $this->paymentinfo->excuted_status()->save($byh);
     }

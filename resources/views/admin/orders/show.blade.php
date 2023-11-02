@@ -188,8 +188,18 @@
                                                         <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">تم بواسطة 
                                                         </div>
                                                         <div class="w-2/3  mx-2 text-sm p-1">
-                                                            
+        
                                                             <span>{{$paymentinfo->excuted_by?->execute->name}}</span>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flex w-full border-b justify-start space-x-2">
+                                                        <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">ملاحظات المنفذ للعملية 
+                                                        </div>
+                                                        <div class="w-2/3  mx-2 text-sm p-1">
+        
+                                                            <span>{{$paymentinfo->excuted_by?->note}}</span>
 
                                                         </div>
                                                     </div>

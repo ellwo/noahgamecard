@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('queue:work')->everyMinute();
+        $schedule->command('queue:work --stop-when-empt')->everyMinute();
         $schedule->command('queue:retry all')->everyFiveMinutes();
         $schedule->command('queue:restart')->everyFiveMinutes();
     }
