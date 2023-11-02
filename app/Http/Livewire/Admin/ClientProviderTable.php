@@ -88,7 +88,6 @@ class ClientProviderTable extends Component
         $this->page=1;
         $this->search="";
 
-        dd(Cache::get('rassed'));
         Cache::forget('rassed');
 
     }
