@@ -13,6 +13,8 @@
             <!-- State cards -->
             <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-3">
 
+
+                @can('ادارة الاقسام')
                 <a href="{{ route('depts') }}" dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
@@ -32,6 +34,8 @@
                         </span>
                     </div>
                 </a>
+                @endcan
+                @can('ادارة الطلبات')
 
                 <a  href="{{ route('paymentinfo') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
@@ -52,9 +56,12 @@
                         </span>
                     </div>
                 </a>
+                @endcan
 
 
 
+
+@can('ادارة التغذية')
                 <a href="{{ route('rasseds') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
                         <h6
@@ -72,6 +79,9 @@
                         </span>
                     </div>
                 </a>
+                @endcan
+
+                @can('ادارة الطلبات')
 
                 <a href="{{ route('paymentinfo') }}"  dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
@@ -92,6 +102,9 @@
                         </span>
                     </div>
                 </a>
+                @endcan
+
+                @can('users_manage')
 
                 <a href="{{ route('admin.users.index') }}" dir="rtl" class="flex items-center  justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex space-y-2 flex-col">
@@ -112,6 +125,9 @@
                         </span>
                     </div>
                 </a>
+                @endcan
+
+                @can('ادارة المنتجات')
 
                 <a  href="{{ route('products') }}" dir="rtl" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                     <div class="flex flex-col space-y-2">
@@ -131,6 +147,7 @@
                         </span>
                     </div>
                 </a>
+                @endcan
 
 
 

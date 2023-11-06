@@ -13,6 +13,7 @@ class ProviderProductForm extends Component
     public $product_id=-1;
     public $provider_id=-1;
     public $req_count=1;
+    public $direct=0;
     protected $rules=[
         'product.name'=>'required'
     ];

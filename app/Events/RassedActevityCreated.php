@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\RassedActevity;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -11,8 +12,9 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Artisan;
 
-class RassedActevityCreated implements ShouldQueue
+class RassedActevityCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -26,6 +28,31 @@ class RassedActevityCreated implements ShouldQueue
     {
         $this->rassedActevity=$rassedActevity;
         //
+
+
+        Artisan::call('queue:work --stop-when-empty');
+
+        // if ($this->rassedActevity->paymentinfo->orders->count() > 0) {
+        //     $product = $this->rassedActevity->paymentinfo->order->product;
+
+        //     if ($product->provider_product->count() > 0) {
+
+        //         $clientProvider = $product->provider_product()->first()->client_provider;
+
+        //         if ($clientProvider->id == 1) {
+
+        //             // $this->paymentinfo=$this->rassedActevity->paymentinfo;
+
+
+        //             TopOnlinePayByAPIJob::dispatch($rassedActevity);
+
+        //            // $this->paymentinfo = $this->rassedActevity->paymentinfo;
+        //            // $this->handle_process();
+        //             //dispatch(new TopOnlinePayByAPIJob($this->rassedActevity->paymentinfo));
+        //         }
+        //     }
+        // }
+
     }
 
     /**

@@ -90,14 +90,38 @@
 
                     <label>
                       مباشر
-                    <input  type="radio" name="direct" id="direct"     value="1" />
+                    <input  type="radio" name="direct" wire:model='direct' id="direct"     value="1" />
                 </label>
                 <br>
                 <label>
                     غير مباشر
-                    <input type="radio" name="direct" id="direct"  checked  value="0" />
+                    <input type="radio" name="direct" wire:model='direct' id="direct"  checked  value="0" />
                 </label>
                     </div>
+
+                    
+
+                    @if (!$direct)
+
+                    <div class="relative flex w-2/3 items-center justify-between space-x-4 space-y-2 ">
+
+
+                        <label for="dispatch_at" class="block mx-4 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">الوقت القياسي للتنفيذ </label>
+
+                        <select id="dispatch_at" name="dispatch_at" class="w-4/5 mx-2 text-gray-600 bg-white border border-gray-300 rounded-md appearance-none sm:pl-5 sm:pr-10 sm:mx-0 dark:bg-darker dark:text-white hover:border-gray-400 focus:outline-none">
+
+                            <option  value="helf_hour">من 5 دقيقة الى 30 دقيقة </option>
+                            
+                            <option  value="hourly">  من 30 دقيقة الى 1 ساعة </option>
+                            
+                            <option  value="hourly_qurter">  من 1 ساعة الى 6 ساعات </option>
+                            
+                         </select>
+
+                    </div>
+                    @endif
+                    
+                    
                     </div>
 
             <div>

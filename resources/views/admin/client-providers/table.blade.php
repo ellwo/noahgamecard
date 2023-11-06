@@ -132,46 +132,47 @@
                     </thead>
                     <tbody class="">
 
-                        @foreach ($users as $user)
+                        @foreach ($users as $clients_provider)
 
 
                         <tr class="bg-white dark:bg-dark">
 
                             <td class="tdp flex flex-col">
-                                {{ $user->name }}
+                                {{ $clients_provider->name }}
                                 {{-- <span class="text-info text-xs font-semibold">
 
-                                {{ $user->username."@" }}
+                                    
+                                {{ $clients_provider->username."@" }}
                                 </span>
                                 <span class="text-info text-xs font-semibold">
 
-                                    {{ $user->email}}
+                                    {{ $clients_provider->email}}
                                     </span>
                                 <hr> --}}
-                                {{-- <span class="{{ $user->state!=0 ? 'text-green-600' : 'text-red-800' }}">{{ $user->state!=0 ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span> --}}
+                                {{-- <span class="{{ $clients_provider->state!=0 ? 'text-green-600' : 'text-red-800' }}">{{ $clients_provider->state!=0 ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span> --}}
 
                             </td>
                             <td class="p-0  tdp text-right  ">
 
                                 <div class="">
-                                    {{ $user->phone }}
+                                    {{ $clients_provider->phone }}
                                 </div>
                             </td>
                             <td class="p-0 tdp text-danger font-bold lg:text-lg">
                                 <div class="flex flex-col">
                                     <span>
-                                        {{abs( $user->pay_sum()) }} / بحسب سعرنا
+                                        {{abs( $clients_provider->pay_sum()) }} / بحسب سعرنا
                                     </span>
                                     <span>
-                                        {{abs( $user->pay_sum_orgin()) }} / بحسب سعر المزود
+                                        {{abs( $clients_provider->pay_sum_orgin()) }} / بحسب سعر المزود
 
                                     </span>
                                 </div>
                             </td>
                             <td class="p-0 tdp  flex flex-col justify-center text-blue-700 font-bold lg:text-lg">
-                                {{ $user->provider_products()->active()->count() }}
+                                {{ $clients_provider->provider_products()->active()->count() }}
 
-                                <a target="_blank" href="{{ route('provider_products',['client'=>$user->id]) }}"  class="mr-2 flex text-sm text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                <a target="_blank" href="{{ route('provider_products',['client'=>$clients_provider->id]) }}"  class="mr-2 flex text-sm text-gray-400 hover:text-dark dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض المنتجات
                                 </a>
@@ -179,24 +180,24 @@
                             </td>
 
                             <td dir="ltr" class="p-0 tdp text-right text-success font-bold lg:text-lg" >
-                                {{ $user->rassedy()  }} ريال يمني
+                                {{ $clients_provider->rassedy()  }} ريال يمني
                                 <br>
-                                {{  number_format((float)( $user->rassedy()/$coin?->value), 2, '.', ''); }} دولار امريكي
+                                {{  number_format((float)( $clients_provider->rassedy()/$coin?->value), 2, '.', ''); }} دولار امريكي
 
                             </td>
 
 
-                            <td class="block text-center" x-data='{isActive:{{$user->active??0}}}'>
+                            <td class="block text-center" x-data='{isActive:{{$clients_provider->active??0}}}'>
 
                                 <div class="flex flex-col justify-center text-center">
 
-                                    @if ($user->active)
+                                    @if ($clients_provider->active)
 
                                     <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak
 
-                                    {{-- wire:click="deletePro({{$user->id}})"
+                                    {{-- wire:click="deletePro({{$clients_provider->id}})"
                                      --}}
-                                    @click="open_delete=!open_delete; $wire.set('delete_orderid',{{$user->id}})">
+                                    @click="open_delete=!open_delete; $wire.set('delete_orderid',{{$clients_provider->id}})">
                                         <div
                                             class="w-12 h-6 transition rounded-full outline-none  dark:"
                                             :class="{
@@ -216,7 +217,7 @@
 
                                     <button dir="ltr" aria-hidden="true" class="mx-auto relative focus:outline-none" x-cloak
 
-                                     wire:click="active_client({{$user->id}})"
+                                     wire:click="active_client({{$clients_provider->id}})"
 
                                     @click="isActive=true">
                                         <div
@@ -248,7 +249,7 @@
                             <td class="">
                                 <div class="flex">
 
-                                <a href="{{ route('provider_products',['client'=>$user->id]) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                <a href="{{ route('clients-provider.show',['clients_provider'=>$clients_provider,'client'=>$clients_provider->id]) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض تفاصيل
                                 </a>

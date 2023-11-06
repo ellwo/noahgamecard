@@ -48,7 +48,7 @@ class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
         <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
     </x-slot>
 
-    <x-sidebar.sublink title="المزودين" href="{{ route('clients-provider') }}"
+    <x-sidebar.sublink title="ارصدة المزودين" href="{{ route('clients-provider') }}"
         :active="request()->routeIs('clients-provider')" />
     <x-sidebar.sublink title="منتجات المزودين" href="{{ route('provider_products') }}"
         :active="request()->routeIs('provider_products')" />

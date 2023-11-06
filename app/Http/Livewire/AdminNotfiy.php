@@ -15,8 +15,8 @@ class AdminNotfiy extends Component
     public function render()
     {
 
-        $readed_notifs=AdminNotify::where('readed','=',1)->orderBy('created_at','desc')->paginate(20);
-        $notifs=AdminNotify::where('readed','=',0)->orderBy('created_at','desc')->paginate(20);
+        $readed_notifs=AdminNotify::where('readed','=',1)->orderBy('created_at','desc')->paginate(20,['*'],'notifiy_page');
+        $notifs=AdminNotify::where('readed','=',0)->orderBy('created_at','desc')->paginate(20,['*'],'notifiy_page_unreaded');
         $this->unread_count=$notifs->total();
 
         return view('livewire.admin-notfiy',[

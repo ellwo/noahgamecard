@@ -14,6 +14,9 @@ class ProviderProductEditForm extends Component
     public $provider_id=-1;
     public $req_count=1;
     public $pr_product_id=1;
+    public $direct=0;
+    public $dispatch_at="";
+
     protected $rules=[
         'product.name'=>'required'
     ];
@@ -26,7 +29,9 @@ class ProviderProductEditForm extends Component
       
        $pr_provider=ProviderProduct::find($this->pr_product_id);
        $this->product=$pr_provider->product;
+       $this->dispatch_at=$pr_provider->dispatch_at;
       $this->product_id=$pr_provider->product->id;
+      $this->direct=$pr_provider->direct;
  
     }
     public function render()

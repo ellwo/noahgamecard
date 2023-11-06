@@ -19,6 +19,8 @@ final class GetUserNotificationsPG
         \request()->request->set("page",$page);
 
         $user=User::find(auth()->user()->id);
+
+        
         if($user!=null){
 
 

@@ -234,7 +234,11 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 }
             } else {
 
-                CheckTopOnlineProssce::dispatch($this->paymentinfo, $transid)->onQueue('hourly');
+        $product = $this->paymentinfo->order->product;
+        $dispatch_at = $product->provider_product()->first()->dispatch_at;
+
+
+                CheckTopOnlineProssce::dispatch($this->paymentinfo, $transid)->onQueue($dispatch_at);
             }
             //هنا اذا قال لي جاري المعالجة هنا ارجع افحص العملية هل نجحت او لا  ..
             // $check = $this->chack_state($transid);

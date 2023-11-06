@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\RunQueueAfterProssecesPushed;
 use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\AdminNotify;
 use App\Models\ClientProvider;
@@ -79,6 +80,9 @@ class ClientProviderController extends Controller
      */
     public function index()
     {
+
+        // RunQueueAfterProssecesPushed::dispatch()->delay(now()->minute(3));
+
 
 //         $p=Paymentinfo::find(108);
 
@@ -232,6 +236,10 @@ class ClientProviderController extends Controller
     public function show(ClientProvider $clientProvider)
     {
         //
+       $clientProvider= ClientProvider::find($_GET['client']);
+        // return dd($clientProvider);
+
+        return view('admin.client-providers.show',['client'=>$clientProvider]);
     }
 
     /**

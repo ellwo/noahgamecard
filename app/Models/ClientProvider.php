@@ -39,6 +39,14 @@ class ClientProvider extends Model
         });
         return $this->pays_excutes()->rassed_acetvities();
     }
+
+    public function paymentinfos()
+    {
+        return Paymentinfo::whereIn('id',$this->pays_excutes()->pluck('paymentinfo_id')->toArray());
+
+        return $this->hasManyThrough(Paymentinfo::class,PaymentinfoExecuteBy::class);
+        # code...
+    }
     public function pay_sum_orgin()
     {
 
@@ -61,22 +69,18 @@ class ClientProvider extends Model
     }
 
 
-    public $userid = 17577;
-    public $mobile = "777777777";
-    public $username = "777777777";
-    public $password = "Asd777777777";
-    public $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
-    public $chack_url='https://toponline.yemoney.net/api/yr/info';
-
     function rassedy() {
 
+
+   $userid = 17577;
+   $mobile = "777777777";
      $url = 'https://toponline.yemoney.net/api/yr/info';
      $transid="2303";
      $paras = [
          'transid' => $transid,
          'token' => $this->genurateToken($transid),
-         'userid' => $this->userid,
-         'mobile' => $this->mobile,
+         'userid' => $userid,
+         'mobile' => $mobile,
          'action' => 'balance'
      ];
     //  Cache::forget('rassed');
@@ -91,8 +95,15 @@ class ClientProvider extends Model
 
     function genurateToken($transid)
     {
-        $hashPassword = md5($this->password);
-        $token = md5($hashPassword . $transid . $this->username . $this->mobile);
+
+   $username = "777777777";
+   $password = "Asd777777777";
+   $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
+   $chack_url='https://toponline.yemoney.net/api/yr/info';
+
+   $mobile = "777777777";
+        $hashPassword = md5($password);
+        $token = md5($hashPassword . $transid . $username . $mobile);
         return $token;
     }
 

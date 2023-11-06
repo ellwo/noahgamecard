@@ -20,6 +20,15 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
       />
+  
+      
+    
+      <link rel="stylesheet" href="{{ asset('local/jquery.dataTables.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('local/buttons.dataTables.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('local/select.dataTables.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('local/select2.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('local/dropzone.min.css') }}">
+    
       {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
       <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
       <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/translations/ar.js"></script>
@@ -409,11 +418,113 @@
     @endcan
     <script src="{{ asset('js/uploadeimage.js') }}"></script>
 
-    @isset($script)
-        {{$script}}
 
-    @endisset
+    {{-- <script src="{{ asset('local/jquery.min.js') }}"></script>
 
+    <script src="{{ asset('local/bootstrap.min.js') }}"></script>
+  
+    <script src="{{ asset('local/popper.min.js') }}"></script>
+  
+    <script src="{{ asset('local/coreui.min.js') }}"></script>
+  
+    <script src="{{ asset('local/jquery.dataTables.min.js') }}"></script>
+  
+    <script src="{{ asset('local/dataTables.bootstrap4.min.js') }}"></script>
+  
+    <script src="{{ asset('local/dataTables.buttons.min.js') }}"></script>
+  
+  
+    <script src="{{ asset('local/buttons.flash.min.js') }}"></script>
+  
+    <script src="{{ asset('local/buttons.html5.min.js') }}"></script>
+  
+    <script src="{{ asset('local/buttons.print.min.js') }}"></script>
+  
+    <script src="{{ asset('local/buttons.colVis.min.js') }}"></script>
+  
+    <script src="{{ asset('local/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('local/jszip.min.js') }}"></script>
+  
+  
+  
+    <script src="{{ asset('local/dataTables.select.min.js') }}"></script>
+  
+    <script src="{{ asset('local/moment.min.js') }}"></script>
+  
+    <script src="{{ asset('local/select2.full.min.js') }}"></script>
+  
+    <script src="{{ asset('local/dropzone.min.js') }}"></script>
+
+    <script>
+             $(function() {
+        let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
+        let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
+        let excelButtonTrans = '{{ trans('global.datatables.excel') }}'
+        let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
+        let printButtonTrans = '{{ trans('global.datatables.print') }}'
+        let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
+      
+      
+      
+        $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, { className: 'btn rounded-md p-2 mx-2 bg-blue-700 text-white' })
+        $.extend(true, $.fn.dataTable.defaults, {
+          language: {
+      
+      "sProcessing":   "جارٍ التحميل...",
+      "sLengthMenu":   "أظهر _MENU_ مدخلات",
+      "sZeroRecords":  "لم يعثر على أية سجلات",
+      "sInfo":         "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+      "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
+      "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+      "sInfoPostFix":  "",
+      "sSearch":       "ابحث:",
+      "sUrl":          "",
+      "oPaginate": {
+          "sFirst":    "الأول",
+          "sPrevious": "السابق",
+          "sNext":     "التالي",
+          "sLast":     "الأخير"
+      }
+      
+      },
+          pageLength: 100,
+          dom: 'lBfrtip<"actions">',
+          buttons: [
+      
+      
+            {
+              extend: 'excel',
+              className: '',
+              text: excelButtonTrans,
+              exportOptions: {
+                columns: ':visible'
+              }
+            },
+      
+            {
+              extend: 'print',
+              className: 'btn-default',
+              text: printButtonTrans,
+              exportOptions: {
+                columns: ':visible'
+              }
+            },
+      
+          ]
+        });
+      
+        $.fn.dataTable.ext.classes.sPageButton = '';
+      });
+
+
+
+    </script> --}}
+
+
+@isset($script)
+{{$script}}
+
+@endisset
 
 </body>
 </html>
