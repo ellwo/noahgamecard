@@ -47,7 +47,7 @@ return [
              *
              */
             'credentials' => [
-                'file' => env('FIREBASE_CREDENTIALS', base_path('googleKey/google-firbase2.json')),
+                'file' => env('FIREBASE_CREDENTIALS', base_path('googleKey/google-firbase.json')),
 
                 /*
                  * If you want to prevent the auto discovery of credentials, set the

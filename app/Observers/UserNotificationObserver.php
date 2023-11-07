@@ -48,6 +48,7 @@ class UserNotificationObserver
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'image' => $userNotification->img ?? '',
+            'sound'=>'default'
             ]);
         $config = AndroidConfig::fromArray([
             'ttl' => '3600s',
@@ -70,17 +71,18 @@ class UserNotificationObserver
 
 
         //$r= $FcmToken = auth()->user()->fcm_token;
-        $title = $notification['title'];
-        $body = $notification['body'];
+        // $title = $notification['title'];
+        // $body = $notification['body'];
         $message = CloudMessage::fromArray([
             //   'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
             'notification' => $notification,
             'data' => $dataArr
-        ])->withAndroidConfig($config);
+        ])->withDefaultSounds()->withHighestPossiblePriority();
 
         try {
             $r = $this->notification->sendMulticast($message, $userNotification->user->f_token()->orderBy('id', 'desc')->pluck('token')->toArray());
 
+            // return dd($r);
             $successfulTargets = $r->validTokens(); // string[]
             $unknownTargets = $r->unknownTokens(); // string[]
 
@@ -93,6 +95,8 @@ class UserNotificationObserver
                 'sented' => true
             ]);
         } catch (Exception $e) {
+
+            // return dd($e);
         }
 
         // $fields = json_encode ($arrayToSend);
