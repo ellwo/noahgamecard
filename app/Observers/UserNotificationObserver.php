@@ -48,22 +48,19 @@ class UserNotificationObserver
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'image' => $userNotification->img ?? '',
-            'icon' => 'https://backendapi.noahgamecard.com//images/64beac562b9ae1690217558.png',
-            'sound' => 'default',
-            'badge' => '1',
             ]
         );
-        // $config = AndroidConfig::fromArray([
-        //     'ttl' => '3600s',
-        //     'priority' => 'normal',
-        //     'notification' => [
-        //         'title' => '$GOOG up 1.43% on the day',
-        //         'body' => '$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day.',
-        //         'icon' => 'https://backendapi.noahgamecard.com//images/64beac562b9ae1690217558.png',
-        //         'color' => '#f45342',
-        //         'sound' => 'default',
-        //     ],
-        // ]);
+        $config = AndroidConfig::fromArray([
+            'ttl' => '3600s',
+            'priority' => 'normal',
+            'notification' => [
+                'title' => $userNotification->title,
+                'body' => $userNotification->body,
+                'icon' => 'https://backendapi.noahgamecard.com//images/64beac562b9ae1690217558.png',
+                'color' => '#f45342',
+                'sound' => 'default',
+            ],
+        ]);
         // $r=FcmMessage::create()
         // ->setData($dataArr)
         // ->setToken($userNotification->user->f_token->pluck('token')->first())
@@ -80,8 +77,7 @@ class UserNotificationObserver
             //   'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
             'notification' => $notification,
             'data' => $dataArr
-        ]);
-        //->withAndroidConfig($config);
+        ])->withAndroidConfig($config);
 
         try {
             $r = $this->notification->sendMulticast($message, $userNotification->user->f_token()->orderBy('id', 'desc')->pluck('token')->toArray());
