@@ -44,15 +44,14 @@ class UserNotificationObserver
             'status' => "done",
             'created_at' => date('Y/m/d H:i:s')
         );
-        $notification =Notification::fromArray([
+        $notification =array([
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'image' => $userNotification->img ?? '',
-            ]
-        );
+            ]);
         $config = AndroidConfig::fromArray([
             'ttl' => '3600s',
-            'priority' => 'normal',
+            'priority' => 'high',
             'notification' => [
                 'title' => $userNotification->title,
                 'body' => $userNotification->body,
