@@ -34,7 +34,7 @@
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
-                            {{ $client->pay_sum() }}</div>
+                            {{ abs($client->pay_sum()) }}</div>
                     </div>
 
 
@@ -53,7 +53,7 @@
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
-                            {{ $client->pay_sum()-$client->pay_sum_orgin() }}</div>
+                            {{ abs($client->pay_sum())-$client->pay_sum_orgin() }}</div>
                     </div>
 
 
