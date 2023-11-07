@@ -10,6 +10,7 @@ use Kreait\Firebase\Messaging\AndroidConfig;
 // use NotificationChannels\Fcm\FcmMessage;
 use Kreait\Laravel\Firebase\Facades\Firebase;
 use Kreait\Firebase\Messaging\CloudMessage;
+use Kreait\Firebase\Messaging\Notification;
 
 class UserNotificationObserver
 {
@@ -43,13 +44,14 @@ class UserNotificationObserver
             'status' => "done",
             'created_at' => date('Y/m/d H:i:s')
         );
-        $notification = array(
+        $notification =Notification::fromArray([
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'image' => $userNotification->img ?? '',
             'icon' => 'https://backendapi.noahgamecard.com//images/64beac562b9ae1690217558.png',
             'sound' => 'default',
             'badge' => '1',
+            ]
         );
         // $config = AndroidConfig::fromArray([
         //     'ttl' => '3600s',
