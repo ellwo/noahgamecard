@@ -44,12 +44,12 @@ class UserNotificationObserver
             'status' => "done",
             'created_at' => date('Y/m/d H:i:s')
         );
-        $notification =array([
+        $notification =array(
             'title' => $userNotification->title,
             'body' => $userNotification->body,
             'image' => $userNotification->img ?? '',
             'sound'=>'default'
-            ]);
+            );
         $config = AndroidConfig::fromArray([
             'ttl' => '3600s',
             'priority' => 'high',
@@ -74,15 +74,17 @@ class UserNotificationObserver
         // $title = $notification['title'];
         // $body = $notification['body'];
         $message = CloudMessage::fromArray([
-            //   'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
+             'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
             'notification' => $notification,
             'data' => $dataArr
-        ])->withDefaultSounds()->withHighestPossiblePriority();
+        ])->withDefaultSounds()->withAndroidConfig($config)->withHighestPossiblePriority();
 
         try {
-            $r = $this->notification->sendMulticast($message, $userNotification->user->f_token()->orderBy('id', 'desc')->pluck('token')->toArray());
+            // $r=$this->notification->send($message);
 
             // return dd($r);
+            $r = $this->notification->sendMulticast($message, $userNotification->user->f_token()->orderBy('updated_at', 'desc')->pluck('token')->toArray());
+
             $successfulTargets = $r->validTokens(); // string[]
             $unknownTargets = $r->unknownTokens(); // string[]
 
@@ -94,6 +96,8 @@ class UserNotificationObserver
             $userNotification->update([
                 'sented' => true
             ]);
+
+            // return dd($r);
         } catch (Exception $e) {
 
             // return dd($e);

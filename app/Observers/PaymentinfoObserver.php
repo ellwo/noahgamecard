@@ -68,6 +68,7 @@ class PaymentinfoObserver
                 "routeInfo" => [
                     "routeName" => "rassed",
                     "data" => $paymentinfo,
+                    "rassed_act"=>$paymentinfo->rassed_actevity
                 ],
                 "created_at" => date('Y/m/d H:i:s')
             ];
