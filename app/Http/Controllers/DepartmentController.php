@@ -19,7 +19,10 @@ class DepartmentController extends Controller
 
     public function index(Request $request)
     {
+        if(!isset($request['report']))
         return view('admin.department.show');
+    else
+    return view('admin.department.report');
         # code...
     }
 

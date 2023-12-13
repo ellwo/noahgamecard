@@ -53,7 +53,6 @@ final class OrdersSumByCategory
                     $toDate=$date->modify('+24 hours');
                     $toDate=date('Y-m-d H:i:s',strtotime($toDate->format('Y-m-d H:i:s')));
                 }
-
             }
 
             $pays=$user->paymentinfos()->has('orders')

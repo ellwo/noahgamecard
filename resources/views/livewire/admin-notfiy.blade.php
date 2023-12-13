@@ -163,9 +163,12 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
     $('.unread_count').html('{{$unread_count}}');
+
+
     window.Echo.channel('private-admin-notifiy')
   .listen('AdminNotifyEvent', (data) => {
     console.log('New notification:', data);
+
     @this.set('unread_count',{{$unread_count+1}});   
 
     $('.unread_count').html('{{$unread_count}}');
