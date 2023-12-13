@@ -54,7 +54,7 @@
                             <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
                         </div>
 
-                        <div class="flex text-center justify-center items-center" dir="rtl">
+                        <div class=" hidden text-center justify-center items-center" dir="rtl">
 
                         <h4 class="text-right flex justify-items-center space-x-2" dir="rtl">من تأريخ
                             <input type="datetime-local"  wire:model.lazy='fromDate' class="bg-white  bg-white rounded-md text-dark  dark:text-white dark:bg-dark rounded-md border p-2"/>
