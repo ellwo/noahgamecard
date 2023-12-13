@@ -48,6 +48,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/offers',OfferController::class)->name('index','offers');
     Route::resource('/discount',DiscountController::class)->name('index','discount');
     Route::resource('/paymentinfo',PaymentinfoController::class)->name('index','paymentinfo');
+   Route::get('/order-reports',[PaymentinfoController::class,'reports'])->name('order.reports');
     Route::resource('/rasseds',RassedActevityContoller::class)->name('index','rasseds');
 
     Route::resource('/clients',ClientController::class)->name('index','users');
@@ -55,7 +56,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/coins',CoinController::class)->name('index','coins');
     Route::resource('/codes',CodeContoller::class)->name('index','codes');
     Route::resource('/provider_products',ProviderProductController::class)->name('index','provider_products');
-    
+
 
 
 

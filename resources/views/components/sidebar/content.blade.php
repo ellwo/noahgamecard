@@ -59,15 +59,15 @@ class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
 
 @can('ادارة المزودين')
 
-<x-sidebar.dropdown title="التقارير" :active="Str::contains(request()->route()->uri(), 'provider')">
+<x-sidebar.dropdown title="التقارير" :active="Str::contains(request()->route()->uri(), 'report')">
    <x-slot name="icon">
        <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
    </x-slot>
 
    <x-sidebar.sublink title="تقرير المبيعات بحسب القسم " href="{{ route('depts',['report','report']) }}"
        :active="request()->routeIs('clients-provider')" />
-   <x-sidebar.sublink title="تقرير اجمالي التغذية والشراء " href="#"
-       :active="request()->routeIs('provider_products')" />
+   <x-sidebar.sublink title="تقرير اجمالي التغذية والشراء " href="{{ route('order.reports') }}"
+       :active="request()->routeIs('order.reports')" />
 </x-sidebar.dropdown>
 @endcan
  @can('ادارة اسعار الصرف')

@@ -25,6 +25,18 @@ class PaymentinfoController extends Controller
     }
 
 
+
+   public function reports(Request $request) {
+        $veed_sum=Paymentinfo::where('state','=',2)->whereHas('rassed_actevity',function($r){
+            $r->where('amount','>',0);
+        })->sum('total_price');
+        $pay_sum=Paymentinfo::where('state','=',2)->whereHas('rassed_actevity',function($r){
+            $r->where('amount','<',0);
+        })->sum('total_price');
+
+        return view('admin.orders.report',['pay_sum'=>$pay_sum,'veed_sum'=>$veed_sum]);
+
+    }
     public function getParametres($paymentinfo)
     {
 
