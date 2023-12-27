@@ -83,13 +83,11 @@
             <hr>
             <x-label :value="__(' الصورة ')"/>
             <div id="imgurl">
-
             </div>
-
             @error('imgurl')
             <span class="text-sm text-danger">{{ $message }}</span>
-
             @enderror
+
             <div class="text-center">
             <x-button variant="success" type="submit" >
                 حفظ

@@ -44,6 +44,7 @@ class SendNotifiyToUsers implements ShouldQueue
     public function handle()
     {
         //
+        if($this->userNotification->sented==0)
         $this->sendFMC($this->userNotification);
 
     }

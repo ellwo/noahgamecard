@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProviderProductController;
 use App\Http\Controllers\RassedActevityContoller;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\UserNotificationController;
 use App\Http\Livewire\Admin\ProductTable;
 use App\Models\Paymentinfo;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('/coins',CoinController::class)->name('index','coins');
     Route::resource('/codes',CodeContoller::class)->name('index','codes');
     Route::resource('/provider_products',ProviderProductController::class)->name('index','provider_products');
+    Route::resource('/usernotification',UserNotificationController::class)->name('index','usernotification');
 
 
 

@@ -13,15 +13,23 @@ class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
 
 
 
- @can('users_manage')
+    @can('users_manage')
 
- <x-sidebar.link title="ادارة المستخدمين" href="{{ route('admin.users.index')}}" :isActive="request()->routeIs('admin.users.index')||request()->routeIs('admin.users.index')">
-    <x-slot name="icon">
-        <x-bi-person class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
-    </x-slot>
-</x-sidebar.link>
+    <x-sidebar.link title="ادارة المستخدمين" href="{{ route('admin.users.index')}}" :isActive="request()->routeIs('admin.users.index')||request()->routeIs('admin.users.index')">
+       <x-slot name="icon">
+           <x-bi-person class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+       </x-slot>
+   </x-sidebar.link>
 
- @endcan
+    @endcan
+    @can('users_manage')
+    <x-sidebar.link title="ادارة الاشعارات" href="{{ route('usernotification')}}" :isActive="request()->routeIs('admin.users.index')||request()->routeIs('admin.users.index')">
+       <x-slot name="icon">
+           <x-bi-chat class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+       </x-slot>
+   </x-sidebar.link>
+
+    @endcan
 
 
  <x-sidebar.link title="اكواد تفعيل الحسابات" href="{{ route('codes')}}"
