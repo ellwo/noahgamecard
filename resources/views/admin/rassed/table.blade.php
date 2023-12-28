@@ -270,7 +270,7 @@
                             </td>
 
                             <td class="md:p-3 ">
-                                <a class="h-32 rounded-md" target="_blank" href="{{ $paymentinfo->prove_img }}"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></a>
+                                <a class="h-32 rounded-md" target="_blank" href="{{ $paymentinfo->prove_img }}"><img class="h-32 rounded-md" src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></a>
                             </td>
                             <td class="md:p-3  lg:font-bold text-xs ">
                                <div class="text-center flex flex-col justify-center">
