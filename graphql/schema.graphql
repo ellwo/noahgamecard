@@ -254,6 +254,7 @@ input VeedmyrassedInput{
     camount:Float
     coin_id:Int
     paymentmethod_id:Int
+    prove_img:String
 
 }
 type ConfirmResponInfo{

@@ -71,7 +71,8 @@ final class Veedmyrassed
                 "code" => $args["input"]["code"],
                 "state" => 0,
                 'user_id'=>$user->id,
-                'coin_id' => $args['input']['coin_id']
+                'coin_id' => $args['input']['coin_id'],
+                'prove_img'=>$args['input']['prove_img']
             ]);
             //    $camount=
             $ra = RassedActevity::create([
