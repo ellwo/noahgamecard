@@ -21,24 +21,36 @@ class UploadeController extends Controller
 
     function uploade_prov(Request $request){
 
-        $foldername='images';
-        $folder = uniqid();
-        $ext = strtolower(pathinfo($_FILES['file'],PATHINFO_EXTENSION));
-        $name=$folder.now()->timestamp.$ext;
-        $path=$foldername.'/'.$name;
 
-        move_uploaded_file($_FILES['file'],$path);
-        if(env('APP_ENV') == 'production')
-        {
-           $urllll="https://".request()->getHttpHost().'/'.$path;
+        try {
+            //code...
+
+            $foldername='images';
+            $folder = uniqid();
+            $ext = strtolower(pathinfo($_FILES['file'],PATHINFO_EXTENSION));
+            $name=$folder.now()->timestamp.$ext;
+            $path=$foldername.'/'.$name;
+
+            move_uploaded_file($_FILES['file'],$path);
+            if(env('APP_ENV') == 'production')
+            {
+               $urllll="https://".request()->getHttpHost().'/'.$path;
+            }
+            else
+            $urllll="http://".request()->getHttpHost().'/'.$path;
+
+            return $data=[
+                'url'=>$urllll,
+                'status'=>true
+            ];
+        } catch (Exception $th) {
+            //throw $th;
+            return $data=[
+                'url'=>null,
+                'status'=>false,
+                'message'=>$th->getMessage()
+            ]
         }
-        else
-        $urllll="http://".request()->getHttpHost().'/'.$path;
-
-        return $data=[
-            'url'=>$urllll,
-            'status'=>true
-        ];
 
 
 
