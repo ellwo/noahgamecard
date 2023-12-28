@@ -31,7 +31,7 @@ class UploadeController extends Controller
             $name=$folder.now()->timestamp.$ext;
             $path=$foldername.'/'.$name;
 
-            move_uploaded_file($_FILES['file'],$path);
+            move_uploaded_file($request->file('file'),$path);
             if(env('APP_ENV') == 'production')
             {
                $urllll="https://".request()->getHttpHost().'/'.$path;
