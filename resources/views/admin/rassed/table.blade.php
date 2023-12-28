@@ -270,7 +270,12 @@
                             </td>
 
                             <td class="md:p-3 ">
+                                @if ($paymentinfo->prove_img!=null)
                                 <a class="h-32 rounded-md" target="_blank" href="{{ $paymentinfo->prove_img }}"><img class="h-32 rounded-md" src="{{ $paymentinfo->prove_img }}" /> </a>
+
+                                @else
+                                   لايوجد
+                                @endif
                             </td>
                             <td class="md:p-3  lg:font-bold text-xs ">
                                <div class="text-center flex flex-col justify-center">
