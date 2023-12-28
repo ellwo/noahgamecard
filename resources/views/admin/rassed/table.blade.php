@@ -232,6 +232,7 @@
                         <tr>
                             <th class="p-3">رقم العملية </th>
                             <th class="p-3 hidden md:block">وسيلة الدفع</th>
+                            <th class="p-3 hidden md:block">صورة الايداع</th>
                             <th class="p-3 "> المبلغ المدخل من العميل</th>
                             <th class="p-3 "> المبلغ المؤكد </th>
                             <th class="p-3 ">الحالة</th>
@@ -262,15 +263,14 @@
                                 <span class="font-bold text-blue-900 dark:text-gray-200">{{ $paymentinfo->paymentmethod->name }}</span>
 
                                 </div>
-                                <hr>
-                                <div class=" justify-center">
-                                <span class="font-bold text-blue-900 dark:text-gray-200"><a target="_blank" href="{{ $paymentinfo->prove_img }}"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></a></span>
-
-                                </div>
 
                             </td>
                             <td class="md:p-3 hidden md:block">
                                 <span class="font-bold text-blue-900 dark:text-gray-200">{{ $paymentinfo->paymentmethod->name }}</span>
+                            </td>
+
+                            <td class="md:p-3 hidden md:block">
+                                <a class="h-32 rounded-md" target="_blank" href="{{ $paymentinfo->prove_img }}"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></a>
                             </td>
                             <td class="md:p-3  lg:font-bold text-xs ">
                                <div class="text-center flex flex-col justify-center">
