@@ -19,7 +19,7 @@ class UploadeController extends Controller
 
 
 
-    function uploade_prov(Request $request){
+   public function uploade_prov(Request $request){
 
 
         try {
@@ -49,7 +49,7 @@ class UploadeController extends Controller
                 'url'=>null,
                 'status'=>false,
                 'message'=>$th->getMessage()
-            ]
+            ];
         }
 
 
