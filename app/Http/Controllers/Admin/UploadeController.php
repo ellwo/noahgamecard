@@ -19,6 +19,32 @@ class UploadeController extends Controller
 
 
 
+    function uploade_prov(Request $request){
+
+        $foldername='images';
+        $folder = uniqid();
+        $ext = strtolower(pathinfo($_FILES['file'],PATHINFO_EXTENSION));
+        $name=$folder.now()->timestamp.$ext;
+        $path=$foldername.'/'.$name;
+
+        move_uploaded_file($_FILES['file'],$path);
+        if(env('APP_ENV') == 'production')
+        {
+           $urllll="https://".request()->getHttpHost().'/'.$path;
+        }
+        else
+        $urllll="http://".request()->getHttpHost().'/'.$path;
+
+        return $data=[
+            'url'=>$urllll,
+            'status'=>true
+        ];
+
+
+
+
+    }
+
     public function store(Request $request)
     {
         # code...
@@ -111,12 +137,12 @@ file_put_contents(public_path().'/'.$path,base64_decode($img));
                 // $pathh= Storage::disk('public')->put($path,base64_decode($img));
              //   $urllll=config('app.url').'/'.$path;
              if(env('APP_ENV') == 'production')
-             {     
+             {
                 $urllll="https://".request()->getHttpHost().'/'.$path;
              }
              else
              $urllll="http://".request()->getHttpHost().'/'.$path;
-            
+
 
                 // $urllll =Storage::disk('public')->url($path);
 
