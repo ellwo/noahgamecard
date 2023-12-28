@@ -261,8 +261,8 @@
                                 <div class="md:hidden justify-center">
                                 <span class="font-bold text-blue-900 dark:text-gray-200">{{ $paymentinfo->paymentmethod->name }}</span>
                                 <hr>
-                                <div class="md:hidden justify-center">
-                                <span class="font-bold text-blue-900 dark:text-gray-200"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></span>
+                                <div class=" justify-center">
+                                <span class="font-bold text-blue-900 dark:text-gray-200"><a target="_blank" href="{{ $paymentinfo->prove_img }}"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></a></span>
 
                                 </div>
                                 </div>
