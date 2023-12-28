@@ -28,7 +28,7 @@ class UploadeController extends Controller
             $foldername='images';
             $folder = uniqid();
             $ext = strtolower(pathinfo($request->file('file'),PATHINFO_EXTENSION));
-            $name=$folder.now()->timestamp.$ext;
+            $name=$folder.now()->timestamp.".png";
             $path=$foldername.'/'.$name;
 
             move_uploaded_file($request->file('file'),$path);
