@@ -82,7 +82,7 @@
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                 @click.away="show_deny_model=false" dir="rtl" x-show="show_deny_model"
                 class="fixed z-40 flex flex-col p-8 space-y-4 bg-white dark:bg-dark left-1/4 border lg:w-1/2 rounded-md text-darker top-24 mx-auto"
-                
+
                 >
                 <span class="w-full text-3xl font-bold text-right text-danger">ملاحظة</span>
                 <hr>
@@ -260,6 +260,9 @@
                                 <hr>
                                 <div class="md:hidden justify-center">
                                 <span class="font-bold text-blue-900 dark:text-gray-200">{{ $paymentinfo->paymentmethod->name }}</span>
+                                <hr>
+                                <div class="md:hidden justify-center">
+                                <span class="font-bold text-blue-900 dark:text-gray-200"><img src="{{ $paymentinfo->prove_img }}" alt="" srcset=""></span>
 
                                 </div>
                                 </div>
