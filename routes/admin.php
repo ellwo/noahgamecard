@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::post('/uploade_prov_image', [UploadeController::class, 'uploade_prov']);
-
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     Route::resource('ad',AdController::class)->name('index','ad');
