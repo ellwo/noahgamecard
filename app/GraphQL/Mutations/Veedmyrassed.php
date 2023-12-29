@@ -27,16 +27,16 @@ final class Veedmyrassed
         $vildat = Validator::make(
             $args['input'],
             [
-                'code' => ['unique:paymentinfos,code', 'required', 'min:6', 'max:10'],
+                //'code' => ['unique:paymentinfos,code', 'required', 'min:6', 'max:10'],
                 'paymentmethod_id' => ['required', 'exists:paymentmethods,id'],
                 "camount"=>['required'],
                 "coin_id"=>['required','exists:coins,id']
             ],
             [
-                'code.unique' => 'هذا الكود مستخدم بالفعل ',
-                'code.min' => 'يجب ان يكون الكود 6 ارقام على الاقل',
-                'code.max' => 'يجب ان يكون الكود 11 ارقام على الاكثر',
-                'code.required' => 'يجب ادخال الكود',
+                //'code.unique' => 'هذا الكود مستخدم بالفعل ',
+                //'code.min' => 'يجب ان يكون الكود 6 ارقام على الاقل',
+                //'code.max' => 'يجب ان يكون الكود 11 ارقام على الاكثر',
+              //  'code.required' => 'يجب ادخال الكود',
                 'camount.*'=>'يجب ادخال المبلغ الذي تم تحويله ',
             ]
         );
