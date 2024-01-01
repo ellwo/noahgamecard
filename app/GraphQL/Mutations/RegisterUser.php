@@ -3,8 +3,10 @@
 namespace App\GraphQL\Mutations;
 
 use App\Events\Registered;
+use App\Models\PhoneCode;
 use App\Models\Rassed;
 use App\Models\User;
+use DateTime;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
@@ -120,6 +122,21 @@ class RegisterUser
 
         $token=$user->createToken($args["tokenname"]??"newToken".request()->ip())->accessToken;
 
+        $date=new DateTime('now');
+        $date->modify('+59 minutes');
+
+       // $user=User::find(auth()->user()->id);
+        //$user->phone=$args['phone'];
+        //$user->save();
+
+        $codee=rand(rand(14465,24598550),87952)."";
+        $fcodee=substr($codee,0,4);
+        $code=PhoneCode::create([
+            'phone'=>$user->phone,
+            "code"=>$fcodee,
+            "ex_at"=>$date,
+            'user_id'=>$user->id
+        ]);
         Rassed::create([
             'user_id'=>$user->id
         ]);

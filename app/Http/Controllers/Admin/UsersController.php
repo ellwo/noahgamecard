@@ -238,6 +238,21 @@ class UsersController extends Controller
         else
         $user->ban(["expired_at"=>$request['expired_at'],'comment'=>$request["comment"]]);
 
+
+
+        UserNotification::create([
+            'title'=>'عذرا لقد تم حظر حسابك',
+            'body'=>$request['comment'],
+            'data'=>[
+                'type'=>'ban',
+                'action'=>'log_out'
+            ],
+            'user_id'=>$user->id,
+            "created_at" => date('Y/m/d H:i:s')
+
+            ]);
+
+
         return redirect()->route('admin.users.index');
         return view('admin.users.ban-user',compact('user'));
         # code...

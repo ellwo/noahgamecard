@@ -26,8 +26,8 @@ class UserNotificationObserver
 
         //$userNotification->data["created_at"]=$userNotification->created_at;
         //$userNotification->save();
-        $this->sendFMC($userNotification);
-        // SendNotifiyToUsers::dispatch($userNotification);
+        //$this->sendFMC($userNotification);
+         SendNotifiyToUsers::dispatch($userNotification);
     //    dispatch(new SendNotifiyToUsers($userNotification));
     }
 
@@ -59,6 +59,7 @@ class UserNotificationObserver
                 'icon' => 'https://backendapi.noahgamecard.com//images/64beac562b9ae1690217558.png',
                 'color' => '#f45342',
                 'sound' => 'default',
+                'image'=>$userNotification->img
             ],
         ]);
         // $r=FcmMessage::create()
@@ -74,7 +75,7 @@ class UserNotificationObserver
         // $title = $notification['title'];
         // $body = $notification['body'];
         $message = CloudMessage::fromArray([
-             'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
+            // 'token' => $userNotification->user->f_token()->orderBy('id','desc')->pluck('token')->first(),
             'notification' => $notification,
             'data' => $dataArr
         ])->withDefaultSounds()->withAndroidConfig($config)->withHighestPossiblePriority();
