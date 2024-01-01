@@ -13,7 +13,7 @@ class UserNotifiyTable extends Component
     public $type="";
     public $username=-1;
     public $search="";
-    public $delete_orderid="no";
+    public $deleteDept="no";
     public $status=-1;
     public $paginate_num=20;
     public $body="";
@@ -66,5 +66,22 @@ class UserNotifiyTable extends Component
     function setBody($body){
         $n= UserNotification::find($body);
         $this->body=$n->body;
+    }
+    function setDeleteDept($id) {
+        $this->deleteDept=$id;
+    }
+    public function cancelDelete(){
+        $this->deleteDept="no";
+    }
+    public function DeleteDept(){
+
+        if($this->deleteDept!="no") {
+        $dept=    UserNotification::find($this->deleteDept);
+        $dept->delete();
+            session()->flash('statt','ok');
+            session()->flash('message','تم الحذف');
+            $this->deleteDept="no";
+
+        }
     }
 }

@@ -1,9 +1,5 @@
 <section x-data='{open_delete:false}'>
     <div class="relative " x-data="{ show_resave_model: false,show_deny_model:false,body:'',img:'',sented:'تم الارسال',title:'',user:'' }">
-
-
-
-
         <div x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -214,10 +210,40 @@
                                     @endif
 
                                     {{--   body='{{ $n->body }}'; --}}
-                                <a wire:click='setBody({{$n->id}})' @click="img='{{ $n->img }}'; title='{{ $n->title }}'; user='{{ $n->user->name }}';   sented='{{ $n->sented==0?'معلقة':'تم الارسال' }}';  show_resave_model=true;"  class="mr-2 flex text-center justify-center  rounded-md cursor-pointer text-white mt-2 hover:text-dark p-2  dark:hover:text-gray-100">
+                                <a wire:click='setBody({{$n->id}})' @click="img='{{ $n->img }}'; title='{{ $n->title }}'; user='{{ $n->user->name }}';   sented='{{ $n->sented==0?'معلقة':'تم الارسال' }}';  show_resave_model=true;"  class="mr-2 flex text-center justify-center  rounded-md cursor-pointer  mt-2 hover:text-dark p-2  dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض المحتوى
                                 </a>
+
+                                <a wire:click="setDeleteDept({{$d->id}})" class="w-4 mr-2 mt-2 cursor-pointer transform hover:text-red-800 hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                    حذف
+                                </a>
+
+                                @if($deleteDept!="no" && $d->id==$deleteDept)
+
+                                <div x-data="{dpm{{$deleteDept}}: 1}">
+                                    <div  x-show="dpm{{$deleteDept}}" class="dialog">
+                                        <div class="dialog-content">
+                                            <div class="dialog-header dark:text-black">هل انت متاكد من الحذف
+                                            </div>
+                                            <div class="dialog-body lg:flex" dir="auto">
+                                                <h1 class="text-xl text-red-800 font-bold p-4 rounded-lg ">
+                                                   هل انت متأكد من الحذف ؟؟!!
+                                                </h1>
+                                            </div>
+                                            <div class="dialog-footer flex mx-auto">
+                                                <button type="button" class="btn btn-light"
+                                                        wire:click="setDeleteDept('no')"
+                                                        @click="dpm{{$deleteDept}}=!dpm{{$deleteDept}}">Cancel</button>
+                                                <button type="button" wire:click="DeleteDept({{$deleteDept}})"  class="btn hover:text-red-700 hover:border-red-700 bg-red-700 text-white">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
 
                                 </div>
                             </td>
