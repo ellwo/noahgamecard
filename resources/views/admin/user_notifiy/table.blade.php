@@ -222,7 +222,7 @@
                                     حذف
                                 </a>
 
-                                @if($deleteDept!="no" && $d->id==$deleteDept)
+                                @if($deleteDept!="no" && $n->id==$deleteDept)
 
                                 <div x-data="{dpm{{$deleteDept}}: 1}">
                                     <div  x-show="dpm{{$deleteDept}}" class="dialog">
