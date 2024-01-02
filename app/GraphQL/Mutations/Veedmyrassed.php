@@ -68,7 +68,7 @@ final class Veedmyrassed
             $paymentmethod = Paymentmethod::find($args["input"]["paymentmethod_id"]);
             $payinfo = Paymentinfo::create([
                 "paymentmethod_id" => $paymentmethod->id,
-                "code" => $args["input"]["code"],
+                "code" => $args["input"]["code"]??$user->phone,
                 "state" => 0,
                 'user_id'=>$user->id,
                 'coin_id' => $args['input']['coin_id'],
@@ -78,7 +78,7 @@ final class Veedmyrassed
             $ra = RassedActevity::create([
                 'amount' => 0,
                 "paymentinfo_id" => $payinfo->id,
-                "code" => $args["input"]["code"],
+                "code" => $payinfo->code,
                 "rassed_id" => $rassed->id,
                 'camount' => $args['input']['camount'],
                 'coin_id' => $args['input']['coin_id']
