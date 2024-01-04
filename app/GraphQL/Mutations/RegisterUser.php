@@ -43,10 +43,11 @@ class RegisterUser
 //            $username=Str::of($username)->lower();
             if(isset($args["email"]))
                 $username.=substr( $args["email"],0,strpos($args["email"],"@")-1);
-            else
+            else{
                 $username.=Str::random(4);
-                $username.=time();
-            $args["username"]=$username;
+                $username.=time();}
+
+            $args["username"]=substr($username,3,5);
         }
 
 
