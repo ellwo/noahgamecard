@@ -95,7 +95,7 @@
                 <div @click='$wire.set("note","رقم الحوالة غير صحيح");show_deny_model=false; $wire.d_accepte();' class="border hover:bg-gray-200 hover:text-info rounded-md cursor-pointer p-2  font-bold">
                     رقم الحوالة غير صحيح
                 </div>
-                <div @click='$wire.set("note","المبلغ غير صحيح") show_deny_model=false; $wire.d_accepte();' class="border rounded-md hover:bg-gray-200 hover:text-info cursor-pointer p-2  font-bold">
+                <div @click='$wire.set("note","المبلغ غير صحيح");show_deny_model=false; $wire.d_accepte();' class="border rounded-md hover:bg-gray-200 hover:text-info cursor-pointer p-2  font-bold">
                    المبلغ غير صحيح
                 </div>
                 </div>
