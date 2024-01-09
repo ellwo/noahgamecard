@@ -21,6 +21,7 @@ class SearchUserSelect extends Component
         if($user!=-1){
         $p=User::find($user);
         $this->query=$p->name??'';
+        $this->user=$user;
     }
     }
 
@@ -68,6 +69,7 @@ class SearchUserSelect extends Component
     {
         $this->user=$user;
         $this->user=User::find($this->user);
+        // $this->pro;
 
 
         return dd($this->user);

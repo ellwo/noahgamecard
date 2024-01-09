@@ -57,6 +57,8 @@ class RegisterUser
             $args["phone"]=preg_replace('/[^0-9]/','',$args["phone"]);
         }
 
+        $args["username"]= $args["phone"];
+
 
         $validator = \Illuminate\Support\Facades\Validator::make($args, [
             'name' => 'required',

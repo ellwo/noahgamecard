@@ -2,7 +2,7 @@
 
 
     <div class="max-w-4xl flex flex-col mx-auto  bg-white border rounded-lg dark:bg-dark ">
-        <div class="text-center  p-8 bg-info shadow-sm rounded-md text-3xl text-darker dark:text-light">
+        <div class="text-center  p-8 bg-info shadow-sm rounded-md text-xl text-darker dark:text-light">
             <h1>تغذية حساب عميل </h1>
         </div>
         <hr>
@@ -13,18 +13,22 @@
             <x-label :value="__('ادخل اسم المستخدم او رقم هاتفه او بريد الكتروني   ')" />
             <div>
                 @livewire('search-user-select',[
-                    'product_id'=>old('user_id')
+                    'user'=>old('user_id')
                 ])
                 @error('user_id')
                 <span class="text-danger font-bold"> {{ $message }}</span>
 
                 @enderror
             </div>
- 
+
              <div x-show="p_price!=0" class="flex px-4" >
             <span>العميل</span>
             <span class="font-bold text-red-600" x-text="p_price"></span>
         </div>
+        @error('user_id')
+        <span class="text-danger font-bold"> {{ $message }}</span>
+       @enderror
+
             <hr>
             <x-label :value="__('المبلغ ' )"/>
             <input  type="text"
@@ -38,6 +42,23 @@
            @error('amount')
            <span class="text-danger font-bold"> {{ $message }}</span>
           @enderror
+
+
+
+
+
+
+          <x-label :value="__('وسيلة الدفع ' )"/>
+
+          <select name="paymentmethod_id" class="bg-white w-2/3 text-dark text-md dark:text-white dark:bg-dark rounded-md bg-white" id="">
+            @foreach ($paymthods as $pay)
+                <option value="{{ $pay->id }}">
+                {{ $pay->name }}
+                </option>
+            @endforeach
+
+          </select>
+
 
 
            <x-label :value="__('رقم الحوالة\كود الايداع' )"/>

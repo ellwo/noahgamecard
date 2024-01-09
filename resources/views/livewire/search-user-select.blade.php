@@ -33,8 +33,9 @@
             wire:keydown.tab="resetselect"
             wire:keydown.arrow-up="decrementHighlight"
             wire:keydown.arrow-down="incrementHighlight"
-            wire:keydown.enter="selectContact"
-       class="form-control  w-full rounded-md p-2 dark:bg-primary-dark relative" />
+    {{-- @keyup.enter="$wire.set('user',{{ $pro['id'] }}); $wire.set('show_drop',0); $wire.set('query','{{$pro['name']}}');  p_price='{{$pro['name'].' '.$pro['phone'].' @'.$pro['username']}}'" --}}
+
+            class="form-control  w-full rounded-md p-2 dark:bg-primary-dark relative" />
 
        @if ($show_drop==1)
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coin;
 use App\Models\Paymentinfo;
+use App\Models\Paymentmethod;
 use App\Models\RassedActevity;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,7 +42,10 @@ class RassedActevityContoller extends Controller
     public function create()
     {
         //
-        return view('admin.rassed.veed_rassed');
+        $paymthods=Paymentmethod::where('id','!=',2)->get();
+        return view('admin.rassed.veed_rassed',[
+            'paymthods'=>$paymthods
+        ]);
     }
 
     /**
@@ -53,6 +57,8 @@ class RassedActevityContoller extends Controller
     public function store(Request $request)
     {
         //
+        // return dd($_POST);
+
         $this->validate($request,[
             'user_id'=>['required','exists:users,id'],
             'code'=>['required','unique:paymentinfos,code'],
@@ -65,8 +71,8 @@ class RassedActevityContoller extends Controller
             'state'=>0,
             'total_price'=>$request['amount'],
             'orginal_price'=>$request['amount'],
-            'code'=>$request['code'],
-            'paymentmethod_id'=>2,
+            'code'=>$request['code']??rand(14555,8755),
+            'paymentmethod_id'=>$request['paymentmethod_id'],
         ]);
 
         $user=User::find($request['user_id']);
