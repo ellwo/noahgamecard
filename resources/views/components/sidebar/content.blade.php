@@ -74,9 +74,13 @@ class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
 
    <x-sidebar.sublink title="تقرير المبيعات بحسب القسم " href="{{ route('depts',['report','report']) }}"
        :active="request()->routeIs('clients-provider')" />
-   <x-sidebar.sublink title="تقرير اجمالي التغذية والشراء " href="{{ route('order.reports') }}"
+       <x-sidebar.sublink title="تقرير اجمالي التغذية والشراء " href="{{ route('order.reports') }}"
        :active="request()->routeIs('order.reports')" />
 </x-sidebar.dropdown>
+<x-sidebar.sublink title="تقرير اجمالي التغذية بحسب وسيلى الدفع " href="{{ route('order.reports') }}"
+:active="request()->routeIs('order.reports')" />
+</x-sidebar.dropdown>
+
 @endcan
  @can('ادارة اسعار الصرف')
 
