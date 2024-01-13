@@ -48,10 +48,10 @@ class OfferController extends Controller
         $this->validate($request,[
             'product_id'=>['required','exists:products,id'],
             'to_date'=>['required','date'],
-            'p_dic'=>['required','dimensions']
+            'p_dic'=>['required','numeric']
         ]);
 
-        return dd($_POST);
+        // return dd($_POST);
         $offer=Offer::create([
             'product_id'=>$request['product_id'],
             'to_date'=>$request['to_date'],

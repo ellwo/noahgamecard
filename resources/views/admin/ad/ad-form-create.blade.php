@@ -1,14 +1,14 @@
 <x-dashe-layout>
 
 
-    <div class="max-w-4xl flex flex-col mx-auto  bg-white border rounded-lg dark:bg-dark ">
+    <div  x-data="{p_price:0}"  class="max-w-4xl flex flex-col mx-auto  bg-white border rounded-lg dark:bg-dark ">
         <div class="text-center p-8 bg-info shadow-sm rounded-md text-3xl text-darker dark:text-light">
             <h1>اضافة العروض</h1>
         </div>
         <hr>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form x-data="{p_price:0}"  dir="auto" method="POST" action="{{ route('offers.store') }}" class="mx-auto flex flex-col w-3/4  space-x-2 space-y-3  dark:bg-dark">
+        <form dir="auto" method="POST" action="{{ route('offers.store') }}" class="mx-auto flex flex-col w-3/4  space-x-2 space-y-3  dark:bg-dark">
 
             @csrf
             <x-label :value="__('اختيار المنتج  ')" />
