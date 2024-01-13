@@ -12,7 +12,7 @@ class OfferController extends Controller
 
     public function __construct()
 {
-    $this->middleware(['permission:ادارة العروض']);
+    // $this->middleware(['permission:ادارة العروض']);
 }
     /**
      * Display a listing of the resource.
