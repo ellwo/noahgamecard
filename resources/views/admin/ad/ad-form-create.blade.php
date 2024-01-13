@@ -24,7 +24,7 @@
         </div>
             <hr>
             <x-label :value="__('مقدار القيمة المراد تخفيضها' )"/>
-            <input  type="number" name="p_dic" class="rounded-md p-2 text-dark dark:bg-darker dark:text-light
+            <input  type="text" name="p_dic" class="rounded-md p-2 text-dark dark:bg-darker dark:text-light
             @error('p_dic')
             border-danger
            @enderror  focus:border-info ">
