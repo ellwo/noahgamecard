@@ -51,6 +51,7 @@ class OfferController extends Controller
             'p_dic'=>['required','dimensions']
         ]);
 
+
         $offer=Offer::create([
             'product_id'=>$request['product_id'],
             'to_date'=>$request['to_date'],

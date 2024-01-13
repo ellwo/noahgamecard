@@ -29,7 +29,7 @@
         </div>
             <hr>
             <x-label :value="__('مقدار القيمة المراد تخفيضها' )"/>
-            <input  type="text" name="p_dic" class="rounded-md p-2 text-dark dark:bg-darker dark:text-light
+            <input  type="text" name="p_dic" value="{{ old('p_dic') }}" class="rounded-md p-2 text-dark dark:bg-darker dark:text-light
             @error('p_dic')
             border-danger
            @enderror  focus:border-info ">
@@ -40,7 +40,7 @@
 
             <x-label :value="__('تاريخ انتهاء العرض')"/>
 
-            <input type="date" name="to_date" id=""/>
+            <input type="date" name="to_date" value="{{ old('to_date') }}" id=""/>
             @error('to_date')
             <span class="text-danger text-sm">{{ $message }}</span>
 
