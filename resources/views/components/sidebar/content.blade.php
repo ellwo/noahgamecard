@@ -78,7 +78,7 @@ class="flex flex-col flex-1 gap-4 px-3 overflow-y-scroll">
        :active="request()->routeIs('order.reports')" />
 
 <x-sidebar.sublink title="تقرير اجمالي التغذية بحسب وسيلة الدفع " href="{{ route('paymentmethod') }}"
-:active="request()->routeIs('paymentmethod.index')" />
+:active="request()->routeIs('paymentmethod.*')" />
 </x-sidebar.dropdown>
 
 @endcan
