@@ -15,13 +15,13 @@
                     <div class="flex border-b justify-start space-x-2">
                         <div class="w-1/3 text-lg py-2 font-bold mx-2 border-l-1 ">
                             اسم المزود</div>
-                        
+
                             <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
                             {{ $client->name }}</div>
                     </div>
                     <div class="flex border-b justify-start space-x-2">
-                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">الرصيد الحالي 
+                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">الرصيد الحالي
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
@@ -30,7 +30,7 @@
 
 
                     <div class="flex border-b justify-start space-x-2">
-                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">اجمالي  العمليات المنفذة بحسب سعر البيع  
+                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">اجمالي  العمليات المنفذة بحسب سعر البيع
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
@@ -40,7 +40,7 @@
 
 
                     <div class="flex border-b justify-start space-x-2">
-                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">اجمالي العمليات المنفذة بحسب سعر المزود 
+                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">اجمالي العمليات المنفذة بحسب سعر المزود
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
@@ -49,7 +49,7 @@
 
 
                     <div class="flex border-b justify-start space-x-2">
-                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">فارق سعر البيع عن سعر المزود 
+                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">فارق سعر البيع عن سعر المزود
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
@@ -67,12 +67,17 @@
 
 
                     <div class="flex  justify-start space-x-2">
-                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">عدد المنتجات المرتبطة 
+                        <div class="w-1/3 py-2 text-lg font-bold mx-2 border-l-1 ">عدد المنتجات المرتبطة
                         </div>
                         <div
                             class="w-2/3 mx-2 py-2 text-lg  dark:-light">
                             {{ $client->provider_products()->active()->count() }}</div>
                     </div>
+
+
+
+
+
                 </div>
             </div>
         </div>

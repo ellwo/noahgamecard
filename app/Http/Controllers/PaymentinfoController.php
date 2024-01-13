@@ -30,6 +30,8 @@ class PaymentinfoController extends Controller
         $veed_sum=Paymentinfo::where('state','=',2)->whereHas('rassed_actevity',function($r){
             $r->where('amount','>',0);
         })->sum('total_price');
+
+        
         $pay_sum=Paymentinfo::where('state','=',2)->whereHas('rassed_actevity',function($r){
             $r->where('amount','<',0);
         })->sum('total_price');

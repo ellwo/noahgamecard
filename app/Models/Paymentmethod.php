@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Alexmg86\LaravelSubQuery\Traits\LaravelSubQueryTrait;
 
 class Paymentmethod extends Model
 {
-    use HasFactory;
+    use HasFactory,LaravelSubQueryTrait;
 
     protected $fillable=[
         'name',
@@ -25,6 +26,10 @@ class Paymentmethod extends Model
     function paymentinfos(){
         return $this->hasMany(Paymentinfo::class);
     }
+    function rassed_actevities(){
+        return $this->hasManyThrough(RassedActevity::class,Paymentinfo::class);
+    }
+    
 
     function helping_steps(){
         return json_encode($this->help_steps);
