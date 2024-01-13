@@ -6,6 +6,8 @@
             <h1>اضافة العروض</h1>
         </div>
         <hr>
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
         <form x-data="{p_price:0}"  dir="auto" method="POST" action="{{ route('offers.store') }}" class="mx-auto flex flex-col w-3/4  space-x-2 space-y-3  dark:bg-dark">
 
             @csrf
@@ -14,7 +16,10 @@
             <div>
                 @livewire('search-product-select',)
             </div>
+            @error('product_id')
+            <span class="text-danger text-sm">{{ $message }}</span>
 
+            @enderror
 
 
             <hr>
@@ -28,6 +33,10 @@
             @error('p_dic')
             border-danger
            @enderror  focus:border-info ">
+           @error('p_dic')
+           <span class="text-danger text-sm">{{ $message }}</span>
+
+           @enderror
 
             <x-label :value="__('تاريخ انتهاء العرض')"/>
 
