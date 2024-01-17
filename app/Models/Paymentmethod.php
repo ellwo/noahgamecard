@@ -29,7 +29,7 @@ class Paymentmethod extends Model
     function rassed_actevities(){
         return $this->hasManyThrough(RassedActevity::class,Paymentinfo::class);
     }
-    
+
 
     function helping_steps(){
         return json_encode($this->help_steps);
@@ -41,7 +41,12 @@ class Paymentmethod extends Model
     /*/*
     @retuen bool
     */
-
+//active
+public function scopeActive($q)
+{
+    return $q->where('id','!=',5);
+    # code...
+}
     function check_code($code){
 
         if(strlen($code)>8){
