@@ -12,7 +12,7 @@ type Query {
    GetOrdersReport(toDate:String fromDate:String):OrderRespons @guard
    OrdersSumByCategory(toDate:String fromDate:String):OrderSumRespone @guard
    userpayorders(page:Int toDate:String fromDate:String search:String):OrderGruopByRespons @guard
-   paymentmethods:[Paymentmethod] @scope(name:"active") @get
+   paymentmethods:[Paymentmethod] @scope(name:"active") @all
    coins:[Coin]@all
    GetUserNotificationsPG(page:Int! ): UserNotificationPage @guard
    products:[Product]! @paginate(type: PAGINATOR) @orderBy(column: "created_at", direction: DESC)
