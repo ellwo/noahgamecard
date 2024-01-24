@@ -73,7 +73,7 @@ class ClientProvider extends Model
 
 
    $userid = 17577;
-   $mobile = "777777777";
+   $mobile = "778928008";
      $url = 'https://toponline.yemoney.net/api/yr/info';
      $transid="2303";
      $paras = [
@@ -96,12 +96,12 @@ class ClientProvider extends Model
     function genurateToken($transid)
     {
 
-   $username = "777777777";
+   $username = "778928008";
    $password = "Asd777777777";
    $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
    $chack_url='https://toponline.yemoney.net/api/yr/info';
 
-   $mobile = "777777777";
+   $mobile = "778928008";
         $hashPassword = md5($password);
         $token = md5($hashPassword . $transid . $username . $mobile);
         return $token;
