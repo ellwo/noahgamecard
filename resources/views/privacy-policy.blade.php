@@ -1,10 +1,10 @@
 
 <x-guest-layout>
     <div>
-        <h1>[JustCards] Payment Application Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> [Date]</p>
+        <h1>[Charge-Station] Payment Application Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> [{{ date('Y-m-d') }}]</p>
 
-        <p>At [JustCards], we are committed to protecting the privacy and security of our users. This Privacy Policy outlines how we collect, use, store, and protect the information you provide when using our payment application. By using our application, you consent to the practices described in this policy.</p>
+        <p>At [Charge-Station], we are committed to protecting the privacy and security of our users. This Privacy Policy outlines how we collect, use, store, and protect the information you provide when using our payment application. By using our application, you consent to the practices described in this policy.</p>
 
         <h2>1. Information We Collect</h2>
 
@@ -64,15 +64,16 @@
         <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
 
         <address>
-            <p>[JustCards]</p>
+            <p>[Charge-Station]</p>
             <p>[Address]</p>
             <p>[Email Address: info@noahgamecard.com]</p>
             <p>[Phone Number: +967 778-514-141]</p>
+
         </address>
 
         <p>By using our payment application, you acknowledge that you have read and understood this Privacy Policy and agree to our collection, use, and storage of your information as described herein.</p>
 
-        <p><em>Last updated: [Date]</em></p>
+        <p><em>Last updated: {{ date('Y-m-d') }}</em></p>
     </div>
 
 </x-guest-layout>
