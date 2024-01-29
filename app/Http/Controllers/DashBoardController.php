@@ -34,14 +34,18 @@ class DashBoardController extends Controller
 
     $users_count = User::count();
 
-    $orders_done = Paymentinfo::has('orders')->where('state', '=', 3)->count();
+    $orders_done = Paymentinfo::has('orders')->where('state', '=', 2)->count();
+
     $unread_orders_count = Paymentinfo::has('orders')->where('state', '=', 0)
       ->orWhere('state', '=', 1)->count();
+
+
     $d_count = Department::count();
     $products_count = Product::count();
     $unreaded_messages = Contact::where('reply', '=', null)->orWhere('reply', '=', '')->count();
-    $unread__veed_count = RassedActevity::where('amount', '=', 0)->whereHas('paymentinfo', function ($q) {
-      $q->where('state', '!=', 3);
+    $unread__veed_count = RassedActevity::where('amount', '=', 0)
+    ->whereHas('paymentinfo', function ($q) {
+      $q->where('state', '!=', 3)->where('state', '!=', 2);
     })->count();
 
 
