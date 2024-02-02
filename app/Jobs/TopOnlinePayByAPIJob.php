@@ -84,17 +84,30 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         try {
 
             $response = Http::get($this->pay_url, $queryParams);
+            Log::channel('top_online')->info($response);
+            Log::channel('top_online')->info($queryParams);
+            Log::channel('top_online')->info("payinfo -- ");
+            Log::channel('top_online')->info($paymentinfo);
+            Log::channel('top_online')->info("pay -------------------------------------------------------------------------------------------------------------- -- ");
+
+
         } catch (Exception  $e) {
 
-            throw $e;
+            // throw $e;
+            Log::channel('top_online')->info("Exception -- ");
+            Log::channel('top_online')->info($e->getMessage());
+            AdminNotify::create([
+                'title' => 'لم يستطع الاتصال بالمزود Toponline',
+                'body' => " يرجى التأكد من المزود نفسه توب اونلاين".$e->getMessage(),
+                'link' => route('paymentinfo.show', $this->paymentinfo)
+            ]);
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$response->json('resultDesc'));
+
             return;
         }
 
-        Log::channel('top_online')->info($response);
-        Log::channel('top_online')->info($queryParams);
-        // Log::channel('top_online')->info($response->json());
 
-        //       return dd($response);
+
         $result = $response->json(); // it's null
 
         if ($response->json() == null || $response->status() == 404) {
@@ -103,6 +116,8 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 'body' => " يرجى التأكد من المزود نفسه توب اونلاين",
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
+            $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$response->json('resultDesc'));
+
         } else if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
@@ -150,19 +165,36 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                     //Log::useFiles(storage_path().'/logs/top_online_log.log');
                     Log::channel('top_online')->info($check);
+                    Log::channel('top_online')->info('$check---------------');
+
                     // Log::channel('top_online')->info($check->json());
 
                     // Log::log(0,'',);
                 } catch (Exception $e) {
-                    throw $e;
+
+                    AdminNotify::create([
+                        'title' => 'لم يستطع التحقق من حالة العملية بالمزود Toponline',
+                        'body' => " يرجى التأكد من المزود نفسه توب اونلاين يرجى التأكد يدويا من حالة العملية ".$e->getMessage(),
+                        'link' => route('paymentinfo.show', $this->paymentinfo)
+                    ]);
+                    // $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$response->json('resultDesc'));
+                    Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                    Log::channel('top_online')->info($e->getMessage());
+
+
+                    // throw $e;
+                    return;
                 }
 
 
                 if ($check->json() == null || $check->status() == 404) {
                     AdminNotify::create([
                         'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                        'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
+                        'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                        'link' => route('paymentinfo.show', $this->paymentinfo)
+
                     ]);
+
                 } else {
 
                     $check = $check->json();
@@ -172,8 +204,22 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         try {
 
                             $check = $this->chack_state($transid)->json();
+                            Log::channel('check')->info("Check Status : ".$this->paymentinfo->id);
+                            Log::channel('top_online')->info("  Check  : ".$check);
+
                         } catch (Exception $e) {
-                            throw $e;
+
+                            AdminNotify::create([
+                                'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
+                                'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                                'link' => route('paymentinfo.show', $this->paymentinfo)
+
+                            ]);
+                            Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                            Log::channel('top_online')->info($e->getMessage());
+
+                            break;
+                            return;
                         }
                         $i++;
                     }
@@ -199,8 +245,14 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                             'link' => route('paymentinfo.show', $this->paymentinfo)
                         ]);
 
+                        Log::channel('check Sueccfulll')->info("Pa Sa Status : ".$this->paymentinfo->id);
+                        Log::channel('top_online')->info("  Check  : ".$check);
+                        Log::channel('top_online')->info("  pa  : ".$this->paymentinfo);
+
+
                         // "Player Name"
-                        $error_note = $check['note'];
+                        // $error_note = $check['note'];
+                        $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
 
                     } else {
                         //مالم معناته فشل الطلب بسبب ان الايدي خطاء
@@ -223,6 +275,10 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                             $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
                         else
                             $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
+
+                            Log::channel('top_online')->info("Check Reson : ".$this->paymentinfo->id);
+                            Log::channel('top_online')->info($check);
+
                     }
 
                     // $this->paymentinfo->update([

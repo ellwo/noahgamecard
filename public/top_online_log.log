@@ -1,0 +1,2951 @@
+[2023-10-31 23:38:15] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1446,"transid":"131","ref_id":4887734}  
+[2023-10-31 23:38:15] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '01456',
+  'type' => 'pubg',
+  'token' => '1bc6589528af83c32fd9429eaca8c29f',
+  'transid' => 131,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-10-31 23:39:10] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":1446,"transid":"132"}  
+[2023-10-31 23:39:10] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => 'e2822e8c973032f9aa251733a5d0ca61',
+  'transid' => 132,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-10-31 23:39:13] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"2554","reason":"رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية.","note":"325 شده بوبجي","transid":"132"}  
+[2023-10-31 23:45:05] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":1446,"transid":"133","ref_id":4887735}  
+[2023-10-31 23:45:05] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => 'a2dac8a5a0923a898599a8cb341d51fd',
+  'transid' => 133,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-10-31 23:45:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"60 شده بوبجي","transid":"133"}  
+[2023-10-31 23:50:47] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":1446,"transid":"134","ref_id":4887736}  
+[2023-10-31 23:50:47] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => 'f8125bddbd49c99fcc1a0d3e327e415f',
+  'transid' => 134,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-10-31 23:50:50] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"60 شده بوبجي","transid":"134"}  
+[2023-10-31 23:55:59] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":1446,"transid":"135","ref_id":4887737}  
+[2023-10-31 23:55:59] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => 'f313d6c32ff1276ec22afc599d56ee71',
+  'transid' => 135,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-10-31 23:56:02] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"60 شده بوبجي","transid":"135"}  
+[2023-11-01 00:06:01] production.INFO: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.17.10 (Ubuntu)</center>
+</body>
+</html>
+  
+[2023-11-01 00:06:01] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55553',
+  'type' => 'pubg',
+  'token' => '9c37a0134d6c8dd7a630768a3e5a1d94',
+  'transid' => 137,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 00:40:49] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية.","note":"60 شده بوبجي","transid":"141"}  
+[2023-11-01 01:47:20] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 362","remainAmount":362,"transid":"144"}  
+[2023-11-01 01:47:20] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '01234',
+  'type' => 'pubg',
+  'token' => '65435303cfe1d5967e4e009cb5ab6153',
+  'transid' => 144,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 01:56:21] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"573","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"فري فاير شحن مباشر - 100 جوهرة - Free Fire Dimonds","transid":"146"}  
+[2023-11-01 02:02:01] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":904,"transid":"147","ref_id":4887753}  
+[2023-11-01 02:02:01] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => '3f8ccb35f1bc4b48b87f6c08e560e344',
+  'transid' => 147,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 02:02:04] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"60 شده بوبجي","transid":"147"}  
+[2023-11-01 02:03:41] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":904,"transid":"148","ref_id":4887756}  
+[2023-11-01 02:03:41] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51422956208',
+  'type' => 'pubg',
+  'token' => '5b32394811ce611c93ec6907cf4cabf4',
+  'transid' => 148,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 02:03:44] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"542","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"60 شده بوبجي","transid":"148"}  
+[2023-11-01 02:09:56] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 362","remainAmount":362,"transid":"149"}  
+[2023-11-01 02:09:56] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51422956208',
+  'type' => 'pubg',
+  'token' => 'b8676fd41ae73a14e2e6571c01424e5c',
+  'transid' => 149,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 02:15:09] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 362","remainAmount":362,"transid":"151"}  
+[2023-11-01 02:15:09] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51422956208',
+  'type' => 'pubg',
+  'token' => 'faf5bc4ad0ad817bd1744b56ba31c410',
+  'transid' => 151,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 02:17:00] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 198 رقم الخدمة: 286 الشبكة: pubg","transid":"152"}  
+[2023-11-01 02:17:00] production.INFO: array (
+  'uniqcode' => '198',
+  'type' => 'pubg',
+  'playerid' => '51422956208',
+  'token' => '793761d48ebfd7a7d4e7a16f12903139',
+  'transid' => 152,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 02:18:56] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 362","remainAmount":362,"transid":"153"}  
+[2023-11-01 02:18:56] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51422956208',
+  'type' => 'pubg',
+  'token' => '4e6ee1ed65675411acee8738658c2e5b',
+  'transid' => 153,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-01 23:53:46] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":2554.125,"remainAmount":12362,"transid":"155","ref_id":4887809}  
+[2023-11-01 23:53:46] production.INFO: array (
+  'playerid' => '01234',
+  'type' => 'pubg',
+  'uniqcode' => '325',
+  'token' => '675fe46664b78916d73ab379ab80dc64',
+  'transid' => 155,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 00:25:47] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":5539.844999999999,"remainAmount":12362,"transid":"156","ref_id":4887813}  
+[2023-11-02 00:25:47] production.INFO: array (
+  'playerid' => '51422956208',
+  'uniqcode' => '690',
+  'type' => 'pubg',
+  'token' => '916c84a54ce7eda8793712883040dfc0',
+  'transid' => 156,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 00:25:50] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"5540","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"720 شده بوبجي","transid":"156"}  
+[2023-11-02 00:30:25] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":5539.844999999999,"remainAmount":6822,"transid":"157","ref_id":4887814}  
+[2023-11-02 00:30:25] production.INFO: array (
+  'playerid' => '51422956208',
+  'uniqcode' => '690',
+  'type' => 'pubg',
+  'token' => 'bd27c94d92dd5d10e5f8f5414c061483',
+  'transid' => 157,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 00:30:28] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"5540","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"720 شده بوبجي","transid":"157"}  
+[2023-11-02 20:52:41] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"159","ref_id":4887871}  
+[2023-11-02 20:52:41] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '90f606c31ef23c75b0c3b8f25ecc6894',
+  'transid' => 159,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:36:04] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":556,"remainAmount":1282,"transid":"160","ref_id":4887872}  
+[2023-11-02 21:36:04] production.INFO: array (
+  'uniqcode' => '80',
+  'type' => 'clashofclanz',
+  'playerid' => '0',
+  'token' => '5b4e8b11dde8ee70274005d3d319018c',
+  'transid' => 160,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:36:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"556","reason":"","note":"شحن كلاش اوف كلانس - (80 + 8)Gems","transid":"160"}  
+[2023-11-02 21:40:40] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":726,"transid":"160"}  
+[2023-11-02 21:40:40] production.INFO: array (
+  'uniqcode' => '80',
+  'type' => 'clashofclanz',
+  'playerid' => '0',
+  'token' => '5b4e8b11dde8ee70274005d3d319018c',
+  'transid' => 160,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:40:43] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"556","reason":"","note":"شحن كلاش اوف كلانس - (80 + 8)Gems","transid":"160"}  
+[2023-11-02 21:45:24] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":726,"transid":"161","ref_id":4887873}  
+[2023-11-02 21:45:24] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '312f8fb18c83a15e19284b0feed86097',
+  'transid' => 161,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:45:26] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":726,"transid":"160"}  
+[2023-11-02 21:45:26] production.INFO: array (
+  'uniqcode' => '80',
+  'type' => 'clashofclanz',
+  'playerid' => '0',
+  'token' => '5b4e8b11dde8ee70274005d3d319018c',
+  'transid' => 160,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:45:29] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"556","reason":"","note":"شحن كلاش اوف كلانس - (80 + 8)Gems","transid":"160"}  
+[2023-11-02 21:50:10] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 170","remainAmount":170,"transid":"162"}  
+[2023-11-02 21:50:10] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '8516a813619b2ee77354927e95a179a8',
+  'transid' => 162,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 21:50:12] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 170","remainAmount":170,"transid":"160"}  
+[2023-11-02 21:50:12] production.INFO: array (
+  'uniqcode' => '80',
+  'type' => 'clashofclanz',
+  'playerid' => '0',
+  'token' => '5b4e8b11dde8ee70274005d3d319018c',
+  'transid' => 160,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 22:47:35] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"163","ref_id":4887880}  
+[2023-11-02 22:47:35] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => 'a7a13d10721c6dd64f6414ca7d6ae7cd',
+  'transid' => 163,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 22:48:53] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":1282,"transid":"164","ref_id":4887881}  
+[2023-11-02 22:48:53] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '55555',
+  'type' => 'pubg',
+  'token' => 'd7ab383a77d6ca5bab8e7947931ab30d',
+  'transid' => 164,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-02 22:48:55] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"542","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"60 شده بوبجي","transid":"164"}  
+[2023-11-07 18:03:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":1282,"transid":"165"}  
+[2023-11-07 18:03:23] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '308042cdee949ae774a9af4b9265f8ce',
+  'transid' => 165,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 18:03:25] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"2554","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"325 شده بوبجي","transid":"165"}  
+[2023-11-07 18:31:17] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"166","ref_id":4888151}  
+[2023-11-07 18:31:17] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '2a4da06c03dc9435bb023cd512d57e50',
+  'transid' => 166,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 18:32:37] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"167","ref_id":4888152}  
+[2023-11-07 18:32:37] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '694fb95ce7ba95ebb1a70689407c6394',
+  'transid' => 167,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 19:10:15] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"168","ref_id":4888156}  
+[2023-11-07 19:10:15] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '359146e9f14db4d8f4fc123d93196817',
+  'transid' => 168,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 19:45:18] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"169","ref_id":4888159}  
+[2023-11-07 19:45:18] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => 'dd94aff2eccd3e84e6530534d68cba18',
+  'transid' => 169,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 21:10:56] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"170","ref_id":4888170}  
+[2023-11-07 21:10:56] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '677b8dbc25afd7079964480fa84c192f',
+  'transid' => 170,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-07 21:13:06] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":542.1,"remainAmount":1282,"transid":"171","ref_id":4888171}  
+[2023-11-07 21:13:06] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '4ca357d86448fa320d7e6ef089d55450',
+  'transid' => 171,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-08 23:13:04] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":542.1,"remainAmount":1282,"transid":"172","ref_id":4888240}  
+[2023-11-08 23:13:04] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51422956208',
+  'type' => 'pubg',
+  'token' => '2d34d596844558dd977367605dfdf6fe',
+  'transid' => 172,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-08 23:13:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"542","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"60 شده بوبجي","transid":"172"}  
+[2023-11-13 03:29:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":740,"transid":"174"}  
+[2023-11-13 03:29:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '5555555555555555555555555555',
+  'token' => 'e91355686c344c2517ec164c81868d90',
+  'transid' => 174,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:29:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"2554","reason":"تم الغاء العملية من نظام المزود تزامن مباشر! الرد: فشل تنفيذ العملية - Invalid Player ID - رقم لاعب غير صحيح‎","note":"325 شده بوبجي","transid":"174"}  
+[2023-11-13 03:29:50] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":560.4480000000001,"remainAmount":740,"transid":"175","ref_id":4888578}  
+[2023-11-13 03:29:50] production.INFO: array (
+  'type' => 'calloffdyoty',
+  'uniqcode' => '80',
+  'playerid' => '5555555555555555555555',
+  'token' => 'da94384bf1d18dd57cfab7121c5c262a',
+  'transid' => 175,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:29:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"560","reason":"","note":"80 نقطة","transid":"175"}  
+[2023-11-13 03:30:13] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"176"}  
+[2023-11-13 03:30:13] production.INFO: array (
+  'type' => 'salateenintgam',
+  'uniqcode' => '10',
+  'playerid' => '55555555522222222255555',
+  'token' => 'b1ea75d2dd152bb266e7ef8d18b69b05',
+  'transid' => 176,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:30:39] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"177"}  
+[2023-11-13 03:30:39] production.INFO: array (
+  'type' => 'likee',
+  'uniqcode' => '36',
+  'playerid' => '555555555555555555555',
+  'token' => '8e563520a46ce488b485575c153d041c',
+  'transid' => 177,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:35:48] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"175"}  
+[2023-11-13 03:35:48] production.INFO: array (
+  'type' => 'calloffdyoty',
+  'uniqcode' => '80',
+  'playerid' => '5555555555555555555555',
+  'token' => 'da94384bf1d18dd57cfab7121c5c262a',
+  'transid' => 175,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:35:50] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"178"}  
+[2023-11-13 03:35:50] production.INFO: array (
+  'type' => 'freefire',
+  'playerid' => '55555555222222222222222',
+  'uniqcode' => '110',
+  'token' => '6d81de3180720e641cbc06ebefd77f28',
+  'transid' => 178,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:35:52] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"179"}  
+[2023-11-13 03:35:52] production.INFO: array (
+  'type' => 'freefire',
+  'uniqcode' => '231',
+  'playerid' => '55555555555555555555555',
+  'token' => '3ba16b1155552ea3c8c94e032367545c',
+  'transid' => 179,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-13 03:35:54] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 180","remainAmount":180,"transid":"180"}  
+[2023-11-13 03:35:54] production.INFO: array (
+  'type' => 'freefire',
+  'uniqcode' => '231',
+  'playerid' => 'ggggggggggggggggg',
+  'token' => '1f98c3e17c718214e1c64765d1951239',
+  'transid' => 180,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-14 00:15:06] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 99 رقم الخدمة: 343 الشبكة: loardstelmble","transid":"181"}  
+[2023-11-14 00:15:06] production.INFO: array (
+  'type' => 'loardstelmble',
+  'uniqcode' => '99',
+  'playerid' => 'تااتنننااوتتتت',
+  'token' => 'd608241a50d40bd2ade7f37c0733ad87',
+  'transid' => 181,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-14 00:16:00] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 740","remainAmount":740,"transid":"182"}  
+[2023-11-14 00:16:00] production.INFO: array (
+  'type' => 'loardstelmble',
+  'uniqcode' => '300',
+  'playerid' => 'الاتتاتتتعتتت',
+  'token' => 'd40b9d8955cc781d47d0a7065c2467cc',
+  'transid' => 182,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-14 00:17:31] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 740","remainAmount":740,"transid":"183"}  
+[2023-11-14 00:17:31] production.INFO: array (
+  'type' => 'loardstelmble',
+  'uniqcode' => '1000',
+  'playerid' => 'الهالنافه',
+  'token' => '82b913a5c9961030917a2bec708072f4',
+  'transid' => 183,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-14 00:57:34] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":550.4399999999999,"remainAmount":740,"transid":"184","ref_id":4888668}  
+[2023-11-14 00:57:34] production.INFO: array (
+  'type' => 'salateenintgam',
+  'uniqcode' => '10',
+  'playerid' => '91567290845',
+  'token' => '321868b0c7aee61cdc56915d672ebcc1',
+  'transid' => 184,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-11-14 00:57:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"550","reason":"","note":"[ 10 ] من العملة السلطانية","transid":"184"}  
+[2023-11-14 00:58:35] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي. الرصيد المتبقي: 190","remainAmount":190,"transid":"184"}  
+[2023-11-14 00:58:35] production.INFO: array (
+  'type' => 'salateenintgam',
+  'uniqcode' => '10',
+  'playerid' => '91567290845',
+  'token' => '321868b0c7aee61cdc56915d672ebcc1',
+  'transid' => 184,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-15 21:04:48] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي","remainAmount":740,"transid":"188"}  
+[2023-12-15 21:04:48] production.INFO: array (
+  'type' => 'freefire',
+  'uniqcode' => '231',
+  'playerid' => '00000',
+  'token' => '7a32b9dde2d61cf284d4494c30b6344a',
+  'transid' => 188,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-23 21:43:31] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":740,"transid":"190"}  
+[2023-12-23 21:43:31] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => 'التااااا',
+  'type' => 'pubg',
+  'token' => 'b26f1a24a7bd586c0d6b9a48aca97632',
+  'transid' => 190,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-23 21:43:34] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":1,"mobile":"777777777","price":"2554","reason":"رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية.","note":"325 شده بوبجي","transid":"190"}  
+[2023-12-23 21:44:10] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":496.860654537,"remainAmount":740,"transid":"191","ref_id":4891756}  
+[2023-12-23 21:44:10] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '510000ا',
+  'type' => 'pubg',
+  'token' => 'c8a6b449a4c04e487e4e4e7c4650435f',
+  'transid' => 191,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-23 21:44:13] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"497","reason":"","note":"60 شده بوبجي","transid":"191"}  
+[2023-12-28 22:23:06] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - يجب ان يبدء الحقل بالرقم 5 فشلت العملية. ","price":521.1388000000001,"remainAmount":740,"transid":"192","ref_id":4892111}  
+[2023-12-28 22:23:06] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '00000',
+  'type' => 'pubg',
+  'token' => '04072eb02c0fa1b6fcf9e34b07924b34',
+  'transid' => 192,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-28 22:23:48] production.INFO: {"resultCode":"1658","resultDesc":"ليس لديك رصيد كافي","remainAmount":740,"transid":"193"}  
+[2023-12-28 22:23:48] production.INFO: array (
+  'type' => 'hidadijwaher',
+  'uniqcode' => '50',
+  'playerid' => '00000',
+  'token' => 'a3ecda13cdcc6dcfc59cc09b30135f0b',
+  'transid' => 193,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-31 20:27:39] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":46674.44999999792,"remainAmount":62740,"transid":"208","ref_id":4892266}  
+[2023-12-31 20:27:39] production.INFO: array (
+  'playerid' => '51012269908',
+  'uniqcode' => '8100',
+  'type' => 'pubg',
+  'token' => 'cf107b183e9a47eb3453e926c7ae7f70',
+  'transid' => 208,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-31 20:27:42] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"46674","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 8100 شده","transid":"208"}  
+[2023-12-31 20:29:24] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":11846.029999999471,"remainAmount":16066,"transid":"209","ref_id":4892267}  
+[2023-12-31 20:29:24] production.INFO: array (
+  'uniqcode' => '1800',
+  'type' => 'pubg',
+  'playerid' => '5483118796',
+  'token' => '9611faabee55878dcd0c3b3846042947',
+  'transid' => 209,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2023-12-31 20:29:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"11846","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 1800 شده","transid":"209"}  
+[2024-01-01 23:58:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-01 23:58:46] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-01 23:58:49] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 00:00:54] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 00:00:54] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 00:00:57] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 00:05:42] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 00:05:42] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 00:05:45] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 00:25:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 00:25:17] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 00:25:20] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 00:30:32] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 00:30:32] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 00:30:35] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 01:15:16] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 01:15:16] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 01:15:19] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 01:15:21] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 01:15:21] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 01:15:23] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 01:56:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 01:56:12] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 01:56:15] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 02:00:48] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 02:00:48] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 02:00:51] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 02:41:56] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 02:41:56] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 02:41:58] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 02:45:20] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 02:45:20] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 02:45:23] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 03:15:14] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 03:15:14] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 03:15:17] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 03:25:43] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 03:25:43] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 03:25:46] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 04:10:35] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 04:10:35] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 04:10:38] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 04:15:40] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 04:15:40] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 04:15:43] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 05:06:55] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 05:06:55] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 05:06:58] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 05:10:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 05:10:23] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 05:10:26] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 06:00:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 06:00:17] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 06:00:20] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 06:00:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 06:00:46] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 06:00:49] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 06:50:48] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 06:50:48] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 06:50:51] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 06:55:25] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 06:55:25] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 06:55:28] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 06:55:30] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 06:55:30] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 06:55:33] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 07:46:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 07:46:23] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 07:46:25] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 07:50:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 07:50:12] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 07:50:15] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 07:50:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 07:50:17] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 07:50:20] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 08:40:22] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 08:40:22] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 08:40:24] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 08:45:49] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 08:45:49] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 08:45:54] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 08:50:22] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 08:50:22] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 08:50:25] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 09:40:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 09:40:46] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 09:40:49] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 09:45:08] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 09:45:08] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 09:45:11] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 09:45:13] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 09:45:13] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 09:45:15] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 10:40:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 10:40:46] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 10:40:49] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 11:31:45] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 11:31:45] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 11:31:48] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 12:32:49] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 12:32:49] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 12:32:52] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 12:35:11] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":4220,"transid":"214"}  
+[2024-01-02 12:35:11] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-02 12:35:14] production.INFO: {"resultCode":"3000","resultDesc":"العملية غير مرتبطة في حسابك","transid":"214"}  
+[2024-01-02 13:26:29] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: رقم اللاعب \/ الاي دي  - غير محدد القيمة . فشلت العملية. ","price":496.76899999997795,"remainAmount":4220,"transid":"214","ref_id":4892331}  
+[2024-01-02 13:26:29] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '4',
+  'type' => 'pubg',
+  'token' => '7a9cd6e387a9d96b149d63a782fe51f0',
+  'transid' => 214,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-04 23:20:33] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 198 رقم الخدمة: 286 الشبكة: pubg","transid":"232"}  
+[2024-01-04 23:20:33] production.INFO: array (
+  'uniqcode' => '198',
+  'type' => 'pubg',
+  'playerid' => '00000',
+  'token' => 'f79005a5981176dbaeb0c15b9c8e96e2',
+  'transid' => 232,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-04 23:24:11] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 198 رقم الخدمة: 286 الشبكة: pubg","transid":"233"}  
+[2024-01-04 23:24:11] production.INFO: array (
+  'uniqcode' => '198',
+  'type' => 'pubg',
+  'playerid' => '00000',
+  'token' => 'c14288849f65da783d2bdc71e59b80dd',
+  'transid' => 233,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-04 23:28:00] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 198 رقم الخدمة: 286 الشبكة: pubg","transid":"234"}  
+[2024-01-04 23:28:00] production.INFO: array (
+  'uniqcode' => '198',
+  'type' => 'pubg',
+  'playerid' => '00000',
+  'token' => 'e6515855a8c9e6763bef3faeec31b21e',
+  'transid' => 234,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-04 23:29:42] production.INFO: {"resultCode":"1658","resultDesc":"الفئة التي اخترتها غير موجودة. الكود الموحد الذي ارسلته: 198 رقم الخدمة: 286 الشبكة: pubg","transid":"235"}  
+[2024-01-04 23:29:42] production.INFO: array (
+  'uniqcode' => '198',
+  'type' => 'pubg',
+  'playerid' => '00000',
+  'token' => '81194f8401a1a3b767bebfc9117657cb',
+  'transid' => 235,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-07 00:10:29] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":4220,"transid":"247","ref_id":4892656}  
+[2024-01-07 00:10:29] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '30fdb553145c6ab4a0bfc4608e08c9f8',
+  'transid' => 247,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-07 00:10:32] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"247"}  
+[2024-01-07 00:15:14] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":3755.99,"transid":"247"}  
+[2024-01-07 00:15:14] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '30fdb553145c6ab4a0bfc4608e08c9f8',
+  'transid' => 247,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-07 00:15:17] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"777777777","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"247"}  
+[2024-01-18 00:47:43] production.INFO: {"resultCode":"1008","resultDesc":"Token is incorrect!","transid":"249"}  
+[2024-01-18 00:47:43] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '146676546',
+  'type' => 'pubg',
+  'token' => '3211f48fdc92d6dbedf9f0e32f3088f6',
+  'transid' => 249,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-24 19:25:24] production.INFO: {"resultCode":"1008","resultDesc":"Token is incorrect!","transid":"253"}  
+[2024-01-24 19:25:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'aa17c1d1db77ca662f67b5e598f80c96',
+  'transid' => 253,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-24 19:27:18] production.INFO: {"resultCode":"1008","resultDesc":"Token is incorrect!","transid":"254"}  
+[2024-01-24 19:27:18] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '4dbb49650f17dab4affd7f6b3d8db557',
+  'transid' => 254,
+  'userid' => 17577,
+  'mobile' => '777777777',
+)  
+[2024-01-24 19:53:26] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":1911.48,"transid":"255","ref_id":4893632}  
+[2024-01-24 19:53:26] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '918613fe22719c718cce8e57e6ba247e',
+  'transid' => 255,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 19:53:29] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"255"}  
+[2024-01-24 19:55:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-468.6399999999994,"transid":"255"}  
+[2024-01-24 19:55:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '918613fe22719c718cce8e57e6ba247e',
+  'transid' => 255,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 19:55:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"255"}  
+[2024-01-24 20:00:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-468.6399999999994,"transid":"255"}  
+[2024-01-24 20:00:12] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '918613fe22719c718cce8e57e6ba247e',
+  'transid' => 255,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:00:15] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"255"}  
+[2024-01-24 20:05:08] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-468.6400000000003,"transid":"255"}  
+[2024-01-24 20:05:08] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '918613fe22719c718cce8e57e6ba247e',
+  'transid' => 255,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:05:11] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"255"}  
+[2024-01-24 20:05:53] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-468.6400000000003,"transid":"256","ref_id":4893633}  
+[2024-01-24 20:05:53] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '16fa4a9b0450fcce5a6f4c756cbad830',
+  'transid' => 256,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:05:56] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"256"}  
+[2024-01-24 20:10:30] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-2848.76,"transid":"257","ref_id":4893634}  
+[2024-01-24 20:10:30] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '6dea35ec1112c8b733bde89f7d79778a',
+  'transid' => 257,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:10:33] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"257"}  
+[2024-01-24 20:15:44] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-5228.879999999999,"transid":"258","ref_id":4893635}  
+[2024-01-24 20:15:44] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => '90a859a2e94528d5f4437ddf899d8a4b',
+  'transid' => 258,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:15:46] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"258"}  
+[2024-01-24 20:20:04] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-7609,"transid":"259","ref_id":4893636}  
+[2024-01-24 20:20:04] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => '4d227e84456709eeb03bbfc79279207d',
+  'transid' => 259,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:20:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"259"}  
+[2024-01-24 20:25:15] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-9989.12,"transid":"260","ref_id":4893642}  
+[2024-01-24 20:25:15] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => 'de94d50c8b8102fc4438f9573ed4bf15',
+  'transid' => 260,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:25:17] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"260"}  
+[2024-01-24 20:30:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-12369.240000000002,"transid":"256"}  
+[2024-01-24 20:30:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '16fa4a9b0450fcce5a6f4c756cbad830',
+  'transid' => 256,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:30:26] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"256"}  
+[2024-01-24 20:30:28] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-12369.240000000002,"transid":"257"}  
+[2024-01-24 20:30:28] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '6dea35ec1112c8b733bde89f7d79778a',
+  'transid' => 257,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:30:31] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"257"}  
+[2024-01-24 20:30:33] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-12369.240000000002,"transid":"258"}  
+[2024-01-24 20:30:33] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => '90a859a2e94528d5f4437ddf899d8a4b',
+  'transid' => 258,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:30:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"258"}  
+[2024-01-24 20:30:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-12369.240000000002,"transid":"259"}  
+[2024-01-24 20:30:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => '4d227e84456709eeb03bbfc79279207d',
+  'transid' => 259,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:30:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"259"}  
+[2024-01-24 20:30:42] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-12369.240000000002,"transid":"260"}  
+[2024-01-24 20:30:42] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => 'de94d50c8b8102fc4438f9573ed4bf15',
+  'transid' => 260,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 20:30:45] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"260"}  
+[2024-01-24 21:25:28] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-13059.490000000002,"transid":"261","ref_id":4893651}  
+[2024-01-24 21:25:28] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '56218498',
+  'token' => '9632ac078d797f2c0f0613567a111ed2',
+  'transid' => 261,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:25:31] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"261"}  
+[2024-01-24 21:30:12] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-15439.61,"transid":"262","ref_id":4893652}  
+[2024-01-24 21:30:12] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '64745360',
+  'token' => 'fad345b2b84f0bc917b0d371f4918ec9',
+  'transid' => 262,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:30:15] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"262"}  
+[2024-01-24 21:35:08] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-17819.73,"transid":"263","ref_id":4893655}  
+[2024-01-24 21:35:08] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '65821543',
+  'token' => 'b673c74379aff9e07d0f96b18f99f0ef',
+  'transid' => 263,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:35:11] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"263"}  
+[2024-01-24 21:40:51] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-18283.74,"transid":"264","ref_id":4893656}  
+[2024-01-24 21:40:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '65821543',
+  'token' => 'a2d60053ce2667fccbca4fa3b4de6ec6',
+  'transid' => 264,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:40:54] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"264"}  
+[2024-01-24 21:45:43] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"261"}  
+[2024-01-24 21:45:43] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '56218498',
+  'token' => '9632ac078d797f2c0f0613567a111ed2',
+  'transid' => 261,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:45:46] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"261"}  
+[2024-01-24 21:45:48] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"262"}  
+[2024-01-24 21:45:48] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '64745360',
+  'token' => 'fad345b2b84f0bc917b0d371f4918ec9',
+  'transid' => 262,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:45:51] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"262"}  
+[2024-01-24 21:50:33] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"263"}  
+[2024-01-24 21:50:33] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '65821543',
+  'token' => 'b673c74379aff9e07d0f96b18f99f0ef',
+  'transid' => 263,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:50:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"263"}  
+[2024-01-24 21:55:18] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"264"}  
+[2024-01-24 21:55:18] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '65821543',
+  'token' => 'a2d60053ce2667fccbca4fa3b4de6ec6',
+  'transid' => 264,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:55:21] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه
+@<br>الرد
+<br>@","transid":"264"}  
+[2024-01-24 21:55:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"262"}  
+[2024-01-24 21:55:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '64745360',
+  'token' => 'fad345b2b84f0bc917b0d371f4918ec9',
+  'transid' => 262,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:55:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"262"}  
+[2024-01-24 21:55:29] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-18747.75,"transid":"263"}  
+[2024-01-24 21:55:29] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '65821543',
+  'token' => 'b673c74379aff9e07d0f96b18f99f0ef',
+  'transid' => 263,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-24 21:55:32] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه
+@<br>الرد
+<br>@","transid":"263"}  
+[2024-01-25 23:00:40] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-18747.75,"transid":"266","ref_id":4893724}  
+[2024-01-25 23:00:40] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '09b909ddc4f4809cf15e29aa10838e25',
+  'transid' => 266,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-25 23:00:43] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"266"}  
+[2024-01-25 23:01:41] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-21127.87,"transid":"266"}  
+[2024-01-25 23:01:41] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '09b909ddc4f4809cf15e29aa10838e25',
+  'transid' => 266,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-25 23:01:44] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"266"}  
+[2024-01-25 23:05:15] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-21127.87,"transid":"266"}  
+[2024-01-25 23:05:15] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '09b909ddc4f4809cf15e29aa10838e25',
+  'transid' => 266,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-25 23:05:17] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"266"}  
+[2024-01-26 00:55:06] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-21127.87,"transid":"268","ref_id":4893734}  
+[2024-01-26 00:55:06] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '2c28917a6de2a6fd9e2e41d775c5c39c',
+  'transid' => 268,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 00:55:09] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"268"}  
+[2024-01-26 01:00:26] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-23507.99,"transid":"268"}  
+[2024-01-26 01:00:26] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '2c28917a6de2a6fd9e2e41d775c5c39c',
+  'transid' => 268,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 01:00:29] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"268"}  
+[2024-01-26 01:01:26] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-23507.99,"transid":"269","ref_id":4893735}  
+[2024-01-26 01:01:26] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65821543',
+  'token' => '9ace6aa58fac2c3e198d267617d908f5',
+  'transid' => 269,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 01:01:29] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"269"}  
+[2024-01-26 01:23:55] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-25888.11,"transid":"270","ref_id":4893740}  
+[2024-01-26 01:23:55] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd925aa2dbb74f68dfe1227ec33330707',
+  'transid' => 270,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 01:23:58] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"270"}  
+[2024-01-26 03:30:24] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-28268.23,"transid":"271","ref_id":4893743}  
+[2024-01-26 03:30:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '85b21b02ae649b47d674f6584c49e405',
+  'transid' => 271,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 03:30:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"271"}  
+[2024-01-26 03:35:29] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-30648.35,"transid":"271"}  
+[2024-01-26 03:35:29] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '85b21b02ae649b47d674f6584c49e405',
+  'transid' => 271,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 03:35:32] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"271"}  
+[2024-01-26 03:40:25] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-30648.35,"transid":"271"}  
+[2024-01-26 03:40:25] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '85b21b02ae649b47d674f6584c49e405',
+  'transid' => 271,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 03:40:28] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"271"}  
+[2024-01-26 03:45:40] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-30648.35,"transid":"271"}  
+[2024-01-26 03:45:40] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '85b21b02ae649b47d674f6584c49e405',
+  'transid' => 271,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 03:45:43] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"271"}  
+[2024-01-26 04:54:44] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-30648.35,"transid":"272","ref_id":4893745}  
+[2024-01-26 04:54:44] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 04:54:47] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 04:55:45] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 04:55:45] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 04:55:48] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:00:13] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:00:13] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:00:16] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:05:05] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:05:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:05:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:10:26] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:10:26] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:10:28] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:15:42] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:15:42] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:15:45] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:20:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:20:12] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:20:15] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:25:04] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:25:04] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:25:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:30:32] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:30:32] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:30:35] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:35:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:35:17] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:35:20] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:40:27] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:40:27] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:40:30] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:45:26] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:45:26] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:45:28] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"272"}  
+[2024-01-26 05:50:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-33028.47,"transid":"272"}  
+[2024-01-26 05:50:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5bc2f82043e8d490638fc5585c98b031',
+  'transid' => 272,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-26 05:50:39] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"272"}  
+[2024-01-27 00:24:41] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-33028.47,"transid":"275","ref_id":4893808}  
+[2024-01-27 00:24:41] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '1a241db30fda36c7b0c671ea854b72ee',
+  'transid' => 275,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 00:24:44] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"275"}  
+[2024-01-27 00:24:45] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-35408.590000000004,"transid":"276","ref_id":4893809}  
+[2024-01-27 00:24:45] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '4ad9fcf708677a0cadbf0b57d1def729',
+  'transid' => 276,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 00:24:48] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"276"}  
+[2024-01-27 00:25:43] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-37788.71,"transid":"275"}  
+[2024-01-27 00:25:43] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '1a241db30fda36c7b0c671ea854b72ee',
+  'transid' => 275,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 00:25:46] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"275"}  
+[2024-01-27 00:30:20] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-37788.71,"transid":"276"}  
+[2024-01-27 00:30:20] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '4ad9fcf708677a0cadbf0b57d1def729',
+  'transid' => 276,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 00:30:22] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"276"}  
+[2024-01-27 00:30:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-37788.71,"transid":"275"}  
+[2024-01-27 00:30:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '1a241db30fda36c7b0c671ea854b72ee',
+  'transid' => 275,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 00:30:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"275"}  
+[2024-01-27 18:50:21] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":496.76899999997795,"remainAmount":-37788.71,"transid":"277","ref_id":4893840}  
+[2024-01-27 18:50:21] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '5942829848',
+  'type' => 'pubg',
+  'token' => 'c3baec3a7c537e453b075be5e886f93f',
+  'transid' => 277,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:50:24] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":496.76899999997795,"remainAmount":-38285.479999999996,"transid":"278","ref_id":4893841}  
+[2024-01-27 18:50:24] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '5942829848',
+  'type' => 'pubg',
+  'token' => '57516caf0780bf377d9382343dca4ea3',
+  'transid' => 278,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:50:24] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 60 شده","transid":"277"}  
+[2024-01-27 18:50:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 60 شده","transid":"278"}  
+[2024-01-27 18:50:48] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":496.76899999997795,"remainAmount":-38782.25,"transid":"279","ref_id":4893842}  
+[2024-01-27 18:50:48] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51933081265',
+  'type' => 'pubg',
+  'token' => '8ccafd81557101cc5e7dfc8d054eaf85',
+  'transid' => 279,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:50:51] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 60 شده","transid":"279"}  
+[2024-01-27 18:51:20] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-39279.02,"transid":"277"}  
+[2024-01-27 18:51:20] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '5942829848',
+  'type' => 'pubg',
+  'token' => 'c3baec3a7c537e453b075be5e886f93f',
+  'transid' => 277,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:51:23] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 60 شده","transid":"277"}  
+[2024-01-27 18:55:28] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-39279.02,"transid":"278"}  
+[2024-01-27 18:55:28] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '5942829848',
+  'type' => 'pubg',
+  'token' => '57516caf0780bf377d9382343dca4ea3',
+  'transid' => 278,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:55:31] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"تم تجهيز العملية من نظام المزود تزامن مباشر! الرد: تم تنفيذ العملية بنجاح - ID : 5942829848
+Name :ياعــمs
+[SCcUeetj2D28E5E3Z4]
+Amount :60 UC بوبجي العالميه 60 شده","transid":"278"}  
+[2024-01-27 18:55:33] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-39279.02,"transid":"279"}  
+[2024-01-27 18:55:33] production.INFO: array (
+  'uniqcode' => '60',
+  'playerid' => '51933081265',
+  'type' => 'pubg',
+  'token' => '8ccafd81557101cc5e7dfc8d054eaf85',
+  'transid' => 279,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 18:55:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"496.77","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"تم تجهيز العملية من نظام المزود تزامن مباشر! الرد: تم تنفيذ العملية بنجاح - ID : 51933081265
+Name :ايڕين
+[SCcUe3t32523EdE7d8]
+Amount :60 UC بوبجي العالميه 60 شده","transid":"279"}  
+[2024-01-27 20:48:04] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-39279.02,"transid":"281","ref_id":4893851}  
+[2024-01-27 20:48:04] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '42548547',
+  'token' => 'c215b92a74025d6d2c86592126cabdee',
+  'transid' => 281,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 20:48:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"281"}  
+[2024-01-27 20:54:22] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":1064.5049999999526,"remainAmount":-39743.03,"transid":"282","ref_id":4893854}  
+[2024-01-27 20:54:22] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '2000',
+  'playerid' => '42548547',
+  'token' => 'a97e75f9174c8e982afd73a6b2ac36a3',
+  'transid' => 282,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 20:54:24] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"1064.51","reason":"","note":"يويو 2000 كونزه","transid":"282"}  
+[2024-01-27 20:55:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-40807.54,"transid":"282"}  
+[2024-01-27 20:55:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '2000',
+  'playerid' => '42548547',
+  'token' => 'a97e75f9174c8e982afd73a6b2ac36a3',
+  'transid' => 282,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 20:55:26] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"1064.51","reason":"","note":"يويو 2000 كونزه","transid":"282"}  
+[2024-01-27 21:00:08] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-40807.54,"transid":"282"}  
+[2024-01-27 21:00:08] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '2000',
+  'playerid' => '42548547',
+  'token' => 'a97e75f9174c8e982afd73a6b2ac36a3',
+  'transid' => 282,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 21:00:11] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"1064.51","reason":"","note":"يويو 2000 كونزه","transid":"282"}  
+[2024-01-27 21:05:49] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-40807.54,"transid":"282"}  
+[2024-01-27 21:05:49] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '2000',
+  'playerid' => '42548547',
+  'token' => 'a97e75f9174c8e982afd73a6b2ac36a3',
+  'transid' => 282,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 21:05:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"1064.51","reason":"","note":"يويو 2000 كونزه
+@<br>الرد
+<br>@","transid":"282"}  
+[2024-01-27 22:15:30] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-40807.54,"transid":"283","ref_id":4893860}  
+[2024-01-27 22:15:30] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '42548547',
+  'token' => '1b728505fd51e97c36d3a5fc9e200bf2',
+  'transid' => 283,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 22:15:33] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"283"}  
+[2024-01-27 23:38:31] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: الخدمة المطلوبة غير متوفرة حاليا , يمكنكم طلب فئة أو خدمة اخرى فشلت العملية. ","price":279.30999999998755,"remainAmount":-41271.55,"transid":"284","ref_id":4893864}  
+[2024-01-27 23:38:31] production.INFO: array (
+  'type' => 'pubg',
+  'uniqcode' => '30',
+  'playerid' => '5368934476',
+  'token' => '8590450bf748a19f5e6595d669522ea0',
+  'transid' => 284,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 23:38:35] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: الخدمة المطلوبة غير متوفرة حاليا , يمكنكم طلب فئة أو خدمة اخرى فشلت العملية. ","price":279.30999999998755,"remainAmount":-41271.55,"transid":"285","ref_id":4893865}  
+[2024-01-27 23:38:35] production.INFO: array (
+  'type' => 'pubg',
+  'uniqcode' => '30',
+  'playerid' => '5368934476',
+  'token' => 'faebd008aef067bbb93058273465499a',
+  'transid' => 285,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-27 23:38:38] production.INFO: {"resultCode":"1220","resultDesc":"لم تتم العملية بنجاح!. السبب: الخدمة المطلوبة غير متوفرة حاليا , يمكنكم طلب فئة أو خدمة اخرى فشلت العملية. ","price":279.30999999998755,"remainAmount":-41271.55,"transid":"286","ref_id":4893866}  
+[2024-01-27 23:38:38] production.INFO: array (
+  'type' => 'pubg',
+  'uniqcode' => '30',
+  'playerid' => '5368934476',
+  'token' => '57e2e9b810b379de43d973cc9ccc30ff',
+  'transid' => 286,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:30:51] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-41735.56,"transid":"289","ref_id":4893974}  
+[2024-01-29 19:30:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:30:54] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-29 19:35:11] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-44115.68,"transid":"289"}  
+[2024-01-29 19:35:11] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:35:14] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-29 19:40:34] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-44115.68,"transid":"289"}  
+[2024-01-29 19:40:34] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:40:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-29 19:45:39] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-44115.68,"transid":"289"}  
+[2024-01-29 19:45:39] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:45:42] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-29 19:50:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-44115.68,"transid":"289"}  
+[2024-01-29 19:50:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:50:26] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-29 19:55:38] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-44115.68,"transid":"289"}  
+[2024-01-29 19:55:38] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '2d11107122bc06764b0a1c36412b5bfe',
+  'transid' => 289,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-29 19:55:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"289"}  
+[2024-01-30 21:47:16] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":2773.0499999999997,"remainAmount":-44115.68,"transid":"299","ref_id":4894043}  
+[2024-01-30 21:47:16] production.INFO: array (
+  'type' => 'razergold',
+  'uniqcode' => '5',
+  'mobile' => '778928008',
+  'token' => '51fb7fd91db1b95c796ee84df982e2d3',
+  'transid' => 299,
+  'userid' => 17577,
+)  
+[2024-01-30 21:47:19] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2773.05","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"الفئة:بطاقة ريزر عالمي - Razer Gold Global $5","transid":"299"}  
+[2024-01-30 21:52:54] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-46888.73,"transid":"300","ref_id":4894044}  
+[2024-01-30 21:52:54] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 21:52:57] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"300"}  
+[2024-01-30 21:53:56] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-47352.740000000005,"transid":"300"}  
+[2024-01-30 21:53:56] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 21:53:59] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"300"}  
+[2024-01-30 21:55:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-47352.740000000005,"transid":"300"}  
+[2024-01-30 21:55:17] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 21:55:20] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"300"}  
+[2024-01-30 22:00:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-47352.740000000005,"transid":"300"}  
+[2024-01-30 22:00:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 22:00:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"300"}  
+[2024-01-30 22:05:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-47352.740000000005,"transid":"300"}  
+[2024-01-30 22:05:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 22:05:26] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"300"}  
+[2024-01-30 22:10:52] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-47352.74,"transid":"300"}  
+[2024-01-30 22:10:52] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '48d2f64901b0076a6c7aaaf62bab75e8',
+  'transid' => 300,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-01-30 22:10:57] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه
+@<br>الرد
+<br>@","transid":"300"}  
+[2024-02-01 01:34:31] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 01:34:31] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 01:34:34] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 01:34:37] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 01:34:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 01:34:40] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:02:06] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:02:06] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:02:06] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:02:06] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:02:07] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:02:07] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:02:09] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:02:09] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:02:09] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:05:51] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:05:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:05:54] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:05:55] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:05:55] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:05:58] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:06:00] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:06:00] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:06:03] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:56:32] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:56:32] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:56:32] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 02:56:32] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 02:56:35] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 02:56:35] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 03:00:05] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 03:00:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 03:00:07] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"303"}  
+[2024-02-01 03:00:09] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 03:00:09] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 03:00:12] production.INFO: {"resultCode":"1006","resultDesc":"User not activated!","transid":"302"}  
+[2024-02-01 03:51:02] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-47353,"transid":"302","ref_id":4894112}  
+[2024-02-01 03:51:02] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-49733.12,"transid":"303","ref_id":4894113}  
+[2024-02-01 03:51:02] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 03:51:02] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 03:51:05] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 03:51:05] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 03:55:05] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 03:55:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 03:55:07] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:00:48] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:00:48] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:00:51] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:05:20] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:05:20] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:05:23] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:10:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:10:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:10:26] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:15:05] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:15:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:15:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:20:47] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:20:47] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:20:49] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:25:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:25:46] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:25:49] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:30:28] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:30:28] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:30:31] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:35:32] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:35:32] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:35:35] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:40:52] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:40:52] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:40:55] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:45:40] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:45:40] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:45:43] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 04:50:21] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 04:50:21] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:50:24] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 04:55:51] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 04:55:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 04:55:54] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:00:31] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:00:31] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:00:34] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:05:47] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:05:47] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:05:50] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:10:25] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:10:25] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:10:28] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:15:46] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:15:46] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:15:49] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:20:16] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:20:16] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:20:19] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:25:41] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:25:41] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:25:44] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:30:28] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:30:28] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:30:31] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:35:50] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:35:50] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:35:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:40:13] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:40:13] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:40:16] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:45:04] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:45:04] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:45:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 05:50:34] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 05:50:34] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:50:37] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 05:55:30] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 05:55:30] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 05:55:34] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:00:34] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:00:34] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:00:37] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:05:06] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:05:06] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:05:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:10:33] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:10:33] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:10:35] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:15:07] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:15:07] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:15:10] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:20:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:20:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:20:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:25:43] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:25:43] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:25:46] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:30:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:30:12] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:30:15] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:35:34] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:35:34] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:35:37] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:40:20] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:40:20] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:40:23] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:45:18] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:45:18] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:45:22] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 06:50:51] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 06:50:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:50:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 06:55:33] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 06:55:33] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 06:55:36] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:00:38] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:00:38] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:00:41] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:05:14] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:05:14] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:05:17] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:10:10] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:10:10] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:10:14] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:15:50] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:15:50] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:15:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:20:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:20:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:20:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:25:53] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:25:53] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:25:56] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:30:51] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:30:51] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:30:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:35:23] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:35:23] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:35:25] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:40:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:40:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:40:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:45:44] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:45:44] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:45:47] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 07:50:17] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 07:50:17] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:50:19] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 07:55:10] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 07:55:10] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 07:55:13] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:00:30] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:00:30] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:00:34] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:05:21] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:05:21] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:05:24] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:10:35] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:10:35] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:10:39] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:15:38] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:15:38] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:15:41] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:20:50] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:20:50] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:20:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:25:29] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:25:29] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:25:33] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:30:07] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:30:07] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:30:09] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:35:22] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:35:22] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:35:25] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:40:37] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:40:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:40:41] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:45:29] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:45:29] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:45:33] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"302"}  
+[2024-02-01 08:50:08] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:50:08] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:50:11] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"303"}  
+[2024-02-01 08:55:16] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"302"}  
+[2024-02-01 08:55:16] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => 'd47473431d374a65036ab7859d1f5426',
+  'transid' => 302,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:55:19] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"302"}  
+[2024-02-01 08:55:21] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-52113.24,"transid":"303"}  
+[2024-02-01 08:55:21] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '65164787',
+  'token' => '0c86d85b8beea5a38056445da92d199a',
+  'transid' => 303,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 08:55:24] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه
+@<br>الرد
+<br>@","transid":"303"}  
+[2024-02-01 11:47:50] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ!ً under proccess","price":4749.329999999788,"remainAmount":-52113.24,"transid":"307","ref_id":4894117}  
+[2024-02-01 11:47:50] production.INFO: array (
+  'playerid' => '5665469474',
+  'type' => 'pubg',
+  'uniqcode' => '660',
+  'token' => '810ccc04ae64c72222291d79a29c81bb',
+  'transid' => 307,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 11:47:53] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"4749.33","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 660 شده","transid":"307"}  
+[2024-02-01 11:48:45] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-56862.57,"transid":"307"}  
+[2024-02-01 11:48:45] production.INFO: array (
+  'playerid' => '5665469474',
+  'type' => 'pubg',
+  'uniqcode' => '660',
+  'token' => '810ccc04ae64c72222291d79a29c81bb',
+  'transid' => 307,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 11:48:48] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"4749.33","reason":"تم استلام طلبك جاري التنفيذ under proccess","note":"بوبجي العالميه 660 شده","transid":"307"}  
+[2024-02-01 21:42:37] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-104122.57,"transid":"324","ref_id":4894170}  
+[2024-02-01 21:42:37] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '94e5002a9fb621967e14fa2fce0470b0',
+  'transid' => 324,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 21:42:40] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"324"}  
+[2024-02-01 21:45:21] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-104586.58,"transid":"324"}  
+[2024-02-01 21:45:21] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '94e5002a9fb621967e14fa2fce0470b0',
+  'transid' => 324,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 22:35:05] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-104586.58,"transid":"324"}  
+[2024-02-01 22:35:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => '94e5002a9fb621967e14fa2fce0470b0',
+  'transid' => 324,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-01 22:35:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه
+@<br>الرد
+<br>@","transid":"324"}  
+[2024-02-02 21:15:05] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":464.0149999999793,"remainAmount":-127312.01,"transid":"327","ref_id":4894211}  
+[2024-02-02 21:15:05] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => 'f6d7dc1eb97e857adb7192c2d94c8bc7',
+  'transid' => 327,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:15:08] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"327"}  
+[2024-02-02 21:20:18] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-127776.01999999999,"transid":"327"}  
+[2024-02-02 21:20:18] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => 'f6d7dc1eb97e857adb7192c2d94c8bc7',
+  'transid' => 327,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:20:21] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"327"}  
+[2024-02-02 21:25:12] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-127776.01999999999,"transid":"327"}  
+[2024-02-02 21:25:12] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => 'f6d7dc1eb97e857adb7192c2d94c8bc7',
+  'transid' => 327,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:25:15] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه","transid":"327"}  
+[2024-02-02 21:30:32] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-127776.02,"transid":"327"}  
+[2024-02-02 21:30:32] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '1000',
+  'playerid' => '66749129',
+  'token' => 'f6d7dc1eb97e857adb7192c2d94c8bc7',
+  'transid' => 327,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:30:34] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":1,"isBan":0,"mobile":"778928008","price":"464.01","reason":"","note":"يويو 1000 كونزه
+@<br>الرد
+<br>@","transid":"327"}  
+[2024-02-02 21:58:13] production.INFO: {"resultCode":"-2","resultDesc":"تم استلام طلبك جاري التنفيذ","price":2380.1239999998943,"remainAmount":-127776.02,"transid":"328","ref_id":4894215}  
+[2024-02-02 21:58:13] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5f9f4c3580ea4058d09eaa870b90ad11',
+  'transid' => 328,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:58:16] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"328"}  
+[2024-02-02 21:59:14] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-130156.14,"transid":"328"}  
+[2024-02-02 21:59:14] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5f9f4c3580ea4058d09eaa870b90ad11',
+  'transid' => 328,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 21:59:17] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"328"}  
+[2024-02-02 22:00:24] production.INFO: {"resultCode":"1017","resultDesc":"Transaction id must be unique for every operation!","remainAmount":-130156.14,"transid":"328"}  
+[2024-02-02 22:00:24] production.INFO: array (
+  'type' => 'yo_o_y_ou',
+  'uniqcode' => '5150',
+  'playerid' => '57647137',
+  'token' => '5f9f4c3580ea4058d09eaa870b90ad11',
+  'transid' => 328,
+  'userid' => 17577,
+  'mobile' => '778928008',
+)  
+[2024-02-02 22:00:27] production.INFO: {"resultCode":"0","resultDesc":"success","isDone":0,"isBan":0,"mobile":"778928008","price":"2380.12","reason":"","note":"يويو 5150 كونزه","transid":"328"}  

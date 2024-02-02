@@ -16,6 +16,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Log;
 class CheckTopOnlineProssce implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -55,7 +56,18 @@ class CheckTopOnlineProssce implements ShouldQueue
 
         }
         catch(Exception $e){
-            throw $e;
+          //  throw $e;
+            AdminNotify::create([
+                'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '.$e->getMessage()
+               ]);
+
+               Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+               Log::channel('top_online')->info($e->getMessage());
+               Log::channel('top_online')->info($check);
+
+
+
         }
 
 
@@ -65,21 +77,38 @@ class CheckTopOnlineProssce implements ShouldQueue
                 'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
                ]);
 
+               Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+               Log::channel('top_online')->info($e->getMessage());
+               Log::channel('top_online')->info($check);
+
         }
         else{
 
             $check=$check->json();
 
             $i=0;
-            while($check['isBan']==0){
-          
-                try{
-                    $check=$this->chack_state($this->transid)->json();
+            while ($check['isBan'] == 0 && $check['isDone']==0)  {
+                try {
 
-                }catch(Exception $e){
-                    throw $e;
+                    $check = $this->chack_state($this->transid)->json();
+                    Log::channel('check')->info("Check Status : ".$this->paymentinfo->id);
+                    Log::channel('top_online')->info("  Check  : ".$check);
+
+                } catch (Exception $e) {
+
+                    AdminNotify::create([
+                        'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
+                        'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                        'link' => route('paymentinfo.show', $this->paymentinfo)
+
+                    ]);
+                    Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                    Log::channel('top_online')->info($e->getMessage());
+
+                    break;
+                    return;
                 }
-           $i++;
+                $i++;
             }
 
 
@@ -105,11 +134,17 @@ class CheckTopOnlineProssce implements ShouldQueue
                     'body'=>$body,
                     'link'=>route('paymentinfo.show',$this->paymentinfo)
                 ]);
-                $error_note = "تم تنفيذ العملية بنجاح";
+
+                Log::channel('check Sueccfulll')->info("Pa Sa Status : ".$this->paymentinfo->id);
+                Log::channel('top_online')->info("  Check  : ".$check);
+                Log::channel('top_online')->info("  pa  : ".$this->paymentinfo);
+
+
+                $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
             } else {
                 //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                 $state = 3;
-                
+
 
 
                 $body="المنتج :  ".$this->paymentinfo->order->product->name;
@@ -125,9 +160,9 @@ class CheckTopOnlineProssce implements ShouldQueue
                     'link'=>route('paymentinfo.show',$this->paymentinfo)
                 ]);
                 if(Str::contains($check['reason'],'Invalid Player ID'))
-                $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
+                $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
             else
-            $error_note = "ID اللاعب غير صحيح يرجى التحقق من صحة الاي دي.";
+            $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
             }
 
             // $this->paymentinfo->update([
