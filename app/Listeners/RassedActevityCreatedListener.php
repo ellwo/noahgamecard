@@ -56,7 +56,7 @@ class RassedActevityCreatedListener
 
 
                    $this->paymentinfo=$event->rassedActevity->paymentinfo;
-                 $this->handle_process();
+                //  $this->handle_process();
                    //dispatch(new TopOnlinePayByAPIJob($event->rassedActevity->paymentinfo));
                 }
 
