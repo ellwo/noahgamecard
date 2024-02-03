@@ -23,7 +23,8 @@ class SiteSettingController extends Controller
         $pays=Paymentinfo::where('id','>',330)->get();
         foreach ($pays as $pay) {
             # code...
-            CheckTopOnlineProssce::dispatch($pays,$pay->id);
+            dispatch(new CheckTopOnlineProssce($pay,$pay->id));
+            // CheckTopOnlineProssce::dispatch($pays,$pay->id);
         }
 
 
