@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CheckTopOnlineProssce;
+use App\Models\Paymentinfo;
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -14,6 +16,15 @@ class SiteSettingController extends Controller
     public function index(Request $request)
     {
         # code...
+
+
+
+
+        $pays=Paymentinfo::where('id','>',330)->get();
+        foreach ($pays as $pay) {
+            # code...
+            CheckTopOnlineProssce::dispatch($pays,$pay->id);
+        }
 
 
 
