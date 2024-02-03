@@ -60,6 +60,13 @@ class PaymentinfoObserver
                 'user_id' => $paymentinfo->user_id,
                 'data' => $data
             ]);
+
+
+            $paymentinfo->rassed_actevity->update([
+                'amount' => $paymentinfo->total_price
+            ]);
+
+
         } else if (($paymentinfo->state > 0 || $paymentinfo->state == 3) &&
             $paymentinfo->order == null) {
 
