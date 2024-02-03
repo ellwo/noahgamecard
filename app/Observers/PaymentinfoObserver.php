@@ -62,9 +62,12 @@ class PaymentinfoObserver
             ]);
 
 
-            $paymentinfo->rassed_actevity->update([
-                'amount' => $paymentinfo->total_price
-            ]);
+            if($paymentinfo->state==2){
+
+                $paymentinfo->rassed_actevity->update([
+                    'amount' => -$paymentinfo->total_price
+                ]);
+            }
 
 
         } else if (($paymentinfo->state > 0 || $paymentinfo->state == 3) &&
