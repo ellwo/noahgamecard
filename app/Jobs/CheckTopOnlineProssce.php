@@ -53,6 +53,10 @@ class CheckTopOnlineProssce implements ShouldQueue
         try{
 
             $check = $this->chack_state($this->transid);
+            Log::channel('top_online')->info("-----------------  Check  ");
+            Log::channel('top_online')->info($check);
+            Log::channel('top_online')->info($this->paymentinfo);
+
 
         }
         catch(Exception $e){
