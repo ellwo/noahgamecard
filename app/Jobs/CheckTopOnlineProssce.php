@@ -137,7 +137,7 @@ class CheckTopOnlineProssce implements ShouldQueue
                 ]);
 
                 Log::channel('top_online')->info("Pa Sa Status : ".$this->paymentinfo->id);
-               Log::channel('top_online')->info('"  Check  : ".');
+               Log::channel('top_online')->info("-----------------  Check  ");
                 Log::channel('top_online')->info($check);
                 Log::channel('top_online')->info($this->paymentinfo);
 
