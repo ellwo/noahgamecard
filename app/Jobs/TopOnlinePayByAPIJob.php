@@ -87,7 +87,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             Log::channel('top_online')->info($response);
             Log::channel('top_online')->info($queryParams);
             Log::channel('top_online')->info("payinfo -- ");
-            Log::channel('top_online')->info($paymentinfo);
+            Log::channel('top_online')->info($this->paymentinfo);
             Log::channel('top_online')->info("pay -------------------------------------------------------------------------------------------------------------- -- ");
 
 
