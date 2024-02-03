@@ -89,6 +89,11 @@ class CheckTopOnlineProssce implements ShouldQueue
         else{
 
             $check=$check->json();
+            Log::channel('top_online')->info("Check Of json-------------");
+            Log::channel('top_online')->info($check);
+
+            Log::channel('top_online')->info("Check Of json-------------");
+
 
             $i=0;
             while ($check['isBan'] == 0 && $check['isDone']==0)  {
