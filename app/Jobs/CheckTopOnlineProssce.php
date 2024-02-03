@@ -91,8 +91,9 @@ class CheckTopOnlineProssce implements ShouldQueue
                 try {
 
                     $check = $this->chack_state($this->transid)->json();
-                    Log::channel('check')->info("Check Status : ".$this->paymentinfo->id);
-                    Log::channel('top_online')->info("  Check  : ".$check);
+                    Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
+                    Log::channel('"  Check  : ".');
+                    Log::channel('top_online')->info($check);
 
                 } catch (Exception $e) {
 
@@ -135,9 +136,10 @@ class CheckTopOnlineProssce implements ShouldQueue
                     'link'=>route('paymentinfo.show',$this->paymentinfo)
                 ]);
 
-                Log::channel('check Sueccfulll')->info("Pa Sa Status : ".$this->paymentinfo->id);
-                Log::channel('top_online')->info("  Check  : ".$check);
-                Log::channel('top_online')->info("  pa  : ".$this->paymentinfo);
+                Log::channel('top_online')->info("Pa Sa Status : ".$this->paymentinfo->id);
+               Log::channel('top_online')->info('"  Check  : ".');
+                Log::channel('top_online')->info($check);
+                Log::channel('top_online')->info($this->paymentinfo);
 
 
                 $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
@@ -163,6 +165,12 @@ class CheckTopOnlineProssce implements ShouldQueue
                 $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
             else
             $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
+
+
+            // Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+            Log::channel('top_online')->info("Check whne Player Id ");
+            Log::channel('top_online')->info($check);
+
             }
 
             // $this->paymentinfo->update([
