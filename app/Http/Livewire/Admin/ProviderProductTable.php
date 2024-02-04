@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Admin;
 use App\Models\ClientProvider;
 use App\Models\Product;
 use App\Models\ProviderProduct;
-where('active','=',1)->use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ProviderProductTawhere('active','=',1)->ble extends Component
+class ProviderProductTable extends Component
 {
 
 
@@ -204,8 +204,8 @@ class ProviderProductTawhere('active','=',1)->ble extends Component
 
     public function deactive($p){
 
-        $providerProduct=Pwhere('active','=',1)->roviderProduct::where('active','=',1)->find($p);
-        $providerProduct->where('active','=',1)->update([
+        $providerProduct=ProviderProduct::where('active','=',1)->find($p);
+        $providerProduct->update([
            'active'=>0
         ]);
         session()->flash('statt','ok');
@@ -214,12 +214,12 @@ class ProviderProductTawhere('active','=',1)->ble extends Component
     }
     public function active($p){
 
-         $providerProduct=Pwhere('active','=',1)->roviderProduct::where('active','=',1)->find($p);
-         $providerProduct->where('active','=',1)->update([
+         $providerProduct=ProviderProduct::where('active','=',1)->find($p);
+         $providerProduct->update([
             'active'=>1
          ]);
-            $providerProduct->where('active','=',1)->product->provider_products()
-            ->where('id','!=',$providerProduct->where('active','=',1)->id)->update([
+            $providerProduct->product->provider_products()
+            ->where('id','!=',$providerProduct->id)->update([
                 'active'=>0
             ]);
          session()->flash('statt','ok');
