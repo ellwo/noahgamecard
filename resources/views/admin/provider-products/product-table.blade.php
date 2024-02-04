@@ -128,7 +128,7 @@
                                 </th>
                                 <th class="py-3 px-2  text-right"> الحالة</th>
                                 <th class="py-3  text-right">السعر
-                                  
+
                                 </th>
 
                                 <th class="py-3  text-center">Actions</th>
@@ -142,20 +142,20 @@
                                     class="border-b-2 border-dark relative border-gray-200 hover:bg-gray-100 dark:hover:bg-dark dark:hover:text-white">
                                     <td class="py-3 px-2 mb-4 text-right">
                                         <div class="flex items-center">
-                                            
+
                                             <span dir="auto" class="font-bold ">{{ $product->name }}
                                                 <span
                                                     class="block  text-blue-700 dark:text-white  font-light text-xs ">
 
-                                                        المنتج الاساسي / {{ $product->product->name }}
-                                                  
+                                                        المنتج الاساسي / {{ $product->product->?name??"" }}
+
                                                 </span>
                                                 <span
                                                 class="block  text-blue-700 dark:text-white  font-light text-xs ">
 
-                                                    القسم/ {{ $product->product->department->name }}
+                                                    القسم/ {{ $product->product->?department->name??"" }}
                                             </span>
-                                       
+
                                             </span>
                                         </div>
                                         <div>
@@ -174,7 +174,7 @@
                                     </td>
 
                                     <td class="px-2">
-                                        
+
                                         @if ($product->active)
                                         <span
                                         class="bg-success-dark mb-2  text-white font-bold p-2 px-3 rounded-full ">
@@ -183,9 +183,9 @@
                                         @else
                                         <span
                                         class="bg-danger mb-2  text-white font-bold p-2 px-3 rounded-full ">
-                                    غير نشط    
+                                    غير نشط
                                     </span>
-                                            
+
                                         @endif
                                     </td>
                                     <td class="py-3 text-md font-bold text-center">
@@ -194,11 +194,11 @@
                                             </span>
                                             <span
                                             class="bg-info mb-2  text-white font-bold p-2 px-3 rounded-full ">
-                                        
+
                                             {{ $product->product->price."  /$" }}
                                         </span>
                                         <span>سعر المزود</span>
-                                       
+
                                         <span
                                         class="bg-success-dark mb-2 text-white font-bold p-2 px-3 rounded-full ">
                                         {{ $product->price."  /$" }}
@@ -227,32 +227,32 @@
             <div x-transition:enter="transition duration-500 ease-in-out" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition duration-500 ease-in-out"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            class="fixed inset-0 bg-darker opacity-10 z-30" @click='dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}' 
+            class="fixed inset-0 bg-darker opacity-10 z-30" @click='dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}'
             wire:click="setDeleteproid('no')"
             x-show="dpm{{ $deleteproid }}">
 
         </div>
                                                 <div class="dialog-content p-4 w-1/3  fixed z-50 bg-white top-1/3 left-1/2 rounded-md">
                                                     <div class="dialog-header dark:text-black">
-                                                    تعديل حالة المنتج     
+                                                    تعديل حالة المنتج
                                                     </div>
                                                     <div class="dialog-body lg:flex" dir="auto">
-                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg "> 
-                                                        
+                                                        <h1 class="text-sm text-red-800 font-bold p-4 rounded-lg ">
+
                                                         </h1>
                                                     </div>
                                                     <div class="dialog-footer flex justify-between  mx-auto">
-                                                        <x-button 
-                                                        
+                                                        <x-button
+
                                                         wire:click="active({{$deleteproid}})"
                                                         @click="dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}"
-                                                        variant='success' type="button" 
+                                                        variant='success' type="button"
                                                         class=" text-white rounded-box p-2 "
                                                         >تنشيط </x-button>
-                                                       
+
                                                             <button type="button"
                                                             @click="dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}"
-                                                      
+
                                                             wire:click="deactive({{ $deleteproid }})"
                                                             class="bg-red-700 text-white rounded-box p-2">الغاء التنشيط </button>
                                                     </div>
