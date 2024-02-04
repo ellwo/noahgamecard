@@ -29,7 +29,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <select  wire:model="deptid" class="flex-1 m-2 rounded-full  form-select dark:bg-darker"
+                        <select  wire:model="deptid" class="flex-1 m-2 rounded-full form-select dark:bg-darker"
                             id="color1">
                             <option  value="all"> القسم /الجميع
                             </option>
@@ -38,7 +38,7 @@
                                     {{ $dept->name }}</option>
                             @endforeach
                         </select>
-                        <select  wire:model="client" class="flex-1 m-2 rounded-full  form-select dark:bg-darker"
+                        <select  wire:model="client" class="flex-1 m-2 rounded-full form-select dark:bg-darker"
                             id="color1">
                             <option  value="all"> المزود /الجميع
                             </option>
@@ -48,15 +48,15 @@
                             @endforeach
                         </select>
                         <div class="flex w-full mb-4" dir="auto">
-                            <label class="text-xs text-black  dark:text-white dark:bg-darker sm:px-4" for="bydate">ترتيب
+                            <label class="text-xs text-black dark:text-white dark:bg-darker sm:px-4" for="bydate">ترتيب
                                 التاريخ</label>
-                            <select class="flex-1 text-sm border rounded-md  dark:bg-darker" id="bydate" wire:model="dateorder">
+                            <select class="flex-1 text-sm border rounded-md dark:bg-darker" id="bydate" wire:model="dateorder">
                                 <option value="no">بلا</option>
                                 <option value="ASC"> تصاعدي</option>
                                 <option value="DESC">تنازلي</option>
                             </select>
-                            <label class="text-xs text-black  dark:text-white sm:px-4 dark:bg-darker" for="byprice">ترتيب السعر</label>
-                            <select class="flex-1 text-sm border rounded-md  dark:bg-darker" wire:model="priceorder" id="byprice">
+                            <label class="text-xs text-black dark:text-white sm:px-4 dark:bg-darker" for="byprice">ترتيب السعر</label>
+                            <select class="flex-1 text-sm border rounded-md dark:bg-darker" wire:model="priceorder" id="byprice">
                                 <option value="no">بلا</option>
                                 <option value="ASC"> تصاعدي</option>
                                 <option value="DESC">تنازلي</option>
@@ -195,7 +195,7 @@
                                             <span
                                             class="p-2 px-3 mb-2 font-bold text-white rounded-full bg-info ">
 
-                                            {{ $product->product->price."  /$" }}
+                                            {{ $product->product?->price."  /$" }}
                                         </span>
                                         <span>سعر المزود</span>
 
@@ -247,7 +247,7 @@
                                                         wire:click="active({{$deleteproid}})"
                                                         @click="dpm{{ $deleteproid }}=!dpm{{ $deleteproid }}"
                                                         variant='success' type="button"
-                                                        class="p-2 text-white  rounded-box"
+                                                        class="p-2 text-white rounded-box"
                                                         >تنشيط </x-button>
 
                                                             <button type="button"
