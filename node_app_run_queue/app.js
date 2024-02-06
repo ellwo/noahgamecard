@@ -3,7 +3,7 @@ const { spawn } = require("child_process");
 // Define an array of commands and their schedules
 const commands = [
     {
-        command: "/usr/local/bin/php /home/noahnyuu/tryapi/noahgamecard/artisan schedule:run",
+        command: "/usr/local/bin/php /home/noahnyuu/tryapi/noahgamecard/artisan queue:work --queue default --stop-when-empty",
         schedule: 60000, // Every one minute (60,000 milliseconds)
     },
     {
@@ -37,7 +37,7 @@ function executeCommand(command) {
     });
 
     ls.on("close", code => {
-        console.log(`child process exited with code ${code}`);
+        console.log(`child process exited with code ${code} ${command}`);
     });
 }
 
