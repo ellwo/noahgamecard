@@ -150,7 +150,14 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
             $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
-        } else {
+        }
+        else if ($response->json('resultCode') == "1028"){
+
+
+            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
+        }
+
+        else {
 
 
 
