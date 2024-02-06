@@ -50,159 +50,163 @@ class CheckTopOnlineProssce implements ShouldQueue
     public function handle()
     {
         //
-        try{
 
-            $check = $this->chack_state($this->transid);
-            Log::channel('top_online')->info("-----------------  Check  ");
-            Log::channel('top_online')->info($check);
-            Log::channel('top_online')->info($this->paymentinfo);
+        if($this->paymentinfo->state!=3 || $this->paymentinfo->state!=2){
 
+            try{
 
-        }
-        catch(Exception $e){
-          //  throw $e;
-            AdminNotify::create([
-                'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
-                'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '.$e->getMessage()
-               ]);
-
-               Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
-               Log::channel('top_online')->info($e->getMessage());
-               Log::channel('top_online')->info($check);
-
-
-
-        }
-
-
-        if($check->json()==null || $check->status()==404){
-            AdminNotify::create([
-                'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
-                'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
-               ]);
-
-               Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-               Log::channel('top_online')->info($e->getMessage());
-               Log::channel('top_online')->info($check);
-
-        }
-        else{
-
-            $check=$check->json();
-            Log::channel('top_online')->info("Check Of json-------------");
-            Log::channel('top_online')->info($check);
-
-            Log::channel('top_online')->info("Check Of json-------------");
-
-
-            $i=0;
-            while ($check['isBan'] == 0 && $check['isDone']==0)  {
-                try {
-
-                    $check = $this->chack_state($this->transid)->json();
-                    Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
-                    Log::channel('"  Check  : ".');
-                    Log::channel('top_online')->info($check);
-
-                } catch (Exception $e) {
-
-                    AdminNotify::create([
-                        'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                        'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
-                        'link' => route('paymentinfo.show', $this->paymentinfo)
-
-                    ]);
-                    Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
-                    Log::channel('top_online')->info($e->getMessage());
-
-                    break;
-                    return;
-                }
-                $i++;
-            }
-
-
-
-
-
-            if ($check['resultCode']=="0" && $check['isDone']==1) {
-                // اذا الرصيد نقص معناته انه نجحت العملية
-                $state = 2;
-
-                $body="المنتج :  ".$this->paymentinfo->order->product->name;
-                $body.="\n";
-                $body.="السعر : ".$this->paymentinfo->orginal_total;
-                $body.="\n";
-                $body.="العميل : ".$this->paymentinfo->user->name;
-
-                $body.="\n";
-                $body.="عدد المحاولات  : ".$i;
-
-
-                AdminNotify::create([
-                    'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
-                    'body'=>$body,
-                    'link'=>route('paymentinfo.show',$this->paymentinfo)
-                ]);
-
-                Log::channel('top_online')->info("Pa Sa Status : ".$this->paymentinfo->id);
-               Log::channel('top_online')->info("-----------------  Check  ");
+                $check = $this->chack_state($this->transid);
+                Log::channel('top_online')->info("-----------------  Check  ");
                 Log::channel('top_online')->info($check);
                 Log::channel('top_online')->info($this->paymentinfo);
 
 
-                $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
-            } else {
-                //مالم معناته فشل الطلب بسبب ان الايدي خطاء
-                $state = 3;
-
-
-
-                $body="المنتج :  ".$this->paymentinfo->order->product->name;
-                $body.="\n";
-                $body.="السعر : ".$this->paymentinfo->orginal_total;
-                $body.="\n";
-                $body.="العميل : ".$this->paymentinfo->user->name;
-                $body.="\n";
-                $body.="عدد المحاولات  : ".$i;
+            }
+            catch(Exception $e){
+              //  throw $e;
                 AdminNotify::create([
-                    'title'=>'عملية تم رفضها بواسطة TopOnline  ',
-                    'body'=>$body,
-                    'link'=>route('paymentinfo.show',$this->paymentinfo)
-                ]);
-                if(Str::contains($check['reason'],'Invalid Player ID'))
-                $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
-            else
-            $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
+                    'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                    'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '.$e->getMessage()
+                   ]);
+
+                   Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                   Log::channel('top_online')->info($e->getMessage());
+                   Log::channel('top_online')->info($check);
 
 
-            // Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-            Log::channel('top_online')->info("Check whne Player Id ");
-            Log::channel('top_online')->info($check);
 
             }
 
-            // $this->paymentinfo->update([
-            //     'state' => $state,
-            //     'note' => $error_note
-            // ]);
 
-            $pay=Paymentinfo::find($this->paymentinfo->id);
-            $pay->state=$state;
-            $pay->note=$error_note;
-            $pay->save();
-            $product = $this->paymentinfo->order->product;
-            $clientProvider = $product->provider_product()->first()->client_provider;
+            if($check->json()==null || $check->status()==404){
+                AdminNotify::create([
+                    'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                    'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
+                   ]);
 
-            $byh = PaymentinfoExecuteBy::create([
-                'paymentinfo_id' => $this->paymentinfo->id,
-                'state' => $state,
-                'execute_type' => ClientProvider::class,
-                'execute_id' => $clientProvider->id,
-                'note' => $error_note
-            ]);
-            $this->paymentinfo->excuted_status()->save($byh);
+                   Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+                   Log::channel('top_online')->info($e->getMessage());
+                   Log::channel('top_online')->info($check);
 
+            }
+            else{
+
+                $check=$check->json();
+                Log::channel('top_online')->info("Check Of json-------------");
+                Log::channel('top_online')->info($check);
+
+                Log::channel('top_online')->info("Check Of json-------------");
+
+
+                $i=0;
+                while ($check['isBan'] == 0 && $check['isDone']==0)  {
+                    try {
+
+                        $check = $this->chack_state($this->transid)->json();
+                        Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
+                        Log::channel('"  Check  : ".');
+                        Log::channel('top_online')->info($check);
+
+                    } catch (Exception $e) {
+
+                        AdminNotify::create([
+                            'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
+                            'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                            'link' => route('paymentinfo.show', $this->paymentinfo)
+
+                        ]);
+                        Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                        Log::channel('top_online')->info($e->getMessage());
+
+                        break;
+                        return;
+                    }
+                    $i++;
+                }
+
+
+
+
+
+                if ($check['resultCode']=="0" && $check['isDone']==1) {
+                    // اذا الرصيد نقص معناته انه نجحت العملية
+                    $state = 2;
+
+                    $body="المنتج :  ".$this->paymentinfo->order->product->name;
+                    $body.="\n";
+                    $body.="السعر : ".$this->paymentinfo->orginal_total;
+                    $body.="\n";
+                    $body.="العميل : ".$this->paymentinfo->user->name;
+
+                    $body.="\n";
+                    $body.="عدد المحاولات  : ".$i;
+
+
+                    AdminNotify::create([
+                        'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+                        'body'=>$body,
+                        'link'=>route('paymentinfo.show',$this->paymentinfo)
+                    ]);
+
+                    Log::channel('top_online')->info("Pa Sa Status : ".$this->paymentinfo->id);
+                   Log::channel('top_online')->info("-----------------  Check  ");
+                    Log::channel('top_online')->info($check);
+                    Log::channel('top_online')->info($this->paymentinfo);
+
+
+                    $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
+                } else {
+                    //مالم معناته فشل الطلب بسبب ان الايدي خطاء
+                    $state = 3;
+
+
+
+                    $body="المنتج :  ".$this->paymentinfo->order->product->name;
+                    $body.="\n";
+                    $body.="السعر : ".$this->paymentinfo->orginal_total;
+                    $body.="\n";
+                    $body.="العميل : ".$this->paymentinfo->user->name;
+                    $body.="\n";
+                    $body.="عدد المحاولات  : ".$i;
+                    AdminNotify::create([
+                        'title'=>'عملية تم رفضها بواسطة TopOnline  ',
+                        'body'=>$body,
+                        'link'=>route('paymentinfo.show',$this->paymentinfo)
+                    ]);
+                    if(Str::contains($check['reason'],'Invalid Player ID'))
+                    $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
+                else
+                $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
+
+
+                // Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+                Log::channel('top_online')->info("Check whne Player Id ");
+                Log::channel('top_online')->info($check);
+
+                }
+
+                // $this->paymentinfo->update([
+                //     'state' => $state,
+                //     'note' => $error_note
+                // ]);
+
+                $pay=Paymentinfo::find($this->paymentinfo->id);
+                $pay->state=$state;
+                $pay->note=$error_note;
+                $pay->save();
+                $product = $this->paymentinfo->order->product;
+                $clientProvider = $product->provider_product()->first()->client_provider;
+
+                $byh = PaymentinfoExecuteBy::create([
+                    'paymentinfo_id' => $this->paymentinfo->id,
+                    'state' => $state,
+                    'execute_type' => ClientProvider::class,
+                    'execute_id' => $clientProvider->id,
+                    'note' => $error_note
+                ]);
+                $this->paymentinfo->excuted_status()->save($byh);
+
+            }
         }
 
 
