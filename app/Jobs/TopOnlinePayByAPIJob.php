@@ -73,7 +73,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
         $queryParams = $this->getParametres(); //Fileds
-        $transid = $this->paymentinfo->id; //TransID
+        $transid = $this->paymentinfo->id+100; //TransID
         $queryParams['token'] = $this->genurateToken($transid); //Token
         $queryParams['transid'] = $transid; //
         $queryParams['userid'] = $this->userid;
@@ -151,11 +151,11 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
             $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
         }
-        else if ($response->json('resultCode') == "1028"){
+        // else if ($response->json('resultCode') == "1028"){
 
 
-            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
-        }
+        //     $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
+        // }
 
         else {
 
