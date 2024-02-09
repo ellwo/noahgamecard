@@ -23,23 +23,23 @@ class RassedActevityObserver
 
 
 
-        // if ($rassedActevity->paymentinfo->orders->count() > 0) {
-        //     $product = $rassedActevity->paymentinfo->order->product;
+        if ($rassedActevity->paymentinfo->orders->count() > 0) {
+            $product = $rassedActevity->paymentinfo->order->product;
 
-        //     if ($product->provider_product->count() > 0) {
+            if ($product->provider_product->count() > 0) {
 
-        //         $clientProvider = $product->provider_product()->first()->client_provider;
+                $clientProvider = $product->provider_product()->first()->client_provider;
 
-        //         if ($clientProvider->id == 1) {
-        //             TopOnlinePayByAPIJob::dispatch($rassedActevity);
-        //             // RunQueueAfterProssecesPushed::dispatchAfterResponse();
+                if ($clientProvider->id == 1) {
+                    TopOnlinePayByAPIJob::dispatch($rassedActevity);
+                    // RunQueueAfterProssecesPushed::dispatchAfterResponse();
 
-        //            // $this->paymentinfo = $this->rassedActevity->paymentinfo;
-        //            // $this->handle_process();
-        //             //dispatch(new TopOnlinePayByAPIJob($this->rassedActevity->paymentinfo));
-        //         }
-        //     }
-        // }
+                   // $this->paymentinfo = $this->rassedActevity->paymentinfo;
+                   // $this->handle_process();
+                    //dispatch(new TopOnlinePayByAPIJob($this->rassedActevity->paymentinfo));
+                }
+            }
+        }
 
        // event(new RassedActevityCreated($rassedActevity));
             //    TopOnlinePayByAPIJob::dispatch($rassedActevity);
