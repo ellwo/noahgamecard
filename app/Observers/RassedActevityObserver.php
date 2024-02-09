@@ -21,8 +21,6 @@ class RassedActevityObserver
     public function created(RassedActevity $rassedActevity)
     {
 
-
-
         if ($rassedActevity->paymentinfo->orders->count() > 0) {
             $product = $rassedActevity->paymentinfo->order->product;
 
@@ -32,17 +30,9 @@ class RassedActevityObserver
 
                 if ($clientProvider->id == 1) {
                     TopOnlinePayByAPIJob::dispatch($rassedActevity);
-                    // RunQueueAfterProssecesPushed::dispatchAfterResponse();
-
-                   // $this->paymentinfo = $this->rassedActevity->paymentinfo;
-                   // $this->handle_process();
-                    //dispatch(new TopOnlinePayByAPIJob($this->rassedActevity->paymentinfo));
                 }
             }
         }
-
-       // event(new RassedActevityCreated($rassedActevity));
-            //    TopOnlinePayByAPIJob::dispatch($rassedActevity);
 
 
     }

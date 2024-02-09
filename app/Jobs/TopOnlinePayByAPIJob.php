@@ -96,7 +96,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             // throw $e;
             Log::channel('top_online')->info("Exception -- ".$this->paymentinfo->id);
             Log::channel('top_online')->info($e->getMessage());
-            Log::channel('top_online')->info("Exception -- ".$this->paymentinfo->id));
+            Log::channel('top_online')->info("Exception -- ".$this->paymentinfo->id);
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
                 'body' => " يرجى التأكد من المزود نفسه توب اونلاين".$e->getMessage(),
