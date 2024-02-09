@@ -1,3 +1,5 @@
+const http = require('http');
+
 const { spawn } = require("child_process");
 
 // Define an array of commands and their schedules
@@ -42,9 +44,21 @@ function executeCommand(command) {
 }
 
 // Execute each command at its specified schedule
-commands.forEach(commandInfo => {
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Server Is Work --- !\n');
+  });
+
+
+  const port = 80;
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  commands.forEach(commandInfo => {
     executeCommand(commandInfo.command); // Execute the command initially
     setInterval(() => {
         executeCommand(commandInfo.command); // Execute the command at the specified schedule
     }, commandInfo.schedule);
+});
+
 });
