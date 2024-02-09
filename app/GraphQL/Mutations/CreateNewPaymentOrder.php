@@ -10,6 +10,7 @@ use App\Models\Paymentmethod;
 use App\Models\RassedActevity;
 use App\Models\User;
 use App\Models\UserNotification;
+use Exception;
 use Illuminate\Support\Facades\Validator;
 
 final class CreateNewPaymentOrder
@@ -41,10 +42,23 @@ final class CreateNewPaymentOrder
          }
 
       //  if($args['input']['paymentmethod_id']==2){
-            return $this->payFromRassed($args);
-        
 
-        
+        try {
+            return $this->payFromRassed($args);
+        } catch (Exception $th) {
+            //throw $th;
+            return [
+                'state'=>false,
+                'errors'=>null,
+                'message'=>$th->getMessage(),
+                'id'=>null,
+                'code'=>501,
+                'paymetninfo'=>null
+            ];
+        }
+
+
+
 
 
 
@@ -131,24 +145,6 @@ final class CreateNewPaymentOrder
             'code'=>$paymentinfo->code,
             'coin_id'=>Coin::where('main_coin','=',true)->pluck('id')->first()
         ]);
-
-
-        $data=[
-            "type"=>"veed_rassed",
-            "routeInfo"=>[
-                "routeName"=>"rassed",
-                "data"=>$paymentinfo,
-            ],
-            "created_at"=>date('Y/m/d H:i:s')
-          ];
-    //     $noti=UserNotification::create([
-    //         "id"=>$rassedActivite->id,
-    //         'title'=>'ملاحظة',
-    //         'body'=>'تم خصم  من رصيدك مبلغ '.' '.$rassedActivite->amount.' مقابل شراء طلب رقم  '.$rassedActivite->paymentinfo_id,
-    //     'user_id'=>$user->id,
-    //       'data'=>$data
-    // ]);
-
 
          }
         // $paymentinfo=new Paymentinfo();
