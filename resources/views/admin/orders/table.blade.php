@@ -70,11 +70,11 @@
 
 
 
-            <div class="flex flex-col space-y-2 lg:w-1/3 mx-auto justify-end justify-items-end">
+            <div class="flex flex-col justify-end mx-auto space-y-2 lg:w-1/3 justify-items-end">
 
-                <h4 class=" flex" dir="rtl">
+                <h4 class="flex " dir="rtl">
                     <span class="w-1/3 my-auto">عرض الطلبات ال</span>
-                    <select wire:model.lazy='status'  class="bg-white w-2/3 text-dark text-md dark:text-white dark:bg-dark rounded-md bg-white">
+                    <select wire:model.lazy='status'  class="w-2/3 bg-white rounded-md text-dark text-md dark:text-white dark:bg-dark">
                         <option value="4">الكل</option>
                        <option
                         value="1">
@@ -88,10 +88,10 @@
                     </select>
                 </h4>
 
-                <h4 class=" flex" dir="rtl">
+                <h4 class="flex " dir="rtl">
                     <span class="w-1/3 my-auto">عرض بحسب القسم</span>
 
-                <select  wire:model="deptid" class=" form-select flex-1 dark:bg-darker rounded-md my-2"
+                <select  wire:model="deptid" class="flex-1 my-2 rounded-md form-select dark:bg-darker"
                 id="color1">
                 <option  value="all"> القسم /الجميع
                 </option>
@@ -102,10 +102,10 @@
             </select>
                 </h4>
 
-            <h4 class=" flex" dir="rtl">
+            <h4 class="flex " dir="rtl">
                 <span class="w-1/3 my-auto">عرض الطلبات العميل :
                 </span>
-                {{-- <select wire:model.lazy='username'  class="bg-white w-2/3 text-dark text-xs dark:text-white dark:bg-dark rounded-md ">
+                {{-- <select wire:model.lazy='username'  class="w-2/3 text-xs bg-white rounded-md text-dark dark:text-white dark:bg-dark ">
                  <option value="all">جميع العملاء </option>
                  @foreach ($coustmers as $c)
                  <option
@@ -119,26 +119,26 @@
                        'user'=>$username
                    ])</div>
                          </h4>
-                         <div class="w-full text-center flex">
+                         <div class="flex w-full text-center">
 
-                         <x-button class=" mx-auto  "  pill="true" variant='info' wire:click='refresh_page'> تحديث
+                         <x-button class="mx-auto "  pill="true" variant='info' wire:click='refresh_page'> تحديث
 
-                            <x-heroicon-s-refresh class="text-white w-8 h-8"/>
+                            <x-heroicon-s-refresh class="w-8 h-8 text-white"/>
 
                        </x-button>
                          </div>
             </div>
 
-            <div class="w-full top-0 right-0 bottom-0 z-30 bg-white bg-opacity-50 fixed" wire:loading
+            <div class="fixed top-0 bottom-0 right-0 z-30 w-full bg-white bg-opacity-50" wire:loading
                               >
-                            <div class="w-full h-4 bg-blue-900 mt-16 rounded animate-pulse top-10 bottom-0 my-auto"></div>
+                            <div class="bottom-0 w-full h-4 my-auto mt-16 bg-blue-900 rounded animate-pulse top-10"></div>
                         </div>
             <div class="flex flex-col w-full mx-auto overflow-x-scroll md:overflow-x-hidden ">
 
-                <div class="flex flex-wrap mx-auto md:w-2/3 justify-between w-full">
+                <div class="flex flex-wrap justify-between w-full mx-auto md:w-2/3">
 
-            <h4 class="text-right flex" dir="rtl">عدد العناصر
-                <select wire:model='paginate_num'  class="bg-white  bg-white rounded-md text-dark text-xs dark:text-white dark:bg-dark border-0">
+            <h4 class="flex text-right" dir="rtl">عدد العناصر
+                <select wire:model='paginate_num'  class="text-xs bg-white border-0 rounded-md text-dark dark:text-white dark:bg-dark">
                     <option value="10">10</option>
                     <option value="10">15</option>
                     <option value="20">20</option>
@@ -175,7 +175,7 @@
                     <thead class=" dark:text-light bg-light dark:bg-dark">
                         <tr>
                             <th class="p-3 text-right">رقم العملية </th>
-                            <th class="p-3 text-right hidden lg:block"> البطائق  </th>
+                            <th class="hidden p-3 text-right lg:block"> البطائق  </th>
                             <th class="p-3 text-right ">  السعر</th>
                             <th class="p-3 text-center ">الحالة</th>
                             <th class="p-3 text-right ">تاريخ </th>
@@ -200,37 +200,37 @@
                                 <span class="{{ $paymentinfo->state!=0 ? 'text-green-600' : 'text-red-800' }}">{{ $paymentinfo->state!=0 ? 'تم تاكيد حالة الدفع' : 'لم يتم تاكيد حالة الدفع' }}</span>
 
                             </td>
-                            <td class="p-0 hidden text-center text-blue-700 font-bold lg:text-lg lg:block">
+                            <td class="hidden p-0 font-bold text-center text-blue-700 lg:text-lg lg:block">
 
                                 <div class="w-full p-2">
 
 
                                     @foreach ($paymentinfo->orders as $order)
-                                        <div class="border p-1 rounded-md">
+                                        <div class="p-1 border rounded-md">
                                             <div class="flex align-items-center">
-                                                <div class="w-full  justify-start flex flex-col">
-                                                    <div class="flex border-b justify-start space-x-2">
-                                                        <div class="w-1/3 text-xs py-2 font-bold mx-2 border-l-1 ">اسم
+                                                <div class="flex flex-col justify-start w-full">
+                                                    <div class="flex justify-start space-x-2 border-b">
+                                                        <div class="w-1/3 py-2 mx-2 text-xs font-bold border-l-1 ">اسم
                                                             البطاقة</div>
                                                         <div
-                                                            class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
+                                                            class="w-2/3 py-2 mx-2 text-xs text-info dark:text-info-light">
                                                             {{ $order->product->name??'Deleted' }}</div>
                                                     </div>
-                                                    <div class="flex border-b justify-start space-x-2">
-                                                        <div class="w-1/3 py-2 text-xs font-bold mx-2 border-l-1 ">الكمية
+                                                    <div class="flex justify-start space-x-2 border-b">
+                                                        <div class="w-1/3 py-2 mx-2 text-xs font-bold border-l-1 ">الكمية
                                                         </div>
                                                         <div
-                                                            class="w-2/3 mx-2 py-2 text-xs text-info dark:text-info-light">
+                                                            class="w-2/3 py-2 mx-2 text-xs text-info dark:text-info-light">
                                                             {{ $order->qun }}</div>
                                                     </div>
 
                                                     @foreach ($order->reqs??[] as $r)
 
                                                     @if($r['value']!="")
-                                                    <div class="flex border-b justify-start space-x-2">
-                                                        <div class="w-1/3 text-xs  py-2 font-bold mx-2 border-l-1 ">{{ $r['lable'] }}</div>
+                                                    <div class="flex justify-start space-x-2 border-b">
+                                                        <div class="w-1/3 py-2 mx-2 text-xs font-bold border-l-1 ">{{ $r['lable'] }}</div>
                                                         <div
-                                                            class="w-2/3 mx-2 text-xs py-2 text-info dark:text-info-light">
+                                                            class="w-2/3 py-2 mx-2 text-xs text-info dark:text-info-light">
                                                             {{ $r['value']}}</div>
                                                     </div>
                                                     @endif
@@ -277,12 +277,15 @@
                             </td>
 
                             <td dir="ltr" class="p-0 text-right" >
-                                {{$paymentinfo->updated_at}}
+                               انشئت في :  {{date($paymentinfo->created_at,'Y-m-d h:i A') }}
+                               <hr>
+                               تم تحديثها  في :  {{date($paymentinfo->updated_at,'Y-m-d h:i A') }}
+
 
                             </td>
 
 
-                            <td class=" ">
+                            <td class="">
                                 {{ $paymentinfo->user->name }}
                                 {{ $paymentinfo->user->phone }}
 
@@ -290,7 +293,7 @@
                             <td class="">
                                 <div class="flex">
 
-                                <a href="{{ route('paymentinfo.show',$paymentinfo) }}"  class="mr-2 flex text-gray-400 hover:text-dark dark:hover:text-gray-100">
+                                <a href="{{ route('paymentinfo.show',$paymentinfo) }}"  class="flex mr-2 text-gray-400 hover:text-dark dark:hover:text-gray-100">
                                     <i class="text-base "><x-heroicon-s-eye class="w-5 h-5"/></i>
                                     عرض تفاصيل
                                 </a>
