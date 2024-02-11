@@ -133,6 +133,7 @@ class CheckTopOnlineProssce implements ShouldQueue
 
 
                             CheckTopOnlineProssce::dispatch($this->paymentinfo, $this->transid)->onQueue($dispatch_at);
+                            return;
                 }
 
                else if ($check['resultCode']=="0" && $check['isDone']==1) {
