@@ -99,36 +99,43 @@ class CheckTopOnlineProssce implements ShouldQueue
 
 
                 $i=0;
-                while ($check['isBan'] == 0 && $check['isDone']==0)  {
-                    try {
+                // while ($check['isBan'] == 0 && $check['isDone']==0)  {
+                //     try {
 
-                        $check = $this->chack_state($this->transid)->json();
-                        Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
-                        Log::channel('"  Check  : ".');
-                        Log::channel('top_online')->info($check);
+                //         $check = $this->chack_state($this->transid)->json();
+                //         Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
+                //         Log::channel('"  Check  : ".');
+                //         Log::channel('top_online')->info($check);
 
-                    } catch (Exception $e) {
+                //     } catch (Exception $e) {
 
-                        AdminNotify::create([
-                            'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                            'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
-                            'link' => route('paymentinfo.show', $this->paymentinfo)
+                //         AdminNotify::create([
+                //             'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
+                //             'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                //             'link' => route('paymentinfo.show', $this->paymentinfo)
 
-                        ]);
-                        Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
-                        Log::channel('top_online')->info($e->getMessage());
+                //         ]);
+                //         Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                //         Log::channel('top_online')->info($e->getMessage());
 
-                        break;
-                        return;
-                    }
-                    $i++;
+                //         break;
+                //         return;
+                //     }
+                //     $i++;
+                // }
+
+
+
+
+                if ($check['resultCode']=="0" && $check['isDone']==0 && $check['isDone']==0) {
+                    $product = $this->paymentinfo->order->product;
+                    $dispatch_at = $product->provider_product()->first()->dispatch_at;
+
+
+                            CheckTopOnlineProssce::dispatch($this->paymentinfo, $this->transid)->onQueue($dispatch_at);
                 }
 
-
-
-
-
-                if ($check['resultCode']=="0" && $check['isDone']==1) {
+               else if ($check['resultCode']=="0" && $check['isDone']==1) {
                     // اذا الرصيد نقص معناته انه نجحت العملية
                     $state = 2;
 
