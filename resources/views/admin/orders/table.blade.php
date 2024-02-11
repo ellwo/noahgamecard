@@ -277,9 +277,9 @@
                             </td>
 
                             <td dir="ltr" class="p-0 text-right" >
-                               انشئت في :  {{date(strtotime($paymentinfo->created_at),'Y-m-d h:i A') }}
+                               انشئت في :  {{date('Y-m-d h:i A',strtotime($paymentinfo->created_at)) }}
                                <hr>
-                               تم تحديثها  في :  {{date( strtotime($paymentinfo->updated_at),'Y-m-d h:i A') }}
+                               تم تحديثها  في :  {{date( 'Y-m-d h:i A',strtotime($paymentinfo->updated_at)) }}
 
 
                             </td>
