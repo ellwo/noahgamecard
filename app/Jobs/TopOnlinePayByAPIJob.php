@@ -84,19 +84,19 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         try {
 
             $response = Http::get($this->pay_url, $queryParams);
+            Log::channel('top_online')->info("payinfo -- ------------------Start----------------------");
             Log::channel('top_online')->info($response);
             Log::channel('top_online')->info($queryParams);
-            Log::channel('top_online')->info("payinfo -- ");
             Log::channel('top_online')->info($this->paymentinfo);
-            Log::channel('top_online')->info("pay -------------------------------------------------------------------------------------------------------------- -- ");
+            Log::channel('top_online')->info("pay ------------------------------End -------------------------------------------------------------------------------- -- ");
 
 
         } catch (Exception  $e) {
 
             // throw $e;
-            Log::channel('top_online')->info("Exception -- ".$this->paymentinfo->id);
+            Log::channel('top_online')->info("Exception -- in Pay --Start- ".$this->paymentinfo->id);
             Log::channel('top_online')->info($e->getMessage());
-            Log::channel('top_online')->info("Exception -- ".$this->paymentinfo->id);
+            Log::channel('top_online')->info("Exception --------inPay- End------- ".$this->paymentinfo->id);
             AdminNotify::create([
                 'title' => 'لم يستطع الاتصال بالمزود Toponline',
                 'body' => " يرجى التأكد من المزود نفسه توب اونلاين".$e->getMessage(),
@@ -149,7 +149,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         } else if ($response->json('resultCode') == "1220") {
 
 
-            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
+            $this->updatePay(3,'عذرا فشل الطلب يرجى اعادة الطلب مرة اخرى ', $response->json('resultDesc'));
         }
         // else if ($response->json('resultCode') == "1028"){
 
@@ -175,9 +175,9 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                     //Log::useFiles(storage_path().'/logs/top_online_log.log');
 
-                    Log::channel('top_online')->info('$check---------------'.$this->paymentinfo->id);
+                    Log::channel('top_online')->info('$check---------[First One------'.$this->paymentinfo->id);
                     Log::channel('top_online')->info($check);
-                    Log::channel('top_online')->info('$check---------------'.$this->paymentinfo->id);
+                    Log::channel('top_online')->info('$check----------End First-----'.$this->paymentinfo->id);
 
                     // Log::channel('top_online')->info($check->json());
 
@@ -190,9 +190,10 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         'link' => route('paymentinfo.show', $this->paymentinfo)
                     ]);
                     // $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ',$response->json('resultDesc'));
-                    Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
+                    Log::channel('top_online')->info("Error Check Status-------  Start in First Check : ".$this->paymentinfo->id);
                     Log::channel('top_online')->info($e->getMessage());
 
+                    Log::channel('top_online')->info("Error Check Status------- Edn in First Check : ".$this->paymentinfo->id);
 
                     // throw $e;
                     return;
@@ -206,8 +207,9 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         'link' => route('paymentinfo.show', $this->paymentinfo)
 
                     ]);
-                    Log::channel('top_online')->info("Error Check Status 404 : ".$this->paymentinfo->id);
+                    Log::channel('top_online')->info("Error Check Status 404 {: ".$this->paymentinfo->id);
                     Log::channel('top_online')->info($check);
+                    Log::channel('top_online')->info("Error Check Status 404 :} ".$this->paymentinfo->id);
 
 
                 } else {
@@ -220,8 +222,9 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                             $check = $this->chack_state($transid)->json();
                             Log::channel('check')->info("Check Status : ".$this->paymentinfo->id);
-                            Log::channel('top_online')->info("  Check  : ---------".$i);
+                            Log::channel('top_online')->info("  Check  : ---------{".$i);
                             Log::channel($check);
+                            Log::channel('top_online')->info("  Check  : ---------}".$i);
 
                         } catch (Exception $e) {
 
