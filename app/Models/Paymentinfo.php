@@ -183,6 +183,6 @@ class Paymentinfo extends Model
         //        }
         //        $day=$d->format(' h:i A  ').$day;
 
-        return $day . "  path/" . request()->getBasePath();
+        return $day;
     }
 }
