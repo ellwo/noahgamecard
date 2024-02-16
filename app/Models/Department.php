@@ -30,6 +30,12 @@ class Department extends Model
 
 
 
+public function scopeActive($q)
+{
+    return $q->where('active','=',1);
+    # code...
+}
+
 
     function reqsQL() {
 
