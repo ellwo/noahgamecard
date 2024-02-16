@@ -63,13 +63,9 @@ class ProviderProductTable extends Component
 
         if($this->deptid=="all") {
 
-
-
-
-
             if($this->dateorder=="no" && $this->priceorder=="no"){
 
-                $products = ProviderProduct::where('active','=',1)->where("name", "LIKE", "%" . $this->search . "%")
+                $products = ProviderProduct::where("name", "LIKE", "%" . $this->search . "%")
                     ->orderByDesc("updated_at")->where(function($q){
                         if($this->client==-1){
 
@@ -81,7 +77,7 @@ class ProviderProductTable extends Component
             }
             else if($this->priceorder!="no"){
                 $this->dateorder="no";
-                $products = ProviderProduct::where('active','=',1)->where("name", "LIKE", "%" . $this->search . "%")
+                $products = ProviderProduct::where("name", "LIKE", "%" . $this->search . "%")
                     ->orderBy("price",$this->priceorder)->where(function($q){
                         if($this->client==-1){
 
@@ -93,7 +89,7 @@ class ProviderProductTable extends Component
             }
             else if($this->dateorder!="no"){
                 $this->priceorder="no";
-                $products = ProviderProduct::where('active','=',1)->where("name", "LIKE", "%" . $this->search . "%")
+                $products = ProviderProduct::where("name", "LIKE", "%" . $this->search . "%")
                     ->orderBy("updated_at",$this->dateorder)->where(function($q){
                         if($this->client==-1){
 
@@ -112,7 +108,7 @@ class ProviderProductTable extends Component
         else {
             if($this->dateorder=="no" && $this->priceorder=="no"){
 
-                $products = ProviderProduct::where('active','=',1)->whereHas('product',function($q){
+                $products = ProviderProduct::whereHas('product',function($q){
                     $q->where("department_id",$this->deptid);
                 })->where("name", "LIKE", "%" . $this->search . "%")
                     ->orderByDesc("updated_at")->where(function($q){
@@ -125,7 +121,7 @@ class ProviderProductTable extends Component
                     })->paginate($this->paginate_num);
             }
             else if($this->priceorder!="no"){
-                $products = ProviderProduct::where('active','=',1)->whereHas('product',function($q){
+                $products = ProviderProduct::whereHas('product',function($q){
                     $q->where("department_id",$this->deptid);
                 })->where("name", "LIKE", "%" . $this->search . "%")
                     ->orderBy("price",$this->priceorder)->where(function($q){
@@ -138,7 +134,7 @@ class ProviderProductTable extends Component
                     })->paginate($this->paginate_num);
             }
             else if($this->dateorder!="no"){
-                $products = ProviderProduct::where('active','=',1)->whereHas('product',function($q){
+                $products = ProviderProduct::whereHas('product',function($q){
                     $q->where("department_id",$this->deptid);
                 })->where("name", "LIKE", "%" . $this->search . "%")
                     ->orderBy("updated_at",$this->dateorder)->where(function($q){
@@ -190,7 +186,7 @@ class ProviderProductTable extends Component
 
 
     public function deletePro($id){
-        $product=ProviderProduct::where('active','=',1)->find($id);
+        $product=ProviderProduct::find($id);
 
         session()->flash('statt','ok');
         session()->flash('message','تم الحذف');
@@ -204,7 +200,7 @@ class ProviderProductTable extends Component
 
     public function deactive($p){
 
-        $providerProduct=ProviderProduct::where('active','=',1)->find($p);
+        $providerProduct=ProviderProduct::find($p);
         $providerProduct->update([
            'active'=>0
         ]);
@@ -214,7 +210,7 @@ class ProviderProductTable extends Component
     }
     public function active($p){
 
-         $providerProduct=ProviderProduct::where('active','=',1)->find($p);
+         $providerProduct=ProviderProduct::find($p);
          $providerProduct->update([
             'active'=>1
          ]);

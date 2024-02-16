@@ -8,6 +8,7 @@ use App\Jobs\TopOnlinePayByAPIJob;
 use App\Models\RassedActevity;
 use Exception;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Http;
 
 class RassedActevityObserver
 {
@@ -30,6 +31,11 @@ class RassedActevityObserver
 
                 if ($clientProvider->id == 1) {
                     TopOnlinePayByAPIJob::dispatch($rassedActevity);
+
+                    $response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
+
+
+
                 }
             }
         }

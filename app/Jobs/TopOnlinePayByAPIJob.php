@@ -57,12 +57,9 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                 if ($clientProvider->id == 1) {
 
-                    // $this->paymentinfo=$this->rassedActevity->paymentinfo;
-
 
                     $this->paymentinfo = $this->rassedActevity->paymentinfo;
                     $this->handle_process();
-                    //dispatch(new TopOnlinePayByAPIJob($this->rassedActevity->paymentinfo));
                 }
             }
         }
