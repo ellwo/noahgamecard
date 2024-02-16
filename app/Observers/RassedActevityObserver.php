@@ -34,8 +34,6 @@ class RassedActevityObserver
 
                     $response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
 
-
-
                 }
             }
         }

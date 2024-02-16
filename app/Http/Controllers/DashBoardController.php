@@ -8,6 +8,7 @@ use App\Models\Paymentinfo;
 use App\Models\Product;
 use App\Models\RassedActevity;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 
 class DashBoardController extends Controller
 {
@@ -47,6 +48,10 @@ class DashBoardController extends Controller
     ->whereHas('paymentinfo', function ($q) {
       $q->where('state', '!=', 3)->where('state', '!=', 2);
     })->count();
+
+
+    $response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
+
 
 
     return view('dashboard', [
