@@ -15,6 +15,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -81,6 +82,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         try {
 
             $response = Http::get($this->pay_url, $queryParams);
+
             Log::channel('top_online')->info("payinfo -- ------------------Start----------------------");
             Log::channel('top_online')->info($response);
             Log::channel('top_online')->info($queryParams);
@@ -145,14 +147,13 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             $this->updatePay(3,'الخدمة المطلوبة غير متاحة في الوقت الحالي ', $response->json('resultDesc'));
         } else if ($response->json('resultCode') == "1220") {
 
+            $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
 
-            $this->updatePay(3,'عذرا فشل الطلب يرجى اعادة الطلب مرة اخرى ', $response->json('resultDesc'));
         }
-        // else if ($response->json('resultCode') == "1028"){
+        else if ($response->json('resultCode') == "1017"){
+            $this->updatePay(3,'عذرا فشل الطلب يرجى اعادة الطلب مرة اخرى ', $response->json('resultDesc'));
 
-
-        //     $this->updatePay(3,'Id الحساب غير صحيح يرجى التأكد من صحته ', $response->json('resultDesc'));
-        // }
+        }
 
         else {
 
