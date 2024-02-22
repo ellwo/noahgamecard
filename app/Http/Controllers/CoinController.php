@@ -58,7 +58,6 @@ class CoinController extends Controller
         $roles=[$roles];
 
         $r=[
-            'coin_value2'=>['required','numeric'],
             'coin_value1'=>['required','numeric']
         ];
         $this->validate($request,$r);
