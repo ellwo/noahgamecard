@@ -16,11 +16,6 @@ final class RequstRestoreAccountCode
      */
     public function __invoke($_, array $args)
     {
-        // TODO implement the resolver
-
-
-
-
 
         return    $this->byEmail($args);
 
@@ -37,32 +32,37 @@ final class RequstRestoreAccountCode
         try{
         $user=User::where($args["type"],'=',$args["value"])->first();
         if($user!=null){
+
+
             $hasCode= $res=PhoneCode::where('phone','=',$args['value'])
             ->where('ex_at','>',now())->get();
 
-            if(count($hasCode??[])>=3){
-
-
-            return [
-                'state'=>true,
-                'message'=>'لم يتم ارسال كود جديد ولكن تم ارسال كود من قبل يمكنك اسنخدامه',
-                'errors'=>null,
-                'code'=>200
-            ];
-
+            if(count($hasCode)>1){
+                foreach ($hasCode as $c) {
+                    $c->update([
+                        'ex_at'=> now()
+                    ]);
+                    # code...
+                }
             }
 
+            // if(count($hasCode??[])>=3){
+
+            // return [
+            //     'state'=>true,
+            //     'message'=>'لم يتم ارسال كود جديد ولكن تم ارسال كود من قبل يمكنك اسنخدامه',
+            //     'errors'=>null,
+            //     'code'=>200
+            // ];
+
+            // }
 
 
-            //$res=PhoneCode::where('phone','=',$args['value'])
-           // ->where('ex_at','>',now())->delete();
-            // TODO implement the resolver
+
+
             $date=new DateTime('now');
             $date->modify('+59 minutes');
-
-           // rand(rand(rand(14465,66899742),24598550566),8795668442)
-         //   $codee=rand(rand(rand(1456165465,66899545742),245554598550),879554668442)."";
-            $codee=rand(rand(14465,24598550),87952)."";
+           $codee=rand(rand(14465,24598550),87952)."";
             //  $strln=strlen($codee);
 
             $fcodee=substr($codee,0,4);
@@ -112,13 +112,6 @@ final class RequstRestoreAccountCode
             ];
 
                 }
-                //Send Email Code
-                // (new MailMessage)
-                // ->subject(Lang::get('Reset Password Notification'))
-                // ->line(Lang::get('You are receiving this email because we received a password reset request for your account.'))
-                // ->action(Lang::get('Reset Password'), $url)
-                // ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
-                // ->line(Lang::get('If you did not request a password reset, no further action is required.'));
 
             }
 
