@@ -50,7 +50,7 @@ class DashBoardController extends Controller
     })->count();
 
 
-    $response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
+    //$response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
 
 
 
