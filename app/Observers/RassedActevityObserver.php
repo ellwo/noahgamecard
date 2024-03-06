@@ -32,7 +32,6 @@ class RassedActevityObserver
                 if ($clientProvider->id == 1) {
                     TopOnlinePayByAPIJob::dispatch($rassedActevity);
 
-                    $response = Http::get("https://ehsanadminpanel.noahgamecard.com/");
 
                 }
             }
