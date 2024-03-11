@@ -92,12 +92,12 @@ class ClientProvider extends Model
          'action' => 'balance'
      ];
     //  Cache::forget('rassed');
-     $res =Cache::remember('rassed',60*60,function()use($url,$paras){
+    
+    //  $res =Cache::remember('rassed',60*60,function()use($url,$paras){
        //return
        $respone= Http::get($this->api_rassedurl, $paras);
        return $respone->json('balance');
-     });
-     return $res;
+    //  });
 
     }
 
