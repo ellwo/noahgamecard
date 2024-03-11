@@ -29,7 +29,7 @@ class RassedActevityObserver
 
                 $clientProvider = $product->provider_product()->first()->client_provider;
 
-                if ($clientProvider->id == 1) {
+                if ($clientProvider->api_type=="YemenRopot") {
                     TopOnlinePayByAPIJob::dispatch($rassedActevity);
 
 

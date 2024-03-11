@@ -35,11 +35,38 @@ class CheckTopOnlineProssce implements ShouldQueue
     // public $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
     public $chack_url='https://toponline.yemoney.net/api/yr/info';
     public $transid;
+    public $clientProvider=null;
     public function __construct($paymentinfo,$transid)
     {
+
         $this->paymentinfo=$paymentinfo;
-        //
+       
         $this->transid=$transid;
+
+        if ($this->paymentinfo->orders->count() > 0) {
+            $product = $this->paymentinfo->order->product;
+
+            if ($product->provider_product->count() > 0) {
+
+                $clientProvider = $product->provider_product()->first()->client_provider;
+
+                if ($clientProvider!=null) {
+                    $this->userid=$clientProvider->api_userid;
+                    $this->mobile=$clientProvider->api_phone;
+                    $this->password=$clientProvider->api_password;
+                    $this->chack_url=$clientProvider->api_checkurl;
+                    $this->username=$clientProvider->api_username;
+                    $this->clientProvider = $clientProvider;
+                    
+                    # code...
+                }
+
+            }
+        
+        }
+
+
+        //
     }
 
     /**
@@ -56,9 +83,9 @@ class CheckTopOnlineProssce implements ShouldQueue
             try{
 
                 $check = $this->chack_state($this->transid);
-                Log::channel('top_online')->info("-----------------  Check  ");
-                Log::channel('top_online')->info($check);
-                Log::channel('top_online')->info($this->paymentinfo);
+                Log::channel($this->clientProvider->name)->info("-----------------  Check  ");
+                Log::channel($this->clientProvider->name)->info($check);
+                Log::channel($this->clientProvider->name)->info($this->paymentinfo->id);
 
 
             }
@@ -66,12 +93,12 @@ class CheckTopOnlineProssce implements ShouldQueue
               //  throw $e;
                 AdminNotify::create([
                     'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
-                    'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '.$e->getMessage()
+                    'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا '.$e->getMessage()
                    ]);
 
-                   Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
-                   Log::channel('top_online')->info($e->getMessage());
-                   Log::channel('top_online')->info($check);
+                   Log::channel($this->clientProvider->name)->info("Error Check Status : ".$this->paymentinfo->id);
+                   Log::channel($this->clientProvider->name)->info($e->getMessage());
+                   Log::channel($this->clientProvider->name)->info($check);
 
 
 
@@ -81,52 +108,25 @@ class CheckTopOnlineProssce implements ShouldQueue
             if($check->json()==null || $check->status()==404){
                 AdminNotify::create([
                     'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
-                    'body'=>'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا '
+                    'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا '
                    ]);
 
-                   Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-                   Log::channel('top_online')->info($e->getMessage());
-                   Log::channel('top_online')->info($check);
+                   Log::channel($this->clientProvider->name)->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+                   Log::channel($this->clientProvider->name)->info($e->getMessage());
+                   Log::channel($this->clientProvider->name)->info($check);
 
             }
             else{
 
                 $check=$check->json();
-                Log::channel('top_online')->info("Check Of json-------------");
-                Log::channel('top_online')->info($check);
+                Log::channel($this->clientProvider->name)->info("Check Of json-------------");
+                Log::channel($this->clientProvider->name)->info($check);
 
-                Log::channel('top_online')->info("Check Of json-------------");
+                Log::channel($this->clientProvider->name)->info("Check Of json-------------");
 
 
 
                 $i=0;
-                // while ($check['isBan'] == 0 && $check['isDone']==0)  {
-                //     try {
-
-                //         $check = $this->chack_state($this->transid)->json();
-                //         Log::channel('top_online')->info("Check Status : ".$this->paymentinfo->id);
-                //         Log::channel('"  Check  : ".');
-                //         Log::channel('top_online')->info($check);
-
-                //     } catch (Exception $e) {
-
-                //         AdminNotify::create([
-                //             'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                //             'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
-                //             'link' => route('paymentinfo.show', $this->paymentinfo)
-
-                //         ]);
-                //         Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
-                //         Log::channel('top_online')->info($e->getMessage());
-
-                //         break;
-                //         return;
-                //     }
-                //     $i++;
-                // }
-
-
-
 
                 if ($check['resultCode']=="0" && $check['isDone']==0 && $check['isDone']==0) {
                     $product = $this->paymentinfo->order->product;
@@ -152,15 +152,14 @@ class CheckTopOnlineProssce implements ShouldQueue
 
 
                     AdminNotify::create([
-                        'title'=>'عملية تم تنفيذها بواسطة TopOnline  ',
+                        'title'=>'عملية تم تنفيذها بواسطة'.$this->clientProvider->name,
                         'body'=>$body,
                         'link'=>route('paymentinfo.show',$this->paymentinfo)
                     ]);
 
-                    Log::channel('top_online')->info("Pa Sa Status : ".$this->paymentinfo->id);
-                   Log::channel('top_online')->info("-----------------  Check  ");
-                    Log::channel('top_online')->info($check);
-                    Log::channel('top_online')->info($this->paymentinfo);
+                    Log::channel($this->clientProvider->name)->info("Pa Sa Status : ".$this->paymentinfo->id);
+                   Log::channel($this->clientProvider->name)->info("-----------------  Check  ");
+                    Log::channel($this->clientProvider->name)->info($check);
 
 
                     $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
@@ -178,7 +177,7 @@ class CheckTopOnlineProssce implements ShouldQueue
                     $body.="\n";
                     $body.="عدد المحاولات  : ".$i;
                     AdminNotify::create([
-                        'title'=>'عملية تم رفضها بواسطة TopOnline  ',
+                        'title'=>'عملية تم رفضها بواسطة '.$this->clientProvider->name,
                         'body'=>$body,
                         'link'=>route('paymentinfo.show',$this->paymentinfo)
                     ]);
@@ -188,9 +187,9 @@ class CheckTopOnlineProssce implements ShouldQueue
                 $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
 
 
-                // Log::channel('top_online')->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-                Log::channel('top_online')->info("Check whne Player Id ");
-                Log::channel('top_online')->info($check);
+                // Log::channel($this->clientProvider->name)->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
+                Log::channel($this->clientProvider->name)->info("Check whne Player Id ");
+                Log::channel($this->clientProvider->name)->info($check);
 
                 }
 

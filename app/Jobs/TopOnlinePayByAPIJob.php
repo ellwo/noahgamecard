@@ -36,9 +36,34 @@ class TopOnlinePayByAPIJob implements ShouldQueue
     public $password = "Asd777777777";
     public $pay_url = 'https://toponline.yemoney.net/api/yr/gameswcards';
     public $chack_url = 'https://toponline.yemoney.net/api/yr/info';
+    public $clientProvider = null;
 
     public function __construct(RassedActevity $rassedActevity)
     {
+
+
+        if ($this->rassedActevity->paymentinfo->orders->count() > 0) {
+            $product = $this->rassedActevity->paymentinfo->order->product;
+
+            if ($product->provider_product->count() > 0) {
+
+                $clientProvider = $product->provider_product()->first()->client_provider;
+
+                if ($clientProvider!=null) {
+                    $this->userid=$clientProvider->api_userid;
+                    $this->mobile=$clientProvider->api_phone;
+                    $this->password=$clientProvider->api_password;
+                    $this->pay_url=$clientProvider->api_payurl;
+                    $this->chack_url=$clientProvider->api_checkurl;
+                    $this->username=$clientProvider->api_username;
+                    $this->clientProvider = $clientProvider;
+                    
+                    # code...
+                }
+
+            }
+        
+        }
         $this->rassedActevity = $rassedActevity;
     }
 
@@ -56,12 +81,12 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                 $clientProvider = $product->provider_product()->first()->client_provider;
 
-                if ($clientProvider->id == 1) {
+                //if ($clientProvider->id == 1) {
 
 
                     $this->paymentinfo = $this->rassedActevity->paymentinfo;
                     $this->handle_process();
-                }
+                //}
             }
         }
     }
@@ -85,8 +110,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
             Log::channel('top_online')->info("payinfo -- ------------------Start----------------------");
             Log::channel('top_online')->info($response);
-            Log::channel('top_online')->info($queryParams);
-            Log::channel('top_online')->info($this->paymentinfo);
+            Log::channel('top_online')->info($this->paymentinfo->id);
             Log::channel('top_online')->info("pay ------------------------------End -------------------------------------------------------------------------------- -- ");
 
 
@@ -97,7 +121,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             Log::channel('top_online')->info($e->getMessage());
             Log::channel('top_online')->info("Exception --------inPay- End------- ".$this->paymentinfo->id);
             AdminNotify::create([
-                'title' => 'لم يستطع الاتصال بالمزود Toponline',
+                'title' => 'لم يستطع الاتصال بالمزود '.$this->clientProvider->name,
                 'body' => " يرجى التأكد من المزود نفسه توب اونلاين".$e->getMessage(),
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
@@ -112,7 +136,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
         if ($response->json() == null || $response->status() == 404) {
             AdminNotify::create([
-                'title' => 'لم يستطع الاتصال بالمزود Toponline',
+                'title' => 'لم يستطع الاتصال بالمزود '.$this->clientProvider->name,
                 'body' => " يرجى التأكد من المزود نفسه توب اونلاين",
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
@@ -120,7 +144,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
         } else if ($response->json('resultCode') == "1008") {
             AdminNotify::create([
-                'title' => 'لم يستطع الاتصال بالمزود Toponline',
+                'title' => 'لم يستطع الاتصال بالمزود '.$this->clientProvider->name,
                 'body' => " يرجى التأكد من صحة معلومات الاتصال (اسم المستخدم,كلمة المرور وبقية التفاصيل)",
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
@@ -129,7 +153,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
         } else if ($response->json('resultCode') == "1658" && $response->json('remainAmount') != null) {
             $body = "اجمالي العملية " . $this->paymentinfo->total_price . "\n" . "رصيدك الحالي " . $response->json('remainAmount') . " ريال يمني ";
             AdminNotify::create([
-                'title' => 'رصيدك غير لدى توب اونلاين كافي لتنفيذ عملية ',
+                'title' => 'رصيدك غير لدى '.$this->clientProvider->name.' كافي لتنفيذ عملية ',
                 'body' => $body,
                 'link' => route('paymentinfo.show', $this->paymentinfo)
             ]);
@@ -139,7 +163,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
             //;
         } else if ($response->json('resultCode') == "1658") {
             AdminNotify::create([
-                'title' => '  الفئة غير متوفرة Toponline',
+                'title' => '  الفئة غير متوفرة '.$this->clientProvider->name,
                 'body' => $response->json('resultDesc'),
                 'link' => route('provider_products.edit', $this->paymentinfo->order->product->provider_product()->first()->id)
             ]);
@@ -183,7 +207,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 } catch (Exception $e) {
 
                     AdminNotify::create([
-                        'title' => 'لم يستطع التحقق من حالة العملية بالمزود Toponline',
+                        'title' => 'لم يستطع التحقق من حالة العملية بالمزود '.$this->clientProvider->name,
                         'body' => " يرجى التأكد من المزود نفسه توب اونلاين يرجى التأكد يدويا من حالة العملية ".$e->getMessage(),
                         'link' => route('paymentinfo.show', $this->paymentinfo)
                     ]);
@@ -201,7 +225,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                 if ($check->json() == null || $check->status() == 404) {
                     AdminNotify::create([
                         'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                        'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                        'body' => 'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا ',
                         'link' => route('paymentinfo.show', $this->paymentinfo)
 
                     ]);
@@ -215,7 +239,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     $check = $check->json();
 
                     $i = 0;
-                    while ($check['isBan'] == 0 && $check['isDone']==0)  {
+                    while ($check['isBan'] == 0 && $check['isDone']==0 && $i<10)  {
                         try {
 
                             $check = $this->chack_state($transid)->json();
@@ -228,13 +252,19 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
                             AdminNotify::create([
                                 'title' => "تم ارسال طلب ولم يستطع التحقق من حالتها",
-                                'body' => 'يرجى التواصل مع المزود توب اونلاين , ومعالجة العملية يدويا ',
+                                'body' => 'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا ',
                                 'link' => route('paymentinfo.show', $this->paymentinfo)
 
                             ]);
                             Log::channel('top_online')->info("Error Check Status : ".$this->paymentinfo->id);
                             Log::channel('top_online')->info($e->getMessage());
 
+                            $product = $this->paymentinfo->order->product;
+                            $dispatch_at = $product->provider_product()->first()->dispatch_at;
+                    
+                    
+                            CheckTopOnlineProssce::dispatch($this->paymentinfo, $transid);
+                                
                             break;
                             return;
                         }
@@ -244,8 +274,14 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
 
+                    if ($check['isBan'] == 0 && $check['isDone']==0) {
 
-                    if ($check['resultCode'] == "0" && $check['isDone'] == 1) {
+                        $product = $this->paymentinfo->order->product;
+                        $dispatch_at = $product->provider_product()->first()->dispatch_at;
+                
+                        CheckTopOnlineProssce::dispatch($this->paymentinfo, $transid);
+                    }
+                    else if ($check['resultCode'] == "0" && $check['isDone'] == 1) {
                         // اذا الرصيد نقص معناته انه نجحت العملية
                         $state = 2;
 
@@ -257,7 +293,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
 
 
                         AdminNotify::create([
-                            'title' => 'عملية تم تنفيذها بواسطة TopOnline  ',
+                            'title' => 'عملية تم تنفيذها بواسطة'.$this->clientProvider->name,
                             'body' => $body,
                             'link' => route('paymentinfo.show', $this->paymentinfo)
                         ]);
@@ -267,7 +303,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         Log::channel('top_online')->info($check);
                         //
                         Log::channel('top_online')->info("  paymentinfo : ");
-                        Log::channel('top_online')->info($this->paymentinfo);
+                        Log::channel('top_online')->info($this->paymentinfo->id);
 
 
                         // "Player Name"
@@ -287,7 +323,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                         $body .= "العميل : " . $this->paymentinfo->user->name;
 
                         AdminNotify::create([
-                            'title' => 'عملية تم رفضها بواسطة TopOnline  ',
+                            'title' => 'عملية تم رفضها بواسطة   '.$this->clientProvider->name,
                             'body' => $body,
                             'link' => route('paymentinfo.show', $this->paymentinfo)
                         ]);
@@ -305,7 +341,7 @@ class TopOnlinePayByAPIJob implements ShouldQueue
                     //     'state' => $state,
                     //     'note' => $error_note
                     // ]);
-                    $this->updatePay($state,$error_note,$check['reason']."\n------note-----\n".$check['note']);
+                    $this->updatePay($state,$error_note,$check['reason']."\n----------------note-----\n".$check['note']);
 
                 }
             } else {

@@ -182,7 +182,7 @@
                             <td dir="ltr" class="p-0 tdp text-right text-success font-bold lg:text-lg" >
                                 {{ $clients_provider->rassedy()  }} ريال يمني
                                 <br>
-                                {{  number_format((float)( $clients_provider->rassedy()/$coin?->value), 2, '.', ''); }} دولار امريكي
+                                {{  number_format((float)( $clients_provider->rassedy()/$coin?->value), 2, '.', '') }} دولار امريكي
 
                             </td>
 

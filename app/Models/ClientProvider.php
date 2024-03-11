@@ -74,8 +74,16 @@ class ClientProvider extends Model
 
    $userid = 17577;
    $mobile = "778928008";
-     $url = 'https://toponline.yemoney.net/api/yr/info';
-     $transid="2303";
+   $url = 'https://toponline.yemoney.net/api/yr/info';
+   
+   $userid=$this->api_userid;
+   $mobile=$this->api_phone;
+   $password=$this->api_password;
+   $api_rassedurl=$this->api_rassedurl;
+   $username=$this->api_username;
+   
+   
+   $transid="2303";
      $paras = [
          'transid' => $transid,
          'token' => $this->genurateToken($transid),
@@ -86,7 +94,7 @@ class ClientProvider extends Model
     //  Cache::forget('rassed');
      $res =Cache::remember('rassed',60*60,function()use($url,$paras){
        //return
-       $respone= Http::get($url, $paras);
+       $respone= Http::get($this->api_rassedurl, $paras);
        return $respone->json('balance');
      });
      return $res;
@@ -100,8 +108,12 @@ class ClientProvider extends Model
    $password = "Asd777777777";
    $pay_url='https://toponline.yemoney.net/api/yr/gameswcards';
    $chack_url='https://toponline.yemoney.net/api/yr/info';
-
    $mobile = "778928008";
+   $mobile=$this->api_phone;
+   $password=$this->api_password;
+   
+   $username=$this->api_username;
+  
         $hashPassword = md5($password);
         $token = md5($hashPassword . $transid . $username . $mobile);
         return $token;
