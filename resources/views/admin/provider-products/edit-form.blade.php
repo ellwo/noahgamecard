@@ -35,7 +35,7 @@
 
                         <x-label class="w-1/3" for="department_id" :value="__('اختر المزود   ')" />
 
-                        <select  wire:model='provider_id' name="provider_id" class="w-4/5 mx-2 text-gray-600 bg-white border border-gray-300 rounded-md appearance-none sm:pl-5 sm:pr-10 sm:mx-0 dark:bg-darker dark:text-white hover:border-gray-400 focus:outline-none">
+                        <select  wire:model='provider_id' name="client_provider_id" class="w-4/5 mx-2 text-gray-600 bg-white border border-gray-300 rounded-md appearance-none sm:pl-5 sm:pr-10 sm:mx-0 dark:bg-darker dark:text-white hover:border-gray-400 focus:outline-none">
 
                            @foreach( $providers as $p)
                            <option  value="{{$p->id}}">{{$p->name."  ".$p->phone }}</option>

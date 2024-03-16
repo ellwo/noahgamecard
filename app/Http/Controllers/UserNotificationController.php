@@ -16,6 +16,8 @@ class UserNotificationController extends Controller
     public function index()
     {
         //
+
+                                
         return view('admin.user_notifiy.index');
     }
 

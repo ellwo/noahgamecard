@@ -46,6 +46,16 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
+        'CdaprA' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/CdaprA.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+        'TopOnline' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/TopOnline.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
         'top_online' => [
             'driver' => 'single',
             'path' => storage_path('logs/top_online_log.log'),

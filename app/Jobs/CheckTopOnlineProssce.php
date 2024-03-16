@@ -76,32 +76,31 @@ class CheckTopOnlineProssce implements ShouldQueue
      */
     public function handle()
     {
+
+
         //
 
-        if($this->paymentinfo->state!=3 || $this->paymentinfo->state!=2){
+        if($this->paymentinfo->state!=3 || $this->paymentinfo->state!=2 && $this->transid!=516){
 
             try{
 
                 $check = $this->chack_state($this->transid);
                 Log::channel($this->clientProvider->name)->info("-----------------  Check  ");
                 Log::channel($this->clientProvider->name)->info($check);
-                Log::channel($this->clientProvider->name)->info($this->paymentinfo->id);
-
 
             }
             catch(Exception $e){
               //  throw $e;
                 AdminNotify::create([
                     'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
-                    'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا '.$e->getMessage()
-                   ]);
+                    'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا '.$e->getMessage(),
+                    'link'=>route('paymentinfo.show',$this->paymentinfo)
+                ]);
 
                    Log::channel($this->clientProvider->name)->info("Error Check Status : ".$this->paymentinfo->id);
                    Log::channel($this->clientProvider->name)->info($e->getMessage());
-                   Log::channel($this->clientProvider->name)->info($check);
 
-
-
+                   return;
             }
 
 
@@ -109,26 +108,20 @@ class CheckTopOnlineProssce implements ShouldQueue
                 AdminNotify::create([
                     'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
                     'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا '
-                   ]);
+                    ,'link'=>route('paymentinfo.show',$this->paymentinfo)
+                ]);
 
-                   Log::channel($this->clientProvider->name)->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-                   Log::channel($this->clientProvider->name)->info($e->getMessage());
-                   Log::channel($this->clientProvider->name)->info($check);
+                 
+                  return;
 
             }
             else{
 
                 $check=$check->json();
-                Log::channel($this->clientProvider->name)->info("Check Of json-------------");
-                Log::channel($this->clientProvider->name)->info($check);
-
-                Log::channel($this->clientProvider->name)->info("Check Of json-------------");
-
-
 
                 $i=0;
 
-                if ($check['resultCode']=="0" && $check['isDone']==0 && $check['isDone']==0) {
+                if ($check['resultCode']=="0" && $check['isDone']==0 && $check['isBan']==0) {
                     $product = $this->paymentinfo->order->product;
                     $dispatch_at = $product->provider_product()->first()->dispatch_at;
 
@@ -157,13 +150,24 @@ class CheckTopOnlineProssce implements ShouldQueue
                         'link'=>route('paymentinfo.show',$this->paymentinfo)
                     ]);
 
-                    Log::channel($this->clientProvider->name)->info("Pa Sa Status : ".$this->paymentinfo->id);
-                   Log::channel($this->clientProvider->name)->info("-----------------  Check  ");
-                    Log::channel($this->clientProvider->name)->info($check);
+                    Log::channel($this->clientProvider->name)->info("DONE : ".$this->paymentinfo->id);
+                  
 
 
                     $error_note = "تم تنفيذ العملية بنجاح"."\n". $check['note'];
-                } else {
+                } 
+                
+                else if ($check['resultCode'] == "1028"){
+                    AdminNotify::create([
+                        'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                        'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا ',
+                        'link'=>route('paymentinfo.show',$this->paymentinfo)
+                       ]);
+    
+                
+                }
+                
+                else {
                     //مالم معناته فشل الطلب بسبب ان الايدي خطاء
                     $state = 3;
 
@@ -176,11 +180,7 @@ class CheckTopOnlineProssce implements ShouldQueue
                     $body.="العميل : ".$this->paymentinfo->user->name;
                     $body.="\n";
                     $body.="عدد المحاولات  : ".$i;
-                    AdminNotify::create([
-                        'title'=>'عملية تم رفضها بواسطة '.$this->clientProvider->name,
-                        'body'=>$body,
-                        'link'=>route('paymentinfo.show',$this->paymentinfo)
-                    ]);
+                   
                     if(Str::contains($check['reason'],'Invalid Player ID'))
                     $error_note = "ID الحساب غير صحيح يرجى التحقق من صحة الاي دي.";
                 else
@@ -188,9 +188,7 @@ class CheckTopOnlineProssce implements ShouldQueue
 
 
                 // Log::channel($this->clientProvider->name)->info('Error Check Status  $check->json()==null || $check->status()==404 : '.$this->paymentinfo->id);
-                Log::channel($this->clientProvider->name)->info("Check whne Player Id ");
-                Log::channel($this->clientProvider->name)->info($check);
-
+                Log::channel($this->clientProvider->name)->info("Check whne Player Id  WRON=======================".$this->paymentinfo->id);
                 }
 
                 // $this->paymentinfo->update([
@@ -213,8 +211,17 @@ class CheckTopOnlineProssce implements ShouldQueue
                     'note' => $error_note
                 ]);
                 $this->paymentinfo->excuted_status()->save($byh);
+                AdminNotify::create([
+                    'title'=>'عملية تم رفضها بواسطة '.$this->clientProvider->name,
+                    'body'=>$body,
+                    'link'=>route('paymentinfo.show',$this->paymentinfo)
+                ]);
 
             }
+        }
+        else{
+            return;
+       
         }
 
 
