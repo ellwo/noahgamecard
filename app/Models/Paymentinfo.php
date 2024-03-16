@@ -28,11 +28,20 @@ class Paymentinfo extends Model
 
 
 
+
+
     public function excuted_status()
     {
         return $this->hasMany(PaymentinfoExecuteBy::class);
         # code...
     }
+    public function call_api_counts()
+    {
+        return $this->hasMany(CallApiCount::class);
+        # code...
+    }
+
+    //
     public function excuted_by()
     {
         return $this->hasOne(PaymentinfoExecuteBy::class)->where('state', '=', $this->state);

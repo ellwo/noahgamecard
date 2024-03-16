@@ -55,7 +55,7 @@ class ClientProvider extends Model
         $sum=0.0;
         foreach ($this->rassed_acetvities()->get() as $r) {
             $sum+=$r->paymentinfo->order->product
-            ->provider_products()->where('client_provider_id','=',$this->id)->first()->price;
+            ->provider_products()->where('client_provider_id','=',$this->id)->first()?->price;
         }
 
         return $sum;
@@ -96,7 +96,7 @@ class ClientProvider extends Model
     //  $res =Cache::remember('rassed',60*60,function()use($url,$paras){
        //return
        $respone= Http::get($this->api_rassedurl, $paras);
-       return $respone->json('balance');
+       return  $respone!=null ?$respone->json('balance'):0;
     //  });
 
     }
