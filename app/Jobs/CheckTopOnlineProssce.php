@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\AdminNotify;
 use App\Models\Paymentinfo;
 use App\Models\PaymentinfoExecuteBy;
+use App\Models\CallApiCount;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,7 +16,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 class CheckTopOnlineProssce implements ShouldQueue
 {
@@ -80,7 +81,46 @@ class CheckTopOnlineProssce implements ShouldQueue
 
         //
 
-        if($this->paymentinfo->state!=3 || $this->paymentinfo->state!=2 && $this->transid!=516){
+
+        $call_api_counts=$this->paymentinfo->call_api_counts()->where('client_provider_id','=',$this->clientProvider->id)->get();
+
+        $call_api=null;
+        if(count($call_api_counts)>0){
+            
+            $call_api=$call_api_counts[0];
+
+
+            $call_api->update([
+                'count'=>$call_api->count+1
+            ]);
+            $call_api->save();
+
+        }
+        else{
+            $call_api=CallApiCount::create([
+                'paymentinfo_id'=>$this->paymentinfo->id,
+                "info"=>$this->clientProvider->name." رقم العملية [".$this->transid."]",
+                "client_provider_id"=>$this->clientProvider->id
+            ]);
+
+        }
+
+
+
+
+        if($call_api->count>11){
+
+            $body="تم ارسال اكثر من 10 استعلامات عن حالة الطلب ولم يتستطع ايجاد الرد الرجاء التواصل مع المزود ";
+            AdminNotify::create([
+                'title'=>"تم ارسال طلب ولم يستطع التحقق من حالتها",
+                'body'=>'يرجى التواصل مع المزود '.$this->clientProvider->name.' , ومعالجة العملية يدويا \n'.$body,
+                'link'=>route('paymentinfo.show',$this->paymentinfo)
+            ]);
+
+            return;
+        }
+
+        else if($this->paymentinfo->state!=3 || $this->paymentinfo->state!=2 ){
 
             try{
 
@@ -126,7 +166,8 @@ class CheckTopOnlineProssce implements ShouldQueue
                     $dispatch_at = $product->provider_product()->first()->dispatch_at;
 
 
-                            CheckTopOnlineProssce::dispatch($this->paymentinfo, $this->transid)->onQueue($dispatch_at);
+
+                            CheckTopOnlineProssce::dispatch($this->paymentinfo, $this->transid)->onQueue($dispatch_at)->delay(Carbon::now()->addMinutes(2));
                             return;
                 }
 
